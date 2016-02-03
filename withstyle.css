@@ -1,0 +1,315 @@
+.hotel-item .hotel-content h1 {
+    font-size: 24px; 
+    margin-top: 10px; 
+}
+.hotel-item .hotel-content hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.slider-handle {
+    background-color: #1ABC9C;
+    background-image: none;
+}
+
+/* buttons */
+.fullwidth-dropdown {
+    width: 100%;
+}
+
+.btn-plusmin {
+    background: #404040 !important;
+    width: 22px !important;
+    height: 22px !important;
+    padding: 0px !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.plusmin-box {
+    
+}
+.plusmin-left {
+    width: 33%;
+    float:left;
+}
+.plusmin-center {
+    width: 33%;
+    float:left;
+}
+.plusmin-right {
+    width: 33%;
+    float:left;
+}
+
+
+.plusmin-input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #404040;
+    border-radius: 0px;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-ppv .form-control, .form-ppv .form-control:focus, .form-ppv .form-control:active {
+    border-left: none;
+    box-shadow: none;
+    border-color: #eee;
+}
+.form-ppv .input-group-addon {
+    background: #fff;
+    border: 1px solid #eee;
+    border-right: none;
+}
+.form-ppv input[readonly] {
+    background-color: #ffffff;
+    cursor: text;
+}
+.ppv-search-block {
+    width: 18%;
+    float:left;
+    margin-right: 4px;
+}
+.ppv-search-button {
+    width: 8%;
+    float: left;
+}
+.form-ppv label {
+    color: #ffffff;
+}
+
+.form-ppv .input {
+    padding-left: 15px !important;
+}
+.form-ppv .selectize-input::after {
+    border: none !important;
+    display: none !important;
+}
+.selectize_place .item::before {
+    content: " " !important;
+    font-family: FontAwesome;
+    margin-right: 8px;
+}
+.selectize_hoteltype .item::before {
+    content: " " !important;
+    font-family: FontAwesome;
+    margin-right: 8px;
+}
+.selectize_priceband .item::before {
+    content: " " !important;
+    font-family: FontAwesome;
+    margin-right: 8px;
+}
+/* OVVERRIDE daterangepicker withDatepicker*/
+.daterangepicker .ranges {
+    float: none !important;
+    width: auto;
+    text-align: center;
+}
+
+
+/* OVVERRIDE */
+.flag-icon-en {
+  background-image: url(../bower_components/flag-icon-css/flags/4x3/gb.svg);
+}
+.flag-icon-en.flag-icon-squared {
+  background-image: url(../bower_components/flag-icon-css/flags/1x1/gb.svg);
+}
+
+/* OVVERRIDE */
+.btn-flat {
+    border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+}
+
+
+/* * * MISC * * */
+.withAlert {
+	position: fixed !important;
+	top: 55px;
+	left: 15%;
+	width: 70%;
+	text-align: center;
+	z-index:5000;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.showhideBox {
+    cursor: pointer;
+}
+
+/* OVERWRITED */
+.navbar {
+    margin-bottom: 0;
+}
+
+.modal-footer {margin-top:0px;}
+
+.center-block {
+    float:none;
+}
+
+/* Tables * /
+.table-striped > thead > tr {
+    background-color: #D196A4;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #F4D9DE;
+}
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+    background-color: #F2C4CE;
+}
+.table-striped > tfoot > tr {
+    background-color: #D196A4;
+}
+/* */
+
+/** Tools **/
+.display-none {display: none;}
+/* BUTTONS btn-[] */
+.btn-circle {
+    border-radius: 50%;
+    height: 36px;
+    padding: 8px 12px;
+    width: 36px;
+}
+
+.divider { height: 50px; }
+.divider-100 { height: 100px; }
+.divider-200 { height: 200px; }
+.divider-300 { height: 300px; }
+
+.link-unstyled, .link-unstyled:hover, .link-unstyled:active, .link-unstyled:focus {text-decoration: none;}
+
+.relpos {position: relative;}
+.abspos {position: absolute;}
+
+.rightpos {right: 0px;}
+.leftpos {left: 0px;}
+.toppos {top: 0px;}
+.bottompos {bottom: 0px;}
+
+.rightpos-5 {right: 5px;}
+.leftpos-5 {left: 5px;}
+.toppos-5 {top: 5px;}
+.bottompos-5 {bottom: 5px;}
+
+.box-shadow {
+    -webkit-box-shadow: 0 0 3px #999999;
+    -moz-box-shadow: 0 0 3px #999999;
+    box-shadow: 0 0 3px #999999;
+}
+.box-bordered-7 {
+    border: 1px solid #cccccc;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    padding:10px;
+}
+.overflow-hidden {overflow: hidden;}
+
+/* BACKGROUNDS bg-[] */
+.bg-lgray {background-color: #f1f1f1;}
+.bg-white {background:#FFFFFF;}
+.bg-white-transparent {background: #FFFFFF; background-color: rgba(255, 255, 255, 0.78) !important;}
+.bg-lgreen-transparent {background: none repeat scroll 0 0 rgba(200, 255, 200, 0.6);}
+.bg-acqua {background: #DAFDFF;}
+.bg-acqua-transparent {background: #DAFDFF; background-color: rgba(208, 253, 255, 0.78);}
+
+.border-radius {-webkit-border-radius: 7px 7px 7px 7px; border-radius: 7px 7px 7px 7px;}
+.border-radius-bottom {-webkit-border-radius: 0 0 7px 7px; border-radius: 0 0 7px 7px;}
+.border-radius-top {-webkit-border-radius: 7px 7px 0 0; border-radius: 7px 7px 0 0;}
+.border-solid1 {border: 1px solid #dddddd;}
+.border-solid1-left {border-left: 1px solid #dddddd;}
+
+.padding {padding:10px;}
+.padding-tb {padding:10px 0px;}
+.padding-tb-5 {padding:5px 0px;}
+
+.margin-10 {margin:10px;}
+.margin-tb-10 {margin:10px 0px;}
+.margin-20 {margin:20px;}
+.margin-tb-20 {margin:20px 0px;}
+
+.margin-top-10 {margin-top: 10px;}
+.margin-top-15 {margin-top: 15px;}
+.margin-top-20 {margin-top: 10px;}
+.margin-top-30 {margin-top: 30px;}
+
+.no-margin {margin: 0px;}
+.no-margin-top {margin-top: 0px;}
+
+/* TEXT text-[] */
+.text-white {color:#FFFFFF;}
+.text-white-imp {color:#FFFFFF !important;}
+.text-white-a {color:#FFFFFF;}
+.text-white-a:hover {color:#FFFFFF; text-decoration: none;}
+.text-black {color:#000000;}
+.text-red {color:#ED4141;}
+
+.text-gray {color: #999999;}
+.text-lgray {color: #CCCCCC;}
+.text-yellow {color: #EDC400;}
+
+.text-underline1 {border-bottom:1px solid #0073ba;}
+.text-underline1:hover {text-decoration:none; border-bottom:none;}
+
+.text-line-through {text-decoration: line-through; }
+.text-normal {font-weight: normal;}
+.lower-case {text-transform: lowercase;}
+.text-underline {text-decoration: underline;}
+
+/* Please i wont a light tooltip :) */
+.tooltip {font-size: 14px; z-index: 1;}
+.tooltip-inner {color: #222222;background-color: #CCCCCC;border-radius: 4px;}
+.tooltip-arrow {}
+.tooltip.top .tooltip-arrow {border-top-color: #CCCCCC;}
+.tooltip.top-left .tooltip-arrow {border-top-color: #CCCCCC;}
+.tooltip.top-right .tooltip-arrow {border-top-color: #CCCCCC;}
+.tooltip.right .tooltip-arrow {border-right-color: #CCCCCC;}
+.tooltip.left .tooltip-arrow {border-left-color: #CCCCCC;}
+.tooltip.bottom .tooltip-arrow {border-bottom-color: #CCCCCC;}
+.tooltip.bottom-left .tooltip-arrow {border-bottom-color: #CCCCCC;}
+.tooltip.bottom-right .tooltip-arrow {border-bottom-color: #CCCCCC;}
+/* Please i wont a light tooltip END */
+/* TypeAhead */
+.twitter-typeahead {width: 100%; background: #FFFFFF;}
+.twitter-typeahead .form-control {float: none;}
+.tt-input {
+
+}
+.tt-hint {
+
+}
+.tt-menu {
+    width: 100%;
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    float: left;
+    font-size: 14px;
+    left: -35;
+    padding: 10px 0;
+}
+.tt-suggestion {    
+    padding: 5px 10px;
+    width: 100%;
+    margin: 0px;
+}
+.tt-suggestion:hover {
+    background-color: #eeeeee;
+}
+.tt-cursor {
+    background-color: #eeeeee;
+}
+.tt-highlight {
+    background: #DAFDFF;
+}
+/* TypeAhead END */
