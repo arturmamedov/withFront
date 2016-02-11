@@ -42,14 +42,16 @@ $("body").on('click', ".withAlert .close", function(){
 
 /* jQuery plugins and other thing that need to be run after the document is load */	
 $(document).ready(function () {
-	$('.getraty').each(function(){
-	    var startype = $(this).data('startype');
-	    
-	    if(typeof startype == 'undefined' || startype.length == 0)
-	        startype = 'i';
-	
-	    $(this).raty({
-	        starType    : startype
-	    });
-	});
+	/**
+	 * Raty - https://github.com/wbotelhos/raty
+     * with data API initialization from https://github.com/wbotelhos/raty/pull/168
+     * get only the star type or set my prefered icon type and all others from data-api:
+     * <span class="getraty" data-score="5" data-star-on="fa fa-star" data-star-off="" data-read-only="true"></span>
+     */
+    $('.getraty').each(function(){
+        var startype = $(this).data('startype');
+        if(typeof startype == 'undefined' || startype.length == 0)
+            startype = 'i';
+        $(this).raty({starType: startype});
+    });
 });
