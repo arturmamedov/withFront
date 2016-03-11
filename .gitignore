@@ -1,14 +1,11 @@
+# A collection of .gitignore templates
+# https://github.com/github/gitignore 
+
 # CakePHP
 /vendor/*
 /config/app.php
 /tmp/*
 /logs/*
-
-# CakePHP 2
-/app/tmp/*
-/app/Config/core.php
-/app/Config/database.php
-/vendors/*
 
 # NetBeans IDE
 nbproject/*
