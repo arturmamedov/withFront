@@ -472,41 +472,20 @@
     100% {background-color: transparent;}
 }
 
-/* ^ ^ START: MEDIA QUERY ^ ^ */
-@media (min-width: 768px) {
-/* from xs - to lg */
-
-/* from xs - to lg */
+/* go2top */
+.go2top {
+    bottom: 20px;
+    cursor: pointer;
+    display: inline-block;
+    position: fixed;
+    right: 25px;
 }
-@media (max-width: 480px) {
-/* less then xs */
-.no-xs-padding {padding: 0px;}
-
-/* less then xs */
+.go2top > i {
+    color: #E15532;
+    font-size: 38px;
+    font-weight: 300;
+    opacity: 0.5;
 }
-@media (max-width: 767px) and (min-width: 481px) {
-/* xs */
-
-/* xs*/
-}
-@media (min-width: 768px) and (max-width: 991px) {
-/* sm (from xs - to sm) */
-
-/* sm (from xs - to sm) */
-}
-@media (min-width: 992px) and (max-width: 1199px) {
-/* md (from sm - to md) */
-
-/* md (from sm - to md) */
-}
-@media (min-width: 1200px) {
-/* lg */
-
-
-/* lg */
-}
-/* _ _ END: MEDIA QUERY _ _ */
-
 
 /* * * * * * * * * * * * * * * * * * * * * * 
 * * *Styles for third party plugins * * * *
@@ -524,6 +503,7 @@
 .tooltip.bottom-left .tooltip-arrow {border-bottom-color: #CCCCCC;}
 .tooltip.bottom-right .tooltip-arrow {border-bottom-color: #CCCCCC;}
 /* Please i wont a light tooltip END */
+
 /* TypeAhead styles * /
 .twitter-typeahead {width: 100%; background: #FFFFFF;}
 .twitter-typeahead .form-control {float: none;}
@@ -560,3 +540,71 @@
     background: #DAFDFF;
 }
 /* TypeAhead END */
+/* ----------------------------------------------------------------------
+	PAGE LOADER
+-------------------------------------------------------------------------*/
+
+.loader-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    background-color: #fff;
+}
+.loader-wrapper .loader {
+    margin: 0 auto;
+    text-align: center;
+    width: 280px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.loader-title {
+    color: #ccc;
+    font-weight: 400;
+    display: block;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+/* ----------------------------------------------------------------------
+	PAGE LOADER - END
+-------------------------------------------------------------------------*/
+
+
+/* ^ ^ START: MEDIA QUERY ^ ^ */
+@media (min-width: 768px) {
+/* from xs - to lg */
+
+/* from xs - to lg */
+}
+@media (max-width: 480px) {
+/* less then xs */
+.no-xs-padding {padding: 0px;}
+
+/* less then xs */
+}
+@media (max-width: 767px) and (min-width: 481px) {
+/* xs */
+
+/* xs*/
+}
+@media (min-width: 768px) and (max-width: 991px) {
+/* sm (from xs - to sm) */
+
+/* sm (from xs - to sm) */
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+/* md (from sm - to md) */
+
+/* md (from sm - to md) */
+}
+@media (min-width: 1200px) {
+/* lg */
+
+
+/* lg */
+}
+/* _ _ END: MEDIA QUERY _ _ */
