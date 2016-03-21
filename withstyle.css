@@ -37,14 +37,15 @@
 /* Bootstrap grid bug fix */
 .center-block {float:none;}
 
-/* BUTTONS btn-[] */
+/* * * Bootstrap btn * * * */
+/* circle */
 .btn-circle {
     border-radius: 50%;
     height: 36px;
     padding: 8px 12px;
     width: 36px;
 }
-/* Bootstrap btn FLAT */
+/* FLAT */
 .btn-flat {
     border-radius: 0px !important;
     -moz-border-radius: 0px !important;
@@ -52,10 +53,10 @@
 }
 
 /* dividers to use how or with clearfix */
-.divider { height: 50px; }
-.divider-100 { height: 100px; }
-.divider-200 { height: 200px; }
-.divider-300 { height: 300px; }
+.divider { height: 50px; clear: both;}
+.divider-100 { height: 100px; clear: both;}
+.divider-200 { height: 200px; clear: both;}
+.divider-300 { height: 300px; clear: both;}
 
 /* unstyle link */
 .link-unstyled, .link-unstyled:hover, .link-unstyled:active, .link-unstyled:focus {text-decoration: none;}
@@ -132,7 +133,7 @@
 .text-bricky {color: #894550 !important;}
 .text-yellow {color: #FFB848 !important;}
 .text-red {color: #C82E29 !important;}
-.text-lred {color:#ED4141;}
+.text-lred {color:#ED4141 !important;}
 /* apply to all */
 .text-light,
 .text-light h1,
@@ -186,13 +187,13 @@
     color: #ccc !important;
 }
 /*font weight*/
-.font-wight-100 {font-weight: 100 !important;}
-.font-wight-300 {font-weight: 300 !important;}
-.font-wight-400 {font-weight: 400 !important;}
-.font-wight-500 {font-weight: 500 !important;}
-.font-wight-600 {font-weight: 600 !important;}
-.font-wight-700 {font-weight: 700 !important;}
-.font-wight-800 {font-weight: 800 !important;}
+.font-weight-100 {font-weight: 100 !important;}
+.font-weight-300 {font-weight: 300 !important;}
+.font-weight-400 {font-weight: 400 !important;}
+.font-weight-500 {font-weight: 500 !important;}
+.font-weight-600 {font-weight: 600 !important;}
+.font-weight-700 {font-weight: 700 !important;}
+.font-weight-800 {font-weight: 800 !important;}
 /* * * * * * * * * * * * * * * * * * *
 * * * * * * TEXT text-[] * * * * * * *
 * * * * * * * * -END- * * * * * * * */
@@ -201,9 +202,6 @@
 /* * * * * * * * * * * -START- * * * * * * * * * * * * * *
  * * * * * * * * PADDINGS AND MARGINS * * * * * * * * * *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/* 2015 & befero */
-.no-padding { padding: 0px !important; }
-/* 2016 and forward */
 /* padding-(all) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200*/
 .p-0 { padding: 0px !important; }
 .p-5 { padding: 5px !important }
@@ -220,8 +218,8 @@
 .p-80 { padding: 80px !important }
 .p-90 { padding: 90px !important }
 .p-100 { padding: 100px !important }
-.p-150 { padding: 100px !important }
-.p-200 { padding: 100px !important }
+.p-150 { padding: 150px !important }
+.p-200 { padding: 200px !important }
 /* padding-(bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .p-b-0 { padding-bottom: 0px !important }
 .p-b-5 { padding-bottom: 5px !important }
@@ -274,8 +272,8 @@
 .p-r-80 { padding-right: 80px !important }
 .p-r-90 { padding-right: 90px !important }
 .p-r-100 { padding-right: 100px !important }
-.p-r-150 { padding-right: 100px !important }
-.p-r-200 { padding-right: 100px !important }
+.p-r-150 { padding-right: 150px !important }
+.p-r-200 { padding-right: 200px !important }
 /* padding-(left) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .p-l-0 { padding-left: 0px !important }
 .p-l-5 { padding-left: 5px !important }
@@ -292,8 +290,8 @@
 .p-l-80 { padding-left: 80px !important }
 .p-l-90 { padding-left: 90px !important }
 .p-l-100 { padding-left: 100px !important }
-.p-l-150 { padding-left: 100px !important }
-.p-l-200 { padding-left: 100px !important }
+.p-l-150 { padding-left: 150px !important }
+.p-l-200 { padding-left: 200px !important }
 /* padding-(vertical/top-bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .p-v-0 { padding-top: 0px !important; padding-bottom: 0px !important; }
 .p-v-5 { padding-top: 5px !important; padding-bottom: 5px !important; }
@@ -331,9 +329,6 @@
 .p-h-150 { padding-left: 150px !important; padding-right: 150px !important; }
 .p-h-200 { padding-left: 200px !important; padding-right: 200px !important; }
 /* * * * MARGINS * * * */
-/* 2015 & befero */
-.no-margin { margin: 0px !important; }
-/* 2016 and forward */
 /* margin-(all) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200*/
 .m-0 { margin: 0px !important; }
 .m-5 { margin: 5px !important }
@@ -350,8 +345,8 @@
 .m-80 { margin: 80px !important }
 .m-90 { margin: 90px !important }
 .m-100 { margin: 100px !important }
-.m-150 { margin: 100px !important }
-.m-200 { margin: 100px !important }
+.m-150 { margin: 150px !important }
+.m-200 { margin: 200px !important }
 /* margin-(bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .m-b-0 { margin-bottom: 0px !important }
 .m-b-5 { margin-bottom: 5px !important }
@@ -404,8 +399,8 @@
 .m-r-80 { margin-right: 80px !important }
 .m-r-90 { margin-right: 90px !important }
 .m-r-100 { margin-right: 100px !important }
-.m-r-150 { margin-right: 100px !important }
-.m-r-200 { margin-right: 100px !important }
+.m-r-150 { margin-right: 150px !important }
+.m-r-200 { margin-right: 200px !important }
 /* margin-(left) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .m-l-0 { margin-left: 0px !important }
 .m-l-5 { margin-left: 5px !important }
@@ -422,8 +417,8 @@
 .m-l-80 { margin-left: 80px !important }
 .m-l-90 { margin-left: 90px !important }
 .m-l-100 { margin-left: 100px !important }
-.m-l-150 { margin-left: 100px !important }
-.m-l-200 { margin-left: 100px !important }
+.m-l-150 { margin-left: 150px !important }
+.m-l-200 { margin-left: 200px !important }
 /* margin-(vertical/top-bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .m-v-0 { margin-top: 0px !important; margin-bottom: 0px !important; }
 .m-v-5 { margin-top: 5px !important; margin-bottom: 5px !important; }
@@ -540,6 +535,7 @@
     background: #DAFDFF;
 }
 /* TypeAhead END */
+
 /* ----------------------------------------------------------------------
 	PAGE LOADER
 -------------------------------------------------------------------------*/
