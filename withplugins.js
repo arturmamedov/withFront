@@ -42,6 +42,29 @@ $("body").on('click', ".withAlert .close", function(){
 
 /* jQuery plugins and other thing that need to be run after the document is load */	
 $(document).ready(function () {
+	// this is for loader 
+	if ($(".loader-wrapper").length > 0) {
+		$('#mainMenu a:not([target="_blank"]):not([href^=#]), a.animation-link').on("click", function(){
+			// Grab the link's href
+			var href = this.href;
+
+			$(".loader").fadeIn(300);
+			// Slide up the content you want to slide up
+			$(".loader-wrapper").fadeIn(function () {
+				// Slide is finished, navigate
+				location.href = href;
+			});
+
+			// Prevent the default action of the link
+			return false;
+		});
+
+		$(window).load(function(){
+			$(".loader:not(.demo-loader)").fadeOut(200);
+			$(".loader-wrapper:not(.demo-loader)").delay(100).fadeOut(400);
+		});
+	}
+	
 	/**
 	 * Form that need be send with Ajax and with CakePHP 3.x  
 	$(".ajaxform").on('submit', function(e){
@@ -97,10 +120,133 @@ $(document).ready(function () {
         return false;
     });*/
 	
-	/**
-	 * init nicescroll 
-	 */
-	$("html, .withNicescroll").niceScroll();
+	/** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+	 # # # # # # # hash-navigation # for bootstrap tabs # # # # # # # # #
+	 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **/
+    var hash = window.location.hash;
+    if(hash.length > 0 && $('#hash-navigation').length > 0) {
+        $('a[href='+hash+']').tab('show');
+    }
+    // # look for changes in navigation and add it to url
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+        return location.hash = $(e.target).attr('href').substr(1);
+    });
+	/** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+	 # # # # # # # # # # # hash-navigation # END # # # # # # # # # # # # #
+	 ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **/
+		
+
+	// #jQuery.plugin - bootstrap tooltips
+	if($().tooltip){
+		$('[data-toggle=tooltip]').tooltip();
+	} // END - #jQuery.tooltip
+    
+	// #jQuery.plugin - selectize for list options
+	if($().selectize){
+		$('.selectize').selectize();
+	} // END - #jQuery.selectize
+    
+	// #jQuery.plugin - bootstrap switch for radio button
+	if($().bootstrapSwitch){
+		$(".bootstrapSwitch").bootstrapSwitch();
+	} // END - #jQuery.bootstrapSwitch
+	
+	// #jQuery.plugin - daterangepicker for date select
+	if($().daterangepicker){
+		var dtrp_locales = {
+			"it": 
+			{
+				"format": 'DD/MM/YYYY',
+				"separator": " - ",
+				"applyLabel": "Applica",
+				"cancelLabel": "Annulla",
+				"fromLabel": "Dal",
+				"toLabel": "Al",
+				"customRangeLabel": "Custom",
+				"daysOfWeek": [
+					"Do",
+					"Lu",
+					"Ma",
+					"Me",
+					"Gi",
+					"Ve",
+					"Sa"
+				],
+				"monthNames": [
+					"Gennaio",
+					"Febbraiio",
+					"Marzo",
+					"Aprile",
+					"Maggio",
+					"Giugno",
+					"Luglio",
+					"Agosto",
+					"Settembre",
+					"Ottobre",
+					"Novembre",
+					"Dicembre"
+				],
+				"firstDay": 1
+			},
+			'fr':
+			{
+				"format": 'DD/MM/YYYY',
+				"separator": " - ",
+				"applyLabel": "Applica",
+				"cancelLabel": "Annulla",
+				"fromLabel": "Dal",
+				"toLabel": "Al",
+				"customRangeLabel": "Custom",
+				"daysOfWeek": [
+					"Do",
+					"Lu",
+					"Ma",
+					"Me",
+					"Gi",
+					"Ve",
+					"Sa"
+				],
+				"monthNames": [
+					"Gennaro",
+					"Febbraro",
+					"Mrco",
+					"April",
+					"Maj",
+					"Giugn",
+					"Lugl",
+					"Agost",
+					"Septembre",
+					"Ottober",
+					"Noveber",
+					"Dicember"
+				],
+				"firstDay": 1
+			}
+		}, lang_code = $("html").attr('lang');
+		// datepicker
+		$('.withDatepicker').daterangepicker({
+			locale: dtrp_locales[lang_code]        
+		});
+	} // END - #jQuery.daterangepicker
+	
+	// #jQuery.plugin - Nicescroll 
+	if($().niceScroll){
+		var nice = $("html").niceScroll({
+			cursorcolor:"#ccc",
+			cursorborder :"0px solid #fff",			
+			railpadding:{top:0,right:0,left:0,bottom:0},
+			cursorwidth:"5px",
+			cursorborderradius:"0px",
+			cursoropacitymin:0,
+			cursoropacitymax:0.7,
+			boxzoom:true,
+			horizrailenabled:false,
+			autohidemode:false
+		});
+		
+		$(".withNicescroll").niceScroll();
+		$('html').addClass('no-overflow-y');
+	} // END - jQuery.nicescroll
 	
 	/**
 	 * Add target highlight to something
@@ -156,18 +302,23 @@ $(document).ready(function () {
     LayoutGo2Top.init();
     /** END: Layout Go2Top */
 	
-	/**
-	 * Raty - https://github.com/wbotelhos/raty
-     * with data API initialization from https://github.com/wbotelhos/raty/pull/168
-     * get only the star type or set my prefered icon type and all others from data-api:
-     * <span class="getraty" data-score="5" data-star-on="fa fa-star" data-star-off="" data-read-only="true"></span>
-     */
-    $('.getraty').each(function(){
-        var startype = $(this).data('startype');
-        if(typeof startype == 'undefined' || startype.length == 0)
-            startype = 'i';
-        $(this).raty({starType: startype});
-    });
+	
+	// #jQuery.plugin - raty for a star rating view
+	if($().raty){
+		/**
+		 * Raty - https://github.com/wbotelhos/raty
+		 * with data API initialization from https://github.com/wbotelhos/raty/pull/168
+		 * get only the star type or set my prefered icon type and all others from data-api:
+		 * <span class="getraty" data-score="5" data-star-on="fa fa-star" data-star-off="" data-read-only="true"></span>
+		 * 
+		 */
+		$('.getraty').each(function(){
+			var startype = $(this).data('startype');
+			if(typeof startype == 'undefined' || startype.length == 0)
+				startype = 'i';
+			$(this).raty({starType: startype});
+		});
+	} // END - #jQuery.raty
 	
 	/**
 	 * withBox
