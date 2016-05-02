@@ -1,6 +1,25 @@
 # A collection of .gitignore templates
 # https://github.com/github/gitignore 
 
+# Laravel 4 specific
+vendor/
+node_modules/
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+vendor/
+node_modules/
+bootstrap/cache/
+storage/
+.env.*.php
+.env.php
+.env
+
+# Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
+.rocketeer/
+
+
 # CakePHP
 /vendor/*
 /config/app.php
