@@ -11,10 +11,14 @@ app/storage/
 vendor/
 node_modules/
 bootstrap/cache/
-storage/
+Homestead.yaml
+Homestead.json
 .env.*.php
 .env.php
 .env
+
+# YABhq/laracog
+/public/storage
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
@@ -36,6 +40,8 @@ nb-configuration.xml
 
 # JetBrains IDE PhpStorm
 .idea/
+*.iws
+.idea_modules/
 
 # bower_components
 /webroot/bower_components/*
