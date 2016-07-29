@@ -17,7 +17,7 @@ Homestead.json
 .env.php
 .env
 
-# YABhq/laracog
+# YABhq/laracogs
 /public/storage
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
