@@ -44,8 +44,7 @@ nb-configuration.xml
 .idea_modules/
 
 # bower_components
-/webroot/bower_components/*
-/public/bower_components/*
+*/bower_components/*
 *.bower.json
 *.jshintrc
 *.travis.yml
