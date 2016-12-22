@@ -117,6 +117,87 @@ $(document).ready(function () {
     });
 
     /**
+     * childNum counter
+     * ex:
+     *
+     * <input type="number" class="form-control child_num_input" min="0" name="num_children">
+     *
+     *     and
+     *
+     *     <div class="col-sm-2 pull-right display-none" id="child_ageClone">
+     *           <div class="form-group">
+     *               <input type="number" placeholder="0" class="form-control" name="age_children[]" value="0" max="18" min="1" disabled/>
+     *
+     *           <label>Children <span class="jq_child_num">1</span></label>
+     *           </div>
+     *        </div>
+     *  and
+     *  impolode(',', $_POST['age_children']) in PHP
+     *
+     * max: 5 @todo configurabe
+     * @type {any}
+     */
+    var childNum = $('.child_num_input').val();
+    if (childNum > 0) {
+        function addAges(childNum) {
+            for (var _childNum = 1; _childNum <= childNum; _childNum++) {
+                if (_childNum > 5) {
+                    $('.child_num_input').val(5);
+                    return false;
+                }
+                var childClone = $('#child_ageClone').clone();
+
+                // change params
+                childClone.attr('id', 'child_age_' + _childNum);
+                childClone.find('.jq_child_num').text(_childNum);
+                //.attr('name', 'Camera_1_EtaBambino_' + _childNum)
+                childClone.find('input').prop("disabled", false).removeProp('disabled');
+
+                // attach and show
+                $('#child_ageClone').after(childClone);
+                childClone.show();
+
+                $('.children_age_form').css('padding-bottom', '10px');
+            }
+        }
+
+        addAges(childNum);
+    }
+    $(".children_age_form").on('keyup change', '.child_num_input', function () {
+        // if counter are equal 0 - do nothing
+        var _childNum = $('.child_num_input').val();
+        if (_childNum == 0) {
+            childNum = 0;
+            $(".children_age_form [id^='child_age_']").remove();
+            return false;
+        }
+        // over 5 chlids are invalid
+        if (_childNum > 5) {
+            $('body').gdivMessage('No more then 5 childs / Non più di 5 bambini', 'warning', {hidetime: 7000});
+            $('.child_num_input').val(5);
+            return false;
+        }
+
+        $(".children_age_form [id^='child_age_']").remove();
+        for (var _cN = 1; _cN <= _childNum; _cN++) {
+            var childClone = $('#child_ageClone').clone();
+
+            // change params
+            childClone.attr('id', 'child_age_' + _cN);
+            childClone.find('.jq_child_num').text(_cN);
+            // .attr('name', 'Camera_1_EtaBambino_'+_cN)
+            childClone.find('input').prop("disabled", false).removeProp('disabled');
+
+            // attach and show
+            $('#child_ageClone').after(childClone);
+            childClone.show();
+
+            $('.children_age_form').css('padding-bottom', '10px');
+        }
+        childNum = $('.child_num_input').val();
+    });
+
+    /**
      * Form that need be send with Ajax and with CakePHP 3.x
      $(".ajaxform").on('submit', function(e){
         e.preventDefault();
