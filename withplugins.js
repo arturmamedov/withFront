@@ -290,7 +290,7 @@ $(document).ready(function () {
         $('a[href=' + hash + ']').tab('show');
     }
     // # look for changes in navigation and add it to url
-    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    $('#hash-navigation a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         return location.hash = $(e.target).attr('href').substr(1);
     });
     /** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
