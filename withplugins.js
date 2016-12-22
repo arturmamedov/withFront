@@ -252,6 +252,36 @@ $(document).ready(function () {
         return false;
     });*/
 
+    /* * * * * Ajax Form - ContactsController()->ajaxsend() * * * */
+    $(".ajaxsend").submit(function (e) {
+        e.preventDefault();
+        var form = $(this);
+
+        $.ajax({
+            method: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            dataType: "json",
+            success: function (json) {
+                form.find('.errors').hide();
+
+                if (json.success) {
+                    //_gaq.push(['_trackPageview', '/form-contatti']);
+                    form.html('<h3>' + json.message + '</h3>', 1500);
+                    $('.on-target').css('background-color', '#00e095');
+                    // setTimeout(function(){
+                    //   $('.on-target').css('background-color', 'transparent');
+                    // }, 8000);
+                } else {
+                    form.find('.errors').show();
+                    form.find('.errors').html('<h4>' + json.message + '</h4>', 1500);
+                }
+            }
+        });
+
+        return false;
+    });
+
     /** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
      # # # # # # # hash-navigation # for bootstrap tabs # # # # # # # # #
      ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **/
