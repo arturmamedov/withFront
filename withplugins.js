@@ -52,6 +52,13 @@ $("body").on('click', ".withAlert .close", function () {
 
 /* jQuery plugins and other thing that need to be run after the document is load */
 $(document).ready(function () {
+    // detect if the width of screen is bootstrap xs, sm, md, lg
+    var isMobile = window.matchMedia("only screen and (max-width: 768px)");
+    var isXs = window.matchMedia("(max-width: 768px)");
+    // var isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)");
+    // var isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)");
+    // var isLg = window.matchMedia("(min-width: 1200px)");
+
     // this is for loader
     if ($(".loader-wrapper").length > 0) {
         $('#mainMenu a:not([target="_blank"]):not([href^=#]), a.animation-link').on("click", function () {
@@ -74,6 +81,40 @@ $(document).ready(function () {
             $(".loader-wrapper:not(.demo-loader)").delay(100).fadeOut(400);
         });
     }
+
+    /**
+     * Boxes AutoHeight
+     *
+     * @param columns
+     *
+     * data-weh-add="50" add 50px to all
+     */
+    function withEqualHeight(columns) {
+        var tallestcolumn = 0, add = parseInt(columns.first().attr('data-weh-add'));
+        columns.each(
+            function () {
+                $(this).css('height', 'auto');
+                var currentHeight = $(this).height();
+                if (currentHeight > tallestcolumn) {
+                    tallestcolumn = currentHeight;
+                }
+            }
+        );
+        columns.height(tallestcolumn);
+    }
+
+    $(window).on('load resize', function () {
+        // .withAutoHeight > .weh for elements, non in `xs` media screen
+        if (!isXs.matches) {
+            $('.withEqualHeight').each(function () {
+                withEqualHeight($(this).find('.weh'));
+            });
+        }
+        // .withAutoHeight > .weh for all elements
+        $('.withEqualHeightAll').each(function () {
+            withEqualHeight($(this).find('.weh'));
+        });
+    });
 
     /**
      * Form that need be send with Ajax and with CakePHP 3.x
