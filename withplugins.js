@@ -15,7 +15,10 @@
             type = 'warning';
         }
 
-        alert_count = parseInt($(".withAlert").length);
+        _alert_count = parseInt($(".withAlert").length);
+        if (_alert_count > 0) {
+            alert_count = _alert_count;
+        }
         zindex = alert_count + 5001;
         top = alert_count * top;
         if (top > 100) {
