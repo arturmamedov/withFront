@@ -91,6 +91,9 @@ $(document).ready(function () {
      */
     function withEqualHeight(columns) {
         var tallestcolumn = 0, add = parseInt(columns.first().attr('data-weh-add'));
+        if (isNaN(add)) {
+            add = 0;
+        }
         columns.each(
             function () {
                 $(this).css('height', 'auto');
