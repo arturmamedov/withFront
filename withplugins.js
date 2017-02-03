@@ -103,7 +103,7 @@ $(document).ready(function () {
                 }
             }
         );
-        columns.height(tallestcolumn);
+        columns.height(tallestcolumn + add);
     }
 
     $(window).on('load resize', function () {
@@ -113,7 +113,7 @@ $(document).ready(function () {
                 withEqualHeight($(this).find('.weh'));
             });
         }
-        // .withAutoHeight > .weh for all elements
+        // .withAutoHeightAll > .weh for all elements
         $('.withEqualHeightAll').each(function () {
             withEqualHeight($(this).find('.weh'));
         });
