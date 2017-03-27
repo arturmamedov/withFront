@@ -1,0 +1,25 @@
+{
+  "name": "withFront",
+  "version": "v0.0.1",
+  "homepage": "https://github.com/arturmamedov/withFront",
+  "authors": [
+    "Artur Mamedov <arturmamedov1993@gmail.com>"
+  ],
+  "description": "Tools for frontend development especcialy with Bootstrap and jQuery",
+  "main": "withstyle.css, withplugins.css",
+  "keywords": [
+    "frontend",
+    "css",
+    "tools",
+    "bootstrap",
+    "jquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
