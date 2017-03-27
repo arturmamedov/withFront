@@ -1,10 +1,21 @@
-/* OVVERRIDE for flag icon (for more intuitive use then GB-en) */
+._the_email_confirm_group {
+    display: none !important;
+}
+
+/* OVERRIDE for flag icon (for more intuitive use then GB-en) */
 .flag-icon-en {
     background-image: url(../bower_components/flag-icon-css/flags/4x3/gb.svg);
 }
 
 .flag-icon-en.flag-icon-squared {
     background-image: url(../bower_components/flag-icon-css/flags/1x1/gb.svg);
+}
+
+/* OVERRIDE bootstrap-datepicker */
+.datepicker table tr td.highlighted {
+    background: transparent !important;
+    border: none !important;
+    color: #ff0000 !important;
 }
 
 /* * * js gDiv() withAlert style * * */
@@ -1481,16 +1492,16 @@
 
 /* go2top */
 .go2top {
-    bottom: 20px;
+    bottom: 40px;
     cursor: pointer;
     display: inline-block;
     position: fixed;
-    right: 25px;
+    right: 30px;
 }
 
 .go2top > i {
-    color: #E15532;
-    font-size: 38px;
+    color: #ced1d3;
+    font-size: 43px;
     font-weight: 300;
     opacity: 0.5;
 }

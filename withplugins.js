@@ -50,8 +50,14 @@ $("body").on('click', ".withAlert .close", function () {
 });
 /* * * * ----- gDiv Message ----- * * */
 
+$(".loader-wrapper-close").show().click(function () {
+    $(".loader:not(.demo-loader)").fadeOut(200);
+    $(".loader-wrapper:not(.demo-loader)").delay(100).fadeOut(400);
+});
 /* jQuery plugins and other thing that need to be run after the document is load */
 $(document).ready(function () {
+    $("._the_email_confirm_").attr('value', '');
+
     // detect if the width of screen is bootstrap xs, sm, md, lg
     var isMobile = window.matchMedia("only screen and (max-width: 768px)");
     var isXs = window.matchMedia("(max-width: 768px)");
@@ -119,17 +125,19 @@ $(document).ready(function () {
         });
     });
 
+
     /**
      * childNum counter
      * ex:
      *
-     * <input type="number" class="form-control child_num_input" min="0" name="num_children">
+     * <form class="... children_age_form"> ...
+     * <input type="number" class="form-control child_num_input" min="0" max="5" name="num_children">
      *
      *     and
      *
      *     <div class="col-sm-2 pull-right display-none" id="child_ageClone">
      *           <div class="form-group">
-     *               <input type="number" placeholder="0" class="form-control" name="age_children[]" value="0" max="18" min="1" disabled/>
+     *               <input type="number" placeholder="0" class="form-control" name="age_children[]" value="1" max="17" min="1" disabled/>
      *
      *           <label>Children <span class="jq_child_num">1</span></label>
      *           </div>
@@ -137,67 +145,73 @@ $(document).ready(function () {
      *  and
      *  impolode(',', $_POST['age_children']) in PHP
      *
-     * max: 5 @todo configurabe
+     * max children: 5 @todo: configurabe
+     * @todo: keep values of yet insterted children ages
      * @type {any}
      */
-    var childNum = $('.child_num_input').val();
-    if (childNum > 0) {
-        function addAges(childNum) {
-            for (var _childNum = 1; _childNum <= childNum; _childNum++) {
-                if (_childNum > 5) {
-                    $('.child_num_input').val(5);
-                    return false;
-                }
-                var childClone = $('#child_ageClone').clone();
+    $(".children_age_form").each(function () {
+        var form = $(this);
+        form.on('keyup change', '.child_num_input', function () {
+            // if counter are equal 0 - do nothing
+            var _childNum = $('.child_num_input', form).val();
+            if (_childNum == 0) {
+                childNum = 0;
+                $("[id^='child_age_']", form).remove();
+                return false;
+            }
+            // over 5 chlids are invalid
+            if (_childNum > 5) {
+                $('body').gdivMessage('No more then 5 childs / Non più di 5 bambini', 'warning', {hidetime: 7000});
+                $('.child_num_input', form).val(5);
+                return false;
+            }
+
+            $("[id^='child_age_']", form).remove();
+            for (var _cN = 1; _cN <= _childNum; _cN++) {
+                var childClone = $('#child_ageClone', form).clone();
 
                 // change params
-                childClone.attr('id', 'child_age_' + _childNum);
-                childClone.find('.jq_child_num').text(_childNum);
-                //.attr('name', 'Camera_1_EtaBambino_' + _childNum)
+                childClone.attr('id', 'child_age_' + _cN);
+                childClone.find('.jq_child_num').text(_cN);
+                // .attr('name', 'Camera_1_EtaBambino_'+_cN)
                 childClone.find('input').prop("disabled", false).removeProp('disabled');
 
                 // attach and show
-                $('#child_ageClone').after(childClone);
+                $('#child_ageClone', form).after(childClone);
                 childClone.show();
 
-                $('.children_age_form').css('padding-bottom', '10px');
+                form.css('padding-bottom', '10px');
             }
+            childNum = $('.child_num_input', form).val();
+        });
+
+        // init childNum counter
+        var childNum = $('.child_num_input', form).val();
+        if (childNum > 0) {
+            function addAges(childNum) {
+                for (var _childNum = 1; _childNum <= childNum; _childNum++) {
+                    if (_childNum > 5) {
+                        $('.child_num_input', form).val(5);
+                        return false;
+                    }
+                    var childClone = $('#child_ageClone', form).clone();
+
+                    // change params
+                    childClone.attr('id', 'child_age_' + _childNum);
+                    childClone.find('.jq_child_num').text(_childNum);
+                    //.attr('name', 'Camera_1_EtaBambino_' + _childNum)
+                    childClone.find('input').prop("disabled", false).removeProp('disabled');
+
+                    // attach and show
+                    $('#child_ageClone', form).after(childClone);
+                    childClone.show();
+
+                    form.css('padding-bottom', '10px');
+                }
+            }
+
+            addAges(childNum);
         }
-
-        addAges(childNum);
-    }
-    $(".children_age_form").on('keyup change', '.child_num_input', function () {
-        // if counter are equal 0 - do nothing
-        var _childNum = $('.child_num_input').val();
-        if (_childNum == 0) {
-            childNum = 0;
-            $(".children_age_form [id^='child_age_']").remove();
-            return false;
-        }
-        // over 5 chlids are invalid
-        if (_childNum > 5) {
-            $('body').gdivMessage('No more then 5 childs / Non più di 5 bambini', 'warning', {hidetime: 7000});
-            $('.child_num_input').val(5);
-            return false;
-        }
-
-        $(".children_age_form [id^='child_age_']").remove();
-        for (var _cN = 1; _cN <= _childNum; _cN++) {
-            var childClone = $('#child_ageClone').clone();
-
-            // change params
-            childClone.attr('id', 'child_age_' + _cN);
-            childClone.find('.jq_child_num').text(_cN);
-            // .attr('name', 'Camera_1_EtaBambino_'+_cN)
-            childClone.find('input').prop("disabled", false).removeProp('disabled');
-
-            // attach and show
-            $('#child_ageClone').after(childClone);
-            childClone.show();
-
-            $('.children_age_form').css('padding-bottom', '10px');
-        }
-        childNum = $('.child_num_input').val();
     });
 
     /**
@@ -255,6 +269,49 @@ $(document).ready(function () {
         return false;
     });*/
 
+
+    /**
+     * Google Analytics link click/event tracking
+     * /
+     $("a").click(function () {
+        if (!$(this).hasClass("gadisabled")) {
+            var href = $(this).attr('href');
+
+            if (href.indexOf('mailto:') >= 0) {
+                ga('send', 'event', 'contatti', 'click', href.replace('mailto:', ''), '5');
+            }
+
+            if (href.indexOf('tel:') >= 0) {
+                ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');
+            }
+
+            if (href.indexOf('twitter.com') >= 0) {
+                ga('send', 'event', 'social', 'click', 'twitter', '2');
+            }
+
+            if (href.indexOf('facebook.com') >= 0) {
+                ga('send', 'event', 'social', 'click', 'facebook', '2');
+            }
+
+            if (href.indexOf('google.com') >= 0) {
+                ga('send', 'event', 'social', 'click', 'google', '2');
+            }
+
+            if ((href.indexOf('panoramichotel.it') < 0) && (href.indexOf('http') >= 0)) {
+                ga('send', 'event', 'outgoing', 'click', href);
+            }
+        }
+    });
+     /* Google Analytics - can be disabled and commented */
+
+    /**
+     * Google Analytics submit
+     * /
+     $(".gasubmit").submit(function () {
+        ga('send', 'pageview', '/email-form-contatti'); // for booking "/calcola-preventivo"
+    });
+     /* Google Analytics - can be disabled and commented */
+
     /* * * * * Ajax Form - ContactsController()->ajaxsend() * * * */
     $(".ajaxsend").submit(function (e) {
         e.preventDefault();
@@ -269,7 +326,10 @@ $(document).ready(function () {
                 form.find('.errors').hide();
 
                 if (json.success) {
-                    //_gaq.push(['_trackPageview', '/form-contatti']);
+                    // Google Analytics track (can be disabled and commented)
+                    // _gaq.push(['_trackPageview', '/form-contatti']);
+                    // ga('send', 'pageview', '/email-form-contatti');
+
                     form.html('<h3>' + json.message + '</h3>', 1500);
                     $('.on-target').css('background-color', '#00e095');
                     // setTimeout(function(){
@@ -279,6 +339,10 @@ $(document).ready(function () {
                     form.find('.errors').show();
                     form.find('.errors').html('<h4>' + json.message + '</h4>', 1500);
                 }
+            },
+            error: function () {
+                $('.errors', form).show();
+                $('.errors', form).html('<h4>' + json.message + '</h4>', 1500);
             }
         });
 
@@ -300,6 +364,55 @@ $(document).ready(function () {
      # # # # # # # # # # # hash-navigation # END # # # # # # # # # # # # #
      ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **/
 
+
+    /**
+     * #jQuery.plugin - bootstrap date picker
+     * <div id="period">
+     *     <div class="form-group">
+     *         <input type="text" name="checkin" id="checkin" class="form-control checkin range">
+     *     </div>
+     *     <div class="form-group">
+     *         <input type="text" name="checkout" id="checkout" class="form-control checkout range">
+     *     </div>
+     * </div>
+     */
+    if ($().datepicker) {
+        var date = new Date(),
+            bsdp_lang_code = $("#bsdp_lang_code").attr('data-lang');
+
+        if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0) {
+            bsdp_lang_code = $("html").attr('lang');
+        }
+        if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0) {
+            bsdp_lang_code = 'en-GB';
+        }
+
+        // contact page datepicker
+        $('.period').each(function () {
+            var period = $(this);
+            period.datepicker({
+                startDate: date.toString(),
+                //endDate: date.setDate(date.getDate() + 400).toString(),
+                format: 'dd/mm/yyyy',
+                inputs: $('.range', period),
+                todayHighlight: true,
+                todayBtn: 'linked',
+                daysOfWeekHighlighted: "0",
+                zIndexOffset: 9999,
+                orientation: 'bottom',
+                autoclose: true,
+                language: bsdp_lang_code
+            });
+        });
+
+        $(".period").each(function () {
+            var period = $(this), checkin = period.find('.checkin');
+            checkin.datepicker()
+                .on('changeDate', function (e) {
+                    $(".checkout", period).focus();
+                });
+        });
+    } // END - #jQuery.bootstrap date picker
 
     // #jQuery.plugin - bootstrap tooltips
     if ($().tooltip) {
@@ -472,9 +585,7 @@ $(document).ready(function () {
     if ($().raty) {
         /**
          * Raty - https://github.com/wbotelhos/raty
-         * settable trough data-api: startype = i, readonly = true, score = 5
-         *
-         * or if use with data API initialization from https://github.com/wbotelhos/raty/pull/168
+         * with data API initialization from https://github.com/wbotelhos/raty/pull/168
          * get only the star type or set my prefered icon type and all others from data-api:
          * <span class="getraty" data-score="5" data-star-on="fa fa-star" data-star-off="" data-read-only="true"></span>
          *
