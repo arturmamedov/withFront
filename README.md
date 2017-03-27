@@ -10,6 +10,13 @@
 
 &nbsp;
 
+### Installation
+
+```
+bower install withFront --save
+```
+*invalid-meta because i want use the camelCase
+
 &nbsp;
 
 ### CREDITS
