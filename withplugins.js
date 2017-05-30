@@ -297,8 +297,13 @@ $(document).ready(function () {
                 ga('send', 'event', 'social', 'click', 'google', '2');
             }
 
-            if ((href.indexOf('panoramichotel.it') < 0) && (href.indexOf('http') >= 0)) {
+            if ((href.indexOf('sitename.com') < 0) && (href.indexOf('http') >= 0)) {
                 ga('send', 'event', 'outgoing', 'click', href);
+            }
+
+            if (href.match('.pdf$') != null) {
+                //var pdf_file_name = href.substr(href.lastIndexOf('/') + 1);
+                ga('send', 'event', 'download', 'click', 'scheda-tecnica', '2');
             }
         }
     });
@@ -317,30 +322,54 @@ $(document).ready(function () {
         e.preventDefault();
         var form = $(this);
 
+        // loader
+        var submit_btn = $(this).find('[type=submit]');
+        var submit_btn_text = submit_btn.text();
+        submit_btn.html(submit_btn_text + ' &nbsp; <i class="fa fa-spinner fa-pulse"></i>').prop('disabled', true);
+        // errors
+        $('input, select, textarea').parent().removeClass('has-error').find('.help-block').remove();
+        form.find('.errors').hide();
+
         $.ajax({
             method: form.attr('method'),
             url: form.attr('action'),
             data: form.serialize(),
             dataType: "json",
             success: function (json) {
-                form.find('.errors').hide();
+                // loader
+                submit_btn.text(submit_btn_text).prop('disabled', false);
 
                 if (json.success) {
                     // Google Analytics track (can be disabled and commented)
-                    // _gaq.push(['_trackPageview', '/form-contatti']);
-                    // ga('send', 'pageview', '/email-form-contatti');
+                    // if (typeof ga !== "undefined") {
+                    //     _gaq.push(['_trackPageview', '/form-contatti']);
+                    //     ga('send', 'pageview', '/email-form-contatti');
+                    //     ga('send', 'event', 'contatti', 'click', 'newsletter', '5');
+                    // }
 
-                    form.html('<h3>' + json.message + '</h3>', 1500);
+                    $("body").gdivMessage(json.message, 'success');
+
+                    form.html('<h3>' + json.message + '</h3><h1 class="text-center"><i class="fa fa-check fa-5x text-success"></i></h1>', 1500);
                     $('.on-target').css('background-color', '#00e095');
                     // setTimeout(function(){
                     //   $('.on-target').css('background-color', 'transparent');
                     // }, 8000);
                 } else {
+                    $("body").gdivMessage(json.message, 'danger');
+
+                    for (err in json.errors) {
+                        $(form).find('[name='+err+']').parent()
+                            .after('<span class="help-block alert alert-danger">' + json.errors[err] + '</span>')
+                            .addClass('has-error');
+                    }
+
                     form.find('.errors').show();
                     form.find('.errors').html('<h4>' + json.message + '</h4>', 1500);
                 }
             },
             error: function () {
+                submit_btn.text(submit_btn_text).prop('disabled', false);
+
                 $('.errors', form).show();
                 $('.errors', form).html('<h4>' + json.message + '</h4>', 1500);
             }
