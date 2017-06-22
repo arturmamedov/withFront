@@ -1643,11 +1643,39 @@
         padding: 0px;
     }
 
+    /* go2top */
+    .go2top {
+        bottom: 5px;
+        cursor: pointer;
+        display: inline-block;
+        position: fixed;
+        right: 5px;
+    }
+    .go2top > i {
+        color: rgba(110,179,187, 0.8);
+        font-size: 34px;
+        font-weight: 300;
+        opacity: 0.5;
+    }
     /* less then xs */
 }
 
 @media (max-width: 767px) and (min-width: 481px) {
     /* xs */
+    /* go2top */
+    .go2top {
+        bottom: 5px;
+        cursor: pointer;
+        display: inline-block;
+        position: fixed;
+        right: 5px;
+    }
+    .go2top > i {
+        color: rgba(110,179,187, 0.8);
+        font-size: 34px;
+        font-weight: 300;
+        opacity: 0.5;
+    }
     /* xs*/
 }
 
