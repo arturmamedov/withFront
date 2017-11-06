@@ -26,6 +26,11 @@
     color: #ff0000 !important;
 }
 
+/* for jq highlight */
+.highlight {
+    background: #00ff9e;
+}
+
 /* * * js gDiv() withAlert style * * */
 .withAlert {
     position: fixed !important;
