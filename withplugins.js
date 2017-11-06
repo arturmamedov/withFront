@@ -726,4 +726,11 @@ $(document).ready(function () {
                     $(this).addClass('set');
             });
     });
+
+    // bind input data @todo more genaral functionality, by specify options text() html() val() ...
+    $('[val-binded]').on('change', function(){
+        var value = $(this).val(), selector = $(this).data('binded');
+
+        $(selector).val(value);
+    });
 });
