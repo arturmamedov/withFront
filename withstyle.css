@@ -11,6 +11,14 @@
     background-image: url(../flag-icon-css/flags/1x1/gb.svg);
 }
 
+/* modal wide */
+.modal-wide {
+    width: 90% !important;
+}
+.modal-wide .modal-body {
+    overflow-y: auto;
+}
+
 /* OVERRIDE bootstrap-datepicker */
 .datepicker table tr td.highlighted {
     background: transparent !important;
@@ -28,7 +36,11 @@
     z-index: 5000;
 }
 
-/* Tables colors * /
+/* Tables * /
+.thick-line {
+    border-top: 2px solid;
+}
+/*
 .table-striped > thead > tr {
     background-color: #D196A4;
 }
