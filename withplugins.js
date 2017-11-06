@@ -421,7 +421,7 @@ $(document).ready(function () {
                 submit_btn.text(submit_btn_text).prop('disabled', false);
 
                 $('.errors', form).show();
-                $('.errors', form).html('<h4>' + json.message + '</h4>', 1500);
+                $('.errors', form).html('<h4>Unexpected error! Errore inaspettato! :( </h4>', 1500);
             }
         });
 
