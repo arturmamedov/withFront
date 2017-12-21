@@ -327,33 +327,39 @@ $(document).ready(function () {
         if (!$(this).hasClass("gadisabled")) {
             var href = $(this).attr('href');
 
-            if (href.indexOf('mailto:') >= 0) {
-                ga('send', 'event', 'contatti', 'click', href.replace('mailto:', ''), '5');
-            }
+            if (typeof ga !== "undefined" && typeof href !== "undefined") {
+                if (href.indexOf('mailto:') >= 0) {
+                    ga('send', 'event', 'contatti', 'click', href.replace('mailto:', ''), '5');
+                }
 
-            if (href.indexOf('tel:') >= 0) {
-                ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');
-            }
+                if (href.indexOf('tel:') >= 0) {
+                    ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');
+                }
 
-            if (href.indexOf('twitter.com') >= 0) {
-                ga('send', 'event', 'social', 'click', 'twitter', '2');
-            }
+                if (href.indexOf('maps') >= 0) {
+                    ga('send', 'event', 'contatti', 'click', 'maps', '5');
+                }
 
-            if (href.indexOf('facebook.com') >= 0) {
-                ga('send', 'event', 'social', 'click', 'facebook', '2');
-            }
+                if (href.indexOf('twitter.com') >= 0) {
+                    ga('send', 'event', 'social', 'click', 'twitter', '2');
+                }
 
-            if (href.indexOf('google.com') >= 0) {
-                ga('send', 'event', 'social', 'click', 'google', '2');
-            }
+                if (href.indexOf('facebook.com') >= 0) {
+                    ga('send', 'event', 'social', 'click', 'facebook', '2');
+                }
 
-            if ((href.indexOf('sitename.com') < 0) && (href.indexOf('http') >= 0)) {
-                ga('send', 'event', 'outgoing', 'click', href);
-            }
+                if (href.indexOf('google.com') >= 0) {
+                    ga('send', 'event', 'social', 'click', 'google', '2');
+                }
 
-            if (href.match('.pdf$') != null) {
-                //var pdf_file_name = href.substr(href.lastIndexOf('/') + 1);
-                ga('send', 'event', 'download', 'click', 'scheda-tecnica', '2');
+                if ((href.indexOf('sitename.com') < 0) && (href.indexOf('http') >= 0)) {
+                    ga('send', 'event', 'outgoing', 'click', href);
+                }
+
+                if (href.match('.pdf$') != null) {
+                    //var pdf_file_name = href.substr(href.lastIndexOf('/') + 1);
+                    ga('send', 'event', 'download', 'click', 'scheda-tecnica', '2');
+                }
             }
         }
     });
