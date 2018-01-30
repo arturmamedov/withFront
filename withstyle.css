@@ -1644,6 +1644,15 @@
 	PAGE LOADER
 -------------------------------------------------------------------------*/
 
+.inner-loader-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: absolute !important;
+    width: 100%;
+    z-index: 9999;
+    background-color: transparent !important;
+}
+
 .loader-wrapper {
     height: 100%;
     overflow: hidden;

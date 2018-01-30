@@ -26,13 +26,12 @@ Bootstrap - https://github.com/twbs/bootstrap
 
 HEAD - https://github.com/joshbuchea/HEAD
 
-&nbsp;
-
-### Dependency
+#### Dependency and many Thank to:
 jQuery - https://github.com/jquery/jquery
 
-... raty, datepicker, selectize, iCheck
+... raty, datepicker, selectize, iCheck, SVG-Loaders, nicescroll, bootstrapSwitch, bootstrap-daterangepicker, wArtur
 
+(you can remove the dependencies or not include script and their not will be made nothing cause there are a check before any action)
 
 ## Documentation (How to use)
 
@@ -99,6 +98,38 @@ For add `padding` or `margin` to an element use the helper classes:
 
 ```
 
-The same thing for add `padding` change the `m` that stand for marrgin to `p` and you done!
+The same thing for add `padding` change the `m` that stand for marrgin to `p` padding and you done!
 ##### You can use this values with this classes m-/p-[t,r,b,l,v,h]-`0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200`
+
+
+
+#### Loader
+Thanks to [SamHerbert/SVG-Loaders](http://samherbert.net/svg-loaders/)
+
+For add a loader to your site, that appears and automatically closes when all content is load:
+```html
+<div class="loader-wrapper">
+    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
+    <div class="loader">
+        <img width="40" src="/bower_components/SVG-Loaders/circles.svg" alt="">
+
+        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
+    </div>
+</div>
+```
+
+You can also add `inner-loader-wrapper` class to `loader-wrapper` for include loader in a div and not over all content of document.
+
+```html
+<div class="loader-wrapper inner-loader-wrapper">
+    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
+    <div class="loader">
+        <img width="40" src="/bower_components/SVG-Loaders/svg-loaders/spinning-circles.svg" alt="">
+
+        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
+    </div>
+</div>
+```
+
+Example: [loader-wrapper](https://insuperadmin.buonsito.net/assets/media/loader.png), [inner-loader-wrapper](https://insuperadmin.buonsito.net/assets/media/inner-loader.png)
 
