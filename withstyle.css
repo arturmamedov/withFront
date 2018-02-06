@@ -4,11 +4,11 @@
 
 /* OVERRIDE for flag icon (for more intuitive use then GB-en) */
 .flag-icon-en {
-    background-image: url(../flag-icon-css/flags/4x3/gb.svg);
+    background-image: url('../flag-icon-css/flags/4x3/gb.svg');
 }
 
 .flag-icon-en.flag-icon-squared {
-    background-image: url(../flag-icon-css/flags/1x1/gb.svg);
+    background-image: url('../flag-icon-css/flags/1x1/gb.svg');
 }
 
 /* fa - fontawesome */
@@ -47,11 +47,18 @@
     overflow-y: auto;
 }
 
-/* OVERRIDE bootstrap-datepicker */
+/* OVERRIDE bootstrap-datepicker for have red highlighted days(sunday) and not break on selected highlighted day */
 .datepicker table tr td.highlighted {
     background: transparent !important;
     border: none !important;
     color: #ff0000 !important;
+}
+.datepicker table tr td.selected.highlighted,
+.datepicker table tr td.active.highlighted.active,
+.datepicker table tr td.active.highlighted:active {
+    color: #fff !important;
+    background-color: #286090 !important;
+    border-radius: 5px;
 }
 
 /* for jq highlight */

@@ -133,3 +133,46 @@ You can also add `inner-loader-wrapper` class to `loader-wrapper` for include lo
 
 Example: [loader-wrapper](https://insuperadmin.buonsito.net/assets/media/loader.png), [inner-loader-wrapper](https://insuperadmin.buonsito.net/assets/media/inner-loader.png)
 
+
+### JS - Form
+
+#### Datepicker ([bootstrap-datepicker](https://uxsolutions.github.io/bootstrap-datepicker/))
+For add a single linked datepicker with visual range to your forms use this:
+
+```html
+<div id="period">
+    <div class="form-group">
+        <input type="text" name="checkin" id="checkin" class="form-control checkin range">
+    </div>
+     <div class="form-group">
+         <input type="text" name="checkout" id="checkout" class="form-control checkout range">
+     </div>
+</div>
+```
+
+#### Children Age to Form
+You can add a children number input that show the fields for each children age:
+
+```html
+<!-- 1 add class `children_age_form` to form -->     
+<form class="children_age_form">
+
+<!-- 2 create input with `child_num_input` class and min/max attr optionaly -->
+<input type="number" class="form-control child_num_input" min="0" max="5" name="num_children">
+     
+<!-- 3 add hidden `child_ageClone` input inside form -->
+<div class="col-sm-2 pull-right display-none" id="child_ageClone">
+    <div class="form-group">
+        <input type="number" placeholder="0" class="form-control" name="age_children[]" value="1" max="17" min="0" disabled/>
+    
+        <label>Children <span class="jq_child_num">1</span></label>
+    </div>
+</div>
+
+
+<?php
+    // and in PHP or whatever you use get the data
+    $children_number = $_POST['num_children']); // 3
+    $children_age = impolode(', ', $_POST['age_children']); // 3, 6, 7
+?>    
+```

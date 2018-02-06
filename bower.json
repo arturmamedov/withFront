@@ -25,6 +25,9 @@
     "tests"
   ],
   "dependencies": {
-    "SVG-Loaders": "latest"
+    "SVG-Loaders": "latest",
+    "bootstrap": "latest",
+    "bootstrap-datepicker": "latest",
+    "jquery": "latest"
   }
 }
