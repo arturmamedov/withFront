@@ -176,6 +176,19 @@ $(document).ready(function () {
     });
 
 
+    // filter items on button click
+    $(".w-filters").each(function(){
+        var $grid = $(this);
+        $grid.on('click', '.w-filter', function() {
+            var filterValue = $(this).attr('data-filter');
+            // hide all elements
+            $(".w-item", $grid).hide();
+            // show filtered
+            $(".w-item"+filterValue, $grid).show();
+        });
+    });
+
+
     /**
      * childNum counter
      * ex:

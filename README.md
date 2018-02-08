@@ -176,3 +176,38 @@ You can add a children number input that show the fields for each children age:
     $children_age = impolode(', ', $_POST['age_children']); // 3, 6, 7
 ?>    
 ```
+
+
+#### Filter HTML elements 
+(like isotype but without effects) So you made a list of elements with `filters in the class` attribute and after filter it on click on the `data-filter="filter"`
+
+```html
+<!-- main container `w-filters` -->
+<div class="w-filters">
+    <ul>
+        <!-- `w-filter` for all elements leave empty data-filter -->
+        <li class="w-filter" data-filter=""></li>
+        <!-- `w-filter `elements with .filter in data-filter -->
+        <li class="w-filter" data-filter=".vegetable"></li>
+        <li class="w-filter" data-filter=".fruit"></li>
+        <li class="w-filter" data-filter=".drink"></li>
+    </ul>
+    
+    <!-- items to filter `.w-item` and `.filter`-->
+    <div class="w-item vegetable col-sm-3">
+        Patatos
+    </div>
+    <div class="w-item vegetable col-sm-3">
+        Carot
+    </div>
+    <div class="w-item fruit col-sm-3">
+        Orange
+    </div>
+    <div class="w-item fruit col-sm-3">
+        Apple
+    </div>
+    <div class="w-item drink col-sm-3">
+        CocaCola
+    </div>
+</div>
+``` 
