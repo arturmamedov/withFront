@@ -462,7 +462,7 @@ $(document).ready(function () {
                     }
 
                     form.find('.errors').show();
-                    form.find('.errors').html('<h4>' + json.message + '</h4>', 1500);
+                    form.find('.errors').html('<h4>' + json.message + '</h4><p>' + json.string_errors + '</p>', 1500);
                 }
             },
             error: function () {
