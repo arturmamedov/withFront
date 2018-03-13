@@ -29,6 +29,9 @@
     "bootstrap": "3.3.7",
     "bootstrap-datepicker": "latest",
     "jquery": "latest",
-    "font-awesome": "~4.7"
+    "font-awesome": "~4.7",
+    "flag-icon-css": "latest",
+    "jquery.nicescroll": "latest",
+    "raty": "latest"
   }
 }
