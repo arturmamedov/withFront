@@ -28,6 +28,7 @@
     "svg-loaders": "latest",
     "bootstrap": "3.3.7",
     "bootstrap-datepicker": "latest",
-    "jquery": "latest"
+    "jquery": "latest",
+    "font-awesome": "~4.7"
   }
 }
