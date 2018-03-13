@@ -26,7 +26,7 @@
   ],
   "dependencies": {
     "svg-loaders": "latest",
-    "bootstrap": "latest",
+    "bootstrap": "3.3.7",
     "bootstrap-datepicker": "latest",
     "jquery": "latest"
   }
