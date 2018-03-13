@@ -341,12 +341,14 @@
     font-weight: bold;
 }
 
-.lower-case {
+.text-ucfirst, .text-capitalize {
+    text-transform: capitalize;
+}
+.text-lower, .text-lowercase, .lower-case {
     text-transform: lowercase;
 }
-
-.lower-upper {
-    text-transform: lowercase;
+.text-upper, .text-uppercase, .upper-case {
+    text-transform: uppercase;
 }
 
 .text-underline {
