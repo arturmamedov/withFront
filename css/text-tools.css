@@ -1,0 +1,91 @@
+/* .text-* */
+/* .text-white */
+.text-white { color: #FFFFFF; }
+.text-white-imp { color: #FFFFFF !important; }
+.text-white-a { color: #FFFFFF; }
+.text-white-a:hover { color: #FFFFFF; text-decoration: none; }
+/* .text-black */
+.text-black { color: #000000; }
+.text-black-imp { color: #000000 !important; }
+.text-black-a { color: #000000; }
+.text-black-a:hover { color: #000000; text-decoration: none; }
+/* myne */
+.text-gray { color: #999999; }
+.text-lgray { color: #CCCCCC; }
+.text-feedback { color: #EDC400; }
+/* border bottom underline  */
+.text-underline1 { border-bottom: 1px solid #0073BA; }
+.text-underline1:hover { text-decoration: none; border-bottom: none; }
+/* transform */
+.text-line-through { text-decoration: line-through; }
+.text-normal { font-weight: normal; }
+.text-bold { font-weight: bold; }
+.text-ucfirst, .text-capitalize { text-transform: capitalize; }
+.text-lower, .text-lowercase, .lower-case { text-transform: lowercase; }
+.text-upper, .text-uppercase, .upper-case { text-transform: uppercase; }
+.text-underline { text-decoration: underline; }
+/* 2016 & forward */
+.text-azure { color: #0095C8 !important; }
+.text-orange { color: #FF6600 !important; }
+.text-green { color: #1FBBA6 !important; }
+.text-blue { color: #5F8295 !important; }
+.text-pink { color: #DD5A82 !important; }
+.text-purple { color: #DD5A82 !important; }
+.text-bricky { color: #894550 !important; }
+.text-yellow { color: #FFB848 !important; }
+.text-red { color: #C82E29 !important; }
+.text-lred { color: #ED4141 !important; }
+/* apply to all */
+.text-light,
+.text-light h1,
+.text-light h2,
+.text-light h3,
+.text-light h4,
+.text-light h5,
+.text-light h6,
+.text-light .lead,
+.text-light p,
+.text-light a:not(.button),
+.text-light i,
+.text-light li,
+.text-light label,
+.text-light div,
+.text-light span { color: #FFFFFF !important; }
+.text-dark,
+.text-dark h1,
+.text-dark h2,
+.text-dark h3,
+.text-dark h4,
+.text-dark h5,
+.text-dark h6,
+.text-dark p,
+.text-dark .lead,
+.text-dark a:not(.button),
+.text-dark i,
+.text-dark li,
+.text-dark label,
+.text-dark div,
+.text-dark span { color: #111111 !important; }
+.text-grey,
+.text-grey h1,
+.text-grey h2,
+.text-grey h3,
+.text-grey h4,
+.text-grey h5,
+.text-grey h6,
+.text-grey .lead,
+.text-grey p,
+.text-grey a:not(.button),
+.text-grey i,
+.text-grey li,
+.text-grey label,
+.text-grey div,
+.text-grey span { color: #CCCCCC !important; }
+/* font weight */
+.font-weight-100 { font-weight: 100 !important; }
+.font-weight-300 { font-weight: 300 !important; }
+.font-weight-400 { font-weight: 400 !important; }
+.font-weight-500 { font-weight: 500 !important; }
+.font-weight-600 { font-weight: 600 !important; }
+.font-weight-700 { font-weight: 700 !important; }
+.font-weight-800 { font-weight: 800 !important; }
