@@ -7,6 +7,18 @@
     display: none !important;
 }
 
+/* OVERRIDE blueimp gallery */
+.blueimp-gallery > .indicator > li {
+    background-size: cover !important;
+    width: 50px !important;;
+    height: 50px !important;;
+    border-radius: 50% !important;;
+}
+.blueimp-gallery > .indicator > li::after {
+    width: 120px !important;;
+    height: 120px !important;;
+}
+
 /* OVERRIDE for flag icon (for more intuitive use then GB-en) */
 .flag-icon-en {
     background-image: url('../flag-icon-css/flags/4x3/gb.svg');
@@ -299,7 +311,7 @@
 @-o-keyframes pulse{0%{-o-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-o-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-o-transform:scale(2.5);transform:scale(2.5);opacity:0}}
 @keyframes pulse{0%{transform:scale(0.3);opacity:0.2}80%{transform:scale(1.5);opacity:0}100%{transform:scale(2.5);opacity:0}}
 
-/* go2top */
+/* go2top {js: LayoutGo2Top.init()} */
 .go2top {
     bottom: 40px;
     cursor: pointer;

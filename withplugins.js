@@ -293,7 +293,11 @@ $(document).ready(function () {
                 // change params
                 childClone.attr('id', 'child_age_' + _cN);
                 childClone.find('.jq_child_num').text(_cN);
-                childClone.find('input').prop("disabled", false).removeProp('disabled'); //you can also change `name` attribute: .attr('name', 'Camera_1_EtaBambino_' + _cN)
+                // input //you can also change `name` attribute etc. ex: .attr('name', 'Camera_1_EtaBambino_' + _cN)
+                childClone.find('input')
+                    .prop("disabled", false)
+                    .removeProp('disabled')
+                    .attr('data-binded', childClone.find('input').attr('data-binded') + _cN + ' input');
 
                 // attach and show
                 $('#child_ageClone', form).after(childClone);
@@ -318,7 +322,11 @@ $(document).ready(function () {
                     // change params
                     childClone.attr('id', 'child_age_' + _cN);
                     childClone.find('.jq_child_num').text(_cN);
-                    childClone.find('input').prop("disabled", false).removeProp('disabled'); //you can also change `name` attribute: .attr('name', 'Camera_1_EtaBambino_' + _cN)
+                    // input // you can also change `name` attributeetc. ex: .attr('name', 'Camera_1_EtaBambino_' + _cN)
+                    childClone.find('input')
+                        .prop("disabled", false)
+                        .removeProp('disabled')
+                        .attr('data-binded', childClone.find('input').attr('data-binded') + _cN + ' input');
 
                     // attach and show
                     $('#child_ageClone', form).after(childClone);
