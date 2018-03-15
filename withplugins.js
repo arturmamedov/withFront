@@ -675,7 +675,6 @@ $(document).ready(function () {
             }
         };
     }();
-    LayoutGo2Top.init();
     /** END: Layout Go2Top */
 
 
@@ -916,4 +915,6 @@ $(document).ready(function () {
      * * * * * * * * * * * * * * * * * * * enable/disable functions  * * * * * * * * * * * * * * *
      * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
     LayoutGo2Top.init(); // go2top button {css: .go2top}
+
+    wAppearBottomButton.init(); // with Appear Bottom Button {css: .wabb}
 });
