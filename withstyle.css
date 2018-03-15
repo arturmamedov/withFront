@@ -314,6 +314,13 @@
     opacity: 0.5;
 }
 
+/* with Appear Bottom Button {js: wAppearBottomButton.init()} */
+.wabb {
+    position: fixed;
+    bottom: -150px;
+    right: 70px;
+    z-index: 999;
+}
 
 /* * * * * * * * * * * * * * * * * * * * * *
 * * *Styles for third party plugins * * * *

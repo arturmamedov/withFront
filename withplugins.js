@@ -675,7 +675,21 @@ $(document).ready(function () {
             }
         };
     }();
-    /** END: Layout Go2Top */
+
+    /* Animate the bottom appear button .wap */
+    var wAppearBottomButton = function () {
+        return {
+            init: function () {
+                setTimeout(function () {
+                    $('.wabb').stop().animate({bottom: '33px'}, 800);
+                }, 1400);
+
+                if (debug) {
+                    console.info('wAppearBottomButton() enabled');
+                }
+            }
+        };
+    }();
 
 
     // #jQuery.plugin - raty for a star rating view
