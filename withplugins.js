@@ -47,6 +47,8 @@
  * Window on buffer onload
  * * * * * * * * * * * * */
 
+/* enable/disable console.info messages for debug */
+var debug = false;
 
 /* * * * * * * * * * * * * * * * * *
  * * * * *  gDiv Message * * * * * *
@@ -708,10 +710,67 @@ $(document).ready(function () {
             });
     });
 
-    // bind input data @todo more genaral functionality, by specify options text() html() val() ...
-    $('[val-binded]').on('change', function(){
-        var value = $(this).val(), selector = $(this).data('binded');
+    /**
+     * Bind a form input to another input or something else
+     * add `.w-setter` for bind on.load
+     *
+     * @param _this HTML input element with value="", data-binded=".selector", data-binded-type="val,select,radio,html,text"
+     */
+    function wBind(_this){
+        var value = _this.val(),
+            selector = _this.data('binded'),
+            type = _this.data('binded-type');
 
-        $(selector).val(value);
+        // set default type if not specified
+        if(typeof type == 'undefined') {
+            type = 'val';
+        }
+
+        // if radio, get the checked value and not booth
+        if(_this.is('input[type=radio]')) {
+            value = _this.closest('form').find('input[name='+_this.attr('name')+']:checked').val();
+            if(typeof value == 'undefined') {
+                value = '';
+            }
+        }
+
+        switch(type) {
+            case 'val':
+                $(selector).val(value);
+                break;
+            case 'select':
+                $(selector+' option').removeAttr('selected');
+                $(selector).val(value);
+                $(selector+' option[value='+value+']').attr('selected', 'selected');
+                break;
+            case 'radio':
+                $(selector).removeAttr('checked');
+                $(selector).prop('checked', false);
+                $(selector).filter('[value="'+value+'"]').attr('checked', true).prop('checked', true);
+                break;
+            case 'html':
+                $(selector).html(value);
+                break;
+            case 'text':
+                $(selector).text(value);
+                break;
+        }
+
+        // children_age_form things
+        if($(selector).attr('name') == 'num_children') {
+            $(selector).trigger('keyup');
+        }
+
+        // if ($debug) {
+        //     console.info('wBind() ' + selector + ' - ' + type + ' - ' + value);
+        // }
+    }
+    // universal on bind change
+    $(document).on('change blur click', '.w-binded', function() {
+        wBind($(this));
+    });
+    // set the binded value after load of document
+    $('.w-binded.w-setter').each( function(){
+        wBind($(this));
     });
 });
