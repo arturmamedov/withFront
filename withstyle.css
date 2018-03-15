@@ -270,23 +270,34 @@
     border-left: 1px solid #dddddd;
 }
 
-/* for target animation*/
-.target {
-    background-color: #00e095;
-}
-
-.on-target:target {
-    animation: ontarget 8s;
-}
-
+/* #animation: for on-target */
+.target { background-color: #00e095; }
+.on-target:target { animation: ontarget 8s; }
 @keyframes ontarget {
-    0% {
-        background-color: #00e095;
-    }
-    100% {
-        background-color: transparent;
-    }
+    0% { background-color: #00e095; }
+    100% { background-color: transparent; }
 }
+/* #animation: for pulse button */
+.pulse-button { position: relative; }
+.pulse-effect {
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-name: pulse;
+    animation-timing-function: ease-out;
+    border: 4px solid blue;
+    border-radius: 50px;
+    box-shadow: 0 0 5px #00A6D3;
+    display: block;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: -2px;
+    left: 2px;
+}
+@-webkit-keyframes pulse{0%{-webkit-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-webkit-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-webkit-transform:scale(2.5);transform:scale(2.5);opacity:0}}
+@-moz-keyframes pulse{0%{-moz-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-moz-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-moz-transform:scale(2.5);transform:scale(2.5);opacity:0}}
+@-o-keyframes pulse{0%{-o-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-o-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-o-transform:scale(2.5);transform:scale(2.5);opacity:0}}
+@keyframes pulse{0%{transform:scale(0.3);opacity:0.2}80%{transform:scale(1.5);opacity:0}100%{transform:scale(2.5);opacity:0}}
 
 /* go2top */
 .go2top {
@@ -296,13 +307,13 @@
     position: fixed;
     right: 30px;
 }
-
 .go2top > i {
     color: #ced1d3;
     font-size: 43px;
     font-weight: 300;
     opacity: 0.5;
 }
+
 
 /* * * * * * * * * * * * * * * * * * * * * *
 * * *Styles for third party plugins * * * *
@@ -312,13 +323,11 @@
     font-size: 14px;
     z-index: 1;
 }
-
 .tooltip-inner {
     color: #222222;
     background-color: #CCCCCC;
     border-radius: 4px;
 }
-
 .tooltip-arrow {
 }
 
