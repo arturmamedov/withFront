@@ -1,260 +1,267 @@
-/* only for sm and upper (example: visible-sm-block, hidden-xs )*/
-@media (min-width: 768px) and (max-width: 991px) {
+/**
+ * 1 - Responsive tools for `sm` and UPPER
+ *   - .text-*-sm
+ *   - .p*-sm: padding's (.p-0-sm, .p-v-5-sm, .p-h-10-sm, .p-t-15-sm, .p-b-20-sm etc.) also with Bootstrap4 philosophy (.py-25-sm, .px-30-sm, .pl-35-sm, pr-40-sm)
+ *   - .m*-sm: margin's (.m-0-sm, .m-v-5-sm, .m-h-10-sm, .m-t-15-sm, .m-b-20-sm etc.) also with Bootstrap4 philosophy (.my-25-sm, .mx-30-sm, .ml-35-sm, mr-40-sm)
+ */
+@media (min-width: 768px) {
+    .text-left-sm { text-align: left !important; }
+    .text-right-sm { text-align: right !important; }
     .text-center-sm { text-align: center !important; }
 
     /* SM RESPONSIVE PADDING AND MARGINS (padding/margin only for small device's ex: tablet) */
-    /* padding-(all) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 ex: sm-p-10, sm-p-0 */
-    .sm-p-0 { padding: 0px !important; }
-    .sm-p-5 { padding: 5px !important; }
-    .sm-p-10 { padding: 10px !important; }
-    .sm-p-15 { padding: 15px !important; }
-    .sm-p-20 { padding: 20px !important; }
-    .sm-p-25 { padding: 25px !important; }
-    .sm-p-30 { padding: 30px !important; }
-    .sm-p-35 { padding: 35px !important; }
-    .sm-p-40 { padding: 40px !important; }
-    .sm-p-50 { padding: 50px !important; }
-    .sm-p-60 { padding: 60px !important; }
-    .sm-p-70 { padding: 70px !important; }
-    .sm-p-80 { padding: 80px !important; }
-    .sm-p-90 { padding: 90px !important; }
-    .sm-p-100 { padding: 100px !important; }
-    .sm-p-150 { padding: 150px !important; }
-    .sm-p-200 { padding: 200px !important; }
+    /* padding-(all) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 ex:.p-10-sm,.p-0-sm */
+    .p-0-sm { padding: 0 !important; }
+    .p-5-sm { padding: 5px !important; }
+    .p-10-sm { padding: 10px !important; }
+    .p-15-sm { padding: 15px !important; }
+    .p-20-sm { padding: 20px !important; }
+    .p-25-sm { padding: 25px !important; }
+    .p-30-sm { padding: 30px !important; }
+    .p-35-sm { padding: 35px !important; }
+    .p-40-sm { padding: 40px !important; }
+    .p-50-sm { padding: 50px !important; }
+    .p-60-sm { padding: 60px !important; }
+    .p-70-sm { padding: 70px !important; }
+    .p-80-sm { padding: 80px !important; }
+    .p-90-sm { padding: 90px !important; }
+    .p-100-sm { padding: 100px !important; }
+    .p-150-sm { padding: 150px !important; }
+    .p-200-sm { padding: 200px !important; }
     /* padding-(vertical/top-bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-p-v-0 { padding-top: 0px !important; padding-bottom: 0px !important; }
-    .sm-p-v-5 { padding-top: 5px !important; padding-bottom: 5px !important; }
-    .sm-p-v-10 { padding-top: 10px !important; padding-bottom: 10px !important; }
-    .sm-p-v-15 { padding-top: 15px !important; padding-bottom: 15px !important; }
-    .sm-p-v-20 { padding-top: 20px !important; padding-bottom: 20px !important; }
-    .sm-p-v-25 { padding-top: 25px !important; padding-bottom: 25px !important; }
-    .sm-p-v-30 { padding-top: 30px !important; padding-bottom: 30px !important; }
-    .sm-p-v-35 { padding-top: 35px !important; padding-bottom: 35px !important; }
-    .sm-p-v-40 { padding-top: 40px !important; padding-bottom: 40px !important; }
-    .sm-p-v-50 { padding-top: 50px !important; padding-bottom: 50px !important; }
-    .sm-p-v-60 { padding-top: 60px !important; padding-bottom: 60px !important; }
-    .sm-p-v-70 { padding-top: 70px !important; padding-bottom: 70px !important; }
-    .sm-p-v-80 { padding-top: 80px !important; padding-bottom: 80px !important; }
-    .sm-p-v-90 { padding-top: 90px !important; padding-bottom: 90px !important; }
-    .sm-p-v-100 { padding-top: 100px !important; padding-bottom: 100px !important; }
-    .sm-p-v-150 { padding-top: 150px !important; padding-bottom: 150px !important; }
-    .sm-p-v-200 { padding-top: 200px !important; padding-bottom: 200px !important; }
+    .p-v-0-sm, .py-0-sm { padding-top: 0 !important; padding-bottom: 0 !important; }
+    .p-v-5-sm, .py-5-sm { padding-top: 5px !important; padding-bottom: 5px !important; }
+    .p-v-10-sm, .py-10-sm { padding-top: 10px !important; padding-bottom: 10px !important; }
+    .p-v-15-sm, .py-15-sm { padding-top: 15px !important; padding-bottom: 15px !important; }
+    .p-v-20-sm, .py-20-sm { padding-top: 20px !important; padding-bottom: 20px !important; }
+    .p-v-25-sm, .py-25-sm { padding-top: 25px !important; padding-bottom: 25px !important; }
+    .p-v-30-sm, .py-30-sm { padding-top: 30px !important; padding-bottom: 30px !important; }
+    .p-v-35-sm, .py-35-sm { padding-top: 35px !important; padding-bottom: 35px !important; }
+    .p-v-40-sm, .py-40-sm { padding-top: 40px !important; padding-bottom: 40px !important; }
+    .p-v-50-sm, .py-50-sm { padding-top: 50px !important; padding-bottom: 50px !important; }
+    .p-v-60-sm, .py-60-sm { padding-top: 60px !important; padding-bottom: 60px !important; }
+    .p-v-70-sm, .py-70-sm { padding-top: 70px !important; padding-bottom: 70px !important; }
+    .p-v-80-sm, .py-80-sm { padding-top: 80px !important; padding-bottom: 80px !important; }
+    .p-v-90-sm, .py-90-sm { padding-top: 90px !important; padding-bottom: 90px !important; }
+    .p-v-100-sm, .py-100-sm { padding-top: 100px !important; padding-bottom: 100px !important; }
+    .p-v-150-sm, .py-150-sm { padding-top: 150px !important; padding-bottom: 150px !important; }
+    .p-v-200-sm, .py-200-sm { padding-top: 200px !important; padding-bottom: 200px !important; }
     /* padding-(horizontal/left-right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-p-h-0 { padding-left: 0px !important; padding-right: 0px !important; }
-    .sm-p-h-5 { padding-left: 5px !important; padding-right: 5px !important; }
-    .sm-p-h-10 { padding-left: 10px !important; padding-right: 10px !important; }
-    .sm-p-h-15 { padding-left: 15px !important; padding-right: 15px !important; }
-    .sm-p-h-20 { padding-left: 20px !important; padding-right: 20px !important; }
-    .sm-p-h-25 { padding-left: 25px !important; padding-right: 25px !important; }
-    .sm-p-h-30 { padding-left: 30px !important; padding-right: 30px !important; }
-    .sm-p-h-35 { padding-left: 35px !important; padding-right: 35px !important; }
-    .sm-p-h-40 { padding-left: 40px !important; padding-right: 40px !important; }
-    .sm-p-h-50 { padding-left: 50px !important; padding-right: 50px !important; }
-    .sm-p-h-60 { padding-left: 60px !important; padding-right: 60px !important; }
-    .sm-p-h-70 { padding-left: 70px !important; padding-right: 70px !important; }
-    .sm-p-h-80 { padding-left: 80px !important; padding-right: 80px !important; }
-    .sm-p-h-90 { padding-left: 90px !important; padding-right: 90px !important; }
-    .sm-p-h-100 { padding-left: 100px !important; padding-right: 100px !important; }
-    .sm-p-h-150 { padding-left: 150px !important; padding-right: 150px !important; }
-    .sm-p-h-200 { padding-left: 200px !important; padding-right: 200px !important; }
+    .p-h-0-sm, .px-0-sm { padding-left: 0 !important; padding-right: 0 !important; }
+    .p-h-5-sm, .px-5-sm { padding-left: 5px !important; padding-right: 5px !important; }
+    .p-h-10-sm, .px-10-sm { padding-left: 10px !important; padding-right: 10px !important; }
+    .p-h-15-sm, .px-15-sm { padding-left: 15px !important; padding-right: 15px !important; }
+    .p-h-20-sm, .px-20-sm { padding-left: 20px !important; padding-right: 20px !important; }
+    .p-h-25-sm, .px-25-sm { padding-left: 25px !important; padding-right: 25px !important; }
+    .p-h-30-sm, .px-30-sm { padding-left: 30px !important; padding-right: 30px !important; }
+    .p-h-35-sm, .px-35-sm { padding-left: 35px !important; padding-right: 35px !important; }
+    .p-h-40-sm, .px-40-sm { padding-left: 40px !important; padding-right: 40px !important; }
+    .p-h-50-sm, .px-50-sm { padding-left: 50px !important; padding-right: 50px !important; }
+    .p-h-60-sm, .px-60-sm { padding-left: 60px !important; padding-right: 60px !important; }
+    .p-h-70-sm, .px-70-sm { padding-left: 70px !important; padding-right: 70px !important; }
+    .p-h-80-sm, .px-80-sm { padding-left: 80px !important; padding-right: 80px !important; }
+    .p-h-90-sm, .px-90-sm { padding-left: 90px !important; padding-right: 90px !important; }
+    .p-h-100-sm, .px-100-sm { padding-left: 100px !important; padding-right: 100px !important; }
+    .p-h-150-sm, .px-150-sm { padding-left: 150px !important; padding-right: 150px !important; }
+    .p-h-200-sm, .px-200-sm { padding-left: 200px !important; padding-right: 200px !important; }
     /* padding-(bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-p-b-0 { padding-bottom: 0px !important; }
-    .sm-p-b-5 { padding-bottom: 5px !important; }
-    .sm-p-b-10 { padding-bottom: 10px !important; }
-    .sm-p-b-15 { padding-bottom: 15px !important; }
-    .sm-p-b-20 { padding-bottom: 20px !important; }
-    .sm-p-b-25 { padding-bottom: 25px !important; }
-    .sm-p-b-30 { padding-bottom: 30px !important; }
-    .sm-p-b-35 { padding-bottom: 35px !important; }
-    .sm-p-b-40 { padding-bottom: 40px !important; }
-    .sm-p-b-50 { padding-bottom: 50px !important; }
-    .sm-p-b-60 { padding-bottom: 60px !important; }
-    .sm-p-b-70 { padding-bottom: 70px !important; }
-    .sm-p-b-80 { padding-bottom: 80px !important; }
-    .sm-p-b-90 { padding-bottom: 90px !important; }
-    .sm-p-b-100 { padding-bottom: 100px !important; }
-    .sm-p-b-150 { padding-bottom: 150px !important; }
-    .sm-p-b-200 { padding-bottom: 200px !important; }
+    .p-b-0-sm, .pb-0-sm { padding-bottom: 0 !important; }
+    .p-b-5-sm, .pb-5-sm { padding-bottom: 5px !important; }
+    .p-b-10-sm, .pb-10-sm { padding-bottom: 10px !important; }
+    .p-b-15-sm, .pb-15-sm { padding-bottom: 15px !important; }
+    .p-b-20-sm, .pb-20-sm { padding-bottom: 20px !important; }
+    .p-b-25-sm, .pb-25-sm { padding-bottom: 25px !important; }
+    .p-b-30-sm, .pb-30-sm { padding-bottom: 30px !important; }
+    .p-b-35-sm, .pb-35-sm { padding-bottom: 35px !important; }
+    .p-b-40-sm, .pb-40-sm { padding-bottom: 40px !important; }
+    .p-b-50-sm, .pb-50-sm { padding-bottom: 50px !important; }
+    .p-b-60-sm, .pb-60-sm { padding-bottom: 60px !important; }
+    .p-b-70-sm, .pb-70-sm { padding-bottom: 70px !important; }
+    .p-b-80-sm, .pb-80-sm { padding-bottom: 80px !important; }
+    .p-b-90-sm, .pb-90-sm { padding-bottom: 90px !important; }
+    .p-b-100-sm, .pb-100-sm { padding-bottom: 100px !important; }
+    .p-b-150-sm, .pb-150-sm { padding-bottom: 150px !important; }
+    .p-b-200-sm, .pb-200-sm { padding-bottom: 200px !important; }
     /* padding-(top) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-p-t-0 { padding-top: 0px !important; }
-    .sm-p-t-5 { padding-top: 5px !important; }
-    .sm-p-t-10 { padding-top: 10px !important; }
-    .sm-p-t-15 { padding-top: 15px !important; }
-    .sm-p-t-20 { padding-top: 20px !important; }
-    .sm-p-t-25 { padding-top: 25px !important; }
-    .sm-p-t-30 { padding-top: 30px !important; }
-    .sm-p-t-35 { padding-top: 35px !important; }
-    .sm-p-t-40 { padding-top: 40px !important; }
-    .sm-p-t-50 { padding-top: 50px !important; }
-    .sm-p-t-60 { padding-top: 60px !important; }
-    .sm-p-t-70 { padding-top: 70px !important; }
-    .sm-p-t-80 { padding-top: 80px !important; }
-    .sm-p-t-90 { padding-top: 90px !important; }
-    .sm-p-t-100 { padding-top: 100px !important; }
-    .sm-p-t-150 { padding-top: 150px !important; }
-    .sm-p-t-200 { padding-top: 200px !important; }
+    .p-t-0-sm, .pt-0-sm { padding-top: 0 !important; }
+    .p-t-5-sm, .pt-5-sm { padding-top: 5px !important; }
+    .p-t-10-sm, .pt-10-sm { padding-top: 10px !important; }
+    .p-t-15-sm, .pt-15-sm { padding-top: 15px !important; }
+    .p-t-20-sm, .pt-20-sm { padding-top: 20px !important; }
+    .p-t-25-sm, .pt-25-sm { padding-top: 25px !important; }
+    .p-t-30-sm, .pt-30-sm { padding-top: 30px !important; }
+    .p-t-35-sm, .pt-35-sm { padding-top: 35px !important; }
+    .p-t-40-sm, .pt-40-sm { padding-top: 40px !important; }
+    .p-t-50-sm, .pt-50-sm { padding-top: 50px !important; }
+    .p-t-60-sm, .pt-60-sm { padding-top: 60px !important; }
+    .p-t-70-sm, .pt-70-sm { padding-top: 70px !important; }
+    .p-t-80-sm, .pt-80-sm { padding-top: 80px !important; }
+    .p-t-90-sm, .pt-90-sm { padding-top: 90px !important; }
+    .p-t-100-sm, .pt-100-sm { padding-top: 100px !important; }
+    .p-t-150-sm, .pt-150-sm { padding-top: 150px !important; }
+    .p-t-200-sm, .pt-200-sm { padding-top: 200px !important; }
     /* padding-(right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-p-r-0 { padding-right: 0px !important; }
-    .sm-p-r-5 { padding-right: 5px !important; }
-    .sm-p-r-10 { padding-right: 10px !important; }
-    .sm-p-r-15 { padding-right: 15px !important; }
-    .sm-p-r-20 { padding-right: 20px !important; }
-    .sm-p-r-25 { padding-right: 25px !important; }
-    .sm-p-r-30 { padding-right: 30px !important; }
-    .sm-p-r-35 { padding-right: 35px !important; }
-    .sm-p-r-40 { padding-right: 40px !important; }
-    .sm-p-r-50 { padding-right: 50px !important; }
-    .sm-p-r-60 { padding-right: 60px !important; }
-    .sm-p-r-70 { padding-right: 70px !important; }
-    .sm-p-r-80 { padding-right: 80px !important; }
-    .sm-p-r-90 { padding-right: 90px !important; }
-    .sm-p-r-100 { padding-right: 100px !important; }
-    .sm-p-r-150 { padding-right: 150px !important; }
-    .sm-p-r-200 { padding-right: 200px !important; }
+    .p-r-0-sm, .pr-0-sm { padding-right: 0 !important; }
+    .p-r-5-sm, .pr-5-sm { padding-right: 5px !important; }
+    .p-r-10-sm, .pr-10-sm { padding-right: 10px !important; }
+    .p-r-15-sm, .pr-15-sm { padding-right: 15px !important; }
+    .p-r-20-sm, .pr-20-sm { padding-right: 20px !important; }
+    .p-r-25-sm, .pr-25-sm { padding-right: 25px !important; }
+    .p-r-30-sm, .pr-30-sm { padding-right: 30px !important; }
+    .p-r-35-sm, .pr-35-sm { padding-right: 35px !important; }
+    .p-r-40-sm, .pr-40-sm { padding-right: 40px !important; }
+    .p-r-50-sm, .pr-50-sm { padding-right: 50px !important; }
+    .p-r-60-sm, .pr-60-sm { padding-right: 60px !important; }
+    .p-r-70-sm, .pr-70-sm { padding-right: 70px !important; }
+    .p-r-80-sm, .pr-80-sm { padding-right: 80px !important; }
+    .p-r-90-sm, .pr-90-sm { padding-right: 90px !important; }
+    .p-r-100-sm, .pr-100-sm { padding-right: 100px !important; }
+    .p-r-150-sm, .pr-150-sm { padding-right: 150px !important; }
+    .p-r-200-sm, .pr-200-sm { padding-right: 200px !important; }
     /* padding-(left) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-p-l-0 { padding-left: 0px !important; }
-    .sm-p-l-5 { padding-left: 5px !important; }
-    .sm-p-l-10 { padding-left: 10px !important; }
-    .sm-p-l-15 { padding-left: 15px !important; }
-    .sm-p-l-20 { padding-left: 20px !important; }
-    .sm-p-l-25 { padding-left: 25px !important; }
-    .sm-p-l-30 { padding-left: 30px !important; }
-    .sm-p-l-35 { padding-left: 35px !important; }
-    .sm-p-l-40 { padding-left: 40px !important; }
-    .sm-p-l-50 { padding-left: 50px !important; }
-    .sm-p-l-60 { padding-left: 60px !important; }
-    .sm-p-l-70 { padding-left: 70px !important; }
-    .sm-p-l-80 { padding-left: 80px !important; }
-    .sm-p-l-90 { padding-left: 90px !important; }
-    .sm-p-l-100 { padding-left: 100px !important; }
-    .sm-p-l-150 { padding-left: 150px !important; }
-    .sm-p-l-200 { padding-left: 200px !important; }
+    .p-l-0-sm, .pl-0-sm { padding-left: 0 !important; }
+    .p-l-5-sm, .pl-5-sm { padding-left: 5px !important; }
+    .p-l-10-sm, .pl-10-sm { padding-left: 10px !important; }
+    .p-l-15-sm, .pl-15-sm { padding-left: 15px !important; }
+    .p-l-20-sm, .pl-20-sm { padding-left: 20px !important; }
+    .p-l-25-sm, .pl-25-sm { padding-left: 25px !important; }
+    .p-l-30-sm, .pl-30-sm { padding-left: 30px !important; }
+    .p-l-35-sm, .pl-35-sm { padding-left: 35px !important; }
+    .p-l-40-sm, .pl-40-sm { padding-left: 40px !important; }
+    .p-l-50-sm, .pl-50-sm { padding-left: 50px !important; }
+    .p-l-60-sm, .pl-60-sm { padding-left: 60px !important; }
+    .p-l-70-sm, .pl-70-sm { padding-left: 70px !important; }
+    .p-l-80-sm, .pl-80-sm { padding-left: 80px !important; }
+    .p-l-90-sm, .pl-90-sm { padding-left: 90px !important; }
+    .p-l-100-sm, .pl-100-sm { padding-left: 100px !important; }
+    .p-l-150-sm, .pl-150-sm { padding-left: 150px !important; }
+    .p-l-200-sm, .pl-200-sm { padding-left: 200px !important; }
     /* * * * MARGINS * * * */
-    /* margin-(all) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 ex: sm-m-0, sm-m-10*/
-    .sm-m-0 { margin: 0px !important; }
-    .sm-m-5 { margin: 5px !important; }
-    .sm-m-10 { margin: 10px !important; }
-    .sm-m-15 { margin: 15px !important; }
-    .sm-m-20 { margin: 20px !important; }
-    .sm-m-25 { margin: 25px !important; }
-    .sm-m-30 { margin: 30px !important; }
-    .sm-m-35 { margin: 35px !important; }
-    .sm-m-40 { margin: 40px !important; }
-    .sm-m-50 { margin: 50px !important; }
-    .sm-m-60 { margin: 60px !important; }
-    .sm-m-70 { margin: 70px !important; }
-    .sm-m-80 { margin: 80px !important; }
-    .sm-m-90 { margin: 90px !important; }
-    .sm-m-100 { margin: 100px !important; }
-    .sm-m-150 { margin: 150px !important; }
-    .sm-m-200 { margin: 200px !important; }
-    /* margin-(bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-m-b-0 { margin-bottom: 0px !important; }
-    .sm-m-b-5 { margin-bottom: 5px !important; }
-    .sm-m-b-10 { margin-bottom: 10px !important; }
-    .sm-m-b-15 { margin-bottom: 15px !important; }
-    .sm-m-b-20 { margin-bottom: 20px !important; }
-    .sm-m-b-25 { margin-bottom: 25px !important; }
-    .sm-m-b-30 { margin-bottom: 30px !important; }
-    .sm-m-b-35 { margin-bottom: 35px !important; }
-    .sm-m-b-40 { margin-bottom: 40px !important; }
-    .sm-m-b-50 { margin-bottom: 50px !important; }
-    .sm-m-b-60 { margin-bottom: 60px !important; }
-    .sm-m-b-70 { margin-bottom: 70px !important; }
-    .sm-m-b-80 { margin-bottom: 80px !important; }
-    .sm-m-b-90 { margin-bottom: 90px !important; }
-    .sm-m-b-100 { margin-bottom: 100px !important; }
-    .sm-m-b-150 { margin-bottom: 150px !important; }
-    .sm-m-b-200 { margin-bottom: 200px !important; }
-    /* margin-(top) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-m-t-0 { margin-top: 0px !important; }
-    .sm-m-t-5 { margin-top: 5px !important; }
-    .sm-m-t-10 { margin-top: 10px !important; }
-    .sm-m-t-15 { margin-top: 15px !important; }
-    .sm-m-t-20 { margin-top: 20px !important; }
-    .sm-m-t-25 { margin-top: 25px !important; }
-    .sm-m-t-30 { margin-top: 30px !important; }
-    .sm-m-t-35 { margin-top: 35px !important; }
-    .sm-m-t-40 { margin-top: 40px !important; }
-    .sm-m-t-50 { margin-top: 50px !important; }
-    .sm-m-t-60 { margin-top: 60px !important; }
-    .sm-m-t-70 { margin-top: 70px !important; }
-    .sm-m-t-80 { margin-top: 80px !important; }
-    .sm-m-t-90 { margin-top: 90px !important; }
-    .sm-m-t-100 { margin-top: 100px !important; }
-    .sm-m-t-150 { margin-top: 150px !important; }
-    .sm-m-t-200 { margin-top: 200px !important; }
-    /* margin-(vertical/top-bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-m-v-0 { margin-top: 0px !important; margin-bottom: 0px !important; }
-    .sm-m-v-5 { margin-top: 5px !important; margin-bottom: 5px !important; }
-    .sm-m-v-10 { margin-top: 10px !important; margin-bottom: 10px !important; }
-    .sm-m-v-15 { margin-top: 15px !important; margin-bottom: 15px !important; }
-    .sm-m-v-20 { margin-top: 20px !important; margin-bottom: 20px !important; }
-    .sm-m-v-25 { margin-top: 25px !important; margin-bottom: 25px !important; }
-    .sm-m-v-30 { margin-top: 30px !important; margin-bottom: 30px !important; }
-    .sm-m-v-35 { margin-top: 35px !important; margin-bottom: 35px !important; }
-    .sm-m-v-40 { margin-top: 40px !important; margin-bottom: 40px !important; }
-    .sm-m-v-50 { margin-top: 50px !important; margin-bottom: 50px !important; }
-    .sm-m-v-60 { margin-top: 60px !important; margin-bottom: 60px !important; }
-    .sm-m-v-70 { margin-top: 70px !important; margin-bottom: 70px !important; }
-    .sm-m-v-80 { margin-top: 80px !important; margin-bottom: 80px !important; }
-    .sm-m-v-90 { margin-top: 90px !important; margin-bottom: 90px !important; }
-    .sm-m-v-100 { margin-top: 100px !important; margin-bottom: 100px !important; }
-    .sm-m-v-150 { margin-top: 150px !important; margin-bottom: 150px !important; }
-    .sm-m-v-200 { margin-top: 200px !important; margin-bottom: 200px !important; }
-    /* margin-(horizontal/left-right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-m-h-0 { margin-left: 0px !important; margin-right: 0px !important; }
-    .sm-m-h-5 { margin-left: 5px !important; margin-right: 5px !important; }
-    .sm-m-h-10 { margin-left: 10px !important; margin-right: 10px !important; }
-    .sm-m-h-15 { margin-left: 15px !important; margin-right: 15px !important; }
-    .sm-m-h-20 { margin-left: 20px !important; margin-right: 20px !important; }
-    .sm-m-h-25 { margin-left: 25px !important; margin-right: 25px !important; }
-    .sm-m-h-30 { margin-left: 30px !important; margin-right: 30px !important; }
-    .sm-m-h-35 { margin-left: 35px !important; margin-right: 35px !important; }
-    .sm-m-h-40 { margin-left: 40px !important; margin-right: 40px !important; }
-    .sm-m-h-50 { margin-left: 50px !important; margin-right: 50px !important; }
-    .sm-m-h-60 { margin-left: 60px !important; margin-right: 60px !important; }
-    .sm-m-h-70 { margin-left: 70px !important; margin-right: 70px !important; }
-    .sm-m-h-80 { margin-left: 80px !important; margin-right: 80px !important; }
-    .sm-m-h-90 { margin-left: 90px !important; margin-right: 90px !important; }
-    .sm-m-h-100 { margin-left: 100px !important; margin-right: 100px !important; }
-    .sm-m-h-150 { margin-left: 150px !important; margin-right: 150px !important; }
-    .sm-m-h-200 { margin-left: 200px !important; margin-right: 200px !important; }
-    /* margin-(right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-m-r-0 { margin-right: 0px !important; }
-    .sm-m-r-5 { margin-right: 5px !important; }
-    .sm-m-r-10 { margin-right: 10px !important; }
-    .sm-m-r-15 { margin-right: 15px !important; }
-    .sm-m-r-20 { margin-right: 20px !important; }
-    .sm-m-r-25 { margin-right: 25px !important; }
-    .sm-m-r-30 { margin-right: 30px !important; }
-    .sm-m-r-35 { margin-right: 35px !important; }
-    .sm-m-r-40 { margin-right: 40px !important; }
-    .sm-m-r-50 { margin-right: 50px !important; }
-    .sm-m-r-60 { margin-right: 60px !important; }
-    .sm-m-r-70 { margin-right: 70px !important; }
-    .sm-m-r-80 { margin-right: 80px !important; }
-    .sm-m-r-90 { margin-right: 90px !important; }
-    .sm-m-r-100 { margin-right: 100px !important; }
-    .sm-m-r-150 { margin-right: 150px !important; }
-    .sm-m-r-200 { margin-right: 200px !important; }
-    /* margin-(left) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-    .sm-m-l-0 { margin-left: 0px !important; }
-    .sm-m-l-5 { margin-left: 5px !important; }
-    .sm-m-l-10 { margin-left: 10px !important; }
-    .sm-m-l-15 { margin-left: 15px !important; }
-    .sm-m-l-20 { margin-left: 20px !important; }
-    .sm-m-l-25 { margin-left: 25px !important; }
-    .sm-m-l-30 { margin-left: 30px !important; }
-    .sm-m-l-35 { margin-left: 35px !important; }
-    .sm-m-l-40 { margin-left: 40px !important; }
-    .sm-m-l-50 { margin-left: 50px !important; }
-    .sm-m-l-60 { margin-left: 60px !important; }
-    .sm-m-l-70 { margin-left: 70px !important; }
-    .sm-m-l-80 { margin-left: 80px !important; }
-    .sm-m-l-90 { margin-left: 90px !important; }
-    .sm-m-l-100 { margin-left: 100px !important; }
-    .sm-m-l-150 { margin-left: 150px !important; }
-    .sm-m-l-200 { margin-left: 200px !important; }
+    /* margin-(all) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 + same as Bs4 philosophy .m- */
+    .m-0-sm { margin: 0 !important; }
+    .m-5-sm { margin: 5px !important; }
+    .m-10-sm { margin: 10px !important; }
+    .m-15-sm { margin: 15px !important; }
+    .m-20-sm { margin: 20px !important; }
+    .m-25-sm { margin: 25px !important; }
+    .m-30-sm { margin: 30px !important; }
+    .m-35-sm { margin: 35px !important; }
+    .m-40-sm { margin: 40px !important; }
+    .m-50-sm { margin: 50px !important; }
+    .m-60-sm { margin: 60px !important; }
+    .m-70-sm { margin: 70px !important; }
+    .m-80-sm { margin: 80px !important; }
+    .m-90-sm { margin: 90px !important; }
+    .m-100-sm { margin: 100px !important; }
+    .m-150-sm { margin: 150px !important; }
+    .m-200-sm { margin: 200px !important; }
+    /* margin-(bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 + Bs4 philosophy .mb- */
+    .m-b-0-sm, .mb-0-sm { margin-bottom: 0 !important; }
+    .m-b-5-sm, .mb-5-sm { margin-bottom: 5px !important; }
+    .m-b-10-sm, .mb-10-sm { margin-bottom: 10px !important; }
+    .m-b-15-sm, .mb-15-sm { margin-bottom: 15px !important; }
+    .m-b-20-sm, .mb-20-sm { margin-bottom: 20px !important; }
+    .m-b-25-sm, .mb-25-sm { margin-bottom: 25px !important; }
+    .m-b-30-sm, .mb-30-sm { margin-bottom: 30px !important; }
+    .m-b-35-sm, .mb-35-sm { margin-bottom: 35px !important; }
+    .m-b-40-sm, .mb-40-sm { margin-bottom: 40px !important; }
+    .m-b-50-sm, .mb-50-sm { margin-bottom: 50px !important; }
+    .m-b-60-sm, .mb-60-sm { margin-bottom: 60px !important; }
+    .m-b-70-sm, .mb-70-sm { margin-bottom: 70px !important; }
+    .m-b-80-sm, .mb-80-sm { margin-bottom: 80px !important; }
+    .m-b-90-sm, .mb-90-sm { margin-bottom: 90px !important; }
+    .m-b-100-sm, .mb-100-sm { margin-bottom: 100px !important; }
+    .m-b-150-sm, .mb-150-sm { margin-bottom: 150px !important; }
+    .m-b-200-sm, .mb-200-sm { margin-bottom: 200px !important; }
+    /* margin-(top) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 + Bs4 philosophy .mt- */
+    .m-t-0-sm, .mt-0-sm { margin-top: 0 !important; }
+    .m-t-5-sm, .mt-5-sm { margin-top: 5px !important; }
+    .m-t-10-sm, .mt-10-sm { margin-top: 10px !important; }
+    .m-t-15-sm, .mt-15-sm { margin-top: 15px !important; }
+    .m-t-20-sm, .mt-20-sm { margin-top: 20px !important; }
+    .m-t-25-sm, .mt-25-sm { margin-top: 25px !important; }
+    .m-t-30-sm, .mt-30-sm { margin-top: 30px !important; }
+    .m-t-35-sm, .mt-35-sm { margin-top: 35px !important; }
+    .m-t-40-sm, .mt-40-sm { margin-top: 40px !important; }
+    .m-t-50-sm, .mt-50-sm { margin-top: 50px !important; }
+    .m-t-60-sm, .mt-60-sm { margin-top: 60px !important; }
+    .m-t-70-sm, .mt-70-sm { margin-top: 70px !important; }
+    .m-t-80-sm, .mt-80-sm { margin-top: 80px !important; }
+    .m-t-90-sm, .mt-90-sm { margin-top: 90px !important; }
+    .m-t-100-sm, .mt-100-sm { margin-top: 100px !important; }
+    .m-t-150-sm, .mt-150-sm { margin-top: 150px !important; }
+    .m-t-200-sm, .mt-200-sm { margin-top: 200px !important; }
+    /* margin-(vertical/top-bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 + Bs4 philosophy .my- */
+    .m-v-0-sm, .my-0-sm { margin-top: 0 !important; margin-bottom: 0 !important; }
+    .m-v-5-sm, .my-5-sm { margin-top: 5px !important; margin-bottom: 5px !important; }
+    .m-v-10-sm, .my-10-sm { margin-top: 10px !important; margin-bottom: 10px !important; }
+    .m-v-15-sm, .my-15-sm { margin-top: 15px !important; margin-bottom: 15px !important; }
+    .m-v-20-sm, .my-20-sm { margin-top: 20px !important; margin-bottom: 20px !important; }
+    .m-v-25-sm, .my-25-sm { margin-top: 25px !important; margin-bottom: 25px !important; }
+    .m-v-30-sm, .my-30-sm { margin-top: 30px !important; margin-bottom: 30px !important; }
+    .m-v-35-sm, .my-35-sm { margin-top: 35px !important; margin-bottom: 35px !important; }
+    .m-v-40-sm, .my-40-sm { margin-top: 40px !important; margin-bottom: 40px !important; }
+    .m-v-50-sm, .my-50-sm { margin-top: 50px !important; margin-bottom: 50px !important; }
+    .m-v-60-sm, .my-60-sm { margin-top: 60px !important; margin-bottom: 60px !important; }
+    .m-v-70-sm, .my-70-sm { margin-top: 70px !important; margin-bottom: 70px !important; }
+    .m-v-80-sm, .my-80-sm { margin-top: 80px !important; margin-bottom: 80px !important; }
+    .m-v-90-sm, .my-90-sm { margin-top: 90px !important; margin-bottom: 90px !important; }
+    .m-v-100-sm, .my-100-sm { margin-top: 100px !important; margin-bottom: 100px !important; }
+    .m-v-150-sm, .my-150-sm { margin-top: 150px !important; margin-bottom: 150px !important; }
+    .m-v-200-sm, .my-200-sm { margin-top: 200px !important; margin-bottom: 200px !important; }
+    /* margin-(horizontal/left-right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 + Bs4 philosophy .mx- */
+    .m-h-0-sm, .mx-0-sm { margin-left: 0 !important; margin-right: 0 !important; }
+    .m-h-5-sm, .mx-5-sm { margin-left: 5px !important; margin-right: 5px !important; }
+    .m-h-10-sm, .mx-10-sm { margin-left: 10px !important; margin-right: 10px !important; }
+    .m-h-15-sm, .mx-15-sm { margin-left: 15px !important; margin-right: 15px !important; }
+    .m-h-20-sm, .mx-20-sm { margin-left: 20px !important; margin-right: 20px !important; }
+    .m-h-25-sm, .mx-25-sm { margin-left: 25px !important; margin-right: 25px !important; }
+    .m-h-30-sm, .mx-30-sm { margin-left: 30px !important; margin-right: 30px !important; }
+    .m-h-35-sm, .mx-35-sm { margin-left: 35px !important; margin-right: 35px !important; }
+    .m-h-40-sm, .mx-40-sm { margin-left: 40px !important; margin-right: 40px !important; }
+    .m-h-50-sm, .mx-50-sm { margin-left: 50px !important; margin-right: 50px !important; }
+    .m-h-60-sm, .mx-60-sm { margin-left: 60px !important; margin-right: 60px !important; }
+    .m-h-70-sm, .mx-70-sm { margin-left: 70px !important; margin-right: 70px !important; }
+    .m-h-80-sm, .mx-80-sm { margin-left: 80px !important; margin-right: 80px !important; }
+    .m-h-90-sm, .mx-90-sm { margin-left: 90px !important; margin-right: 90px !important; }
+    .m-h-100-sm, .mx-100-sm { margin-left: 100px !important; margin-right: 100px !important; }
+    .m-h-150-sm, .mx-150-sm { margin-left: 150px !important; margin-right: 150px !important; }
+    .m-h-200-sm, .mx-200-sm { margin-left: 200px !important; margin-right: 200px !important; }
+    /* margin-(right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 + Bs4 philosophy .mr- */
+    .m-r-0-sm, .mr-0-sm { margin-right: 0 !important; }
+    .m-r-5-sm, .mr-5-sm { margin-right: 5px !important; }
+    .m-r-10-sm, .mr-10-sm { margin-right: 10px !important; }
+    .m-r-15-sm, .mr-15-sm { margin-right: 15px !important; }
+    .m-r-20-sm, .mr-20-sm { margin-right: 20px !important; }
+    .m-r-25-sm, .mr-25-sm { margin-right: 25px !important; }
+    .m-r-30-sm, .mr-30-sm { margin-right: 30px !important; }
+    .m-r-35-sm, .mr-35-sm { margin-right: 35px !important; }
+    .m-r-40-sm, .mr-40-sm { margin-right: 40px !important; }
+    .m-r-50-sm, .mr-50-sm { margin-right: 50px !important; }
+    .m-r-60-sm, .mr-60-sm { margin-right: 60px !important; }
+    .m-r-70-sm, .mr-70-sm { margin-right: 70px !important; }
+    .m-r-80-sm, .mr-80-sm { margin-right: 80px !important; }
+    .m-r-90-sm, .mr-90-sm { margin-right: 90px !important; }
+    .m-r-100-sm, .mr-100-sm { margin-right: 100px !important; }
+    .m-r-150-sm, .mr-150-sm { margin-right: 150px !important; }
+    .m-r-200-sm, .mr-200-sm { margin-right: 200px !important; }
+    /* margin-(left) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 + Bs4 philosophy .ml- */
+    .m-l-0-sm, .ml-0-sm { margin-left: 0 !important; }
+    .m-l-5-sm, .ml-5-sm { margin-left: 5px !important; }
+    .m-l-10-sm, .ml-10-sm { margin-left: 10px !important; }
+    .m-l-15-sm, .ml-15-sm { margin-left: 15px !important; }
+    .m-l-20-sm, .ml-20-sm { margin-left: 20px !important; }
+    .m-l-25-sm, .ml-25-sm { margin-left: 25px !important; }
+    .m-l-30-sm, .ml-30-sm { margin-left: 30px !important; }
+    .m-l-35-sm, .ml-35-sm { margin-left: 35px !important; }
+    .m-l-40-sm, .ml-40-sm { margin-left: 40px !important; }
+    .m-l-50-sm, .ml-50-sm { margin-left: 50px !important; }
+    .m-l-60-sm, .ml-60-sm { margin-left: 60px !important; }
+    .m-l-70-sm, .ml-70-sm { margin-left: 70px !important; }
+    .m-l-80-sm, .ml-80-sm { margin-left: 80px !important; }
+    .m-l-90-sm, .ml-90-sm { margin-left: 90px !important; }
+    .m-l-100-sm, .ml-100-sm { margin-left: 100px !important; }
+    .m-l-150-sm, .ml-150-sm { margin-left: 150px !important; }
+    .m-l-200-sm, .ml-200-sm { margin-left: 200px !important; }
     /* SM RESPONSIVE PADDING AND MARGINS */
 }
