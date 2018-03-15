@@ -29,7 +29,7 @@ HEAD - https://github.com/joshbuchea/HEAD
 #### Dependency and many Thank to:
 jQuery - https://github.com/jquery/jquery
 
-... raty, datepicker, selectize, iCheck, SVG-Loaders, nicescroll, bootstrapSwitch, bootstrap-daterangepicker, wArtur
+... raty, bootstrap-datepicker, selectize, iCheck, SVG-Loaders, nicescroll, bootstrapSwitch, bootstrap-daterangepicker, js-cookie, see bower.json for complete list
 
 (you can remove the dependencies or not include script and their not will be made nothing cause there are a check before any action)
 
