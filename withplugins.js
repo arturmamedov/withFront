@@ -910,4 +910,10 @@ $(document).ready(function () {
     $('.w-binded.w-setter').each( function(){
         wBind($(this));
     });
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+     * * * * * * * * * * * * * * * * * * * enable/disable functions  * * * * * * * * * * * * * * *
+     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+    LayoutGo2Top.init(); // go2top button {css: .go2top}
 });
