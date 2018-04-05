@@ -593,7 +593,7 @@ $(document).ready(function () {
         if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0) {
             bsdp_lang_code = $("html").attr('lang');
         }
-        if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0) {
+        if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0 || bsdp_lang_code == 'en') {
             bsdp_lang_code = 'en-GB';
         }
 
