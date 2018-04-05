@@ -840,7 +840,7 @@ $(document).ready(function () {
 
         // get value from cookie
         var value = wCookies().get(name);
-        if(typeof value == 'undefined') {
+        if(typeof value == 'undefined' || value == '') {
             // if ($debug) {
             //     console.info('setFromCookie() No value ' + name + ' - ' + value);
             // }
@@ -885,6 +885,11 @@ $(document).ready(function () {
                 break;
         }
 
+        // children_age_form things
+        if($(selector).attr('name') == 'num_children') {
+            $(selector).trigger('keyup');
+        }
+
         // if ($debug) {
         //     console.info('setFromCookie() ' + name + ' - ' + type + ' - ' + value);
         // }
@@ -905,6 +910,11 @@ $(document).ready(function () {
         var value = _this.val();
         if (typeof value == 'undefined') {
             value = _this.data('value');
+        }
+
+        // not action if no value
+        if (value == '') {
+            return;
         }
 
         // set into cookie
@@ -948,6 +958,11 @@ $(document).ready(function () {
             }
         }
 
+        // not action if no value
+        if (value == '') {
+            return;
+        }
+
         switch(type) {
             case 'val':
                 $(selector).val(value);
@@ -986,6 +1001,7 @@ $(document).ready(function () {
     // set the binded value after load of document
     $('.w-binded.w-setter').each( function(){
         wBind($(this));
+        // setIntoCookie($(this)); combine w-binded and w-cookie
     });
 
 
