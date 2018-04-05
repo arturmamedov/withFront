@@ -281,7 +281,11 @@ $(document).ready(function () {
             }
             // over 5 chlids are invalid
             if (_childNum > max_children) {
-                $('body').gdivMessage('No more then '+max_children+' childs / Non più di '+max_children+' bambini', 'warning', {hidetime: 7000});
+                if ($().gdivMessage) {
+                    $('body').gdivMessage('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning', {hidetime: 7000});
+                } else {
+                    alert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning');
+                }
                 $('.child_num_input', form).val(max_children);
                 return false;
             }
@@ -356,14 +360,22 @@ $(document).ready(function () {
             success: function(json){
                 if(json.success)
                 {
-                    $("body").gdivMessage(json.message, 'success');
+                    if ($().gdivMessage) {
+                        $("body").gdivMessage(json.message, 'success');
+                    } else {
+                        alert(json.message);
+                    }
 
                     if($(thisForm).data('scallback').length > 0)
                     {
                         eval($(thisForm).data('scallback'));
                     }
                 } else {
-                    $("body").gdivMessage(json.message, 'danger');
+                    if ($().gdivMessage) {
+                        $("body").gdivMessage(json.message, 'danger');
+                    } else {
+                        alert(json.message);
+                    }
 
                     for(err in json.errors){
                         $('.form-'+err, $('#tab_'+area_code))
@@ -378,7 +390,11 @@ $(document).ready(function () {
                 }
             },
             error: function(){
-                $("body").gdivMessage();
+                if ($().gdivMessage) {
+                    $("body").gdivMessage('Unexpected error! Errore inaspettato!');
+                } else {
+                    alert('Unexpected error! Errore inaspettato!');
+                }
 
                 if($(thisForm).data('fcallback').length > 0)
                 {
@@ -504,7 +520,11 @@ $(document).ready(function () {
                     //     ga('send', 'event', 'contatti', 'click', 'newsletter', '5');
                     // }
 
-                    $("body").gdivMessage(json.message, 'success');
+                    if ($().gdivMessage) {
+                        $("body").gdivMessage(json.message, 'success');
+                    } else {
+                        alert(json.message);
+                    }
 
                     form.html('<h3>' + json.message + '</h3><h1 class="text-center"><i class="fa fa-check fa-5x text-success"></i></h1>', 1500);
                     $('.on-target').css('background-color', '#00e095');
@@ -512,7 +532,11 @@ $(document).ready(function () {
                     //   $('.on-target').css('background-color', 'transparent');
                     // }, 8000);
                 } else {
-                    $("body").gdivMessage(json.message, 'danger');
+                    if ($().gdivMessage) {
+                        $("body").gdivMessage(json.message, 'danger');
+                    } else {
+                        alert(json.message);
+                    }
 
                     for (err in json.errors) {
                         $(form).find('[name='+err+']').parent()
