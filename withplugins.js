@@ -885,8 +885,8 @@ $(document).ready(function () {
                 break;
         }
 
-        // children_age_form things
-        if($(selector).attr('name') == 'num_children') {
+        // children_age_form things & datepicker
+        if($(selector).attr('name') == 'num_children' || $(selector).hasClass('range')) {
             $(selector).trigger('keyup');
         }
 
@@ -985,8 +985,8 @@ $(document).ready(function () {
                 break;
         }
 
-        // children_age_form things
-        if($(selector).attr('name') == 'num_children') {
+        // children_age_form things & datepicker
+        if($(selector).attr('name') == 'num_children' || $(selector).hasClass('range')) {
             $(selector).trigger('keyup');
         }
 
