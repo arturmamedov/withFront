@@ -211,3 +211,17 @@ You can add a children number input that show the fields for each children age:
     </div>
 </div>
 ``` 
+
+
+#### Go to top button 
+Button fixed on bottom of the document that appear on scroll down and on click go to the top of document
+
+```html
+<!-- Add this to your layout -->
+<div class="go2top hidden-xs text-center">
+	<i class="fa fa-chevron-circle-up"></i>
+	<p class="hidden-sm">Torna su</p>
+</div>
+```
+
+And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  

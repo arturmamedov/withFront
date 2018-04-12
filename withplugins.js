@@ -705,6 +705,13 @@ $(document).ready(function () {
 
     /**
      * START: Layout Go2Top
+     * css: .go2top
+     * dependencies: bootstrap, font-awesome
+     *
+     *  <div class="go2top hidden-xs text-center">
+     *      <i class="fa fa-chevron-circle-up"></i>
+     *      <p class="hidden-sm">Torna su</p>
+     *  </div>
      */
     var LayoutGo2Top = function () {
         var handle = function () {
