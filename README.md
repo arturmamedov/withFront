@@ -71,31 +71,64 @@ For set all elements to have equal height add the `.withEqualHeight` class to pa
 ```
 
 
-#### Paddings & Margins (p-X, p-t-X, p-b-X ... m-X, m-l-X, m-r-X ...)
+#### Paddings & Margins
 
 For add `padding` or `margin` to an element use the helper classes:
+
+From `v4.0.0` also with __Bootstrap 4__ style:
+
+`(.mp-$x, .mt-$x, .mb-$x, .ml-$x, .mr-$x, .my-$x, .mx-$x)`
+
+
 
 ```css
 /* this mean margin on all directions of 5px */
 .m-5 { margin: 5px !important; }
+/* same for padding */
+.p-5 { padding: 5px !important; }
 
-/* this mean margin on TOP of 5px */
+/* this mean margin on t = TOP of 5px */
+.mt-5 { margin-top: 5px !important; } /* Bs4 */
 .m-t-5 { margin-top: 5px !important; }
+/* same for padding */
+.pt-5 { padding-top: 5px !important; } /* Bs4 */
+.p-t-5 { padding-top: 5px !important; }
 
-/* this mean margin RIGHT of 5px */
+/* this mean margin r = RIGHT of 5px */
+.mr-5 { margin-right: 5px !important; } /* Bs4 */
 .m-r-5 { margin-right: 5px !important; }
+/* same for padding */
+.pr-5 { padding-right: 5px !important; } /* Bs4 */
+.p-r-5 { padding-right: 5px !important; }
 
-/* And rispectively BOTTOM-b, LEFT-l */
+/* And rispectively b = BOTTOM, l = LEFT */
+.mb-5 { margin-bottom: 5px  !important; } /* Bs4 */
+.ml-5 { margin-left: 5px  !important; } /* Bs4 */
 .m-b-5 { margin-bottom: 5px  !important; }
 .m-l-5 { margin-left: 5px  !important; }
+/* same for padding */
+.pb-5 { padding-bottom: 5px  !important; } /* Bs4 */
+.pl-5 { padding-left: 5px  !important; } /* Bs4 */
+.p-b-5 { padding-bottom: 5px  !important; }
+.p-l-5 { padding-left: 5px  !important; }
 
-/* And there are another two things VERTICAL-v for margin right and left */
+/* And there are another two things v = VERTICAL 
+ * for margin top & bottom- Bs4: y = VERTICAL 
+ */
+.my-5 { margin-top: 5px  !important; margin-bottom: 5px  !important;} /* Bs4 */
 .m-v-5 { margin-top: 5px  !important; margin-bottom: 5px  !important;}
+/* same for padding */
+.py-5 { padding-top: 5px  !important; padding-bottom: 5px  !important;} /* Bs4 */
+.p-v-5 { padding-top: 5px  !important; padding-bottom: 5px  !important;}
 
-/* and HORIZONTAL-h for top and bottom */
-.m-h-5 { margin-left: 5px  !important; margin-right: 5px  !important; }
-
-
+/* And h = HORIZONTAL 
+ * Bs4: x = HORIZONTAL for margin right & left 
+ */
+.mx-5 { margin-left: 5px  !important; margin-right: 5px  !important;} /* Bs4 */
+.m-h-5 { margin-left: 5px  !important; margin-right: 5px  !important;}
+/* same for padding */
+.px-5 { padding-left: 5px  !important; padding-right: 5px  !important;} /* Bs4 */
+.p-h-5 { padding-left: 5px  !important; padding-right: 5px  !important;}
 ```
 
 The same thing for add `padding` change the `m` that stand for marrgin to `p` padding and you done!
@@ -103,7 +136,7 @@ The same thing for add `padding` change the `m` that stand for marrgin to `p` pa
 
 
 
-#### Loader
+#### Loader (for entire document or only inside some element)
 Thanks to [SamHerbert/SVG-Loaders](http://samherbert.net/svg-loaders/)
 
 For add a loader to your site, that appears and automatically closes when all content is load:
