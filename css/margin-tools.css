@@ -1,4 +1,8 @@
-/* margin's example: m-10, m-b-10, m-t-10, m-v-10, m-h-10, m-l-10, m-r-10 */
+/**
+ * Margin tools for all view port
+ *   example: (.m-10, .m-b-10, .m-t-10, .m-v-10, .m-h-10, .m-l-10, .m-r-10)
+ *   also with Bootstrap4 philosophy (.m-10, .mb-10, .mt-10, .mx-10, .my-10, .ml-10, .mr-10)
+*/
 
 /* margin-(all) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200*/
 .m-0 { margin: 0px !important; }
@@ -19,110 +23,110 @@
 .m-150 { margin: 150px !important; }
 .m-200 { margin: 200px !important; }
 /* margin-(vertical/top-bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-.m-v-0 { margin-top: 0px !important; margin-bottom: 0px !important; }
-.m-v-5 { margin-top: 5px !important; margin-bottom: 5px !important; }
-.m-v-10 { margin-top: 10px !important; margin-bottom: 10px !important; }
-.m-v-15 { margin-top: 15px !important; margin-bottom: 15px !important; }
-.m-v-20 { margin-top: 20px !important; margin-bottom: 20px !important; }
-.m-v-25 { margin-top: 25px !important; margin-bottom: 25px !important; }
-.m-v-30 { margin-top: 30px !important; margin-bottom: 30px !important; }
-.m-v-35 { margin-top: 35px !important; margin-bottom: 35px !important; }
-.m-v-40 { margin-top: 40px !important; margin-bottom: 40px !important; }
-.m-v-50 { margin-top: 50px !important; margin-bottom: 50px !important; }
-.m-v-60 { margin-top: 60px !important; margin-bottom: 60px !important; }
-.m-v-70 { margin-top: 70px !important; margin-bottom: 70px !important; }
-.m-v-80 { margin-top: 80px !important; margin-bottom: 80px !important; }
-.m-v-90 { margin-top: 90px !important; margin-bottom: 90px !important; }
-.m-v-100 { margin-top: 100px !important; margin-bottom: 100px !important; }
-.m-v-150 { margin-top: 150px !important; margin-bottom: 150px !important; }
-.m-v-200 { margin-top: 200px !important; margin-bottom: 200px !important; }
+.m-v-0, .my-0 { margin-top: 0px !important; margin-bottom: 0px !important; }
+.m-v-5, .my-5 { margin-top: 5px !important; margin-bottom: 5px !important; }
+.m-v-10, .my-10 { margin-top: 10px !important; margin-bottom: 10px !important; }
+.m-v-15, .my-15 { margin-top: 15px !important; margin-bottom: 15px !important; }
+.m-v-20, .my-20 { margin-top: 20px !important; margin-bottom: 20px !important; }
+.m-v-25, .my-25 { margin-top: 25px !important; margin-bottom: 25px !important; }
+.m-v-30, .my-30 { margin-top: 30px !important; margin-bottom: 30px !important; }
+.m-v-35, .my-35 { margin-top: 35px !important; margin-bottom: 35px !important; }
+.m-v-40, .my-40 { margin-top: 40px !important; margin-bottom: 40px !important; }
+.m-v-50, .my-50 { margin-top: 50px !important; margin-bottom: 50px !important; }
+.m-v-60, .my-60 { margin-top: 60px !important; margin-bottom: 60px !important; }
+.m-v-70, .my-70 { margin-top: 70px !important; margin-bottom: 70px !important; }
+.m-v-80, .my-80 { margin-top: 80px !important; margin-bottom: 80px !important; }
+.m-v-90, .my-90 { margin-top: 90px !important; margin-bottom: 90px !important; }
+.m-v-100, .my-100 { margin-top: 100px !important; margin-bottom: 100px !important; }
+.m-v-150, .my-150 { margin-top: 150px !important; margin-bottom: 150px !important; }
+.m-v-200, .my-200 { margin-top: 200px !important; margin-bottom: 200px !important; }
 /* margin-(horizontal/left-right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-.m-h-0 { margin-left: 0px !important; margin-right: 0px !important; }
-.m-h-5 { margin-left: 5px !important; margin-right: 5px !important; }
-.m-h-10 { margin-left: 10px !important; margin-right: 10px !important; }
-.m-h-15 { margin-left: 15px !important; margin-right: 15px !important; }
-.m-h-20 { margin-left: 20px !important; margin-right: 20px !important; }
-.m-h-25 { margin-left: 25px !important; margin-right: 25px !important; }
-.m-h-30 { margin-left: 30px !important; margin-right: 30px !important; }
-.m-h-35 { margin-left: 35px !important; margin-right: 35px !important; }
-.m-h-40 { margin-left: 40px !important; margin-right: 40px !important; }
-.m-h-50 { margin-left: 50px !important; margin-right: 50px !important; }
-.m-h-60 { margin-left: 60px !important; margin-right: 60px !important; }
-.m-h-70 { margin-left: 70px !important; margin-right: 70px !important; }
-.m-h-80 { margin-left: 80px !important; margin-right: 80px !important; }
-.m-h-90 { margin-left: 90px !important; margin-right: 90px !important; }
-.m-h-100 { margin-left: 100px !important; margin-right: 100px !important; }
-.m-h-150 { margin-left: 150px !important; margin-right: 150px !important; }
-.m-h-200 { margin-left: 200px !important; margin-right: 200px !important; }
+.m-h-0, .mx-0 { margin-left: 0px !important; margin-right: 0px !important; }
+.m-h-5, .mx-5 { margin-left: 5px !important; margin-right: 5px !important; }
+.m-h-10, .mx-10 { margin-left: 10px !important; margin-right: 10px !important; }
+.m-h-15, .mx-15 { margin-left: 15px !important; margin-right: 15px !important; }
+.m-h-20, .mx-20 { margin-left: 20px !important; margin-right: 20px !important; }
+.m-h-25, .mx-25 { margin-left: 25px !important; margin-right: 25px !important; }
+.m-h-30, .mx-30 { margin-left: 30px !important; margin-right: 30px !important; }
+.m-h-35, .mx-35 { margin-left: 35px !important; margin-right: 35px !important; }
+.m-h-40, .mx-40 { margin-left: 40px !important; margin-right: 40px !important; }
+.m-h-50, .mx-50 { margin-left: 50px !important; margin-right: 50px !important; }
+.m-h-60, .mx-60 { margin-left: 60px !important; margin-right: 60px !important; }
+.m-h-70, .mx-70 { margin-left: 70px !important; margin-right: 70px !important; }
+.m-h-80, .mx-80 { margin-left: 80px !important; margin-right: 80px !important; }
+.m-h-90, .mx-90 { margin-left: 90px !important; margin-right: 90px !important; }
+.m-h-100, .mx-100 { margin-left: 100px !important; margin-right: 100px !important; }
+.m-h-150, .mx-150 { margin-left: 150px !important; margin-right: 150px !important; }
+.m-h-200, .mx-200 { margin-left: 200px !important; margin-right: 200px !important; }
 /* margin-(bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-.m-b-0 { margin-bottom: 0px !important; }
-.m-b-5 { margin-bottom: 5px !important; }
-.m-b-10 { margin-bottom: 10px !important; }
-.m-b-15 { margin-bottom: 15px !important; }
-.m-b-20 { margin-bottom: 20px !important; }
-.m-b-25 { margin-bottom: 25px !important; }
-.m-b-30 { margin-bottom: 30px !important; }
-.m-b-35 { margin-bottom: 35px !important; }
-.m-b-40 { margin-bottom: 40px !important; }
-.m-b-50 { margin-bottom: 50px !important; }
-.m-b-60 { margin-bottom: 60px !important; }
-.m-b-70 { margin-bottom: 70px !important; }
-.m-b-80 { margin-bottom: 80px !important; }
-.m-b-90 { margin-bottom: 90px !important; }
-.m-b-100 { margin-bottom: 100px !important; }
-.m-b-150 { margin-bottom: 150px !important; }
-.m-b-200 { margin-bottom: 200px !important; }
+.m-b-0, .mb-0 { margin-bottom: 0px !important; }
+.m-b-5, .mb-5 { margin-bottom: 5px !important; }
+.m-b-10, .mb-10 { margin-bottom: 10px !important; }
+.m-b-15, .mb-15 { margin-bottom: 15px !important; }
+.m-b-20, .mb-20 { margin-bottom: 20px !important; }
+.m-b-25, .mb-25 { margin-bottom: 25px !important; }
+.m-b-30, .mb-30 { margin-bottom: 30px !important; }
+.m-b-35, .mb-35 { margin-bottom: 35px !important; }
+.m-b-40, .mb-40 { margin-bottom: 40px !important; }
+.m-b-50, .mb-50 { margin-bottom: 50px !important; }
+.m-b-60, .mb-60 { margin-bottom: 60px !important; }
+.m-b-70, .mb-70 { margin-bottom: 70px !important; }
+.m-b-80, .mb-80 { margin-bottom: 80px !important; }
+.m-b-90, .mb-90 { margin-bottom: 90px !important; }
+.m-b-100, .mb-100 { margin-bottom: 100px !important; }
+.m-b-150, .mb-150 { margin-bottom: 150px !important; }
+.m-b-200, .mb-200 { margin-bottom: 200px !important; }
 /* margin-(top) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-.m-t-0 { margin-top: 0px !important; }
-.m-t-5 { margin-top: 5px !important; }
-.m-t-10 { margin-top: 10px !important; }
-.m-t-15 { margin-top: 15px !important; }
-.m-t-20 { margin-top: 20px !important; }
-.m-t-25 { margin-top: 25px !important; }
-.m-t-30 { margin-top: 30px !important; }
-.m-t-35 { margin-top: 35px !important; }
-.m-t-40 { margin-top: 40px !important; }
-.m-t-50 { margin-top: 50px !important; }
-.m-t-60 { margin-top: 60px !important; }
-.m-t-70 { margin-top: 70px !important; }
-.m-t-80 { margin-top: 80px !important; }
-.m-t-90 { margin-top: 90px !important; }
-.m-t-100 { margin-top: 100px !important; }
-.m-t-150 { margin-top: 150px !important; }
-.m-t-200 { margin-top: 200px !important; }
+.m-t-0, .mt-0 { margin-top: 0px !important; }
+.m-t-5, .mt-5 { margin-top: 5px !important; }
+.m-t-10, .mt-10 { margin-top: 10px !important; }
+.m-t-15, .mt-15 { margin-top: 15px !important; }
+.m-t-20, .mt-20 { margin-top: 20px !important; }
+.m-t-25, .mt-25 { margin-top: 25px !important; }
+.m-t-30, .mt-30 { margin-top: 30px !important; }
+.m-t-35, .mt-35 { margin-top: 35px !important; }
+.m-t-40, .mt-40 { margin-top: 40px !important; }
+.m-t-50, .mt-50 { margin-top: 50px !important; }
+.m-t-60, .mt-60 { margin-top: 60px !important; }
+.m-t-70, .mt-70 { margin-top: 70px !important; }
+.m-t-80, .mt-80 { margin-top: 80px !important; }
+.m-t-90, .mt-90 { margin-top: 90px !important; }
+.m-t-100, .mt-100 { margin-top: 100px !important; }
+.m-t-150, .mt-150 { margin-top: 150px !important; }
+.m-t-200, .mt-200 { margin-top: 200px !important; }
 /* margin-(right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-.m-r-0 { margin-right: 0px !important; }
-.m-r-5 { margin-right: 5px !important; }
-.m-r-10 { margin-right: 10px !important; }
-.m-r-15 { margin-right: 15px !important; }
-.m-r-20 { margin-right: 20px !important; }
-.m-r-25 { margin-right: 25px !important; }
-.m-r-30 { margin-right: 30px !important; }
-.m-r-35 { margin-right: 35px !important; }
-.m-r-40 { margin-right: 40px !important; }
-.m-r-50 { margin-right: 50px !important; }
-.m-r-60 { margin-right: 60px !important; }
-.m-r-70 { margin-right: 70px !important; }
-.m-r-80 { margin-right: 80px !important; }
-.m-r-90 { margin-right: 90px !important; }
-.m-r-100 { margin-right: 100px !important; }
-.m-r-150 { margin-right: 150px !important; }
-.m-r-200 { margin-right: 200px !important; }
+.m-r-0, .mr-0 { margin-right: 0px !important; }
+.m-r-5, .mr-5 { margin-right: 5px !important; }
+.m-r-10, .mr-10 { margin-right: 10px !important; }
+.m-r-15, .mr-15 { margin-right: 15px !important; }
+.m-r-20, .mr-20 { margin-right: 20px !important; }
+.m-r-25, .mr-25 { margin-right: 25px !important; }
+.m-r-30, .mr-30 { margin-right: 30px !important; }
+.m-r-35, .mr-35 { margin-right: 35px !important; }
+.m-r-40, .mr-40 { margin-right: 40px !important; }
+.m-r-50, .mr-50 { margin-right: 50px !important; }
+.m-r-60, .mr-60 { margin-right: 60px !important; }
+.m-r-70, .mr-70 { margin-right: 70px !important; }
+.m-r-80, .mr-80 { margin-right: 80px !important; }
+.m-r-90, .mr-90 { margin-right: 90px !important; }
+.m-r-100, .mr-100 { margin-right: 100px !important; }
+.m-r-150, .mr-150 { margin-right: 150px !important; }
+.m-r-200, .mr-200 { margin-right: 200px !important; }
 /* margin-(left) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
-.m-l-0 { margin-left: 0px !important; }
-.m-l-5 { margin-left: 5px !important; }
-.m-l-10 { margin-left: 10px !important; }
-.m-l-15 { margin-left: 15px !important; }
-.m-l-20 { margin-left: 20px !important; }
-.m-l-25 { margin-left: 25px !important; }
-.m-l-30 { margin-left: 30px !important; }
-.m-l-35 { margin-left: 35px !important; }
-.m-l-40 { margin-left: 40px !important; }
-.m-l-50 { margin-left: 50px !important; }
-.m-l-60 { margin-left: 60px !important; }
-.m-l-70 { margin-left: 70px !important; }
-.m-l-80 { margin-left: 80px !important; }
-.m-l-90 { margin-left: 90px !important; }
-.m-l-100 { margin-left: 100px !important; }
-.m-l-150 { margin-left: 150px !important; }
-.m-l-200 { margin-left: 200px !important; }
+.m-l-0, .ml-0 { margin-left: 0px !important; }
+.m-l-5, .ml-5 { margin-left: 5px !important; }
+.m-l-10, .ml-10 { margin-left: 10px !important; }
+.m-l-15, .ml-15 { margin-left: 15px !important; }
+.m-l-20, .ml-20 { margin-left: 20px !important; }
+.m-l-25, .ml-25 { margin-left: 25px !important; }
+.m-l-30, .ml-30 { margin-left: 30px !important; }
+.m-l-35, .ml-35 { margin-left: 35px !important; }
+.m-l-40, .ml-40 { margin-left: 40px !important; }
+.m-l-50, .ml-50 { margin-left: 50px !important; }
+.m-l-60, .ml-60 { margin-left: 60px !important; }
+.m-l-70, .ml-70 { margin-left: 70px !important; }
+.m-l-80, .ml-80 { margin-left: 80px !important; }
+.m-l-90, .ml-90 { margin-left: 90px !important; }
+.m-l-100, .ml-100 { margin-left: 100px !important; }
+.m-l-150, .ml-150 { margin-left: 150px !important; }
+.m-l-200, .ml-200 { margin-left: 200px !important; }

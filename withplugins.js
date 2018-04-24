@@ -593,7 +593,7 @@ $(document).ready(function () {
         if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0) {
             bsdp_lang_code = $("html").attr('lang');
         }
-        if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0) {
+        if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0 || bsdp_lang_code == 'en') {
             bsdp_lang_code = 'en-GB';
         }
 
@@ -705,6 +705,13 @@ $(document).ready(function () {
 
     /**
      * START: Layout Go2Top
+     * css: .go2top
+     * dependencies: bootstrap, font-awesome
+     *
+     *  <div class="go2top hidden-xs text-center">
+     *      <i class="fa fa-chevron-circle-up"></i>
+     *      <p class="hidden-sm">Torna su</p>
+     *  </div>
      */
     var LayoutGo2Top = function () {
         var handle = function () {
@@ -840,7 +847,7 @@ $(document).ready(function () {
 
         // get value from cookie
         var value = wCookies().get(name);
-        if(typeof value == 'undefined') {
+        if(typeof value == 'undefined' || value == '') {
             // if ($debug) {
             //     console.info('setFromCookie() No value ' + name + ' - ' + value);
             // }
@@ -885,6 +892,11 @@ $(document).ready(function () {
                 break;
         }
 
+        // children_age_form things & datepicker
+        if($(selector).attr('name') == 'num_children' || $(selector).hasClass('range')) {
+            $(selector).trigger('keyup');
+        }
+
         // if ($debug) {
         //     console.info('setFromCookie() ' + name + ' - ' + type + ' - ' + value);
         // }
@@ -905,6 +917,11 @@ $(document).ready(function () {
         var value = _this.val();
         if (typeof value == 'undefined') {
             value = _this.data('value');
+        }
+
+        // not action if no value
+        if (value == '') {
+            return;
         }
 
         // set into cookie
@@ -948,6 +965,11 @@ $(document).ready(function () {
             }
         }
 
+        // not action if no value
+        if (value == '') {
+            return;
+        }
+
         switch(type) {
             case 'val':
                 $(selector).val(value);
@@ -970,8 +992,8 @@ $(document).ready(function () {
                 break;
         }
 
-        // children_age_form things
-        if($(selector).attr('name') == 'num_children') {
+        // children_age_form things & datepicker
+        if($(selector).attr('name') == 'num_children' || $(selector).hasClass('range')) {
             $(selector).trigger('keyup');
         }
 
@@ -986,6 +1008,7 @@ $(document).ready(function () {
     // set the binded value after load of document
     $('.w-binded.w-setter').each( function(){
         wBind($(this));
+        // setIntoCookie($(this)); combine w-binded and w-cookie
     });
 
 
