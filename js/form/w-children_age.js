@@ -2,6 +2,8 @@
  * Aggiunge un input che crea altri input in base al valore che ha
  * esempio: numero bambini e un input per l'eta di ogni bambino
  *
+ * @dependencies [w-alert]
+ *
  * form.children_age_form
  * input.child_num_input
  * div#child_ageClone
@@ -29,13 +31,15 @@
  *  $endphp
  *
  * max children: default 5 (configurable by max attribute)
- * @todo: keep values of yet insterted children ages
+ * @todo: keep values of yet insterted children ages (w-cookie)
  * @type {any}
  */
 $(".children_age_form").each(function () {
     var form = $(this), max_children = parseInt($('.child_num_input', form).attr('max'));
 
-    if (typeof max_children == 'undefined') {max_children = 5;}
+    if (typeof max_children == 'undefined') {
+        max_children = 5;
+    }
 
     form.on('keyup change', '.child_num_input', function () {
         // if counter are equal 0 - do nothing
@@ -47,7 +51,11 @@ $(".children_age_form").each(function () {
         }
         // over 5 chlids are invalid
         if (_childNum > max_children) {
-            $('body').gdivMessage('No more then '+max_children+' childs / Non più di '+max_children+' bambini', 'warning', {hidetime: 7000});
+            if ($().gdivMessage) {
+                $('body').gdivMessage('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning', {hidetime: 7000});
+            } else {
+                alert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning');
+            }
             $('.child_num_input', form).val(max_children);
             return false;
         }
