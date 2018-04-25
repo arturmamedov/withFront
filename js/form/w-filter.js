@@ -13,6 +13,11 @@ $(".w-filters").each(function(){
             // console.info('radio');
             // console.info($(this).val());
         } else {
+            // remove and add active state
+            $grid.find('.w-filter').removeClass('active');
+            $(this).addClass('active');
+
+            // filter items
             filterValue = $(this).attr('data-filter');
         }
 
