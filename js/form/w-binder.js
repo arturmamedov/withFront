@@ -54,7 +54,13 @@ function wBind(_this){
         $(selector).trigger('keyup');
     }
 
-    // if ($debug) {
+    // range datepicker update dates on bind
+    if($(selector).hasClass('range')) {
+        console.info($(selector).closest('.period'));
+        $(selector).closest('.period').datepicker('updateDates');
+    }
+
+    // if (debug) {
     //     console.info('wBind() ' + selector + ' - ' + type + ' - ' + value);
     // }
 }
