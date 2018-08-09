@@ -56,7 +56,6 @@ function wBind(_this){
 
     // range datepicker update dates on bind
     if($(selector).hasClass('range')) {
-        console.info($(selector).closest('.period'));
         $(selector).closest('.period').datepicker('updateDates');
     }
 
