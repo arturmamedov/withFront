@@ -3,6 +3,7 @@
 @import url('css/text-tools.css');
 @import url('css/sm-tools.css');
 
+/* for use see withplugins.js */
 ._the_email_confirm_group {
     display: none !important;
 }
