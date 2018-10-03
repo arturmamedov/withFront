@@ -77,6 +77,11 @@
     background-color: #286090 !important;
     border-radius: 5px;
 }
+/* + disbled dates */
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    color: #EEEEEE !important;
+    cursor: no-drop !important;
+}
 
 /* for jq highlight */
 .highlight {
