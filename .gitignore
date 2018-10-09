@@ -4,11 +4,6 @@
 # https://github.com/github/gitignore
 # Artur Mamedov <withArtur@gmail.com>
 
-# Laravel 4 specific
-vendor/
-node_modules/
-bootstrap/compiled.php
-app/storage/
 
 # Laravel 5 & Lumen specific
 vendor/
@@ -20,12 +15,16 @@ Homestead.json
 .env.php
 .env
 
+
+# AsgardCMS
+/public/storage
+
+
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
 
 
 # CakePHP
-/vendor/*
 /config/app.php
 /tmp/*
 /logs/*
@@ -104,6 +103,9 @@ fabric.properties
 *.npmignore
 *.eslintrc
 *.csscomb.json
+
+# Tools
+.php_cs.cache
 
 
 # OS generated files #
