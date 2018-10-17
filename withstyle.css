@@ -2,6 +2,7 @@
 @import url('css/padding-tools.css');
 @import url('css/text-tools.css');
 @import url('css/sm-tools.css');
+@import url('css/thirdparty/fontawesome47.css');
 
 ._the_email_confirm_group {
     display: none !important;
@@ -28,33 +29,6 @@
     background-image: url('../flag-icon-css/flags/1x1/gb.svg');
 }
 
-/* fa - fontawesome */
-.fa-title {
-    font-size: 0.9em !important;
-}
-.fa-img {
-    height: 17px;
-    width: 17px;
-}
-.fa-bg-div {
-    overflow: hidden;
-    min-height: 200px;
-}
-
-.fa-bg-div * {
-    z-index: 11;
-}
-/**
-* .fa-bg: to use with abspos and fa-bg-div and relpos for z-index work
-*/
-.fa-bg {
-    font-size: 150px;
-    z-index: 10;
-
-    /* @todo: can have different positions fa-bg-rb, fa-bg-rt, fa-bg-lb, fa-bg-lt */
-    right: 3px;
-    bottom: 3px;
-}
 
 /* modal wide */
 .modal-wide {
