@@ -1,0 +1,28 @@
+{
+  "name": "withfront",
+  "version": "1.4.0",
+  "description": "Tools for frontend development especially with Bootstrap 3.x and jQuery 3.x",
+  "main": "withplugins.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arturmamedov/withFront.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "frontend",
+    "tools",
+    "tips",
+    "trick",
+    "css",
+    "js"
+  ],
+  "author": "Artur Mamedov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arturmamedov/withFront/issues"
+  },
+  "homepage": "https://github.com/arturmamedov/withFront#readme"
+}
