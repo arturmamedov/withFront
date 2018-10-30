@@ -47,8 +47,32 @@
  * Window on buffer onload
  * * * * * * * * * * * * */
 
-/* enable/disable console.info messages for debug */
-var debug = false;
+/**
+ * Configure enable/disable withPlugins functions
+ *
+ * @object {{
+ *      debug: boolean,
+ *      wAppearBottomButton: boolean,
+ *      go2top: boolean
+ * }}
+ */
+var withOptions = {
+    debug: true,
+    wAppearBottomButton: false,
+    go2top: false,
+};
+
+/**
+ * Debug function for console.info() messages only if debug mode is enabled
+ * so you don't need to worry about your debug message when in production
+ *
+ * @param text
+ */
+function clog(text){
+    if (withOptions.debug) {
+        console.info(text);
+    }
+}
 
 /**
  * wCookies - Cookies() `js-cookie` (https://github.com/js-cookie/js-cookie)
@@ -58,9 +82,11 @@ var debug = false;
  * .getJSON([name]);
  */
 if(typeof Cookies != 'undefined') {
+    clog('cookie are baked');
     wCookies = function() {
         return {
             get: function(name) {
+                clog('cookie-get(name):' + name);
                 return Cookies.get(name);
             },
             set: function(name, value, attributes) {
@@ -70,9 +96,11 @@ if(typeof Cookies != 'undefined') {
                 //     //path: '/', domain: '', // yet default
                 // };
                 // var attributes = $.extend(defaults, options);
+                clog('cookie-set(name, value, attributes):' + name + ', ' + value + ', ' + attributes);
                 Cookies.set(name, value, attributes);
             },
             remove: function(name, attributes) {
+                clog('cookie-remove(name, attributes):' + name + ', ' + attributes);
                 Cookies.remove(name, attributes);
             },
             getJSON: function (name) {
@@ -848,9 +876,7 @@ $(document).ready(function () {
         // get value from cookie
         var value = wCookies().get(name);
         if(typeof value == 'undefined' || value == '') {
-            // if ($debug) {
-            //     console.info('setFromCookie() No value ' + name + ' - ' + value);
-            // }
+            clog('setFromCookie() No value ' + name + ' - ' + value);
             return false;
         }
 
@@ -897,9 +923,7 @@ $(document).ready(function () {
             $(selector).trigger('keyup');
         }
 
-        // if ($debug) {
-        //     console.info('setFromCookie() ' + name + ' - ' + type + ' - ' + value);
-        // }
+        clog('setFromCookie() ' + name + ' - ' + type + ' - ' + value);
     }
     /**
      * Set values of inputs or elements into cookie `.w-cookie`
@@ -927,14 +951,13 @@ $(document).ready(function () {
         // set into cookie
         wCookies().set(name, value);
 
-        // if ($debug) {
-        //     console.info('setIntoCookie() ' + name + ' - ' + value);
-        // }
+        clog('setIntoCookie() ' + name + ' - ' + value);
     }
     // universal on .w-cookie input/element change
     $(document).on('change blur click', '.w-cookie', function() {
         setIntoCookie($(this));
     });
+    // @todo: selector with a -form suffixed for work on all elements in a form
     // set the .w-cookie values after load of document
     $('.w-cookie').each( function(){
         setFromCookie($(this));
@@ -997,14 +1020,13 @@ $(document).ready(function () {
             $(selector).trigger('keyup');
         }
 
-        // if ($debug) {
-        //     console.info('wBind() ' + selector + ' - ' + type + ' - ' + value);
-        // }
+        clog('wBind() ' + selector + ' - ' + type + ' - ' + value);
     }
     // universal on bind change
     $(document).on('change blur click', '.w-binded', function() {
         wBind($(this));
     });
+    // @todo: selector with a -form suffixed for work on all elements in a form
     // set the binded value after load of document
     $('.w-binded.w-setter').each( function(){
         wBind($(this));
@@ -1012,10 +1034,11 @@ $(document).ready(function () {
     });
 
 
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-     * * * * * * * * * * * * * * * * * * * enable/disable functions  * * * * * * * * * * * * * * *
-     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-    LayoutGo2Top.init(); // go2top button {css: .go2top}
+    if (withOptions.go2top) {
+        LayoutGo2Top.init(); // go2top button {css: .go2top}
+    }
 
-    wAppearBottomButton.init(); // with Appear Bottom Button {css: .wabb}
+    if (withOptions.wAppearBottomButton) {
+        wAppearBottomButton.init(); // with Appear Bottom Button {css: .wabb}
+    }
 });
