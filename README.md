@@ -187,7 +187,7 @@ Example: [loader-wrapper](https://insuperadmin.buonsito.net/assets/media/loader.
 For add a single linked datepicker with visual range to your forms use this:
 
 ```html
-<div id="period">
+<div class="period">
     <div class="form-group">
         <input type="text" name="checkin" id="checkin" class="form-control checkin range">
     </div>
