@@ -34,7 +34,7 @@ function wBind(_this){
         case 'select':
             $(selector+' option').removeAttr('selected');
             $(selector).val(value);
-            $(selector+' option[value='+value+']').attr('selected', 'selected');
+            $(selector+' option[value="'+value+'"]').attr('selected', 'selected');
             break;
         case 'radio':
             $(selector).removeAttr('checked');

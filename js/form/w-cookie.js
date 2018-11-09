@@ -34,12 +34,12 @@ function setFromCookie(_this){
         case 'select':
             $('option', _this).removeAttr('selected');
             _this.val(value);
-            $('option[value='+value+']', _this).attr('selected', 'selected');
+            $('option[value="'+value+'"]', _this).attr('selected', 'selected');
             break;
         case 'theme-select':
             $('option', _this).removeAttr('selected');
             _this.val(value);
-            $('option[value='+value+']', _this).attr('selected', 'selected');
+            $('option[value="'+value+'"]', _this).attr('selected', 'selected');
 
             // theme things
             var $span = _this.parent('.select').find('span'),
