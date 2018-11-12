@@ -12,6 +12,12 @@
 
 ### Installation
 
+##### NPM
+```
+npm i withfront --save
+```
+
+##### Bower
 ```
 bower install withFront --save
 ```
