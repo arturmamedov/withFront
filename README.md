@@ -12,6 +12,12 @@
 
 ### Installation
 
+##### NPM
+```
+npm i withfront --save
+```
+
+##### Bower
 ```
 bower install withFront --save
 ```
@@ -38,10 +44,12 @@ jQuery - https://github.com/jquery/jquery
 #### Adding to web page
 ```html
 <!-- Inside Tag head -->
+<link rel="stylesheet" href="bower_components/bootstrap/css/bootstrap.min.css" type="text/css"/>
 <link rel="stylesheet" href="bower_components/withFront/withstyle.css" type="text/css"/>
 
 <!-- Better down in footer after all content and after include jQuery and Bootstrap -->
 <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/bower_components/withFront/withplugins.js"></script>
 
 ```
@@ -75,10 +83,12 @@ For set all elements to have equal height add the `.withEqualHeight` class to pa
 
 For add `padding` or `margin` to an element use the helper classes:
 
-From `v4.0.0` also with __Bootstrap 4__ style:
+From `v1.4.0` also with __Bootstrap 4__ style: 
+`(.mp-{x}, .mt-{x}, .mb-{x}, .ml-{x}, .mr-{x}, .my-{x}, .mx-{x})`
 
-`(.mp-$x, .mt-$x, .mb-$x, .ml-$x, .mr-$x, .my-$x, .mx-$x)`
+http://getbootstrap.com/docs/4.1/utilities/spacing/
 
+The difference is that withFront use static spacing with pixel's: 
 
 
 ```css
@@ -170,10 +180,20 @@ Example: [loader-wrapper](https://insuperadmin.buonsito.net/assets/media/loader.
 ### JS - Form
 
 #### Datepicker ([bootstrap-datepicker](https://uxsolutions.github.io/bootstrap-datepicker/))
+
+```html
+<!-- Bs Date Picker -->
+<link rel="stylesheet" href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"/>
+
+<!-- Bs Date Picker -->
+<script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js" data-lang="it" id="bsdp_lang_code"></script>
+```
+
 For add a single linked datepicker with visual range to your forms use this:
 
 ```html
-<div id="period">
+<div class="period">
     <div class="form-group">
         <input type="text" name="checkin" id="checkin" class="form-control checkin range">
     </div>

@@ -1,0 +1,25 @@
+{
+  "name": "withfront",
+  "version": "1.4.2",
+  "description": "Tools for frontend development especially with Bootstrap 3.x and jQuery 3.x",
+  "author": "Artur Mamedov <arturmamedov1993@gmail.com>",
+  "license": "MIT",
+  "bugs": { "url": "https://github.com/arturmamedov/withFront/issues" },
+  "homepage": "https://github.com/arturmamedov/withFront#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arturmamedov/withFront.git"
+  },
+  "keywords": [ "bootstrap", "frontend", "tools", "tips", "trick", "css", "js" ],
+  "dependencies": {
+    "bootstrap-datepicker": "^1.8.0",
+    "flag-icon-css": "^3.2.1",
+    "html5shiv": "^3.7.3",
+    "jquery": "^3.3.1",
+    "js-cookie": "^2.2.0",
+    "respond.js": "^1.4.2"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.3"
+  }
+}
