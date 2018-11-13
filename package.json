@@ -4,7 +4,9 @@
   "description": "Tools for frontend development especially with Bootstrap 3.x and jQuery 3.x",
   "author": "Artur Mamedov <arturmamedov1993@gmail.com>",
   "license": "MIT",
-  "bugs": { "url": "https://github.com/arturmamedov/withFront/issues" },
+  "bugs": {
+    "url": "https://github.com/arturmamedov/withFront/issues"
+  },
   "homepage": "https://github.com/arturmamedov/withFront#readme",
   "repository": {
     "type": "git",
@@ -20,6 +22,8 @@
     "respond.js": "^1.4.2"
   },
   "devDependencies": {
-    "grunt": "^1.0.3"
+    "grunt": "^1.0.3",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0"
   }
 }

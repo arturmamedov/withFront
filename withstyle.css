@@ -4,6 +4,7 @@
 @import url('css/sm-tools.css');
 @import url('css/thirdparty/fontawesome47.css');
 
+/* for use see withplugins.js */
 ._the_email_confirm_group {
     display: none !important;
 }
