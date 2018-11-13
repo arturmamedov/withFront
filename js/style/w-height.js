@@ -1,7 +1,7 @@
 /**
  * Boxes AutoHeight
  *
- * @dependencies [w-breackpoints]
+ * @dependencies [w-breakpoints]
  * @param columns
  *
  * data-weh-add="50" add 50px to all
