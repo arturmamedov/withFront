@@ -1,7 +1,7 @@
 /**
  * Google Analytics link click/event tracking
  * //*also with old _gaq commented if u use old google analytics code https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApi_gaq#push
- */
+ * /
 $("a").click(function () {
     if (!$(this).hasClass("gadisabled")) {
         var href = $(this).attr('href');
@@ -69,7 +69,7 @@ $("a").click(function () {
 
 /**
  * Google Analytics submit
- */
+ * /
 $("#booking-form-widget").submit(function () {
     if (typeof ga !== "undefined") {
         ga('send', 'pageview', '/email-form-contatti'); // for booking: (`.gabookingsubmit` "/calcola-preventivo");

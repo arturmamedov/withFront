@@ -15,6 +15,7 @@
  */
 
 /**
+ * Cookie Choice Banner
  * include `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u use build files this are yet included
      <script>
         document.addEventListener('DOMContentLoaded', function (event) {
