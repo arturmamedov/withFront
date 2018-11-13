@@ -3,7 +3,7 @@
  *
  * @dependencies [uxsolution/bootstrap-datepicker]
  *
- * <div id="period">
+ * <div class="period">
  *     <div class="form-group">
  *         <input type="text" name="checkin" id="checkin" class="form-control checkin range">
  *     </div>
