@@ -247,7 +247,7 @@ $(document).ready(function () {
     /**
      * Boxes AutoHeight
      *
-     * @dependencies [w-breackpoints]
+     * @dependencies [w-breakpoints]
      * @param columns
      *
      * data-weh-add="50" add 50px to all
@@ -627,7 +627,7 @@ $(document).ready(function () {
                     }
 
                     for (err in json.errors) {
-                        $(form).find('[name=' + err + ']').parent()
+                        $(form).find('[name="' + err + '"]').parent()
                             .after('<span class="help-block alert alert-danger">' + json.errors[err] + '</span>')
                             .addClass('has-error');
                     }
@@ -1067,7 +1067,7 @@ $(document).ready(function () {
 
         // if radio, get the checked value and not booth
         if (_this.is('input[type=radio]')) {
-            value = _this.closest('form').find('input[name=' + _this.attr('name') + ']:checked').val();
+            value = _this.closest('form').find('input[name="' + _this.attr('name') + '"]:checked').val();
             if (typeof value == 'undefined') {
                 value = '';
             }
