@@ -177,6 +177,35 @@ You can also add `inner-loader-wrapper` class to `loader-wrapper` for include lo
 Example: [loader-wrapper](https://insuperadmin.buonsito.net/assets/media/loader.png), [inner-loader-wrapper](https://insuperadmin.buonsito.net/assets/media/inner-loader.png)
 
 
+
+
+### Web tools
+
+#### Cookie Choice Banner
+Include alone `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u use build files this are yet included in `withplugins.js` and `withstle.css`
+ 
+ ```html
+     <script>
+        document.addEventListener('DOMContentLoaded', function (event) {
+            cookieChoices.showCookieConsentBar("Questo sito utilizza i cookies per migliorare l'esperienza di navigazione. Utilizzando il sito l'utente accetta tutti i cookies.",
+                'OK', 'Privacy Policy', "/privacy-url");
+        });
+     </script>
+ ```
+ 
+ * En: This site uses cookies to improve the browsing experience. By using this site you agree to all cookies
+ * Fr: Ce site utilise des cookies pour améliorer l'expérience de navigation. En utilisant ce site, vous acceptez tous les cookies
+ * De: Diese Seite benutzt Cookies , um den Browser-Erfahrung zu verbessern. Durch die Nutzung der Website erklären Sie sich mit allen Cookies
+ * Es: Este sitio utiliza cookies para mejorar la experiencia de navegación. Al usar este sitio usted acepta todas las cookies
+ * Hu: Ez a webhely cookie-kat használ a böngészési élmény javítása érdekében. Az oldal használatával elfogadja az összes cookie-t
+ * Nl: Deze site maakt gebruik van cookies om de browser-ervaring te verbeteren. Door deze site te gebruiken, gaat u akkoord met alle cookies
+ * Pl: Ta witryna używa plików cookie, aby poprawić doświadczenie przeglądania. Korzystając z tej witryny zgadzasz się na wszystkie pliki cookie
+ * Pt: Este site usa cookies para melhorar a experiência de navegação. Ao usar este site você concorda com todos os cookies
+ * Ru: Нажимая кнопку или продолжая использовать сайт, вы разрешаете нам собирать информацию посредством использования файлов «cookie»
+
+
+
+
 ### JS - Form
 
 #### Datepicker ([bootstrap-datepicker](https://uxsolutions.github.io/bootstrap-datepicker/))
