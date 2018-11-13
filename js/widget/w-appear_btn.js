@@ -12,3 +12,7 @@ var wAppearBottomButton = function () {
         }
     };
 }();
+
+if (withOptions.wAppearBottomButton) {
+    wAppearBottomButton.init(); // with Appear Bottom Button {css: .wabb}
+}

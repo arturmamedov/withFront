@@ -41,3 +41,7 @@ var LayoutGo2Top = function () {
         }
     };
 }();
+
+if (withOptions.go2top) {
+    LayoutGo2Top.init(); // go2top button {css: .go2top}
+}
