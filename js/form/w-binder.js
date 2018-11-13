@@ -16,7 +16,7 @@ function wBind(_this){
 
     // if radio, get the checked value and not booth
     if(_this.is('input[type=radio]')) {
-        value = _this.closest('form').find('input[name='+_this.attr('name')+']:checked').val();
+        value = _this.closest('form').find('input[name="'+_this.attr('name')+'"]:checked').val();
         if(typeof value == 'undefined') {
             value = '';
         }

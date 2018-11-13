@@ -47,7 +47,7 @@ $(".ajaxsend").submit(function (e) {
                 }
 
                 for (err in json.errors) {
-                    $(form).find('[name='+err+']').parent()
+                    $(form).find('[name="'+err+'"]').parent()
                         .after('<span class="help-block alert alert-danger">' + json.errors[err] + '</span>')
                         .addClass('has-error');
                 }
