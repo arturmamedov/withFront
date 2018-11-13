@@ -1,6 +1,6 @@
 /**
  * Form that need be send with Ajax and with CakePHP 3.x
- */
+ * /
  $(".ajaxform").on('submit', function(e){
         e.preventDefault();
         var area_code = $(this).data('areacode'), thisForm = $(this);
@@ -64,4 +64,4 @@
         //}
 
         return false;
-    });
+    }); */
