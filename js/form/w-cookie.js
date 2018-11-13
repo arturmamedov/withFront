@@ -16,9 +16,7 @@ function setFromCookie(_this){
     // get value from cookie
     var value = wCookies().get(name);
     if(typeof value == 'undefined' || value == '') {
-        // if ($debug) {
-        //     console.info('setFromCookie() No value ' + name + ' - ' + value);
-        // }
+        clog('setFromCookie() No value ' + name + ' - ' + value);
         return false;
     }
 
@@ -65,9 +63,7 @@ function setFromCookie(_this){
         $(selector).trigger('keyup');
     }
 
-    // if ($debug) {
-    //     console.info('setFromCookie() ' + name + ' - ' + type + ' - ' + value);
-    // }
+    clog('setFromCookie() ' + name + ' - ' + type + ' - ' + value);
 }
 /**
  * Set values of inputs or elements into cookie `.w-cookie`
@@ -95,14 +91,13 @@ function setIntoCookie(_this) {
     // set into cookie
     wCookies().set(name, value);
 
-    // if ($debug) {
-    //     console.info('setIntoCookie() ' + name + ' - ' + value);
-    // }
+    clog('setIntoCookie() ' + name + ' - ' + value);
 }
 // universal on .w-cookie input/element change
 $(document).on('change blur click', '.w-cookie', function() {
     setIntoCookie($(this));
 });
+// @todo: selector with a -form suffixed for work on all elements in a form
 // set the .w-cookie values after load of document
 $('.w-cookie').each( function(){
     setFromCookie($(this));

@@ -59,14 +59,13 @@ function wBind(_this){
         $(selector).closest('.period').datepicker('updateDates');
     }
 
-    // if (debug) {
-    //     console.info('wBind() ' + selector + ' - ' + type + ' - ' + value);
-    // }
+    clog('wBind() ' + selector + ' - ' + type + ' - ' + value);
 }
 // universal on bind change
 $(document).on('change blur click', '.w-binded', function() {
     wBind($(this));
 });
+// @todo: selector with a -form suffixed for work on all elements in a form
 // set the binded value after load of document
 $('.w-binded.w-setter').each( function(){
     wBind($(this));
