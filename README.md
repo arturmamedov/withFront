@@ -44,15 +44,72 @@ jQuery - https://github.com/jquery/jquery
 #### Adding to web page
 ```html
 <!-- Inside Tag head -->
-<link rel="stylesheet" href="bower_components/bootstrap/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="bower_components/withFront/withstyle.css" type="text/css"/>
+<link rel="stylesheet" href="node_modules/bootstrap/css/bootstrap.min.css" type="text/css"/>
+<link rel="stylesheet" href="node_modules/withFront/withstyle.css" type="text/css"/>
 
 <!-- Better down in footer after all content and after include jQuery and Bootstrap -->
-<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/bower_components/withFront/withplugins.js"></script>
+<script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/node_modules/withFront/withplugins.js"></script>
 
 ```
+
+
+##### You can add single file's also
+
+All __scripts__ from `withplugins.js` have a separated file in __js folder__ also it are separated for context 
+- core `js/core/`
+core thing without it a lot of other script doesn't work properly. If you decide to non include it, be carefoul for dependencies in doc comment of each script.  
+  - `w-alert.js` for notifications, if not included make a callback to browser alert how in form/w-ajaxsend.js 
+  - `w-cookie.js` for save information in cookies, you can simply override it with your own implementation cause it have a interface behaviour 
+  - `w-breakpoint.js` for isXs, isSm, isMd, isLg  functions (trivial but )
+  - `w-core.js` here we have withOptions object with configuration and cLog() function for debug mode
+
+- bs `js/bs/` 
+bootstrap tools
+  - `w-hash_nav.js` for save \#hash 
+  - `w-wide_modal.js` for auto adjust height of .modalWide on open
+
+- form `js/form/`
+tools for work with form's 
+  - `w-ajaxsave.js` ajax handler for save form data and get an success or error message
+  - `w-ajaxsend.js` handler for send an contact form trough ajax
+  - `w-binder.js` bind an input value data to another element or input
+  - `w-buffer_unload.js` add an buffer unload behaviour for prevent closing of page if a form input change
+  - `w-children_age.js` input's with children age, cloned or removed on change of number of children input
+  - `w-cookie.js` save form input values in to cookie
+  - `w-filter.js` filter elements by it classes (like isotype but without animations)
+  - `w-honey_pot.js` honey pot antispam (with my own workaround)
+  - `w-preup_image.js` image upload with preview
+
+- plugins `js/plugins/`
+installed plugins activator and configurator, with my prefered options for it
+  - `w-bootstrap_switch.js` https://github.com/Bttstrp/bootstrap-switch
+  - `w-datepicker.js` https://github.com/uxsolutions/bootstrap-datepicker
+  - `w-nicescroll.js` https://github.com/inuyaksa/jquery.nicescroll
+  - `w-raty.js` https://github.com/wbotelhos/raty
+  - `w-selectize.js` https://selectize.github.io/selectize.js/
+  - `w-tooltip.js` bootstrap tooltip 
+
+- style `js/style/`
+tools for styling web page
+  - `w-height.js` equal height for all matched element's (with higher founded height)
+  - `w-showhide.js` show hide box on click
+  - `w-target.js` \#target animation
+
+- web `js/web/`
+  - `w-analytics.js` js universal ga() and old _gaq() analytics events 
+  - `w-cookie_choice.js` cookie banner with privacy link and confirm cookie
+
+- widget `js/widget/`
+  - `w-appear_btn.js` button that appear after some time
+  - `w-go2top.js` go to top button
+  - `w-loader.js` loader behaviour that show a loading img.svg during all assets load
+
+All this are concatened and builded into `withplugins.js`, see gruntfile.js and customize it if you want 
+
+---
+
 
 #### Equal Height for all elements (.withEqualHeight, .weh, data-weh-ad)
 
@@ -212,11 +269,11 @@ Include alone `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u
 
 ```html
 <!-- Bs Date Picker -->
-<link rel="stylesheet" href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"/>
+<link rel="stylesheet" href="/node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"/>
 
 <!-- Bs Date Picker -->
-<script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-<script src="/bower_components/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js" data-lang="it" id="bsdp_lang_code"></script>
+<script src="/node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="/node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js" data-lang="it" id="bsdp_lang_code"></script>
 ```
 
 For add a single linked datepicker with visual range to your forms use this:
