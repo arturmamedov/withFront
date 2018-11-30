@@ -47,8 +47,32 @@
  * Window on buffer onload
  * * * * * * * * * * * * */
 
-/* enable/disable console.info messages for debug */
-var debug = false;
+/**
+ * Configure enable/disable withPlugins functions
+ *
+ * @object {{
+ *      debug: boolean,
+ *      wAppearBottomButton: boolean,
+ *      go2top: boolean
+ * }}
+ */
+var withOptions = {
+    debug: false,
+    wAppearBottomButton: false,
+    go2top: true,
+};
+
+/**
+ * Debug function for console.info() messages only if debug mode is enabled
+ * so you don't need to worry about your debug message when in production
+ *
+ * @param text
+ */
+function clog(text) {
+    if (withOptions.debug) {
+        console.info(text);
+    }
+}
 
 /**
  * wCookies - Cookies() `js-cookie` (https://github.com/js-cookie/js-cookie)
@@ -57,22 +81,26 @@ var debug = false;
  * .remove(name, attributes);
  * .getJSON([name]);
  */
-if(typeof Cookies != 'undefined') {
-    wCookies = function() {
+if (typeof Cookies != 'undefined') {
+    clog('cookie are baked');
+    wCookies = function () {
         return {
-            get: function(name) {
+            get: function (name) {
+                clog('cookie-get(name):' + name);
                 return Cookies.get(name);
             },
-            set: function(name, value, attributes) {
+            set: function (name, value, attributes) {
                 // var defaults = {
                 //     //secure: true, // we yet on secure from server
                 //     //expires: 365, // no only one session
                 //     //path: '/', domain: '', // yet default
                 // };
                 // var attributes = $.extend(defaults, options);
+                clog('cookie-set(name, value, attributes):' + name + ', ' + value + ', ' + attributes);
                 Cookies.set(name, value, attributes);
             },
-            remove: function(name, attributes) {
+            remove: function (name, attributes) {
+                clog('cookie-remove(name, attributes):' + name + ', ' + attributes);
                 Cookies.remove(name, attributes);
             },
             getJSON: function (name) {
@@ -142,17 +170,9 @@ $(".loader-wrapper-close").show().click(function () {
     $(".loader:not(.demo-loader)").fadeOut(200);
     $(".loader-wrapper:not(.demo-loader)").delay(100).fadeOut(400);
 });
+
 /* jQuery plugins and other thing that need to be run after the document is load */
 $(document).ready(function () {
-    $("._the_email_confirm_").attr('value', '');
-
-    // detect if the width of screen is bootstrap xs, sm, md, lg
-    var isMobile = window.matchMedia("only screen and (max-width: 768px)");
-    var isXs = window.matchMedia("(max-width: 768px)");
-    // var isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)");
-    // var isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)");
-    // var isLg = window.matchMedia("(min-width: 1200px)");
-
     // this is for loader
     if ($(".loader-wrapper").length > 0) {
         $('#mainMenu a:not([target="_blank"]):not([href^=#]), a.animation-link').on("click", function () {
@@ -175,13 +195,64 @@ $(document).ready(function () {
             $(".loader-wrapper:not(.demo-loader)").delay(100).fadeOut(400);
         });
     }
+});
+
+/* jQuery plugins and other thing that need to be run after the document is load */
+$(document).ready(function () {
+    /**
+     * withHoneyPot Spam Checker
+     *
+     * HTML:
+     <div class="_the_email_confirm_group">
+     <div class="form-group">
+     <label class="upper" for="name">Email confirm</label>
+     <input type="text" class="_the_email_confirm_" name="_the_email_confirm_" value="confirmed" />
+     </div>
+     </div>
+     * HTML END;
+     *
+     * Example of check in PHP:
+     $captcha_error = false;
+     $maybe_js_error = false;
+     if (isset($_POST['_the_email_confirm_']) && strlen($_POST['_the_email_confirm_']) > 0) {
+             if ($_POST['_the_email_confirm_'] == 'confirmed') {
+                 $maybe_js_error = true;
+             } else {
+                 $captcha_error = true;
+                 $errors[] = 'Codice di sicurezza "CAPTCHA" non valido';
+             }
+         }
+     if ( ! $captcha_error && ! $errors) {
+             if ($maybe_js_error) {
+                 // if error maybe spam
+                 $email_to = 'buonemailrn@gmail.com';
+             } else {
+                 // send to owner
+                 $email_to = $to;
+             }
+         }
+     * PHP example END;
+     *
+     */
+    $("._the_email_confirm_").attr('value', '');
+
+
+    // detect if the width of screen is bootstrap xs, sm, md, lg
+    var isMobile = window.matchMedia("only screen and (max-width: 768px)");
+    var isXs = window.matchMedia("(max-width: 768px)");
+    var isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)");
+    var isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)");
+    var isLg = window.matchMedia("(min-width: 1200px)");
 
     /**
      * Boxes AutoHeight
      *
+     * @dependencies [w-breakpoints]
      * @param columns
      *
      * data-weh-add="50" add 50px to all
+     *
+     * @todo: css relative class for IDE support
      */
     function withEqualHeight(columns) {
         var tallestcolumn = 0, add = parseInt(columns.first().attr('data-weh-add'));
@@ -213,41 +284,52 @@ $(document).ready(function () {
         });
     });
 
-
     /** w-filter
      *  Filter items on button click or select change with data-filter=".selector"
      */
-    $(".w-filters").each(function(){
+    $(".w-filters").each(function () {
         var $grid = $(this);
-        $grid.on('click change', '.w-filter', function() {
+        $grid.on('click change', '.w-filter', function () {
             var filterValue = '';
 
-            if($(this).is('select')) {
+            if ($(this).is('select')) {
                 filterValue = $(this).val();
             } else if ($(this).is('radio')) {
                 // @todo
                 // console.info('radio');
                 // console.info($(this).val());
             } else {
+                // remove and add active state
+                $grid.find('.w-filter').removeClass('active');
+                $(this).addClass('active');
+
+                // filter items
                 filterValue = $(this).attr('data-filter');
             }
 
             // hide all elements
             $(".w-item", $grid).hide();
             // show filtered
-            $(".w-item"+filterValue, $grid).show();
+            $(".w-item" + filterValue, $grid).show();
         });
     });
 
-
     /**
-     * childNum counter
-     * ex:
+     * Aggiunge un input che crea altri input in base al valore che ha
+     * esempio: numero bambini e un input per l'eta di ogni bambino
+     *
+     * @dependencies [w-alert]
+     *
+     * form.children_age_form
+     * input.child_num_input
+     * div#child_ageClone
+     *
+     * --- and ---
      *
      * <form class="... children_age_form"> ...
      * <input type="number" class="form-control child_num_input" min="0" max="5" name="num_children">
      *
-     *     and
+     *  --- and ---
      *
      *     <div class="col-sm-2 pull-right display-none" id="child_ageClone">
      *           <div class="form-group">
@@ -256,20 +338,24 @@ $(document).ready(function () {
      *           <label>Children <span class="jq_child_num">1</span></label>
      *           </div>
      *        </div>
-     *  and
-     *  <?php
+     *
+     *  --- and ---
+     *
+     *  $php
      *      $children_number = $_POST['num_children']); // 3
-     *      $children_age = impolode(', ', $_POST['age_children']); // 3, 6, 7
-     *  ?>
+     *      $children_age = implode(', ', $_POST['age_children']); // 3, 6, 7
+     *  $endphp
      *
      * max children: default 5 (configurable by max attribute)
-     * @todo: keep values of yet insterted children ages
+     * @todo: keep values of yet insterted children ages (w-cookie)
      * @type {any}
      */
     $(".children_age_form").each(function () {
         var form = $(this), max_children = parseInt($('.child_num_input', form).attr('max'));
 
-        if (typeof max_children == 'undefined') {max_children = 5;}
+        if (typeof max_children == 'undefined') {
+            max_children = 5;
+        }
 
         form.on('keyup change', '.child_num_input', function () {
             // if counter are equal 0 - do nothing
@@ -346,6 +432,7 @@ $(document).ready(function () {
 
     /**
      * Form that need be send with Ajax and with CakePHP 3.x
+     * /
      $(".ajaxform").on('submit', function(e){
         e.preventDefault();
         var area_code = $(this).data('areacode'), thisForm = $(this);
@@ -409,72 +496,71 @@ $(document).ready(function () {
         //}
 
         return false;
-    });*/
-
+    }); */
 
     /**
      * Google Analytics link click/event tracking
-     * also with old _gaq commented if u use old google analytics code https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApi_gaq#push
+     * //*also with old _gaq commented if u use old google analytics code https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApi_gaq#push
      * /
      $("a").click(function () {
         if (!$(this).hasClass("gadisabled")) {
-             var href = $(this).attr('href');
+            var href = $(this).attr('href');
 
             if (typeof ga !== "undefined" && typeof href !== "undefined") {
                 if (href.indexOf('mailto:') >= 0) {
                     ga('send', 'event', 'contatti', 'click', href.replace('mailto:', ''), '5');
-                    // _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('mailto:', ''), 5]);
+                    //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('mailto:', ''), 5]);
                 }
 
                 if (href.indexOf('tel:') >= 0) {
                     ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');
-                    // _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('tel:', ''), 5]);
+                    //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('tel:', ''), 5]);
                 }
 
                 if (href.indexOf('skype:') >= 0) {
                     ga('send', 'event', 'contatti', 'click', href.replace('skype:', ''), '5');
-                    // _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('skype:', ''), 5]);
+                    //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('skype:', ''), 5]);
                 }
 
                 if (href.indexOf('maps') >= 0) {
                     ga('send', 'event', 'contatti', 'click', 'maps', '5');
-                    // _gaq.push(['_trackEvent', 'contatti', 'click', 'maps', 5]);
+                    //* _gaq.push(['_trackEvent', 'contatti', 'click', 'maps', 5]);
                 }
 
                 if (href.indexOf('instagram.com') >= 0) {
                     ga('send', 'event', 'contatti', 'click', 'instagram', '5');
-                    // _gaq.push(['_trackEvent', 'social', 'click', 'instagram', 2]);
+                    //* _gaq.push(['_trackEvent', 'social', 'click', 'instagram', 2]);
                 }
 
-                if (href.indexOf('twitter.com') >= 0) {
-                    ga('send', 'event', 'social', 'click', 'twitter', '2');
-                    // _gaq.push(['_trackEvent', 'social', 'click', 'twitter', 2]);
+                if (href.indexOf('tripadvisor.com') >= 0) {
+                    ga('send', 'event', 'social', 'click', 'tripadvisor', '2');
+                    //* _gaq.push(['_trackEvent', 'social', 'click', 'twitter', 2]);
                 }
 
                 if (href.indexOf('facebook.com') >= 0) {
                     ga('send', 'event', 'social', 'click', 'facebook', '2');
-                    // _gaq.push(['_trackEvent', 'social', 'click', 'facebook', 2]);
+                    //* _gaq.push(['_trackEvent', 'social', 'click', 'facebook', 2]);
                 }
 
                 if (href.indexOf('google.com') >= 0) {
                     ga('send', 'event', 'social', 'click', 'google', '2');
-                    // _gaq.push(['_trackEvent', 'social', 'click', 'google', 2]);
+                    //* _gaq.push(['_trackEvent', 'social', 'click', 'google', 2]);
                 }
 
                 if (href.indexOf('youtube.com') >= 0) {
                     ga('send', 'event', 'social', 'click', 'youtube', '2');
-                    // _gaq.push(['_trackEvent', 'social', 'click', 'youtube', 2]);
+                    //* _gaq.push(['_trackEvent', 'social', 'click', 'youtube', 2]);
                 }
 
                 if ((href.indexOf('sitename.com') < 0) && (href.indexOf('http') >= 0)) {
                     ga('send', 'event', 'outgoing', 'click', href);
-                    // _gaq.push(['_trackEvent', 'outgoing', 'click', href]);
+                    //* _gaq.push(['_trackEvent', 'outgoing', 'click', href]);
                 }
 
                 if (href.match('.pdf$') != null) {
                     //var pdf_file_name = href.substr(href.lastIndexOf('/') + 1);
                     ga('send', 'event', 'download', 'click', 'label-evento', '2');
-                    // _gaq.push(['_trackEvent', 'download', 'click', 'label-evento', '2']);
+                    //* _gaq.push(['_trackEvent', 'download', 'click', 'label-evento', '2']);
                 }
             }
         }
@@ -484,10 +570,12 @@ $(document).ready(function () {
     /**
      * Google Analytics submit
      * /
-     $(".gasubmit").submit(function () {
-        ga('send', 'pageview', '/email-form-contatti'); // for booking: (`.gabookingsubmit` "/calcola-preventivo");
-        // _gaq.push(['_trackPageview', '/email-form-contatti']);
-     });
+     $("#booking-form-widget").submit(function () {
+        if (typeof ga !== "undefined") {
+            ga('send', 'pageview', '/email-form-contatti'); // for booking: (`.gabookingsubmit` "/calcola-preventivo");
+            //* _gaq.push(['_trackPageview', '/email-form-contatti']);
+        }
+    });
      /* Google Analytics - can be disabled and commented */
 
     /* * * * * Ajax Form - ContactsController()->ajaxsend() * * * */
@@ -539,7 +627,7 @@ $(document).ready(function () {
                     }
 
                     for (err in json.errors) {
-                        $(form).find('[name='+err+']').parent()
+                        $(form).find('[name="' + err + '"]').parent()
                             .after('<span class="help-block alert alert-danger">' + json.errors[err] + '</span>')
                             .addClass('has-error');
                     }
@@ -574,10 +662,12 @@ $(document).ready(function () {
      # # # # # # # # # # # hash-navigation # END # # # # # # # # # # # # #
      ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **/
 
-
     /**
      * #jQuery.plugin - bootstrap date picker
-     * <div id="period">
+     *
+     * @dependencies [uxsolution/bootstrap-datepicker]
+     *
+     * <div class="period">
      *     <div class="form-group">
      *         <input type="text" name="checkin" id="checkin" class="form-control checkin range">
      *     </div>
@@ -619,6 +709,15 @@ $(document).ready(function () {
                 .on('changeDate', function (e) {
                     $(".checkout", period).focus();
                 });
+
+            // .on('changeDate', function (e) {
+            //     next = $(".checkout input", period);
+            //     if (next.length == 0) {
+            //         next = $(".checkout", period);
+            //     }
+            //     next.focus();
+            // });
+
             // checkout.datepicker() // you can continue to focus input of user
             //     .on('changeDate', function (e) {
             //         $("..next input selector..", period.parent()).focus();
@@ -631,27 +730,30 @@ $(document).ready(function () {
         $('[data-toggle=tooltip]').tooltip();
     } // END - #jQuery.tooltip
 
+
     // #jQuery.plugin - selectize for list options
     if ($().selectize) {
         $('.selectize').selectize();
     } // END - #jQuery.selectize
+
 
     // #jQuery.plugin - bootstrap switch for radio button
     if ($().bootstrapSwitch) {
         $(".bootstrapSwitch").bootstrapSwitch();
     } // END - #jQuery.bootstrapSwitch
 
+
     // #jQuery.plugin - Nicescroll
     if ($().niceScroll) {
         $("html").niceScroll({
-            touchbehavior:false,
-            background:"#e2e2e2",
-            cursoropacitymin:1,
-            cursorcolor:"#141414",
-            cursoropacitymax:0.6,
-            cursorwidth:5,
-            cursorborder:'0px solid #fff',
-            railalign:"right",
+            touchbehavior: false,
+            background: "#e2e2e2",
+            cursoropacitymin: 1,
+            cursorcolor: "#141414",
+            cursoropacitymax: 0.6,
+            cursorwidth: 5,
+            cursorborder: '0px solid #fff',
+            railalign: "right",
             railpadding: {top: 0, right: 0, left: 0, bottom: 0},
             cursorborderradius: "0px",
             boxzoom: true,
@@ -660,14 +762,14 @@ $(document).ready(function () {
         });
 
         $(".withNicescroll").niceScroll({
-            touchbehavior:false,
-            background:"#e2e2e2",
-            cursoropacitymin:1,
-            cursorcolor:"#141414",
-            cursoropacitymax:0.6,
-            cursorwidth:5,
-            cursorborder:'0px solid #fff',
-            railalign:"right",
+            touchbehavior: false,
+            background: "#e2e2e2",
+            cursoropacitymin: 1,
+            cursorcolor: "#141414",
+            cursoropacitymax: 0.6,
+            cursorwidth: 5,
+            cursorborder: '0px solid #fff',
+            railalign: "right",
             railpadding: {top: 0, right: 0, left: 0, bottom: 0},
             cursorborderradius: "0px",
             boxzoom: true,
@@ -697,7 +799,7 @@ $(document).ready(function () {
     });
 
     // bootstrap wide modal - adjust height to fit entire page
-    $(".modalWide").on("show.bs.modal", function() {
+    $(".modalWide").on("show.bs.modal", function () {
         var height = $(window).height() - 200;
         $(this).find(".modal-body").css("max-height", height);
     });
@@ -747,6 +849,11 @@ $(document).ready(function () {
         };
     }();
 
+    if (withOptions.go2top) {
+        LayoutGo2Top.init(); // go2top button {css: .go2top}
+    }
+
+
     /* Animate the bottom appear button .wap */
     var wAppearBottomButton = function () {
         return {
@@ -761,6 +868,10 @@ $(document).ready(function () {
             }
         };
     }();
+
+    if (withOptions.wAppearBottomButton) {
+        wAppearBottomButton.init(); // with Appear Bottom Button {css: .wabb}
+    }
 
 
     // #jQuery.plugin - raty for a star rating view
@@ -835,43 +946,42 @@ $(document).ready(function () {
      *
      * @param _this HTML input element with data-name="" or name="" that correspond to cookie name, data-cookie-type="val,select,radio,html,text"
      */
-    function setFromCookie(_this){
+    function setFromCookie(_this) {
         var selector = _this.data('binded'),
-            type = _this.data('cookie-type');;
+            type = _this.data('cookie-type');
+        ;
 
         // get name from name="" or data-name=""
         var name = _this.attr('name');
-        if(typeof name == 'undefined') {
+        if (typeof name == 'undefined') {
             name = _this.data('name');
         }
 
         // get value from cookie
         var value = wCookies().get(name);
-        if(typeof value == 'undefined' || value == '') {
-            // if ($debug) {
-            //     console.info('setFromCookie() No value ' + name + ' - ' + value);
-            // }
+        if (typeof value == 'undefined' || value == '') {
+            clog('setFromCookie() No value ' + name + ' - ' + value);
             return false;
         }
 
         // type of element where put data
-        if(typeof type == 'undefined') {
+        if (typeof type == 'undefined') {
             type = 'val';
         }
 
-        switch(type) {
+        switch (type) {
             case 'val':
                 _this.val(value);
                 break;
             case 'select':
                 $('option', _this).removeAttr('selected');
                 _this.val(value);
-                $('option[value='+value+']', _this).attr('selected', 'selected');
+                $('option[value="' + value + '"]', _this).attr('selected', 'selected');
                 break;
             case 'theme-select':
                 $('option', _this).removeAttr('selected');
                 _this.val(value);
-                $('option[value='+value+']', _this).attr('selected', 'selected');
+                $('option[value="' + value + '"]', _this).attr('selected', 'selected');
 
                 // theme things
                 var $span = _this.parent('.select').find('span'),
@@ -882,7 +992,7 @@ $(document).ready(function () {
             case 'radio':
                 _this.removeAttr('checked');
                 _this.prop('checked', false);
-                _this.closest('form').find('input[name='+_this.attr('name')+']').filter('[value="'+value+'"]').attr('checked', true).prop('checked', true);
+                _this.closest('form').find('input[name=' + _this.attr('name') + ']').filter('[value="' + value + '"]').attr('checked', true).prop('checked', true);
                 break;
             case 'html':
                 _this.html(value);
@@ -893,14 +1003,13 @@ $(document).ready(function () {
         }
 
         // children_age_form things & datepicker
-        if($(selector).attr('name') == 'num_children' || $(selector).hasClass('range')) {
+        if ($(selector).attr('name') == 'num_children' || $(selector).hasClass('range')) {
             $(selector).trigger('keyup');
         }
 
-        // if ($debug) {
-        //     console.info('setFromCookie() ' + name + ' - ' + type + ' - ' + value);
-        // }
+        clog('setFromCookie() ' + name + ' - ' + type + ' - ' + value);
     }
+
     /**
      * Set values of inputs or elements into cookie `.w-cookie`
      *
@@ -927,19 +1036,18 @@ $(document).ready(function () {
         // set into cookie
         wCookies().set(name, value);
 
-        // if ($debug) {
-        //     console.info('setIntoCookie() ' + name + ' - ' + value);
-        // }
+        clog('setIntoCookie() ' + name + ' - ' + value);
     }
+
     // universal on .w-cookie input/element change
-    $(document).on('change blur click', '.w-cookie', function() {
+    $(document).on('change blur click', '.w-cookie', function () {
         setIntoCookie($(this));
     });
+    // @todo: selector with a -form suffixed for work on all elements in a form
     // set the .w-cookie values after load of document
-    $('.w-cookie').each( function(){
+    $('.w-cookie').each(function () {
         setFromCookie($(this));
     });
-
 
     /**
      * Bind a form input to another input or something else
@@ -947,20 +1055,20 @@ $(document).ready(function () {
      *
      * @param _this HTML input element with value="", data-binded=".selector", data-binded-type="val,select,radio,html,text"
      */
-    function wBind(_this){
+    function wBind(_this) {
         var value = _this.val(),
             selector = _this.data('binded'),
             type = _this.data('binded-type');
 
         // set default type if not specified
-        if(typeof type == 'undefined') {
+        if (typeof type == 'undefined') {
             type = 'val';
         }
 
         // if radio, get the checked value and not booth
-        if(_this.is('input[type=radio]')) {
-            value = _this.closest('form').find('input[name='+_this.attr('name')+']:checked').val();
-            if(typeof value == 'undefined') {
+        if (_this.is('input[type=radio]')) {
+            value = _this.closest('form').find('input[name="' + _this.attr('name') + '"]:checked').val();
+            if (typeof value == 'undefined') {
                 value = '';
             }
         }
@@ -970,19 +1078,19 @@ $(document).ready(function () {
             return;
         }
 
-        switch(type) {
+        switch (type) {
             case 'val':
                 $(selector).val(value);
                 break;
             case 'select':
-                $(selector+' option').removeAttr('selected');
+                $(selector + ' option').removeAttr('selected');
                 $(selector).val(value);
-                $(selector+' option[value='+value+']').attr('selected', 'selected');
+                $(selector + ' option[value="' + value + '"]').attr('selected', 'selected');
                 break;
             case 'radio':
                 $(selector).removeAttr('checked');
                 $(selector).prop('checked', false);
-                $(selector).filter('[value="'+value+'"]').attr('checked', true).prop('checked', true);
+                $(selector).filter('[value="' + value + '"]').attr('checked', true).prop('checked', true);
                 break;
             case 'html':
                 $(selector).html(value);
@@ -993,29 +1101,26 @@ $(document).ready(function () {
         }
 
         // children_age_form things & datepicker
-        if($(selector).attr('name') == 'num_children' || $(selector).hasClass('range')) {
+        if ($(selector).attr('name') == 'num_children' || $(selector).hasClass('range')) {
             $(selector).trigger('keyup');
         }
 
-        // if ($debug) {
-        //     console.info('wBind() ' + selector + ' - ' + type + ' - ' + value);
-        // }
+        // range datepicker update dates on bind
+        if ($(selector).hasClass('range')) {
+            $(selector).closest('.period').datepicker('updateDates');
+        }
+
+        clog('wBind() ' + selector + ' - ' + type + ' - ' + value);
     }
+
     // universal on bind change
-    $(document).on('change blur click', '.w-binded', function() {
+    $(document).on('change blur click', '.w-binded', function () {
         wBind($(this));
     });
+    // @todo: selector with a -form suffixed for work on all elements in a form
     // set the binded value after load of document
-    $('.w-binded.w-setter').each( function(){
+    $('.w-binded.w-setter').each(function () {
         wBind($(this));
         // setIntoCookie($(this)); combine w-binded and w-cookie
     });
-
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-     * * * * * * * * * * * * * * * * * * * enable/disable functions  * * * * * * * * * * * * * * *
-     * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-    LayoutGo2Top.init(); // go2top button {css: .go2top}
-
-    wAppearBottomButton.init(); // with Appear Bottom Button {css: .wabb}
 });

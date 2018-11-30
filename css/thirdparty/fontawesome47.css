@@ -1,0 +1,62 @@
+/* fa - fontawesome */
+.fa-title {
+    font-size: 0.9em !important;
+}
+.fa-img {
+    height: 17px;
+    width: 17px;
+}
+
+/** fontawesome background div
+
+<div class="fa-bg-div">
+    <i class="fa fa-photo fa-bg"></i>
+
+    <div class="relpos">
+        <h2>for put things inside</h2>
+
+        <p>is better to use a relative:position; element, use .relpos tool</p>
+    </div>
+</div>
+
+ */
+.fa-bg-div {
+    overflow: hidden;
+    min-height: 200px;
+    position: relative;
+}
+.fa-bg-div * {
+    z-index: 11;
+}
+.fa-bg-rb, .fa-bg {
+    font-size: 150px;
+    z-index: 10;
+
+    position: absolute;
+    right: 3px;
+    bottom: 3px;
+}
+.fa-bg-rt {
+    font-size: 150px;
+    z-index: 10;
+
+    position: absolute;
+    right: 3px;
+    top: 3px;
+}
+.fa-bg-lt {
+    font-size: 150px;
+    z-index: 10;
+
+    position: absolute;
+    left: 3px;
+    top: 3px;
+}
+.fa-bg-lb {
+    font-size: 150px;
+    z-index: 10;
+
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+}
