@@ -175,7 +175,7 @@ $(".loader-wrapper-close").show().click(function () {
 $(document).ready(function () {
     // this is for loader
     if ($(".loader-wrapper").length > 0) {
-        $('#mainMenu a:not([target="_blank"]):not([href^=#]), a.animation-link').on("click", function () {
+        $('#mainMenu a:not([target="_blank"]):not([href^="#"]), a.animation-link').on("click", function () {
             // Grab the link's href
             var href = this.href;
 
@@ -190,7 +190,7 @@ $(document).ready(function () {
             return false;
         });
 
-        $(window).load(function () {
+        $(window).on('load', function () {
             $(".loader:not(.demo-loader)").fadeOut(200);
             $(".loader-wrapper:not(.demo-loader)").delay(100).fadeOut(400);
         });
@@ -503,79 +503,79 @@ $(document).ready(function () {
      * //*also with old _gaq commented if u use old google analytics code https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApi_gaq#push
      * /
      $("a").click(function () {
-        if (!$(this).hasClass("gadisabled")) {
-            var href = $(this).attr('href');
+    if (!$(this).hasClass("gadisabled")) {
+        var href = $(this).attr('href');
 
-            if (typeof ga !== "undefined" && typeof href !== "undefined") {
-                if (href.indexOf('mailto:') >= 0) {
-                    ga('send', 'event', 'contatti', 'click', href.replace('mailto:', ''), '5');
-                    //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('mailto:', ''), 5]);
-                }
+        if (typeof ga !== "undefined" && typeof href !== "undefined") {
+            if (href.indexOf('mailto:') >= 0) {
+                ga('send', 'event', 'contatti', 'click', href.replace('mailto:', ''), '5');
+                //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('mailto:', ''), 5]);
+            }
 
-                if (href.indexOf('tel:') >= 0) {
-                    ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');
-                    //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('tel:', ''), 5]);
-                }
+            if (href.indexOf('tel:') >= 0) {
+                ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');
+                //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('tel:', ''), 5]);
+            }
 
-                if (href.indexOf('skype:') >= 0) {
-                    ga('send', 'event', 'contatti', 'click', href.replace('skype:', ''), '5');
-                    //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('skype:', ''), 5]);
-                }
+            if (href.indexOf('skype:') >= 0) {
+                ga('send', 'event', 'contatti', 'click', href.replace('skype:', ''), '5');
+                //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('skype:', ''), 5]);
+            }
 
-                if (href.indexOf('maps') >= 0) {
-                    ga('send', 'event', 'contatti', 'click', 'maps', '5');
-                    //* _gaq.push(['_trackEvent', 'contatti', 'click', 'maps', 5]);
-                }
+            if (href.indexOf('maps') >= 0) {
+                ga('send', 'event', 'contatti', 'click', 'maps', '5');
+                //* _gaq.push(['_trackEvent', 'contatti', 'click', 'maps', 5]);
+            }
 
-                if (href.indexOf('instagram.com') >= 0) {
-                    ga('send', 'event', 'contatti', 'click', 'instagram', '5');
-                    //* _gaq.push(['_trackEvent', 'social', 'click', 'instagram', 2]);
-                }
+            if (href.indexOf('instagram.com') >= 0) {
+                ga('send', 'event', 'contatti', 'click', 'instagram', '5');
+                //* _gaq.push(['_trackEvent', 'social', 'click', 'instagram', 2]);
+            }
 
-                if (href.indexOf('tripadvisor.com') >= 0) {
-                    ga('send', 'event', 'social', 'click', 'tripadvisor', '2');
-                    //* _gaq.push(['_trackEvent', 'social', 'click', 'twitter', 2]);
-                }
+            if (href.indexOf('tripadvisor.com') >= 0) {
+                ga('send', 'event', 'social', 'click', 'tripadvisor', '2');
+                //* _gaq.push(['_trackEvent', 'social', 'click', 'twitter', 2]);
+            }
 
-                if (href.indexOf('facebook.com') >= 0) {
-                    ga('send', 'event', 'social', 'click', 'facebook', '2');
-                    //* _gaq.push(['_trackEvent', 'social', 'click', 'facebook', 2]);
-                }
+            if (href.indexOf('facebook.com') >= 0) {
+                ga('send', 'event', 'social', 'click', 'facebook', '2');
+                //* _gaq.push(['_trackEvent', 'social', 'click', 'facebook', 2]);
+            }
 
-                if (href.indexOf('google.com') >= 0) {
-                    ga('send', 'event', 'social', 'click', 'google', '2');
-                    //* _gaq.push(['_trackEvent', 'social', 'click', 'google', 2]);
-                }
+            if (href.indexOf('google.com') >= 0) {
+                ga('send', 'event', 'social', 'click', 'google', '2');
+                //* _gaq.push(['_trackEvent', 'social', 'click', 'google', 2]);
+            }
 
-                if (href.indexOf('youtube.com') >= 0) {
-                    ga('send', 'event', 'social', 'click', 'youtube', '2');
-                    //* _gaq.push(['_trackEvent', 'social', 'click', 'youtube', 2]);
-                }
+            if (href.indexOf('youtube.com') >= 0) {
+                ga('send', 'event', 'social', 'click', 'youtube', '2');
+                //* _gaq.push(['_trackEvent', 'social', 'click', 'youtube', 2]);
+            }
 
-                if ((href.indexOf('sitename.com') < 0) && (href.indexOf('http') >= 0)) {
-                    ga('send', 'event', 'outgoing', 'click', href);
-                    //* _gaq.push(['_trackEvent', 'outgoing', 'click', href]);
-                }
+            if ((href.indexOf('sitename.com') < 0) && (href.indexOf('http') >= 0)) {
+                ga('send', 'event', 'outgoing', 'click', href);
+                //* _gaq.push(['_trackEvent', 'outgoing', 'click', href]);
+            }
 
-                if (href.match('.pdf$') != null) {
-                    //var pdf_file_name = href.substr(href.lastIndexOf('/') + 1);
-                    ga('send', 'event', 'download', 'click', 'label-evento', '2');
-                    //* _gaq.push(['_trackEvent', 'download', 'click', 'label-evento', '2']);
-                }
+            if (href.match('.pdf$') != null) {
+                //var pdf_file_name = href.substr(href.lastIndexOf('/') + 1);
+                ga('send', 'event', 'download', 'click', 'label-evento', '2');
+                //* _gaq.push(['_trackEvent', 'download', 'click', 'label-evento', '2']);
             }
         }
-    });
+    }
+});
      /* Google Analytics - can be disabled and commented */
 
     /**
      * Google Analytics submit
      * /
      $("#booking-form-widget").submit(function () {
-        if (typeof ga !== "undefined") {
-            ga('send', 'pageview', '/email-form-contatti'); // for booking: (`.gabookingsubmit` "/calcola-preventivo");
-            //* _gaq.push(['_trackPageview', '/email-form-contatti']);
-        }
-    });
+    if (typeof ga !== "undefined") {
+        ga('send', 'pageview', '/email-form-contatti'); // for booking: (`.gabookingsubmit` "/calcola-preventivo");
+        //* _gaq.push(['_trackPageview', '/email-form-contatti']);
+    }
+});
      /* Google Analytics - can be disabled and commented */
 
     /* * * * * Ajax Form - ContactsController()->ajaxsend() * * * */
@@ -654,7 +654,7 @@ $(document).ready(function () {
     if (hash.length > 0 && $('.hash-navigation').length > 0) {
         $('a[href=' + hash + ']').tab('show');
     }
-    // # look for changes in navigation and add it to url
+// # look for changes in navigation and add it to url
     $('.hash-navigation a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         return location.hash = $(e.target).attr('href').substr(1);
     });
@@ -803,7 +803,7 @@ $(document).ready(function () {
         var height = $(window).height() - 200;
         $(this).find(".modal-body").css("max-height", height);
     });
-    // END - bootstrap wide modal
+// END - bootstrap wide modal
 
     /**
      * START: Layout Go2Top
@@ -924,11 +924,11 @@ $(document).ready(function () {
                 $(this).addClass('set');
         });
     });
-    // no close on himself click
+// no close on himself click
     $(".withBox.collapsable").mouseup(function () {
         return false;
     });
-    // close on document click
+// close on document click
     $(document).mouseup(function () {
         $(".shBox", $(".withBox.collapsable")).slideUp();
         var shSwitch = $(".shSwitch", $(".withBox.collapsable"));
@@ -1039,12 +1039,12 @@ $(document).ready(function () {
         clog('setIntoCookie() ' + name + ' - ' + value);
     }
 
-    // universal on .w-cookie input/element change
+// universal on .w-cookie input/element change
     $(document).on('change blur click', '.w-cookie', function () {
         setIntoCookie($(this));
     });
-    // @todo: selector with a -form suffixed for work on all elements in a form
-    // set the .w-cookie values after load of document
+// @todo: selector with a -form suffixed for work on all elements in a form
+// set the .w-cookie values after load of document
     $('.w-cookie').each(function () {
         setFromCookie($(this));
     });
@@ -1113,12 +1113,12 @@ $(document).ready(function () {
         clog('wBind() ' + selector + ' - ' + type + ' - ' + value);
     }
 
-    // universal on bind change
+// universal on bind change
     $(document).on('change blur click', '.w-binded', function () {
         wBind($(this));
     });
-    // @todo: selector with a -form suffixed for work on all elements in a form
-    // set the binded value after load of document
+// @todo: selector with a -form suffixed for work on all elements in a form
+// set the binded value after load of document
     $('.w-binded.w-setter').each(function () {
         wBind($(this));
         // setIntoCookie($(this)); combine w-binded and w-cookie

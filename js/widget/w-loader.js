@@ -7,7 +7,7 @@ $(".loader-wrapper-close").show().click(function () {
 $(document).ready(function () {
     // this is for loader
     if ($(".loader-wrapper").length > 0) {
-        $('#mainMenu a:not([target="_blank"]):not([href^=#]), a.animation-link').on("click", function () {
+        $('#mainMenu a:not([target="_blank"]):not([href^="#"]), a.animation-link').on("click", function () {
             // Grab the link's href
             var href = this.href;
 
@@ -22,7 +22,7 @@ $(document).ready(function () {
             return false;
         });
 
-        $(window).load(function () {
+        $(window).on('load', function () {
             $(".loader:not(.demo-loader)").fadeOut(200);
             $(".loader-wrapper:not(.demo-loader)").delay(100).fadeOut(400);
         });
