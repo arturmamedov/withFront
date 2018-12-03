@@ -121,6 +121,11 @@
     margin: 0 auto;
 }
 
+/* max-width not work with little images and this make it wide */
+.img-full {
+    width: 100%;
+}
+
 /* * * Bootstrap btn * * * */
 /* circle */
 .btn-circle {
