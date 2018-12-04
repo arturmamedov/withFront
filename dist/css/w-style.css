@@ -1,0 +1,514 @@
+@import url('css/margin-tools.css');
+@import url('css/padding-tools.css');
+@import url('css/text-tools.css');
+@import url('css/sm-tools.css');
+@import url('css/thirdparty/fontawesome47.css');
+
+/* for use see withplugins.js */
+._the_email_confirm_group {
+    display: none !important;
+}
+
+/* OVERRIDE blueimp gallery */
+.blueimp-gallery > .indicator > li {
+    background-size: cover !important;
+    width: 50px !important;;
+    height: 50px !important;;
+    border-radius: 50% !important;;
+}
+.blueimp-gallery > .indicator > li::after {
+    width: 120px !important;;
+    height: 120px !important;;
+}
+
+/* OVERRIDE for flag icon (for more intuitive use then GB-en) */
+.flag-icon-en {
+    background-image: url('../flag-icon-css/flags/4x3/gb.svg');
+}
+
+.flag-icon-en.flag-icon-squared {
+    background-image: url('../flag-icon-css/flags/1x1/gb.svg');
+}
+
+
+/* modal wide */
+.modal-wide {
+    width: 90% !important;
+}
+.modal-wide .modal-body {
+    overflow-y: auto;
+}
+
+/* OVERRIDE bootstrap-datepicker for have red highlighted days(sunday) and not break on selected highlighted day */
+.datepicker table tr td.highlighted {
+    background: transparent !important;
+    border: none !important;
+    color: #ff0000 !important;
+}
+.datepicker table tr td.selected.highlighted,
+.datepicker table tr td.active.highlighted.active,
+.datepicker table tr td.active.highlighted:active {
+    color: #fff !important;
+    background-color: #286090 !important;
+    border-radius: 5px;
+}
+/* + disbled dates */
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    color: #EEEEEE !important;
+    cursor: no-drop !important;
+}
+
+/* for jq highlight */
+.highlight {
+    background: #00ff9e;
+}
+
+/* * * js gDiv() withAlert style * * */
+.withAlert {
+    position: fixed !important;
+    top: 55px;
+    left: 15%;
+    width: 70%;
+    text-align: center;
+    z-index: 5000;
+}
+
+/* Tables * /
+.thick-line {
+    border-top: 2px solid;
+}
+/*
+.table-striped > thead > tr {
+    background-color: #D196A4;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #F4D9DE;
+}
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+    background-color: #F2C4CE;
+}
+.table-striped > tfoot > tr {
+    background-color: #D196A4;
+}
+/* */
+
+/* * * Tools * * */
+.display-none {
+    display: none;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.fullwidth {
+    width: 100% !important;
+}
+
+/* CURSOR HELPER */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.showhideBox {
+    cursor: pointer;
+}
+
+/* Bootstrap grid bug fix */
+.center-block {
+    float: none;
+    display: block;
+    margin: 0 auto;
+}
+
+/* * * Bootstrap btn * * * */
+/* circle */
+.btn-circle {
+    border-radius: 50%;
+    height: 36px;
+    padding: 8px 12px;
+    width: 36px;
+}
+
+/* FLAT */
+.btn-flat {
+    border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+}
+
+/* dividers to use how or with clearfix */
+.divider {
+    height: 50px;
+    clear: both;
+}
+
+.divider-100 {
+    height: 100px;
+    clear: both;
+}
+
+.divider-200 {
+    height: 200px;
+    clear: both;
+}
+
+.divider-300 {
+    height: 300px;
+    clear: both;
+}
+
+/* unstyle link */
+.link-unstyled, .link-unstyled:hover, .link-unstyled:active, .link-unstyled:focus {
+    text-decoration: none;
+}
+
+/* fast positions and after style="inline top,bottommleft,right: ?px" */
+.relpos {
+    position: relative;
+}
+
+.abspos {
+    position: absolute;
+}
+
+/* or more fast way */
+.rightpos {
+    right: 0px;
+}
+
+.leftpos {
+    left: 0px;
+}
+
+.toppos {
+    top: 0px;
+}
+
+.bottompos {
+    bottom: 0px;
+}
+
+/* with 5px */
+.rightpos-5 {
+    right: 5px;
+}
+
+.leftpos-5 {
+    left: 5px;
+}
+
+.toppos-5 {
+    top: 5px;
+}
+
+.bottompos-5 {
+    bottom: 5px;
+}
+
+/* BACKGROUNDS bg-[] */
+.bg-lgray {
+    background-color: #f1f1f1;
+}
+
+.bg-white {
+    background: #FFFFFF;
+}
+
+.bg-white-transparent {
+    background: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.bg-lgreen-transparent {
+    background: none repeat scroll 0 0 rgba(200, 255, 200, 0.6);
+}
+
+.bg-acqua {
+    background: #DAFDFF;
+}
+
+.bg-acqua-transparent {
+    background: #DAFDFF;
+    background-color: rgba(208, 253, 255, 0.78);
+}
+
+/* Default Box shadow */
+.box-shadow {
+    -webkit-box-shadow: 0 0 2px #444444;
+    -moz-box-shadow: 0 0 2px #444444;
+    box-shadow: 0 0 2px #444444;
+}
+
+/* Default border radius */
+.border-radius {
+    -webkit-border-radius: 7px 7px 7px 7px;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.border-radius-bottom {
+    -webkit-border-radius: 0 0 7px 7px;
+    border-radius: 0 0 7px 7px;
+}
+
+.border-radius-top {
+    -webkit-border-radius: 7px 7px 0 0;
+    border-radius: 7px 7px 0 0;
+}
+
+.border-solid1 {
+    border: 1px solid #dddddd;
+}
+
+.border-solid1-left {
+    border-left: 1px solid #dddddd;
+}
+
+/* #animation: for on-target */
+.target { background-color: #00e095; }
+.on-target:target { animation: ontarget 8s; }
+@keyframes ontarget {
+    0% { background-color: #00e095; }
+    100% { background-color: transparent; }
+}
+/* #animation: for pulse button */
+.pulse-button { position: relative; }
+.pulse-effect {
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-name: pulse;
+    animation-timing-function: ease-out;
+    border: 4px solid blue;
+    border-radius: 50px;
+    box-shadow: 0 0 5px #00A6D3;
+    display: block;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: -2px;
+    left: 2px;
+}
+@-webkit-keyframes pulse{0%{-webkit-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-webkit-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-webkit-transform:scale(2.5);transform:scale(2.5);opacity:0}}
+@-moz-keyframes pulse{0%{-moz-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-moz-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-moz-transform:scale(2.5);transform:scale(2.5);opacity:0}}
+@-o-keyframes pulse{0%{-o-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-o-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-o-transform:scale(2.5);transform:scale(2.5);opacity:0}}
+@keyframes pulse{0%{transform:scale(0.3);opacity:0.2}80%{transform:scale(1.5);opacity:0}100%{transform:scale(2.5);opacity:0}}
+
+/* go2top {js: LayoutGo2Top.init()} */
+.go2top {
+    bottom: 40px;
+    cursor: pointer;
+    display: inline-block;
+    position: fixed;
+    right: 30px;
+}
+.go2top > i {
+    color: #ced1d3;
+    font-size: 43px;
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+/* with Appear Bottom Button {js: wAppearBottomButton.init()} */
+.wabb {
+    position: fixed;
+    bottom: -150px;
+    right: 70px;
+    z-index: 999;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * *
+* * *Styles for third party plugins * * * *
+* * * * * * * * * * * * * * * * * * * * * */
+/* Please i wont a light bootstrap tooltip :) */
+.tooltip {
+    font-size: 14px;
+    z-index: 1;
+}
+.tooltip-inner {
+    color: #222222;
+    background-color: #CCCCCC;
+    border-radius: 4px;
+}
+.tooltip-arrow {
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #CCCCCC;
+}
+
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #CCCCCC;
+}
+
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #CCCCCC;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #CCCCCC;
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #CCCCCC;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #CCCCCC;
+}
+
+.tooltip.bottom-left .tooltip-arrow {
+    border-bottom-color: #CCCCCC;
+}
+
+.tooltip.bottom-right .tooltip-arrow {
+    border-bottom-color: #CCCCCC;
+}
+
+/* Please i wont a light tooltip END */
+
+/* TypeAhead styles * /
+.twitter-typeahead {width: 100%; background: #FFFFFF;}
+.twitter-typeahead .form-control {float: none;}
+.tt-input {
+
+}
+.tt-hint {
+
+}
+.tt-menu {
+    width: 100%;
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    float: left;
+    font-size: 14px;
+    left: -35;
+    padding: 10px 0;
+}
+.tt-suggestion {
+    padding: 5px 10px;
+    width: 100%;
+    margin: 0px;
+}
+.tt-suggestion:hover {
+    background-color: #eeeeee;
+}
+.tt-cursor {
+    background-color: #eeeeee;
+}
+.tt-highlight {
+    background: #DAFDFF;
+}
+/* TypeAhead END */
+
+/* ----------------------------------------------------------------------
+	PAGE LOADER
+-------------------------------------------------------------------------*/
+
+.inner-loader-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: absolute !important;
+    width: 100%;
+    z-index: 9999;
+    background-color: transparent !important;
+}
+
+.loader-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    background-color: #fff;
+}
+
+.loader-wrapper .loader {
+    margin: 0 auto;
+    text-align: center;
+    width: 280px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.loader-title {
+    color: #ccc;
+    font-weight: 400;
+    display: block;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* ----------------------------------------------------------------------
+	PAGE LOADER - END
+-------------------------------------------------------------------------*/
+
+/* ^ ^ START: MEDIA QUERY ^ ^ */
+@media (min-width: 768px) {
+    /* from xs - to lg */
+    /* from xs - to lg */
+}
+
+@media (max-width: 480px) {
+    /* less then xs */
+    .no-xs-padding {
+        padding: 0px;
+    }
+
+    /* go2top */
+    .go2top {
+        bottom: 5px;
+        cursor: pointer;
+        display: inline-block;
+        position: fixed;
+        right: 5px;
+    }
+    .go2top > i {
+        color: rgba(110,179,187, 0.8);
+        font-size: 34px;
+        font-weight: 300;
+        opacity: 0.5;
+    }
+    /* less then xs */
+}
+
+@media (max-width: 767px) and (min-width: 481px) {
+    /* xs */
+    /* go2top */
+    .go2top {
+        bottom: 5px;
+        cursor: pointer;
+        display: inline-block;
+        position: fixed;
+        right: 5px;
+    }
+    .go2top > i {
+        color: rgba(110,179,187, 0.8);
+        font-size: 34px;
+        font-weight: 300;
+        opacity: 0.5;
+    }
+    /* xs*/
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /* sm (from xs - to sm) */
+    /* sm (from xs - to sm) */
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* md (from sm - to md) */
+    /* md (from sm - to md) */
+}
+
+@media (min-width: 1200px) {
+    /* lg */
+    /* lg */
+}
+
+/* _ _ END: MEDIA QUERY _ _ */
