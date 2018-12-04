@@ -208,7 +208,7 @@ module.exports = function(grunt) {
         },
 
 
-        // minify
+        // minify CSS
         cssmin: {
             options: {
                 mergeIntoShorthands: false,
@@ -220,6 +220,19 @@ module.exports = function(grunt) {
                     'w-style.min.css': ['withstyle.css']
                 }
             }
+        },
+
+        // minify JS
+        uglify: {
+            my_target: {
+                options: {
+                    sourceMap: true,
+                    drop_console: true
+                },
+                files: {
+                    'w-plugins.min.js': ['withplugins.js']
+                }
+            }
         }
     });
 
@@ -227,6 +240,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
     grunt.registerTask('default', ['copy', 'cssmin']);
