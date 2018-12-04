@@ -44,13 +44,13 @@ jQuery - https://github.com/jquery/jquery
 #### Adding to web page
 ```html
 <!-- Inside Tag head -->
-<link rel="stylesheet" href="node_modules/bootstrap/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="node_modules/withFront/withstyle.css" type="text/css"/>
+<link rel="stylesheet" href="node_modules/bootstrap/css/bootstrap.min.css" type="text/css"/> <!-- bootstrap 3/4-->
+<link rel="stylesheet" href="node_modules/withFront/dist/css/w-style.min.css" type="text/css"/> <!-- css tools -->
 
 <!-- Better down in footer after all content and after include jQuery and Bootstrap -->
 <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/node_modules/withFront/withplugins.js"></script>
+<script type="text/javascript" src="/node_modules/withFront/withplugins.js"></script> <!-- js tools -->
 
 ```
 
