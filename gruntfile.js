@@ -104,6 +104,7 @@ module.exports = function(grunt) {
 
     // Build configuration.
     grunt.initConfig({
+        // not used at the moment, use copy that replace in template file
         concat: {
             options: {
                 separator: '\n\n\n',
@@ -204,15 +205,31 @@ module.exports = function(grunt) {
                 src: "js/withplugins_concat_template.js" ,
                 dest: "withplugins.js"
             }
+        },
+
+
+        // minify
+        cssmin: {
+            options: {
+                mergeIntoShorthands: false,
+                roundingPrecision: -1,
+                sourceMap: true
+            },
+            target: {
+                files: {
+                    'w-style.min.css': ['withstyle.css']
+                }
+            }
         }
     });
 
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     // Default task(s).
-    grunt.registerTask('default', ['copy']);
+    grunt.registerTask('default', ['copy', 'cssmin']);
 
     // # My PurifyCSS task (for find and keep all used css selectors in my files, and cut all others that aren't used)
     // grunt.initConfig({
