@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     /**
      * withInclude() - embeds a file content within another. Meant to be
      * used from the copy task as a 'processContent' function. The following
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
      *  ...
      *
      */
-    function withInclude(fileContent, filePath){
+    function withInclude(fileContent, filePath) {
 
         if (fileContent.indexOf("withInclude") > -1) {
 
@@ -59,13 +59,13 @@ module.exports = function(grunt) {
             while ((match = re.exec(fileContent)) !== null) {
 
                 grunt.log.write(".");
-                grunt.verbose.writeln("    Match array: " + match );
+                grunt.verbose.writeln("    Match array: " + match);
 
-                file = grunt.template.process( match[1] );
+                file = grunt.template.process(match[1]);
 
-                grunt.verbose.writeln("    File to embed: " + file );
+                grunt.verbose.writeln("    File to embed: " + file);
 
-                file = grunt.file.read( file );
+                file = grunt.file.read(file);
 
                 // If options were set, then parse them
                 if (match[2]) {
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 
                     // If option: asJsString
                     if (
-                        fileIncludeOptions.some(function(option){
+                        fileIncludeOptions.some(function (option) {
                             return String(option).toLowerCase() === "asjsstring";
                         })
                     ) {
@@ -89,7 +89,9 @@ module.exports = function(grunt) {
 
                 }
 
-                fileContent = fileContent.replace(match[0], function(){ return file; });
+                fileContent = fileContent.replace(match[0], function () {
+                    return file;
+                });
 
             }
             grunt.log.writeln("");
@@ -202,7 +204,7 @@ module.exports = function(grunt) {
                     expand: true,
                     process: withInclude
                 },
-                src: "js/withplugins_concat_template.js" ,
+                src: "js/withplugins_concat_template.js",
                 dest: "withplugins.js"
             }
         },
@@ -217,20 +219,20 @@ module.exports = function(grunt) {
             },
             target: {
                 files: {
-                    'w-style.min.css': ['withstyle.css']
+                    'dist/css/w-style.min.css': ['withstyle.css']
                 }
             }
         },
 
         // minify JS
         uglify: {
-            my_target: {
+            target: {
                 options: {
                     sourceMap: true,
                     drop_console: true
                 },
                 files: {
-                    'w-plugins.min.js': ['withplugins.js']
+                    'dist/js/w-plugins.min.js': ['withplugins.js']
                 }
             }
         }
@@ -243,7 +245,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
     // Default task(s).
-    grunt.registerTask('default', ['copy', 'cssmin']);
+    grunt.registerTask('default', ['copy', 'cssmin', 'uglify']);
 
     // # My PurifyCSS task (for find and keep all used css selectors in my files, and cut all others that aren't used)
     // grunt.initConfig({
