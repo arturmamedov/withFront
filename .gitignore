@@ -4,6 +4,8 @@
 # https://github.com/github/gitignore
 # Artur Mamedov <withArtur@gmail.com>
 
+# unignire dist in this project
+!dist
 
 # Laravel 5 & Lumen specific
 vendor/
@@ -34,7 +36,6 @@ Homestead.json
 nbproject/private/
 build/
 nbbuild/
-dist/
 nbdist/
 .nb-gradle/
 
