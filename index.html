@@ -11,7 +11,7 @@
     <!-- @html5bp <link rel="apple-touch-icon" href="icon.png">-->
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css.map">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="withstyle.css">
 </head>
 <body style="height:2000px;" data-desc="height: 2000px for try go2top button">
@@ -19,35 +19,83 @@
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
+<div class="container">
+    <div class="row">
+        <!-- Add your site or application content here -->
+        <h1 class="text-center">Hello world! This MarkUp use <a href="https://github.com/h5bp/html5-boilerplate" target="_blank">HTML5 Boilerplate</a> v6.0.1</h1>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="jumbotron bg-acqua">
+            <h3>withAlert()</h3>
+            <p class="lead">A simple and intuitive way for show alert's with notifications!</p>
+
+            <hr>
+
+            <h5><a href="javascript:;" id="withAlertCustomTrigger" class="link-unstyled">Click for try withAlert('Message ...', 'success');</a></h5>
+
+            <p><a href="javascript:;" data-toggle="alert" data-message="Warning message here ..." data-type="warning" class="link-unstyled">Click for try withAlert('...', 'warning');</a></p>
+
+            <p><a href="javascript:;" data-toggle="alert" data-message="Danger message here ..." data-type="danger" class="link-unstyled">Click for try withAlert('...', 'danger');</a></p>
+
+            <p><a href="javascript:;" data-toggle="alert" data-message="Primary message here ..." data-type="primary" class="link-unstyled">Click for try withAlert('...', 'primary');</a></p>
+
+            <p><a href="javascript:;" data-toggle="alert" data-message="Secondary message here ..." data-type="secondary" class="link-unstyled">Click for try withAlert('...', 'secondary');</a></p>
+
+            <p><a href="javascript:;" data-toggle="alert" data-message="Info message here ..." data-type="info" class="link-unstyled">Click for try withAlert('...', 'info');</a></p>
+
+            <p><a href="javascript:;" data-toggle="alert" data-message="Light message here ..." data-type="light" class="link-unstyled">Click for try withAlert('...', 'light');</a></p>
+
+            <p><a href="javascript:;" data-toggle="alert" data-message="Dark message here ..." data-type="dark" class="link-unstyled">Click for try withAlert('...', 'dark');</a></p>
+
+            <hr>
+
+            <h6>Code:</h6>
+
+            <code class="code">
+                $("#withAlertCustomTrigger").click(function(){<br>
+                    &nbsp; &nbsp; withAlert('Message ...', 'success');<br>
+                });
+            </code>
+
+            <hr>
+
+            <h6>File: <a href="js/core/w-alert.js" target="_blank">js/core/w-alert.js</a></h6>
+        </div>
 
 
 
-<!-- Add your site or application content here -->
-<p>Hello world! This MarkUp use <a href="https://github.com/h5bp/html5-boilerplate" target="_blank">HTML5 Boilerplate</a> v6.0.1</p>
 
 
 
-
-
-
-
-
-
-
+    </div>
+</div>
 
 
 
 <!-- @html5bp <script src="js/vendor/modernizr-3.6.0.min.js"></script>-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
 <!-- @html5bp <script src="js/plugins.js"></script>-->
 <script src="withplugins.js"></script>
 
 <!-- Go2Top {css: .go2top, js: LayoutGo2Top} -->
 <div class="go2top hidden-xs text-center">
-    <i class="fa fa-chevron-circle-up"></i>
+    <i class="fa fa-chevron-up"></i>
     <p class="hidden-sm">Torna su</p>
 </div>
+
+<script>
+$("#withAlertCustomTrigger").click(function(){
+    withAlert('Message ...', 'success');
+});
+$("[data-toggle='alert']").click(function(){
+    withAlert($(this).data('message'), $(this).data('type'));
+});
+</script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <!-- @html5bp <script>
