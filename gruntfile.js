@@ -206,6 +206,20 @@ module.exports = function (grunt) {
                 },
                 src: "js/withplugins_concat_template.js",
                 dest: "withplugins.js"
+            },
+            js_src: {
+                options: {
+                    expand: true
+                },
+                src: "withplugins.js",
+                dest: "dist/js/w-plugins.js"
+            },
+            css_src: {
+                options: {
+                    expand: true
+                },
+                src: "withstyle.css",
+                dest: "dist/css/w-style.css"
             }
         },
 
