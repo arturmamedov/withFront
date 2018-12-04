@@ -434,8 +434,8 @@ $(".children_age_form").each(function () {
         }
         // over 5 chlids are invalid
         if (_childNum > max_children) {
-            if ($().gdivMessage) {
-                $('body').gdivMessage('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning', {hidetime: 7000});
+            if (typeof withAlert == 'function') {
+                withAlert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning', {hidetime: 7000});
             } else {
                 alert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning');
             }
@@ -499,6 +499,8 @@ $(".children_age_form").each(function () {
 
     /**
  * Form that need be send with Ajax and with CakePHP 3.x
+ *
+ * @dependencies [w-alert]
  * /
  $(".ajaxform").on('submit', function(e){
         e.preventDefault();
@@ -514,8 +516,8 @@ $(".children_age_form").each(function () {
             success: function(json){
                 if(json.success)
                 {
-                    if ($().gdivMessage) {
-                        $("body").gdivMessage(json.message, 'success');
+                    if (typeof withAlert == 'function') {
+                        withAlert(json.message, 'success');
                     } else {
                         alert(json.message);
                     }
@@ -525,8 +527,8 @@ $(".children_age_form").each(function () {
                         eval($(thisForm).data('scallback'));
                     }
                 } else {
-                    if ($().gdivMessage) {
-                        $("body").gdivMessage(json.message, 'danger');
+                    if (typeof withAlert == 'function') {
+                        withAlert(json.message, 'danger');
                     } else {
                         alert(json.message);
                     }
@@ -544,8 +546,8 @@ $(".children_age_form").each(function () {
                 }
             },
             error: function(){
-                if ($().gdivMessage) {
-                    $("body").gdivMessage('Unexpected error! Errore inaspettato!');
+                if (typeof withAlert == 'function') {
+                    withAlert('Unexpected error! Errore inaspettato!');
                 } else {
                     alert('Unexpected error! Errore inaspettato!');
                 }
@@ -645,7 +647,12 @@ $("#booking-form-widget").submit(function () {
 });
 /* Google Analytics - can be disabled and commented */
 
-    /* * * * * Ajax Form - ContactsController()->ajaxsend() * * * */
+    /**
+ * Ajax Form
+ * ContactsController()->ajaxsend()
+ *
+ * @dependencies [w-alert]
+ **/
 $(".ajaxsend").submit(function (e) {
     e.preventDefault();
     var form = $(this);
@@ -668,6 +675,7 @@ $(".ajaxsend").submit(function (e) {
             submit_btn.text(submit_btn_text).prop('disabled', false);
 
             if (json.success) {
+                // @todo: must to do a callback
                 // Google Analytics track (can be disabled and commented)
                 // if (typeof ga !== "undefined") {
                 //     ga('send', 'pageview', '/email-form-contatti');
@@ -675,8 +683,8 @@ $(".ajaxsend").submit(function (e) {
                 //     ga('send', 'event', 'contatti', 'click', 'newsletter', '5');
                 // }
 
-                if ($().gdivMessage) {
-                    $("body").gdivMessage(json.message, 'success');
+                if (typeof withAlert == 'function') {
+                    withAlert(json.message, 'success');
                 } else {
                     alert(json.message);
                 }
@@ -687,8 +695,8 @@ $(".ajaxsend").submit(function (e) {
                 //   $('.on-target').css('background-color', 'transparent');
                 // }, 8000);
             } else {
-                if ($().gdivMessage) {
-                    $("body").gdivMessage(json.message, 'danger');
+                if (typeof withAlert == 'function') {
+                    withAlert(json.message, 'danger');
                 } else {
                     alert(json.message);
                 }
@@ -703,8 +711,14 @@ $(".ajaxsend").submit(function (e) {
                 form.find('.errors').html('<h4>' + json.message + '</h4><p>' + json.string_errors + '</p>', 1500);
             }
         },
-        error: function () {
+        error: function (json) {
             submit_btn.text(submit_btn_text).prop('disabled', false);
+
+            if (typeof withAlert == 'function') {
+                withAlert(json.message, 'danger');
+            } else {
+                alert(json.message);
+            }
 
             $('.errors', form).show();
             $('.errors', form).html('<h4>Unexpected error! Errore inaspettato! :( </h4>', 1500);

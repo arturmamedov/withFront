@@ -1,4 +1,9 @@
-/* * * * * Ajax Form - ContactsController()->ajaxsend() * * * */
+/**
+ * Ajax Form
+ * ContactsController()->ajaxsend()
+ *
+ * @dependencies [w-alert]
+ **/
 $(".ajaxsend").submit(function (e) {
     e.preventDefault();
     var form = $(this);
@@ -21,6 +26,7 @@ $(".ajaxsend").submit(function (e) {
             submit_btn.text(submit_btn_text).prop('disabled', false);
 
             if (json.success) {
+                // @todo: must to do a callback
                 // Google Analytics track (can be disabled and commented)
                 // if (typeof ga !== "undefined") {
                 //     ga('send', 'pageview', '/email-form-contatti');
@@ -28,8 +34,8 @@ $(".ajaxsend").submit(function (e) {
                 //     ga('send', 'event', 'contatti', 'click', 'newsletter', '5');
                 // }
 
-                if ($().gdivMessage) {
-                    $("body").gdivMessage(json.message, 'success');
+                if (typeof withAlert == 'function') {
+                    withAlert(json.message, 'success');
                 } else {
                     alert(json.message);
                 }
@@ -40,8 +46,8 @@ $(".ajaxsend").submit(function (e) {
                 //   $('.on-target').css('background-color', 'transparent');
                 // }, 8000);
             } else {
-                if ($().gdivMessage) {
-                    $("body").gdivMessage(json.message, 'danger');
+                if (typeof withAlert == 'function') {
+                    withAlert(json.message, 'danger');
                 } else {
                     alert(json.message);
                 }
@@ -56,8 +62,14 @@ $(".ajaxsend").submit(function (e) {
                 form.find('.errors').html('<h4>' + json.message + '</h4><p>' + json.string_errors + '</p>', 1500);
             }
         },
-        error: function () {
+        error: function (json) {
             submit_btn.text(submit_btn_text).prop('disabled', false);
+
+            if (typeof withAlert == 'function') {
+                withAlert(json.message, 'danger');
+            } else {
+                alert(json.message);
+            }
 
             $('.errors', form).show();
             $('.errors', form).html('<h4>Unexpected error! Errore inaspettato! :( </h4>', 1500);

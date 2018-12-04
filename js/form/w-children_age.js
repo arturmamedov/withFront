@@ -51,8 +51,8 @@ $(".children_age_form").each(function () {
         }
         // over 5 chlids are invalid
         if (_childNum > max_children) {
-            if ($().gdivMessage) {
-                $('body').gdivMessage('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning', {hidetime: 7000});
+            if (typeof withAlert == 'function') {
+                withAlert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning', {hidetime: 7000});
             } else {
                 alert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning');
             }
