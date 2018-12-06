@@ -220,6 +220,28 @@ module.exports = function (grunt) {
                 },
                 src: "withstyle.css",
                 dest: "dist/css/w-style.css"
+            },
+            // for copy flag-icon-css
+            // flags: { bugged, copy all the path and repeat it in the destination :(
+            //     options: {
+            //         expand: false
+            //     },
+            //     src: "css/flags/**",
+            //     dest: "dist/flags/"
+            // },
+            flags11: {
+                options: {
+                    expand: true
+                },
+                src: "node_modules/flag-icon-css/flags/1x1/gb.svg",
+                dest: "dist/flags/1x1/gb.svg"
+            },
+            flags43: {
+                options: {
+                    expand: true
+                },
+                src: "node_modules/flag-icon-css/flags/4x3/gb.svg",
+                dest: "dist/flags/4x3/gb.svg"
             }
         },
 
