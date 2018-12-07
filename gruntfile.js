@@ -214,6 +214,7 @@ module.exports = function (grunt) {
                 src: "withplugins.js",
                 dest: "dist/js/w-plugins.js"
             },
+            /* @todo: this task not import the css file's from css folder, so it not usefull and bugged */
             css_src: {
                 options: {
                     expand: true
