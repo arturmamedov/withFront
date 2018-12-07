@@ -2,7 +2,24 @@
  * Ajax Form
  * ContactsController()->ajaxsend()
  *
- * @dependencies [w-alert]
+ * .ajaxsend
+ * data-ga-send-pageview="/email-form-contatti"
+ * data-gaq-track-pageview="/email-form-contatti" // for use the old version of Google Analytics
+ *
+ *
+ * method: same as form method="POST"
+ * url: same as form action=""
+ * data: all form fields with jQuery.serialize()
+ * dataType: json
+ *
+ * success expect: {
+ *      success: true/false,
+ *      message: 'string', // for show an alert with this message
+ *      errors: array/object, // with index like the name of input that have error
+ *      string_error: 'all errors in one string', // for show in <div class="errors"></div>
+ * }
+ *
+ * @dependencies [w-alert(optional), font-awesome, jquery]
  **/
 $(".ajaxsend").submit(function (e) {
     e.preventDefault();
@@ -26,18 +43,20 @@ $(".ajaxsend").submit(function (e) {
             submit_btn.text(submit_btn_text).prop('disabled', false);
 
             if (json.success) {
-                // @todo: must to do a callback
                 // Google Analytics track (can be disabled and commented)
-                // if (typeof ga !== "undefined") {
-                //     ga('send', 'pageview', '/email-form-contatti');
-                //     _gaq.push(['_trackPageview', '/email-form-contatti']);
-                //     ga('send', 'event', 'contatti', 'click', 'newsletter', '5');
-                // }
+                if (typeof ga !== "undefined" && typeof form.data('gaSendPageview') != 'undefined') {
+                    ga('send', 'pageview', form.data('gaSendPageview'));
+                }
+                if (typeof ga !== "undefined" && typeof form.data('gaqTrackPageview') != 'undefined') {
+                    _gaq.push(['_trackPageview', form.data('gaqTrackPageview')]);
+                }
 
-                if (typeof withAlert == 'function') {
-                    withAlert(json.message, 'success');
-                } else {
-                    alert(json.message);
+                if (json.message.length) {
+                    if (typeof withAlert == 'function') {
+                        withAlert(json.message, 'success');
+                    } else {
+                        alert(json.message);
+                    }
                 }
 
                 form.html('<h3>' + json.message + '</h3><h1 class="text-center"><i class="fa fa-check fa-5x text-success"></i></h1>', 1500);
@@ -46,6 +65,10 @@ $(".ajaxsend").submit(function (e) {
                 //   $('.on-target').css('background-color', 'transparent');
                 // }, 8000);
             } else {
+                if (typeof json.message == 'undefined' || json.message.length == 0) {
+                    json.message = 'Errori nella form, correggi e riprova! Form errors, correct and try again!';
+                }
+
                 if (typeof withAlert == 'function') {
                     withAlert(json.message, 'danger');
                 } else {
@@ -62,13 +85,13 @@ $(".ajaxsend").submit(function (e) {
                 form.find('.errors').html('<h4>' + json.message + '</h4><p>' + json.string_errors + '</p>', 1500);
             }
         },
-        error: function (json) {
+        error: function (e) {
             submit_btn.text(submit_btn_text).prop('disabled', false);
 
             if (typeof withAlert == 'function') {
-                withAlert(json.message, 'danger');
+                withAlert('Unexpected error! Errore inaspettato! :( ', 'danger');
             } else {
-                alert(json.message);
+                alert('Unexpected error! Errore inaspettato! :( ');
             }
 
             $('.errors', form).show();
