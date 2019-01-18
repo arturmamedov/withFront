@@ -4,6 +4,10 @@
  * @param _this HTML input element with data-name="" or name="" that correspond to cookie name, data-cookie-type="val,select,radio,html,text"
  */
 function setFromCookie(_this){
+    if (typeof wCookies == 'undefined') {
+        return;
+    }
+
     var selector = _this.data('binded'),
         type = _this.data('cookie-type');;
 
@@ -71,6 +75,10 @@ function setFromCookie(_this){
  * @param _this HTML input element with data-name="" or name="" that correspond to cookie name, data-value="" or value=""
  */
 function setIntoCookie(_this) {
+    if (typeof wCookies == 'undefined') {
+        return;
+    }
+
     // get name from name="" or data-name=""
     var name = _this.attr('name');
     if (typeof name == 'undefined') {
