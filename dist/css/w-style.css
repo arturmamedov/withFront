@@ -45,6 +45,9 @@
     background-color: #286090 !important;
     border-radius: 5px;
 }
+.datepicker table tr td.range.highlighted {
+    background-color: #EEEEEE !important;
+}
 /* + disbled dates */
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
     color: #EEEEEE !important;
@@ -285,21 +288,6 @@
 @-moz-keyframes pulse{0%{-moz-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-moz-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-moz-transform:scale(2.5);transform:scale(2.5);opacity:0}}
 @-o-keyframes pulse{0%{-o-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-o-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-o-transform:scale(2.5);transform:scale(2.5);opacity:0}}
 @keyframes pulse{0%{transform:scale(0.3);opacity:0.2}80%{transform:scale(1.5);opacity:0}100%{transform:scale(2.5);opacity:0}}
-
-/* go2top {js: LayoutGo2Top.init()} */
-.go2top {
-    bottom: 40px;
-    cursor: pointer;
-    display: inline-block;
-    position: fixed;
-    right: 30px;
-}
-.go2top > i {
-    color: #ced1d3;
-    font-size: 43px;
-    font-weight: 300;
-    opacity: 0.5;
-}
 
 /* with Appear Bottom Button {js: wAppearBottomButton.init()} */
 .wabb {
