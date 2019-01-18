@@ -11,7 +11,10 @@
     <!-- @html5bp <link rel="apple-touch-icon" href="icon.png">-->
     <!-- Place favicon.ico in the root directory -->
 
+    <!-- Style with that withFront works -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <!-- end# Style with that withFront works -->
     <link rel="stylesheet" href="dist/css/w-style.min.css">
 </head>
 <body style="height:2000px;" data-desc="height: 2000px for try go2top button">
@@ -29,7 +32,7 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="jumbotron bg-acqua">
+        <div class="col col-sm-6 jumbotron bg-acqua">
             <h3>withAlert()</h3>
             <p class="lead">A simple and intuitive way for show alert's with notifications!</p>
 
@@ -67,10 +70,141 @@
         </div>
 
 
+        <div class="col col-sm-6 jumbotron bg-acqua-transparent">
+            <h3>.ajaxsend</h3>
+            <p class="lead">Datepickers, children_age_form</p>
 
+            <hr>
 
+            <form class="ajaxsend children_age_form" action="/contacts/ajaxsend" method="POST" target="_blank" data-ga-send-pageview="/form-contatti">
+                <input type="hidden" name="lang_code" value="<?php echo $lang_code; ?>" />
 
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control w-cookie" placeholder="Nome" name="firstname" required />
 
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control w-cookie" placeholder="Cognome" name="lastname" required />
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control w-cookie" placeholder="Email" required/>
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- withHoneyPotSpamChecker -->
+                        <div class="_the_email_confirm_group">
+                            <input type="hidden" name="email_group" class="_the_email_confirm_" value="email@email.it" />
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="phone" class="form-control w-cookie" placeholder="Telefono" />
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="period col-12" data-date-start-date="22/01/2019" data-date-end-date="22/02/2019">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control range checkin w-cookie" name="checkin" placeholder="Data di arrivo" required />
+
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control range checkout w-cookie" name="checkout" placeholder="Data di partenza" required />
+
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="number" class="form-control w-cookie" name="num_adults" value="2" placeholder="<?php echo $this->Translate->make('Adulti'); ?>" min="1" max="5" required />
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="number" class="form-control child_num_input w-cookie" name="num_children" value="0" placeholder="<?php echo $this->Translate->make('Bambini'); ?>" min="0" max="5" />
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="col-12 col-sm-4 col-md-4 col-lg-4 pull-right display-none" id="child_ageClone">
+                            <div class="form-group">
+                                <input type="number" class="form-control w-cookie" name="age_children[]" placeholder="<?php echo $this->Translate->make('Età bambino'); ?>" min="0" max="17" disabled />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <textarea class="form-control w-cookie" name="message" rows="5" placeholder="Messaggio"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                        <button type="submit" class="btn btn-yellow">
+                            Richiedi disponibilità
+                            &nbsp; <i class="fa fa-envelope-o text-white-imp"></i>
+                        </button>
+
+                        <label class="checkbox">
+                            <input type="checkbox" class="" style="height: auto;" required />
+                            Acconsento al trattamento dei dati per le finalità indicate nella <a href="javascript:;" target="_blank">Privacy Policy</a>
+                        </label>
+                    </div>
+                </div>
+            </form>
+
+            <hr>
+
+            Doc: <a href="https://github.com/arturmamedov/withFront/#js---form" target="_blank">GitHub <i class="fab fa-github"></i></a>
+        </div>
     </div>
 </div>
 
@@ -79,8 +213,19 @@
 <!-- @html5bp <script src="js/vendor/modernizr-3.6.0.min.js"></script>-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
-<!-- @html5bp <script src="js/plugins.js"></script>-->
+
+<!-- Plugin with that withFront works -->
+<!-- Bs Date Picker -->
+<link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"/>
+<!-- Bs Date Picker -->
+<script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<script src="node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js" data-lang="it" id="bsdp_lang_code"></script>
+
+<script src="node_modules/js-cookie/src/js.cookie.js"></script>
+<!-- end# Plugin with that withFront works -->
 <script src="dist/js/w-plugins.min.js"></script>
+
+<!-- @html5bp <script src="js/plugins.js"></script> for custom js -->
 
 <!-- Go2Top {css: .go2top, js: LayoutGo2Top} -->
 <div class="go2top hidden-xs text-center">
@@ -88,6 +233,7 @@
     <p class="hidden-sm">Torna su</p>
 </div>
 
+<!-- JS for this demo -->
 <script>
 $("#withAlertCustomTrigger").click(function(){
     withAlert('Message ...', 'success');
