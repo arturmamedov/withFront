@@ -135,6 +135,10 @@ For set all elements to have equal height add the `.withEqualHeight` class to pa
 </div>
 ```
 
+__.withEqualHeight not work for Extra Small device__ `xs` cause often in mobile we have one row only for each element
+
+use `.withEqualHeightAll` for add equal height also in mobile `xs`
+
 
 #### Paddings & Margins
 
