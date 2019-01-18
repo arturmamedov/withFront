@@ -771,7 +771,7 @@ $('.hash-navigation a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
  *
  * @dependencies [uxsolution/bootstrap-datepicker]
  *
- * <div class="period">
+ * <div class="period"> + (data-date-start-date="default:today(0d)" data-date-end-date="default:none") and all other options https://bootstrap-datepicker.readthedocs.io/en/stable/options.html
  *     <div class="form-group">
  *         <input type="text" name="checkin" id="checkin" class="form-control checkin range">
  *     </div>
@@ -781,8 +781,7 @@ $('.hash-navigation a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
  * </div>
  */
 if ($().datepicker) {
-    var date = new Date(),
-        bsdp_lang_code = $("#bsdp_lang_code").attr('data-lang');
+    var bsdp_lang_code = $("#bsdp_lang_code").attr('data-lang');
 
     if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0) {
         bsdp_lang_code = $("html").attr('lang');
@@ -794,9 +793,15 @@ if ($().datepicker) {
     // contact page datepicker
     $('.period').each(function () {
         var period = $(this);
+
+        if (period.data('dateStartDate')) {
+            startDate = period.data('dateStartDate');
+        } else {
+            var startDate = '0d';
+        }
+
         period.datepicker({
-            startDate: date.toString(),
-            //endDate: date.setDate(date.getDate() + 400).toString(),
+            startDate: startDate,
             format: 'dd/mm/yyyy',
             inputs: $('.range', period),
             todayHighlight: true,
@@ -1051,6 +1056,10 @@ $(document).mouseup(function () {
  * @param _this HTML input element with data-name="" or name="" that correspond to cookie name, data-cookie-type="val,select,radio,html,text"
  */
 function setFromCookie(_this){
+    if (typeof wCookies == 'undefined') {
+        return;
+    }
+
     var selector = _this.data('binded'),
         type = _this.data('cookie-type');;
 
@@ -1118,6 +1127,10 @@ function setFromCookie(_this){
  * @param _this HTML input element with data-name="" or name="" that correspond to cookie name, data-value="" or value=""
  */
 function setIntoCookie(_this) {
+    if (typeof wCookies == 'undefined') {
+        return;
+    }
+
     // get name from name="" or data-name=""
     var name = _this.attr('name');
     if (typeof name == 'undefined') {

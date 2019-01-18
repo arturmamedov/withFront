@@ -3,7 +3,7 @@
  *
  * @dependencies [uxsolution/bootstrap-datepicker]
  *
- * <div class="period">
+ * <div class="period"> + (data-date-start-date="default:today(0d)" data-date-end-date="default:none") and all other options https://bootstrap-datepicker.readthedocs.io/en/stable/options.html
  *     <div class="form-group">
  *         <input type="text" name="checkin" id="checkin" class="form-control checkin range">
  *     </div>
@@ -13,8 +13,7 @@
  * </div>
  */
 if ($().datepicker) {
-    var date = new Date(),
-        bsdp_lang_code = $("#bsdp_lang_code").attr('data-lang');
+    var bsdp_lang_code = $("#bsdp_lang_code").attr('data-lang');
 
     if (typeof bsdp_lang_code == 'undefined' || bsdp_lang_code.length == 0) {
         bsdp_lang_code = $("html").attr('lang');
@@ -26,9 +25,15 @@ if ($().datepicker) {
     // contact page datepicker
     $('.period').each(function () {
         var period = $(this);
+
+        if (period.data('dateStartDate')) {
+            startDate = period.data('dateStartDate');
+        } else {
+            var startDate = '0d';
+        }
+
         period.datepicker({
-            startDate: date.toString(),
-            //endDate: date.setDate(date.getDate() + 400).toString(),
+            startDate: startDate,
             format: 'dd/mm/yyyy',
             inputs: $('.range', period),
             todayHighlight: true,

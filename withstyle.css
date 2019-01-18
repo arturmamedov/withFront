@@ -45,6 +45,9 @@
     background-color: #286090 !important;
     border-radius: 5px;
 }
+.datepicker table tr td.range.highlighted {
+    background-color: #EEEEEE !important;
+}
 /* + disbled dates */
 .datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
     color: #EEEEEE !important;

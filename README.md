@@ -288,6 +288,13 @@ For add a single linked datepicker with visual range to your forms use this:
      </div>
 </div>
 ```
+in the div .period we can set options with data-attribute 
+
+Example: `data-date-start-date="10/01/2019" default:0d - today` 
+
+`data-date-end-date="25/12/2019" default:none - infinite` 
+
+Al available options: https://bootstrap-datepicker.readthedocs.io/en/stable/options.html
 
 #### Children Age to Form
 You can add a children number input that show the fields for each children age:
