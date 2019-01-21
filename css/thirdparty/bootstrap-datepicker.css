@@ -1,0 +1,21 @@
+/* OVERRIDE bootstrap-datepicker for have red highlighted days(sunday) and not break on selected highlighted day */
+.datepicker table tr td.highlighted {
+    background: transparent !important;
+    border: none !important;
+    color: #FF0000 !important;
+}
+.datepicker table tr td.selected.highlighted,
+.datepicker table tr td.active.highlighted.active,
+.datepicker table tr td.active.highlighted:active {
+    color: #FFFFFF !important;
+    background-color: #286090 !important;
+    border-radius: 5px;
+}
+.datepicker table tr td.range.highlighted {
+    background-color: #EEEEEE !important;
+}
+/* + disbled dates */
+.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
+    color: #EEEEEE !important;
+    cursor: no-drop !important;
+}

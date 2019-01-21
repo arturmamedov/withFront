@@ -1,0 +1,35 @@
+/* PAGE LOADER inner */
+.inner-loader-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: absolute !important;
+    width: 100%;
+    z-index: 9999;
+    background-color: transparent !important;
+}
+.loader-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
+    background-color: #FFFFFF;
+}
+/* PAGE LOADER (full) */
+.loader-wrapper .loader {
+    margin: 0 auto;
+    text-align: center;
+    width: 280px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.loader-title {
+    color: #CCCCCC;
+    font-weight: 400;
+    display: block;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-top: 20px;
+    text-align: center;
+}

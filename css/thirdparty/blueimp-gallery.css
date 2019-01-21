@@ -1,0 +1,11 @@
+/* OVERRIDE blueimp gallery */
+.blueimp-gallery > .indicator > li {
+    background-size: cover !important;
+    width: 50px !important;;
+    height: 50px !important;;
+    border-radius: 50% !important;;
+}
+.blueimp-gallery > .indicator > li::after {
+    width: 120px !important;;
+    height: 120px !important;;
+}
