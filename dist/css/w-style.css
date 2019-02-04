@@ -5,23 +5,15 @@
 @import url('css/sm-tools.css');
 @import url('css/thirdparty/fontawesome47.css');
 @import url('css/thirdparty/flag-icon-css.css');
+@import url('css/thirdparty/blueimp-gallery.css');
+@import url('css/thirdparty/bootstrap-datepicker.css');
+@import url('css/widget/w-go2top.css');
+@import url('css/widget/w-loader.css');
 /*@import url('css/web/w-cookie_choice.css');*/
 
 /* for use see withplugins.js */
 ._the_email_confirm_group {
     display: none !important;
-}
-
-/* OVERRIDE blueimp gallery */
-.blueimp-gallery > .indicator > li {
-    background-size: cover !important;
-    width: 50px !important;;
-    height: 50px !important;;
-    border-radius: 50% !important;;
-}
-.blueimp-gallery > .indicator > li::after {
-    width: 120px !important;;
-    height: 120px !important;;
 }
 
 /* modal wide */
@@ -30,28 +22,6 @@
 }
 .modal-wide .modal-body {
     overflow-y: auto;
-}
-
-/* OVERRIDE bootstrap-datepicker for have red highlighted days(sunday) and not break on selected highlighted day */
-.datepicker table tr td.highlighted {
-    background: transparent !important;
-    border: none !important;
-    color: #ff0000 !important;
-}
-.datepicker table tr td.selected.highlighted,
-.datepicker table tr td.active.highlighted.active,
-.datepicker table tr td.active.highlighted:active {
-    color: #fff !important;
-    background-color: #286090 !important;
-    border-radius: 5px;
-}
-.datepicker table tr td.range.highlighted {
-    background-color: #EEEEEE !important;
-}
-/* + disbled dates */
-.datepicker table tr td.disabled, .datepicker table tr td.disabled:hover {
-    color: #EEEEEE !important;
-    cursor: no-drop !important;
 }
 
 /* for jq highlight */
@@ -68,25 +38,6 @@
     text-align: center;
     z-index: 5000;
 }
-
-/* Tables * /
-.thick-line {
-    border-top: 2px solid;
-}
-/*
-.table-striped > thead > tr {
-    background-color: #D196A4;
-}
-.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-    background-color: #F4D9DE;
-}
-.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
-    background-color: #F2C4CE;
-}
-.table-striped > tfoot > tr {
-    background-color: #D196A4;
-}
-/* */
 
 /* * * Tools * * */
 .display-none {
@@ -116,6 +67,25 @@
     display: block;
     margin: 0 auto;
 }
+/* Tables * /
+.thick-line {
+    border-top: 2px solid;
+}
+/*
+.table-striped > thead > tr {
+    background-color: #D196A4;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #F4D9DE;
+}
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+    background-color: #F2C4CE;
+}
+.table-striped > tfoot > tr {
+    background-color: #D196A4;
+}
+/* end#Tables */
+
 
 /* * * Bootstrap btn * * * */
 /* circle */
@@ -131,27 +101,6 @@
     border-radius: 0px !important;
     -moz-border-radius: 0px !important;
     -webkit-border-radius: 0px !important;
-}
-
-/* dividers to use how or with clearfix */
-.divider {
-    height: 50px;
-    clear: both;
-}
-
-.divider-100 {
-    height: 100px;
-    clear: both;
-}
-
-.divider-200 {
-    height: 200px;
-    clear: both;
-}
-
-.divider-300 {
-    height: 300px;
-    clear: both;
 }
 
 /* unstyle link */
@@ -384,51 +333,6 @@
 }
 /* TypeAhead END */
 
-/* ----------------------------------------------------------------------
-	PAGE LOADER
--------------------------------------------------------------------------*/
-
-.inner-loader-wrapper {
-    height: 100%;
-    overflow: hidden;
-    position: absolute !important;
-    width: 100%;
-    z-index: 9999;
-    background-color: transparent !important;
-}
-
-.loader-wrapper {
-    height: 100%;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    z-index: 9999;
-    background-color: #fff;
-}
-
-.loader-wrapper .loader {
-    margin: 0 auto;
-    text-align: center;
-    width: 280px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.loader-title {
-    color: #ccc;
-    font-weight: 400;
-    display: block;
-    font-size: 14px;
-    margin-left: 5px;
-    margin-top: 20px;
-    text-align: center;
-}
-
-/* ----------------------------------------------------------------------
-	PAGE LOADER - END
--------------------------------------------------------------------------*/
-
 /* ^ ^ START: MEDIA QUERY ^ ^ */
 @media (min-width: 768px) {
     /* from xs - to lg */
@@ -440,40 +344,11 @@
     .no-xs-padding {
         padding: 0px;
     }
-
-    /* go2top */
-    .go2top {
-        bottom: 5px;
-        cursor: pointer;
-        display: inline-block;
-        position: fixed;
-        right: 5px;
-    }
-    .go2top > i {
-        color: rgba(110,179,187, 0.8);
-        font-size: 34px;
-        font-weight: 300;
-        opacity: 0.5;
-    }
     /* less then xs */
 }
 
 @media (max-width: 767px) and (min-width: 481px) {
     /* xs */
-    /* go2top */
-    .go2top {
-        bottom: 5px;
-        cursor: pointer;
-        display: inline-block;
-        position: fixed;
-        right: 5px;
-    }
-    .go2top > i {
-        color: rgba(110,179,187, 0.8);
-        font-size: 34px;
-        font-weight: 300;
-        opacity: 0.5;
-    }
     /* xs*/
 }
 
