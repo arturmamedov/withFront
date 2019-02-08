@@ -29,10 +29,10 @@
     </div>
 </div>
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
 
-        <div class="col col-sm-6 jumbotron bg-acqua">
+        <div class="col col-sm-6 center-block jumbotron bg-acqua">
             <h3>withAlert()</h3>
             <p class="lead">A simple and intuitive way for show alert's with notifications!</p>
 
@@ -69,21 +69,24 @@
             <h6>File: <a href="js/core/w-alert.js" target="_blank">js/core/w-alert.js</a></h6>
         </div>
 
+    </div>
 
-        <div class="col col-sm-6 jumbotron bg-acqua-transparent">
+    <div class="row m-t-15">
+        <div class="col col-sm-10 center-block jumbotron bg-acqua-transparent">
             <h3>.ajaxsend</h3>
-            <p class="lead">Datepickers, children_age_form</p>
+            <p class="lead">Datepickers, children_age_form </p>
+            <p class="m-0"><strong>Binded</strong> span on input firstname: <span id="binded_firstname" class="text-underline"></span> <strong>Binded</strong> input on input lastname: <input name="binded_lastname" id="binded_lastname" placeholder="type into lastname" /> <code>w-binded</code></p>
 
             <hr>
 
-            <form class="ajaxsend children_age_form" action="/contacts/ajaxsend" method="POST" target="_blank" data-ga-send-pageview="/form-contatti">
+            <form class="ajaxsend children_age_form w-cookie-form" action="/contacts/ajaxsend" method="POST" target="_blank" data-ga-send-pageview="/form-contatti">
                 <input type="hidden" name="lang_code" value="<?php echo $lang_code; ?>" />
 
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control w-cookie" placeholder="Nome" name="firstname" required />
+                                <input type="text" class="form-control w-binded w-setter" data-binded="#binded_firstname" data-binded-type="text" placeholder="Nome" name="firstname" required />
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -95,7 +98,7 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control w-cookie" placeholder="Cognome" name="lastname" required />
+                                <input type="text" class="form-control w-binded w-setter" data-binded="#binded_lastname" placeholder="Cognome" name="lastname" required />
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -107,7 +110,7 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="email" name="email" class="form-control w-cookie" placeholder="Email" required/>
+                                <input type="email" name="email" class="form-control" placeholder="Email" required/>
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-envelope"></i></span>
@@ -124,7 +127,7 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" name="phone" class="form-control w-cookie" placeholder="Telefono" />
+                                <input type="text" name="phone" class="form-control" placeholder="Telefono" />
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-phone"></i></span>
@@ -138,7 +141,7 @@
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control range checkin w-cookie" name="checkin" placeholder="Data di arrivo" required />
+                                        <input type="text" class="form-control range checkin" name="checkin" placeholder="Data di arrivo" required />
 
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -150,7 +153,7 @@
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control range checkout w-cookie" name="checkout" placeholder="Data di partenza" required />
+                                        <input type="text" class="form-control range checkout" name="checkout" placeholder="Data di partenza" required />
 
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -163,27 +166,27 @@
 
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <input type="number" class="form-control w-cookie" name="num_adults" value="2" placeholder="<?php echo $this->Translate->make('Adulti'); ?>" min="1" max="5" required />
+                            <input type="number" class="form-control" name="num_adults" value="2" placeholder="<?php echo $this->Translate->make('Adulti'); ?>" min="1" max="5" required />
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <input type="number" class="form-control child_num_input w-cookie" name="num_children" value="0" placeholder="<?php echo $this->Translate->make('Bambini'); ?>" min="0" max="5" />
+                            <input type="number" class="form-control child_num_input" name="num_children" value="0" placeholder="<?php echo $this->Translate->make('Bambini'); ?>" min="0" max="5" />
                         </div>
                     </div>
 
                     <div class="">
                         <div class="col-12 col-sm-4 col-md-4 col-lg-4 pull-right display-none" id="child_ageClone">
                             <div class="form-group">
-                                <input type="number" class="form-control w-cookie" name="age_children[]" placeholder="<?php echo $this->Translate->make('Età bambino'); ?>" min="0" max="17" disabled />
+                                <input type="number" class="form-control" name="age_children[]" placeholder="<?php echo $this->Translate->make('Età bambino'); ?>" min="0" max="17" disabled />
                             </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
-                            <textarea class="form-control w-cookie" name="message" rows="5" placeholder="Messaggio"></textarea>
+                            <textarea class="form-control" name="message" rows="5" placeholder="Messaggio"></textarea>
                         </div>
                     </div>
 

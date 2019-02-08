@@ -1157,9 +1157,17 @@ function setIntoCookie(_this) {
 $(document).on('change blur click', '.w-cookie', function() {
     setIntoCookie($(this));
 });
-// @todo: selector with a -form suffixed for work on all elements in a form
 // set the .w-cookie values after load of document
 $('.w-cookie').each( function(){
+    setFromCookie($(this));
+});
+// w-cookie-form work on all elements in a form
+$('.w-cookie-form').on('change blur click', 'input, select, textarea', function() {
+    console.info('dsaa')
+    setIntoCookie($(this));
+});
+// set the .w-cookie-form values after load of document
+$('.w-cookie-form input, .w-cookie-form select, .w-cookie-form textarea').each( function(){
     setFromCookie($(this));
 });
 
@@ -1222,12 +1230,15 @@ function wBind(_this){
     // range datepicker update dates on bind
     if($(selector).hasClass('range')) {
         $(selector).closest('.period').datepicker('updateDates');
+        if($(selector).hasClass('w-ccokie') || $(selector).closest('form').hasClass('w-cookie-form')) {
+            setIntoCookie($(selector));
+        }
     }
 
     clog('wBind() ' + selector + ' - ' + type + ' - ' + value);
 }
 // universal on bind change
-$(document).on('change blur click', '.w-binded', function() {
+$(document).on('change blur click keyup', '.w-binded', function() {
     wBind($(this));
 });
 // @todo: selector with a -form suffixed for work on all elements in a form

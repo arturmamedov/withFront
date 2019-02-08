@@ -57,12 +57,15 @@ function wBind(_this){
     // range datepicker update dates on bind
     if($(selector).hasClass('range')) {
         $(selector).closest('.period').datepicker('updateDates');
+        if($(selector).hasClass('w-cookie') || $(selector).closest('form').hasClass('w-cookie-form')) {
+            setIntoCookie($(selector));
+        }
     }
 
     clog('wBind() ' + selector + ' - ' + type + ' - ' + value);
 }
 // universal on bind change
-$(document).on('change blur click', '.w-binded', function() {
+$(document).on('change blur click keyup', '.w-binded', function() {
     wBind($(this));
 });
 // @todo: selector with a -form suffixed for work on all elements in a form
