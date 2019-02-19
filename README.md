@@ -53,7 +53,7 @@ jQuery - https://github.com/jquery/jquery
 
 <script>
     // you can Configure wOptions for override withOptions
-    var withOptions = {
+    var wOptions = {
         debug: false, // enable/disable Debug mode
         wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js
         go2top: true, // enable/disable widget/w-go2top.js
