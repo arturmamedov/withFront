@@ -48,7 +48,7 @@
  * * * * * * * * * * * * */
 
 /**
- * Configure enable/disable withPlugins functions
+ * Default conf enable/disable withPlugins functions
  *
  * @object {{
  *      debug: boolean,
@@ -61,6 +61,10 @@ var withOptions = {
     wAppearBottomButton: false,
     go2top: true,
 };
+
+if (typeof wOptions != 'undefined') {
+    var withOptions = $.extend(withOptions, wOptions);
+}
 
 /**
  * Debug function for console.info() messages only if debug mode is enabled
@@ -963,15 +967,28 @@ if (withOptions.go2top) {
 }
 
 
-    /* Animate the bottom appear button .wap */
+    /**
+ * Animate the bottom appear button .wabb
+ *
+ *  <a type="button" href="javascript:;" class="wabb btn btn-primary">
+ *      Bottom Button <i class="fa fa-check"></i>
+ *  </a>
+ *
+ **/
 var wAppearBottomButton = function () {
     return {
         init: function () {
-            setTimeout(function () {
-                $('.wabb').stop().animate({bottom: '33px'}, 800);
-            }, 1400);
+            var bottom_pos = $('.wabb').data('bottom') || 60,
+                delay = $('.wabb').data('delay') || 1440;
 
-            if (debug) {
+            console.info(bottom_pos);
+            console.info(delay);
+
+            setTimeout(function () {
+                $('.wabb').stop().animate({bottom: bottom_pos+'px'}, 800);
+            }, delay);
+
+            if (withOptions.debug) {
                 console.info('wAppearBottomButton() enabled');
             }
         }
@@ -1230,7 +1247,7 @@ function wBind(_this){
     // range datepicker update dates on bind
     if($(selector).hasClass('range')) {
         $(selector).closest('.period').datepicker('updateDates');
-        if($(selector).hasClass('w-ccokie') || $(selector).closest('form').hasClass('w-cookie-form')) {
+        if($(selector).hasClass('w-cookie') || $(selector).closest('form').hasClass('w-cookie-form')) {
             setIntoCookie($(selector));
         }
     }

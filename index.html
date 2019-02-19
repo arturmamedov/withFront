@@ -19,13 +19,15 @@
 </head>
 <body style="height:2000px;" data-desc="height: 2000px for try go2top button">
 <!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
+    <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
 <div class="container">
     <div class="row">
         <!-- Add your site or application content here -->
-        <h1 class="text-center">Hello world! This MarkUp use <a href="https://github.com/h5bp/html5-boilerplate" target="_blank">HTML5 Boilerplate</a> v6.0.1</h1>
+        <h1 class="text-center">Hello world! This MarkUp use
+            <a href="https://github.com/h5bp/html5-boilerplate" target="_blank">HTML5 Boilerplate</a> v6.0.1</h1>
     </div>
 </div>
 
@@ -38,21 +40,37 @@
 
             <hr>
 
-            <h5><a href="javascript:;" id="withAlertCustomTrigger" class="link-unstyled">Click for try withAlert('Message ...', 'success');</a></h5>
+            <h5>
+                <a href="javascript:;" id="withAlertCustomTrigger" class="link-unstyled">Click for try withAlert('Message ...', 'success');</a>
+            </h5>
 
-            <p><a href="javascript:;" data-toggle="alert" data-message="Warning message here ..." data-type="warning" class="link-unstyled">Click for try withAlert('...', 'warning');</a></p>
+            <p>
+                <a href="javascript:;" data-toggle="alert" data-message="Warning message here ..." data-type="warning" class="link-unstyled">Click for try withAlert('...', 'warning');</a>
+            </p>
 
-            <p><a href="javascript:;" data-toggle="alert" data-message="Danger message here ..." data-type="danger" class="link-unstyled">Click for try withAlert('...', 'danger');</a></p>
+            <p>
+                <a href="javascript:;" data-toggle="alert" data-message="Danger message here ..." data-type="danger" class="link-unstyled">Click for try withAlert('...', 'danger');</a>
+            </p>
 
-            <p><a href="javascript:;" data-toggle="alert" data-message="Primary message here ..." data-type="primary" class="link-unstyled">Click for try withAlert('...', 'primary');</a></p>
+            <p>
+                <a href="javascript:;" data-toggle="alert" data-message="Primary message here ..." data-type="primary" class="link-unstyled">Click for try withAlert('...', 'primary');</a>
+            </p>
 
-            <p><a href="javascript:;" data-toggle="alert" data-message="Secondary message here ..." data-type="secondary" class="link-unstyled">Click for try withAlert('...', 'secondary');</a></p>
+            <p>
+                <a href="javascript:;" data-toggle="alert" data-message="Secondary message here ..." data-type="secondary" class="link-unstyled">Click for try withAlert('...', 'secondary');</a>
+            </p>
 
-            <p><a href="javascript:;" data-toggle="alert" data-message="Info message here ..." data-type="info" class="link-unstyled">Click for try withAlert('...', 'info');</a></p>
+            <p>
+                <a href="javascript:;" data-toggle="alert" data-message="Info message here ..." data-type="info" class="link-unstyled">Click for try withAlert('...', 'info');</a>
+            </p>
 
-            <p><a href="javascript:;" data-toggle="alert" data-message="Light message here ..." data-type="light" class="link-unstyled">Click for try withAlert('...', 'light');</a></p>
+            <p>
+                <a href="javascript:;" data-toggle="alert" data-message="Light message here ..." data-type="light" class="link-unstyled">Click for try withAlert('...', 'light');</a>
+            </p>
 
-            <p><a href="javascript:;" data-toggle="alert" data-message="Dark message here ..." data-type="dark" class="link-unstyled">Click for try withAlert('...', 'dark');</a></p>
+            <p>
+                <a href="javascript:;" data-toggle="alert" data-message="Dark message here ..." data-type="dark" class="link-unstyled">Click for try withAlert('...', 'dark');</a>
+            </p>
 
             <hr>
 
@@ -60,7 +78,7 @@
 
             <code class="code">
                 $("#withAlertCustomTrigger").click(function(){<br>
-                    &nbsp; &nbsp; withAlert('Message ...', 'success');<br>
+                &nbsp; &nbsp; withAlert('Message ...', 'success');<br>
                 });
             </code>
 
@@ -75,18 +93,20 @@
         <div class="col col-sm-10 center-block jumbotron bg-acqua-transparent">
             <h3>.ajaxsend</h3>
             <p class="lead">Datepickers, children_age_form </p>
-            <p class="m-0"><strong>Binded</strong> span on input firstname: <span id="binded_firstname" class="text-underline"></span> <strong>Binded</strong> input on input lastname: <input name="binded_lastname" id="binded_lastname" placeholder="type into lastname" /> <code>w-binded</code></p>
+            <p class="m-0"><strong>Binded</strong> span on input firstname: <span id="binded_firstname" class="text-underline"></span>
+                <strong>Binded</strong> input on input lastname:
+                <input name="binded_lastname" id="binded_lastname" placeholder="type into lastname"/> <code>w-binded</code></p>
 
             <hr>
 
             <form class="ajaxsend children_age_form w-cookie-form" action="/contacts/ajaxsend" method="POST" target="_blank" data-ga-send-pageview="/form-contatti">
-                <input type="hidden" name="lang_code" value="<?php echo $lang_code; ?>" />
+                <input type="hidden" name="lang_code" value="<?php echo $lang_code; ?>"/>
 
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control w-binded w-setter" data-binded="#binded_firstname" data-binded-type="text" placeholder="Nome" name="firstname" required />
+                                <input type="text" class="form-control w-binded w-setter" data-binded="#binded_firstname" data-binded-type="text" placeholder="Nome" name="firstname" required/>
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -98,7 +118,7 @@
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control w-binded w-setter" data-binded="#binded_lastname" placeholder="Cognome" name="lastname" required />
+                                <input type="text" class="form-control w-binded w-setter" data-binded="#binded_lastname" placeholder="Cognome" name="lastname" required/>
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -120,14 +140,14 @@
 
                         <!-- withHoneyPotSpamChecker -->
                         <div class="_the_email_confirm_group">
-                            <input type="hidden" name="email_group" class="_the_email_confirm_" value="email@email.it" />
+                            <input type="hidden" name="email_group" class="_the_email_confirm_" value="email@email.it"/>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <div class="input-group">
-                                <input type="text" name="phone" class="form-control" placeholder="Telefono" />
+                                <input type="text" name="phone" class="form-control" placeholder="Telefono"/>
 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-phone"></i></span>
@@ -141,7 +161,7 @@
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control range checkin" name="checkin" placeholder="Data di arrivo" required />
+                                        <input type="text" class="form-control range checkin" name="checkin" placeholder="Data di arrivo" required/>
 
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -153,7 +173,7 @@
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input type="text" class="form-control range checkout" name="checkout" placeholder="Data di partenza" required />
+                                        <input type="text" class="form-control range checkout" name="checkout" placeholder="Data di partenza" required/>
 
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -166,20 +186,20 @@
 
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <input type="number" class="form-control" name="num_adults" value="2" placeholder="<?php echo $this->Translate->make('Adulti'); ?>" min="1" max="5" required />
+                            <input type="number" class="form-control" name="num_adults" value="2" placeholder="<?php echo $this->Translate->make('Adulti'); ?>" min="1" max="5" required/>
                         </div>
                     </div>
 
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
-                            <input type="number" class="form-control child_num_input" name="num_children" value="0" placeholder="<?php echo $this->Translate->make('Bambini'); ?>" min="0" max="5" />
+                            <input type="number" class="form-control child_num_input" name="num_children" value="0" placeholder="<?php echo $this->Translate->make('Bambini'); ?>" min="0" max="5"/>
                         </div>
                     </div>
 
                     <div class="">
                         <div class="col-12 col-sm-4 col-md-4 col-lg-4 pull-right display-none" id="child_ageClone">
                             <div class="form-group">
-                                <input type="number" class="form-control" name="age_children[]" placeholder="<?php echo $this->Translate->make('Età bambino'); ?>" min="0" max="17" disabled />
+                                <input type="number" class="form-control" name="age_children[]" placeholder="<?php echo $this->Translate->make('Età bambino'); ?>" min="0" max="17" disabled/>
                             </div>
                         </div>
                     </div>
@@ -197,8 +217,9 @@
                         </button>
 
                         <label class="checkbox">
-                            <input type="checkbox" class="" style="height: auto;" required />
-                            Acconsento al trattamento dei dati per le finalità indicate nella <a href="javascript:;" target="_blank">Privacy Policy</a>
+                            <input type="checkbox" class="" style="height: auto;" required/>
+                            Acconsento al trattamento dei dati per le finalità indicate nella
+                            <a href="javascript:;" target="_blank">Privacy Policy</a>
                         </label>
                     </div>
                 </div>
@@ -210,7 +231,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!-- @html5bp <script src="js/vendor/modernizr-3.6.0.min.js"></script>-->
@@ -227,9 +247,11 @@
 <script src="node_modules/js-cookie/src/js.cookie.js"></script>
 <!-- end# Plugin with that withFront works -->
 <script>
+    // Configure wOptions for override withOptions: debug:false, wAppearBottomButton:false, go2top:true
+
     // enable wAppearBottomButton cause it disabled by default
     var wOptions = {
-        wAppearBottomButton:true
+        wAppearBottomButton: true
     }
 </script>
 <script src="dist/js/w-plugins.min.js"></script>
@@ -248,12 +270,12 @@
 
 <!-- JS for this demo -->
 <script>
-$("#withAlertCustomTrigger").click(function(){
-    withAlert('Message ...', 'success');
-});
-$("[data-toggle='alert']").click(function(){
-    withAlert($(this).data('message'), $(this).data('type'));
-});
+    $("#withAlertCustomTrigger").click(function () {
+        withAlert('Message ...', 'success');
+    });
+    $("[data-toggle='alert']").click(function () {
+        withAlert($(this).data('message'), $(this).data('type'));
+    });
 </script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->

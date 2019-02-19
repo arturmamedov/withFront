@@ -50,6 +50,15 @@ jQuery - https://github.com/jquery/jquery
 <!-- Better down in footer after all content and after include jQuery and Bootstrap -->
 <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script>
+    // you can Configure wOptions for override withOptions
+    var withOptions = {
+        debug: false, // enable/disable Debug mode
+        wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js
+        go2top: true, // enable/disable widget/w-go2top.js
+    };
+</script>
 <script type="text/javascript" src="/node_modules/withFront/withplugins.js"></script> <!-- js tools -->
 
 ```
@@ -369,8 +378,8 @@ Button fixed on bottom of the document that appear on scroll down and on click g
 ```html
 <!-- Add this to your layout -->
 <div class="go2top hidden-xs text-center">
-	<i class="fa fa-chevron-circle-up"></i>
-	<p class="hidden-sm">Torna su</p>
+    <i class="fa fa-chevron-circle-up"></i>
+    <p class="hidden-sm">Torna su</p>
 </div>
 ```
 
