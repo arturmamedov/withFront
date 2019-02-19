@@ -9,6 +9,7 @@
 @import url('css/thirdparty/bootstrap-datepicker.css');
 @import url('css/widget/w-go2top.css');
 @import url('css/widget/w-loader.css');
+@import url('css/widget/w-appear_btn.css');
 /*@import url('css/web/w-cookie_choice.css');*/
 
 /* for use see withplugins.js */
@@ -237,14 +238,6 @@
 @-moz-keyframes pulse{0%{-moz-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-moz-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-moz-transform:scale(2.5);transform:scale(2.5);opacity:0}}
 @-o-keyframes pulse{0%{-o-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-o-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-o-transform:scale(2.5);transform:scale(2.5);opacity:0}}
 @keyframes pulse{0%{transform:scale(0.3);opacity:0.2}80%{transform:scale(1.5);opacity:0}100%{transform:scale(2.5);opacity:0}}
-
-/* with Appear Bottom Button {js: wAppearBottomButton.init()} */
-.wabb {
-    position: fixed;
-    bottom: -150px;
-    right: 70px;
-    z-index: 999;
-}
 
 /* * * * * * * * * * * * * * * * * * * * * *
 * * *Styles for third party plugins * * * *

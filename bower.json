@@ -1,11 +1,11 @@
 {
   "name": "withFront",
-  "version": "v1.4.91",
+  "version": "v1.4.92",
   "homepage": "https://github.com/arturmamedov/withFront",
   "authors": [
     "Artur Mamedov <arturmamedov1993@gmail.com>"
   ],
-  "description": "Tools for frontend development especially with Bootstrap 3.x and jQuery 3.x",
+  "description": "Tools for frontend development especially with Bootstrap 3.x and jQuery 3.x also FontAwesome, jsCookie and more",
   "main": "withstyle.css, withplugins.js",
   "keywords": [
     "frontend",
