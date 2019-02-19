@@ -226,6 +226,12 @@
 
 <script src="node_modules/js-cookie/src/js.cookie.js"></script>
 <!-- end# Plugin with that withFront works -->
+<script>
+    // enable wAppearBottomButton cause it disabled by default
+    var wOptions = {
+        wAppearBottomButton:true
+    }
+</script>
 <script src="dist/js/w-plugins.min.js"></script>
 
 <!-- @html5bp <script src="js/plugins.js"></script> for custom js -->
@@ -235,8 +241,8 @@
     <i class="fa fa-chevron-up"></i>
     <p class="hidden-sm">Torna su</p>
 </div>
-<!-- withAppearBottomButton {css: .wabb, js: wAppearBottomButton()} -->
-<a type="button" href="javascript:;" class="wabb btn btn-primary">
+<!-- withAppearBottomButton {css: .wabb, js: wAppearBottomButton()} bottom: the position from bottom(60 default), delay: after how many ms the button appear(1440 default) -->
+<a type="button" href="javascript:;" class="wabb btn btn-primary" data-bottom="60" data-delay="2000">
     Bottom Button <i class="fa fa-check"></i>
 </a>
 

@@ -1,0 +1,13 @@
+/* with Appear Bottom Button {js: wAppearBottomButton.init()} */
+.wabb {
+    position: fixed;
+    bottom: -150px;
+    right: 105px;
+    z-index: 999;
+}
+@media (max-width: 767px) {
+    .wabb {
+        bottom: 20px !important;
+        right: 75px;
+    }
+}
