@@ -6,7 +6,7 @@
  *
  * @param string message
  * @param string type
- * @param object options
+ * @param object options {autohide:true, hidetime:4000}
  */
 (function ($) {
     /**
