@@ -29,12 +29,10 @@
         <h1 class="text-center">Hello world! This MarkUp use
             <a href="https://github.com/h5bp/html5-boilerplate" target="_blank">HTML5 Boilerplate</a> v6.0.1</h1>
     </div>
-</div>
 
-<div class="container">
     <div class="row">
 
-        <div class="col col-sm-6 center-block jumbotron bg-acqua">
+        <div class="col col-sm-6 center-block jumbotron bg-lgreen-transparent">
             <h3>withAlert()</h3>
             <p class="lead">A simple and intuitive way for show alert's with notifications!</p>
 
@@ -45,31 +43,35 @@
             </h5>
 
             <p>
-                <a href="javascript:;" data-toggle="alert" data-message="Warning message here ..." data-type="warning" class="link-unstyled">Click for try withAlert('...', 'warning');</a>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Warning message here ..." data-type="warning" class="link-unstyled">Click for try withAlert('...', 'warning');</a>
             </p>
 
             <p>
-                <a href="javascript:;" data-toggle="alert" data-message="Danger message here ..." data-type="danger" class="link-unstyled">Click for try withAlert('...', 'danger');</a>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Danger message here ..." data-type="danger" class="link-unstyled">Click for try withAlert('...', 'danger');</a>
             </p>
 
             <p>
-                <a href="javascript:;" data-toggle="alert" data-message="Primary message here ..." data-type="primary" class="link-unstyled">Click for try withAlert('...', 'primary');</a>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Primary message here ..." data-type="primary" class="link-unstyled">Click for try withAlert('...', 'primary');</a>
             </p>
 
             <p>
-                <a href="javascript:;" data-toggle="alert" data-message="Secondary message here ..." data-type="secondary" class="link-unstyled">Click for try withAlert('...', 'secondary');</a>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Secondary message here ..." data-type="secondary" class="link-unstyled">Click for try withAlert('...', 'secondary');</a>
             </p>
 
             <p>
-                <a href="javascript:;" data-toggle="alert" data-message="Info message here ..." data-type="info" class="link-unstyled">Click for try withAlert('...', 'info');</a>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Info message here ..." data-type="info" class="link-unstyled">Click for try withAlert('...', 'info');</a>
             </p>
 
             <p>
-                <a href="javascript:;" data-toggle="alert" data-message="Light message here ..." data-type="light" class="link-unstyled">Click for try withAlert('...', 'light');</a>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Light message here ..." data-type="light" class="link-unstyled">Click for try withAlert('...', 'light');</a>
             </p>
 
             <p>
-                <a href="javascript:;" data-toggle="alert" data-message="Dark message here ..." data-type="dark" class="link-unstyled">Click for try withAlert('...', 'dark');</a>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Dark message here ..." data-type="dark" class="link-unstyled">Click for try withAlert('...', 'dark');</a>
+            </p>
+
+            <p>
+                <a href="javascript:;" class="link-unstyled permanentAlert">This alert will not close automatically!</a>
             </p>
 
             <hr>
@@ -79,6 +81,11 @@
             <code class="code">
                 $("#withAlertCustomTrigger").click(function(){<br>
                 &nbsp; &nbsp; withAlert('Message ...', 'success');<br>
+                });
+                <br><br>
+                $(".permanentAlert").click(function () {<br>
+                &nbsp; &nbsp; withAlert('This alert will not close automatically!', 'success', {autohide:false});<br>
+                &nbsp; &nbsp; // options {autohide:true, hidetime:4000}<br>
                 });
             </code>
 
@@ -90,7 +97,7 @@
     </div>
 
     <div class="row m-t-15">
-        <div class="col col-sm-10 center-block jumbotron bg-acqua-transparent">
+        <div class="col col-sm-10 center-block jumbotron bg-acqua">
             <h3>.ajaxsend</h3>
             <p class="lead">Datepickers, children_age_form </p>
             <p class="m-0"><strong>Binded</strong> span on input firstname: <span id="binded_firstname" class="text-underline"></span>
@@ -230,6 +237,33 @@
             Doc: <a href="https://github.com/arturmamedov/withFront/#js---form" target="_blank">GitHub <i class="fab fa-github"></i></a>
         </div>
     </div>
+
+    <div class="row m-t-15">
+        <div class="col col-sm-10 center-block jumbotron bg-info text-light w-nicescroll" style="height: 230px;">
+            <h3>Nicescroll example (.w-nicescroll)</h3>
+            <p>You can enable Nicescroll on div's, iframe's etc. or for entire page by replacing the default scroll-bar</p>
+            <p>For enable on entire page override <code>htmlNicescroll:false</code> option with <code>true</code></p>
+
+            <p>....</p>
+
+            <h5>w-analytics (notIncluded by default)</h5>
+
+            <h4>Eventi GoogleAnalytics abilitati:</h4>
+            <ul>
+                <li>ga('send', 'event', 'contatti', 'click', href.replace('mailto:', ''), '5');</li>
+                <li>ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');</li>
+                <li>ga('send', 'event', 'contatti', 'click', 'maps', '5');</li>
+                <li>ga('send', 'event', 'outgoing', 'click', href, '10');</li>
+                <li>contatti - click su email o preventivo modal preventivo</li>
+                <li>ga('send', 'event', 'contatti', 'click', 'preventivo', '5');</li>
+            </ul>
+
+            <h4>Pageview (invio form)</h4>
+            <ul>
+                <li>ga('send', 'pageview', '/email-form-contatti');</li>
+            </ul>
+        </div>
+    </div>
 </div>
 
 
@@ -238,20 +272,25 @@
 <script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
 
 <!-- Plugin with that withFront works -->
-<!-- Bs Date Picker -->
+<!-- Bs Date Picker https://github.com/uxsolutions/bootstrap-datepicker -->
 <link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"/>
-<!-- Bs Date Picker -->
 <script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 <script src="node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js" data-lang="it" id="bsdp_lang_code"></script>
 
+<!-- js-cookie https://github.com/js-cookie/js-cookie -->
 <script src="node_modules/js-cookie/src/js.cookie.js"></script>
+
+<!-- Nicescroll https://github.com/inuyaksa/jquery.nicescroll -->
+<script src="node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
 <!-- end# Plugin with that withFront works -->
+
 <script>
     // Configure wOptions for override withOptions: debug:false, wAppearBottomButton:false, go2top:true
 
     // enable wAppearBottomButton cause it disabled by default
     var wOptions = {
-        wAppearBottomButton: true
+        wAppearBottomButton: true,
+        htmlNicescroll: true,
     }
 </script>
 <script src="dist/js/w-plugins.min.js"></script>
@@ -273,8 +312,11 @@
     $("#withAlertCustomTrigger").click(function () {
         withAlert('Message ...', 'success');
     });
-    $("[data-toggle='alert']").click(function () {
+    $("[data-toggle='w-alert']").click(function () {
         withAlert($(this).data('message'), $(this).data('type'));
+    });
+    $(".permanentAlert").click(function () {
+        withAlert('This alert will not close automatically!', 'success', {autohide:false});
     });
 </script>
 
