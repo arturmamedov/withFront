@@ -11,6 +11,7 @@ var withOptions = {
     debug: false, // enable/disable Debug mode
     wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js
     go2top: true, // enable/disable widget/w-go2top.js
+    htmlNicescroll: false,
 };
 
 if (typeof wOptions != 'undefined') {
