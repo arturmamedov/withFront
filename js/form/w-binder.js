@@ -64,8 +64,8 @@ function wBind(_this){
 
     clog('wBind() ' + selector + ' - ' + type + ' - ' + value);
 }
-// universal on bind change
-$(document).on('change blur click keyup', '.w-binded', function() {
+// universal on bind change /* todo: i remove keyup, previously added cause it broke functionality by doing an infinite loop on datepicker, need to check and fix! */
+$(document).on('change blur click', '.w-binded', function() {
     wBind($(this));
 });
 // @todo: selector with a -form suffixed for work on all elements in a form

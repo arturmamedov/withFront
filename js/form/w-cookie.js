@@ -111,7 +111,6 @@ $('.w-cookie').each( function(){
 });
 // w-cookie-form work on all elements in a form
 $('.w-cookie-form').on('change blur click', 'input, select, textarea', function() {
-    console.info('dsaa')
     setIntoCookie($(this));
 });
 // set the .w-cookie-form values after load of document
