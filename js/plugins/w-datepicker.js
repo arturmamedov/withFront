@@ -25,6 +25,7 @@ if ($().datepicker) {
     // contact page datepicker
     $('.period').each(function () {
         var period = $(this);
+        $("input.range", period).attr('autocomplete', 'off');
 
         if (period.data('dateStartDate')) {
             startDate = period.data('dateStartDate');
