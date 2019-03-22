@@ -17,12 +17,15 @@
  * Add `data-weh-add="50"` to children `.weh` elements (add 50px to all)
  *
  * @todo: css relative class for IDE support
- * @todo: i think the best way for data-weh-add is in father element and not in all children
  */
 function withEqualHeight(columns, direction) {
     var columnHeight= 0, add = parseInt(columns.first().attr('data-weh-add')), i=0;
     if (isNaN(add)) {
-        add = 0;
+        // check for data-weh-add in parent
+        add = parseInt(columns.parents('[class*="withEqualHeight"]').attr('data-weh-add'))
+        if (isNaN(add)) {
+            add = 0;
+        }
     }
     if (typeof direction == 'undefined') {
         direction = '>';
