@@ -302,45 +302,75 @@ $("._the_email_confirm_").attr('value', '');
 
 
     // detect if the width of screen is bootstrap xs, sm, md, lg
-var isMobile = window.matchMedia("only screen and (max-width: 768px)");
-var isXs = window.matchMedia("(max-width: 768px)");
-var isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)");
-var isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)");
-var isLg = window.matchMedia("(min-width: 1200px)");
+var isXs = window.matchMedia("(max-width: 768px)"),
+    isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)"),
+    isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)"),
+    isLg = window.matchMedia("(min-width: 1200px)"),
+    //Bootstrap4 style
+    is4sm = window.matchMedia("(min-width: 576px)"),
+    is4md = window.matchMedia("(min-width: 768px)"),
+    is4lg = window.matchMedia("(min-width: 992px)"),
+    is4xl = window.matchMedia("(min-width: 1200px)");
 
     /**
  * Boxes AutoHeight
  *
  * @dependencies [w-breakpoints]
- * @param columns
+ * @param columns 'selector for the element to make equal'
+ * @param direction [optional] '<', '>', '='
  *
  * Add class to father element
  * `.withEqualHeight` = for small device and higher (not for xs)
- * `.withEqualHeightAll` = for extra small device and higher
+ * `.withEqualHeightInverse` = for the smallest element instead of tallest
+ * `.withEqualHeightLike` = for equal height element like the element with .wehl class
+ * by adding All at the end ex: `.withEqualHeightAll` = for extra small device and higher
  *
- * And to all child add class `.weh`
+ * And to all child add class `.weh` and `.wehl` if you wont a height like specific element
  *
  * If you want additional height to all elements (ex: for add a button with absolute position etc.)
  * Add `data-weh-add="50"` to children `.weh` elements (add 50px to all)
  *
  * @todo: css relative class for IDE support
- * @todo: i think the best way for data-weh-add is in father element and not in all children
  */
-function withEqualHeight(columns) {
-    var tallestcolumn = 0, add = parseInt(columns.first().attr('data-weh-add'));
+function withEqualHeight(columns, direction) {
+    var columnHeight= 0, add = parseInt(columns.first().attr('data-weh-add')), i=0;
     if (isNaN(add)) {
-        add = 0;
-    }
-    columns.each(
-        function () {
-            $(this).css('height', 'auto');
-            var currentHeight = $(this).height();
-            if (currentHeight > tallestcolumn) {
-                tallestcolumn = currentHeight;
-            }
+        // check for data-weh-add in parent
+        add = parseInt(columns.parents('[class*="withEqualHeight"]').attr('data-weh-add'))
+        if (isNaN(add)) {
+            add = 0;
         }
-    );
-    columns.height(tallestcolumn + add);
+    }
+    if (typeof direction == 'undefined') {
+        direction = '>';
+    }
+
+    if (direction == '=') {
+        var likeColumn = columns.parents('.withEqualHeightLike').find('.wehl').first();
+        likeColumn.css('height', 'auto');
+        columnHeight = likeColumn.height();
+    } else {
+        columns.each(
+            function (i) {
+                $(this).css('height', 'auto');
+                var currentHeight = $(this).height();
+                if (direction == '>') {
+                    if (currentHeight > columnHeight) {
+                        columnHeight = currentHeight;
+                    }
+                } else if (direction == '<') {
+                    if (i == 0) {
+                        columnHeight = currentHeight;
+                    }
+                    if (currentHeight <= columnHeight) {
+                        columnHeight = currentHeight;
+                    }
+                }
+                i++;
+            }
+        );
+    }
+    columns.height(columnHeight+ add);
 }
 
 $(window).on('load resize', function () {
@@ -349,12 +379,27 @@ $(window).on('load resize', function () {
         $('.withEqualHeight').each(function () {
             withEqualHeight($(this).find('.weh'));
         });
+        // @todo: totest
+        $('.withEqualHeightInverse').each(function () {
+            withEqualHeight($(this).find('.weh'), '<');
+        });
+        $('.withEqualHeightLike').each(function () {
+            withEqualHeight($(this).find('.weh'), '=');  // search for .wehl element and make all other equal to it
+        });
     }
     // .withEqualHeightAll > .weh for all elements
     $('.withEqualHeightAll').each(function () {
         withEqualHeight($(this).find('.weh'));
     });
+    // @todo: totest
+    $('.withEqualHeightInverseAll').each(function () {
+        withEqualHeight($(this).find('.weh'), '<');
+    });
+    $('.withEqualHeightLikeAll').each(function () {
+        withEqualHeight($(this).find('.weh'), '='); // search for .wehl element and make all other equal to it
+    });
 });
+
 
     /** w-filter
  *  Filter items on button click or select change with data-filter=".selector"
@@ -652,6 +697,7 @@ if ($().datepicker) {
     // contact page datepicker
     $('.period').each(function () {
         var period = $(this);
+        $("input.range", period).attr('autocomplete', 'off');
 
         if (period.data('dateStartDate')) {
             startDate = period.data('dateStartDate');
@@ -716,43 +762,55 @@ if ($().bootstrapSwitch) {
  * https://github.com/inuyaksa/jquery.nicescroll
  *
  * @dependencies [nicescroll, w-core]
+ *
+ * with data-api for set:
+ * wns-background, wns-cursorcolor, wns-cursorwidth, wns-cursorborder, wns-railalign, wns-cursorborderradius, wns-boxzoom, wns-horizontalenabeld, wns-autohidemode
  */
 if ($().niceScroll) {
     if (typeof withOptions.htmlNicescroll != 'undefined' && withOptions.htmlNicescroll) {
         $("html").niceScroll({
-            touchbehavior: false,
-            background: "#e2e2e2",
+            background: $("html").data('wnsBackground') || "#e2e2e2",
             cursoropacitymin: 1,
-            cursorcolor: "#141414",
+            cursorcolor: $("html").data('wnsCursorcolor') || "#141414",
             cursoropacitymax: 0.6,
-            cursorwidth: 5,
-            cursorborder: '0px solid #fff',
-            railalign: "right",
+            cursorwidth: $("html").data('wnsCursorwidth') || 5,
+            cursorborder: $("html").data('wnsCursorborder') || '0px solid #fff',
+            railalign: $("html").data('wnsRailalign') || "right",
             railpadding: {top: 0, right: 0, left: 0, bottom: 0},
-            cursorborderradius: "0px",
-            boxzoom: true,
-            horizrailenabled: false,
-            autohidemode: false
+            cursorborderradius: $("html").data('wnsCursorborderradius') || "0px",
+            boxzoom: $("html").data('wnsBoxzoom') || false,
+            horizrailenabled: $("html").data('wnsHorizrailenabled') || false,
+            autohidemode: $("html").data('wnsAutohidemode') || false
         });
 
         // fix horizontal @todo: when?
         $('html').addClass('no-overflow-y');
     }
 
-    $(".withNicescroll, .w-nicescroll").niceScroll({
-        touchbehavior:false,
-        background:"#e2e2e2",
-        cursoropacitymin:1,
-        cursorcolor:"#141414",
-        cursoropacitymax:0.6,
-        cursorwidth:5,
-        cursorborder:'0px solid #fff',
-        railalign:"right",
-        railpadding: {top: 0, right: 0, left: 0, bottom: 0},
-        cursorborderradius: "0px",
-        boxzoom: true,
-        horizrailenabled: false,
-        autohidemode: false
+    $(".withNicescroll, .w-nicescroll").each(function(){
+        var breakpoint = true;
+        if ($(this).data('wnsBreakpoint') == 'is4md') {
+            breakpoint = is4md.matches;
+        }
+
+        if (breakpoint) {
+            var wns = $(this), wncOptions = {
+                background: wns.data('wnsBackground') || "#e2e2e2",
+                cursoropacitymin: 1,
+                cursorcolor: wns.data('wnsCursorcolor') || "#141414",
+                cursoropacitymax: 0.6,
+                cursorwidth: wns.data('wnsCursorwidth') || 5,
+                cursorborder: wns.data('wnsCursorborder') || '0px solid #fff',
+                railalign: wns.data('wnsRailalign') || "right",
+                railpadding: {top: 0, right: 0, left: 0, bottom: 0},
+                cursorborderradius: wns.data('wnsCursorborderradius') || "0px",
+                boxzoom: wns.data('wnsBoxzoom') || false,
+                horizrailenabled: wns.data('wnsHorizrailenabled') || false,
+                autohidemode: wns.data('wnsAutohidemode') || false
+            }
+
+            wns.niceScroll(wncOptions);
+        }
     });
 } // END - jQuery.nicescroll
 

@@ -1,6 +1,6 @@
 {
   "name": "withfront",
-  "version": "1.4.93",
+  "version": "1.4.96",
   "description": "Tools for frontend development especially with Bootstrap 3.x and jQuery 3.x also FontAwesome, jsCookie and more",
   "author": "Artur Mamedov <arturmamedov1993@gmail.com>",
   "license": "MIT",
@@ -24,6 +24,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.7.2",
     "animate.css": "^3.7.0",
+    "blueimp-gallery": "^2.33.0",
     "bootstrap": "^4.3.1",
     "bootstrap-datepicker": "^1.8.0",
     "flag-icon-css": "^3.3.0",
