@@ -30,6 +30,17 @@
     background: #00ff9e;
 }
 
+/* Bug fixes for touch drag/scroll */
+.withNicescroll, .w-nicescroll {
+    -ms-touch-action: auto !important;
+    touch-action: auto !important;
+}
+.owl-carousel .owl-stage, .owl-carousel.owl-drag .owl-item {
+    -ms-touch-action: auto !important;
+    touch-action: auto !important;
+}
+
+
 /* * * js gDiv() withAlert style * * */
 .withAlert {
     position: fixed !important;
