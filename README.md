@@ -121,8 +121,21 @@ All this are concatened and builded into `withplugins.js`, see gruntfile.js and 
 
 
 #### Equal Height for all elements (.withEqualHeight, .weh, data-weh-ad)
+###### @dependencies [w-breakpoints]
 
 For set all elements to have equal height add the `.withEqualHeight` class to parent DOM element and the class `.weh` to  children elements to equal.
+
+`.withEqualHeight` = for small device and higher (not for xs)
+
+`.withEqualHeightInverse` = for the smallest element instead of tallest
+
+`.withEqualHeightLike` = for equal height element like the element with .wehl class
+
+And to all child add class `.weh` and `.wehl` if you wont a height like specific element
+
+If you want additional height to all elements (ex: for add a button with absolute position etc.)
+Add `data-weh-add="50"` to children `.weh` elements (add 50px to all)
+
 
 ```html 
 <div class="row withEqualHeight">
@@ -384,3 +397,21 @@ Button fixed on bottom of the document that appear on scroll down and on click g
 ```
 
 And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
+
+#### Breakpoints 
+
+Detect if the width of screen is bootstrap 3 `isXs, isSm, isMd, isLg`
+
+Or in bootstrap 4 style if it is for `is4sm, is4md, is4lg, is4xl` or upper
+
+```javascript
+var isXs = window.matchMedia("(max-width: 768px)"),
+    isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)"),
+    isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)"),
+    isLg = window.matchMedia("(min-width: 1200px)"),
+    //Bootstrap4 style
+    is4sm = window.matchMedia("(min-width: 576px)"),
+    is4md = window.matchMedia("(min-width: 768px)"),
+    is4lg = window.matchMedia("(min-width: 992px)"),
+    is4xl = window.matchMedia("(min-width: 1200px)");
+```
