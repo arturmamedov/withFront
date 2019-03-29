@@ -1,28 +1,27 @@
 <!doctype>
 <html lang="it">
 <head>
-    <!-- Credits: https://codepen.io/sqfreakz/pen/GJRJOY -->
     <meta charset="utf-8">
     <title>Pagina non trovata</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
 
     <style>
         @import url(https://fonts.googleapis.com/css?family=opensans:500);
-        body{
-            background: #3fb8af;
-            color:#fff;
+        body {
+            background: #3FB8AF;
+            color: #FFFFFF;
             font-family: 'Open Sans', sans-serif;
-            max-height:700px;
+            max-height: 700px;
             overflow: hidden;
         }
-        .c{
+        .c {
             text-align: center;
             display: block;
             position: relative;
-            width:80%;
-            margin:100px auto;
+            width: 80%;
+            margin: 100px auto;
         }
-        ._404{
+        ._404 {
             font-size: 220px;
             position: relative;
             display: inline-block;
@@ -30,21 +29,22 @@
             height: 250px;
             letter-spacing: 15px;
         }
-        ._1{
-            text-align:center;
-            display:block;
-            position:relative;
+        ._1 {
+            text-align: center;
+            display: block;
+            position: relative;
             letter-spacing: 12px;
             font-size: 4em;
             line-height: 80%;
         }
-        ._2{
-            text-align:center;
-            display:block;
+        ._2 {
+            text-align: center;
+            display: block;
             position: relative;
             font-size: 20px;
+            margin-top: 20px;
         }
-        .text{
+        .text {
             font-size: 70px;
             text-align: center;
             position: relative;
@@ -58,33 +58,33 @@
         }
 
 
-        .btn{
-            background-color: rgb( 255, 255, 255 );
+        .btn {
+            background-color: rgb(255, 255, 255);
             position: relative;
             display: inline-block;
             width: 358px;
             padding: 5px;
             z-index: 5;
             font-size: 25px;
-            margin:0 auto;
-            color:#3fb8af;
+            margin: 10px auto;
+            color: #3FB8AF;
             text-decoration: none;
             margin-right: 10px
         }
-        .right{
-            float:right;
-            width:60%;
+        .right {
+            float: right;
+            width: 60%;
         }
 
-        hr{
+        hr {
             padding: 0;
             border: none;
-            border-top: 5px solid #fff;
-            color: #fff;
+            border-top: 5px solid #FFFFFF;
+            color: #FFFFFF;
             text-align: center;
             margin: 0px auto;
             width: 420px;
-            height:10px;
+            height: 10px;
             z-index: -10;
         }
 
@@ -95,18 +95,18 @@
             top: -0.75em;
             font-size: 2em;
             padding: 0 0.2em;
-            background: #3fb8af;
+            background: #3FB8AF;
         }
 
         .cloud {
             width: 350px; height: 120px;
 
-            background: #FFF;
-            background: linear-gradient(top, #FFF 100%);
-            background: -webkit-linear-gradient(top, #FFF 100%);
-            background: -moz-linear-gradient(top, #FFF 100%);
-            background: -ms-linear-gradient(top, #FFF 100%);
-            background: -o-linear-gradient(top, #FFF 100%);
+            background: #FFFFFF;
+            background: linear-gradient(top, #FFFFFF 100%);
+            background: -webkit-linear-gradient(top, #FFFFFF 100%);
+            background: -moz-linear-gradient(top, #FFFFFF 100%);
+            background: -ms-linear-gradient(top, #FFFFFF 100%);
+            background: -o-linear-gradient(top, #FFFFFF 100%);
 
             border-radius: 100px;
             -webkit-border-radius: 100px;
@@ -114,14 +114,14 @@
 
             position: absolute;
             margin: 120px auto 20px;
-            z-index:-1;
+            z-index: -1;
             transition: ease 1s;
         }
 
         .cloud:after, .cloud:before {
             content: '';
             position: absolute;
-            background: #FFF;
+            background: #FFFFFF;
             z-index: -1
         }
 
@@ -144,8 +144,8 @@
         }
 
         .x1 {
-            top:-50px;
-            left:100px;
+            top: -50px;
+            left: 100px;
             -webkit-transform: scale(0.3);
             -moz-transform: scale(0.3);
             transform: scale(0.3);
@@ -155,9 +155,9 @@
             -o-animation: moveclouds 15s linear infinite;
         }
 
-        .x1_5{
-            top:-80px;
-            left:250px;
+        .x1_5 {
+            top: -80px;
+            left: 250px;
             -webkit-transform: scale(0.3);
             -moz-transform: scale(0.3);
             transform: scale(0.3);
@@ -168,7 +168,7 @@
 
         .x2 {
             left: 250px;
-            top:30px;
+            top: 30px;
             -webkit-transform: scale(0.6);
             -moz-transform: scale(0.6);
             transform: scale(0.6);
@@ -248,5 +248,19 @@
     <div class='_2'>NON TROVATA</div>
     <a class='btn' href='/'>TORNA ALLA HOME</a>
 </div>
+
+
+<script crossorigin="anonymous"
+        integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+<script>
+    $(function () {
+        setTimeout(function () {
+            window.location.replace("/");
+        }, 5000);
+    });
+</script>
+
 </body>
 </html>
