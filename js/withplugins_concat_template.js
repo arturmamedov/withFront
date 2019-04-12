@@ -14,6 +14,8 @@ $(document).ready(function () {
 
     /* withInclude('js/core/w-breakpoints.js') */
 
+    /* withInclude('js/core/w-ismobile.js') */
+
     /* withInclude('js/style/w-height.js') */
 
     /* withInclude('js/form/w-filter.js') */
@@ -37,6 +39,8 @@ $(document).ready(function () {
     /* withInclude('js/plugins/w-bootstrap_switch.js') */
 
     /* withInclude('js/plugins/w-nicescroll.js') */
+
+    /* withInclude('js/social/w-whatsapp.js') */
 
     /* withInclude('js/style/w-target.js') */
 

@@ -61,6 +61,7 @@ var withOptions = {
     wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js
     go2top: true, // enable/disable widget/w-go2top.js
     htmlNicescroll: false,
+    whatsappWeb: true, // replace WhatsApp mobile with Desktop on Desktop
 };
 
 if (typeof wOptions != 'undefined') {
@@ -311,6 +312,34 @@ var isXs = window.matchMedia("(max-width: 768px)"),
     is4md = window.matchMedia("(min-width: 768px)"),
     is4lg = window.matchMedia("(min-width: 992px)"),
     is4xl = window.matchMedia("(min-width: 1200px)");
+
+    (function (a) {
+    (jQuery.browser = jQuery.browser || {}).mobile = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))
+})(navigator.userAgent || navigator.vendor || window.opera);
+
+/*==============================
+    Is mobile
+==============================*/
+// var isMobile = {
+//     Android: function() {
+//         return navigator.userAgent.match(/Android/i);
+//     },
+//     BlackBerry: function() {
+//         return navigator.userAgent.match(/BlackBerry/i);
+//     },
+//     iOS: function() {
+//         return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+//     },
+//     Opera: function() {
+//         return navigator.userAgent.match(/Opera Mini/i);
+//     },
+//     Windows: function() {
+//         return navigator.userAgent.match(/IEMobile/i);
+//     },
+//     any: function() {
+//         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+//     }
+// }
 
     /**
  * Boxes AutoHeight
@@ -815,6 +844,19 @@ if ($().niceScroll) {
 } // END - jQuery.nicescroll
 
     /**
+ * Replace mobile URL of WhatsApp with Desktop
+ * The mobile first strategy is used cause most people decide to not show WhatsApp on Desktop but only on mobile where it is very useful
+ *
+ * @dependencies [ core/w-ismobile.js ]
+ */
+if(withOptions.whatsappWeb && !jQuery.browser.mobile){
+    var mobile_wa = $(".whatsapp-weburl").attr('href').replace('?text=', '&text');
+    mobile_wa = mobile_wa.replace('https://wa.me/', 'https://web.whatsapp.com/send?phone=+39')
+
+    $(".whatsapp-weburl").attr('href', mobile_wa);
+}
+
+    /**
  * Add target highlight to something
  */
 $("body").on('click', '.targetLink', function () {
@@ -888,24 +930,39 @@ if (withOptions.go2top) {
 
 
     /**
- * Animate the bottom appear button .wabb
+ * Animate the bottom appear button .wabb .left .right
  *
- *  <a type="button" href="javascript:;" class="wabb btn btn-primary" data-bottom="60" data-delay="1440">
+ *  <a type="button" href="javascript:;" class="wabb right btn btn-primary" data-bottom="60" data-delay="1440">
  *      Bottom Button <i class="fa fa-check"></i>
  *  </a>
  *
  *  data-bottom: the position from bottom(60 default)
+ *  data-right: with .right the position from bottom(CSS 105px default, 75px on mobile)
+ *  data-left: with .left the position from bottom(CSS 105px default, 75px on mobile)
  *  data-delay: after how many ms the button appear(1440 default)
  *
  **/
 var wAppearBottomButton = function () {
     return {
         init: function () {
-            var bottom_pos = $('.wabb').data('bottom') || 60,
-                delay = $('.wabb').data('delay') || 1440;
+            var wabb = $('.wabb'),
+                bottom_pos = wabb.data('bottom') || 20,
+                right_pos = parseInt(wabb.data('right')),
+                left_pos = parseInt(wabb.data('left')),
+                delay = wabb.data('delay') || 1440;
+
+            if(!wabb.hasClass('right') && !wabb.hasClass('left')){
+                wabb.addClass('right');
+            }
+            if (right_pos > 0) {
+                wabb.css('right', right_pos+'px');
+            }
+            if (left_pos > 0) {
+                wabb.css('left', left_pos+'px');
+            }
 
             setTimeout(function () {
-                $('.wabb').stop().animate({bottom: bottom_pos+'px'}, 800);
+                wabb.stop().animate({bottom: bottom_pos+'px'}, 800);
             }, delay);
 
             if (withOptions.debug) {
