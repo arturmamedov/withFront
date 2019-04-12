@@ -1,12 +1,25 @@
-/* Animate the bottom appear button .wap */
+/**
+ * Animate the bottom appear button .wabb
+ *
+ *  <a type="button" href="javascript:;" class="wabb btn btn-primary" data-bottom="60" data-delay="1440">
+ *      Bottom Button <i class="fa fa-check"></i>
+ *  </a>
+ *
+ *  data-bottom: the position from bottom(60 default)
+ *  data-delay: after how many ms the button appear(1440 default)
+ *
+ **/
 var wAppearBottomButton = function () {
     return {
         init: function () {
-            setTimeout(function () {
-                $('.wabb').stop().animate({bottom: '33px'}, 800);
-            }, 1400);
+            var bottom_pos = $('.wabb').data('bottom') || 60,
+                delay = $('.wabb').data('delay') || 1440;
 
-            if (debug) {
+            setTimeout(function () {
+                $('.wabb').stop().animate({bottom: bottom_pos+'px'}, 800);
+            }, delay);
+
+            if (withOptions.debug) {
                 console.info('wAppearBottomButton() enabled');
             }
         }

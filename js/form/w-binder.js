@@ -57,11 +57,14 @@ function wBind(_this){
     // range datepicker update dates on bind
     if($(selector).hasClass('range')) {
         $(selector).closest('.period').datepicker('updateDates');
+        if($(selector).hasClass('w-cookie') || $(selector).closest('form').hasClass('w-cookie-form')) {
+            setIntoCookie($(selector));
+        }
     }
 
     clog('wBind() ' + selector + ' - ' + type + ' - ' + value);
 }
-// universal on bind change
+// universal on bind change /* todo: i remove keyup, previously added cause it broke functionality by doing an infinite loop on datepicker, need to check and fix! */
 $(document).on('change blur click', '.w-binded', function() {
     wBind($(this));
 });

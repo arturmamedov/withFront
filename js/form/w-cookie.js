@@ -105,8 +105,15 @@ function setIntoCookie(_this) {
 $(document).on('change blur click', '.w-cookie', function() {
     setIntoCookie($(this));
 });
-// @todo: selector with a -form suffixed for work on all elements in a form
 // set the .w-cookie values after load of document
 $('.w-cookie').each( function(){
+    setFromCookie($(this));
+});
+// w-cookie-form work on all elements in a form
+$('.w-cookie-form').on('change blur click', 'input, select, textarea', function() {
+    setIntoCookie($(this));
+});
+// set the .w-cookie-form values after load of document
+$('.w-cookie-form input, .w-cookie-form select, .w-cookie-form textarea').each( function(){
     setFromCookie($(this));
 });

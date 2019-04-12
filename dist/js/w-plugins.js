@@ -48,7 +48,7 @@
  * * * * * * * * * * * * */
 
 /**
- * Configure enable/disable withPlugins functions
+ * Default conf enable/disable withPlugins functions
  *
  * @object {{
  *      debug: boolean,
@@ -57,10 +57,15 @@
  * }}
  */
 var withOptions = {
-    debug: false,
-    wAppearBottomButton: false,
-    go2top: true,
+    debug: false, // enable/disable Debug mode
+    wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js
+    go2top: true, // enable/disable widget/w-go2top.js
+    htmlNicescroll: false,
 };
+
+if (typeof wOptions != 'undefined') {
+    var withOptions = $.extend(withOptions, wOptions);
+}
 
 /**
  * Debug function for console.info() messages only if debug mode is enabled
@@ -122,7 +127,7 @@ if(typeof Cookies != 'undefined') {
  *
  * @param string message
  * @param string type
- * @param object options
+ * @param object options {autohide:true, hidetime:4000}
  */
 (function ($) {
     /**
@@ -297,45 +302,75 @@ $("._the_email_confirm_").attr('value', '');
 
 
     // detect if the width of screen is bootstrap xs, sm, md, lg
-var isMobile = window.matchMedia("only screen and (max-width: 768px)");
-var isXs = window.matchMedia("(max-width: 768px)");
-var isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)");
-var isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)");
-var isLg = window.matchMedia("(min-width: 1200px)");
+var isXs = window.matchMedia("(max-width: 768px)"),
+    isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)"),
+    isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)"),
+    isLg = window.matchMedia("(min-width: 1200px)"),
+    //Bootstrap4 style
+    is4sm = window.matchMedia("(min-width: 576px)"),
+    is4md = window.matchMedia("(min-width: 768px)"),
+    is4lg = window.matchMedia("(min-width: 992px)"),
+    is4xl = window.matchMedia("(min-width: 1200px)");
 
     /**
  * Boxes AutoHeight
  *
  * @dependencies [w-breakpoints]
- * @param columns
+ * @param columns 'selector for the element to make equal'
+ * @param direction [optional] '<', '>', '='
  *
  * Add class to father element
  * `.withEqualHeight` = for small device and higher (not for xs)
- * `.withEqualHeightAll` = for extra small device and higher
+ * `.withEqualHeightInverse` = for the smallest element instead of tallest
+ * `.withEqualHeightLike` = for equal height element like the element with .wehl class
+ * by adding All at the end ex: `.withEqualHeightAll` = for extra small device and higher
  *
- * And to all child add class `.weh`
+ * And to all child add class `.weh` and `.wehl` if you wont a height like specific element
  *
  * If you want additional height to all elements (ex: for add a button with absolute position etc.)
  * Add `data-weh-add="50"` to children `.weh` elements (add 50px to all)
  *
  * @todo: css relative class for IDE support
- * @todo: i think the best way for data-weh-add is in father element and not in all children
  */
-function withEqualHeight(columns) {
-    var tallestcolumn = 0, add = parseInt(columns.first().attr('data-weh-add'));
+function withEqualHeight(columns, direction) {
+    var columnHeight= 0, add = parseInt(columns.first().attr('data-weh-add')), i=0;
     if (isNaN(add)) {
-        add = 0;
-    }
-    columns.each(
-        function () {
-            $(this).css('height', 'auto');
-            var currentHeight = $(this).height();
-            if (currentHeight > tallestcolumn) {
-                tallestcolumn = currentHeight;
-            }
+        // check for data-weh-add in parent
+        add = parseInt(columns.parents('[class*="withEqualHeight"]').attr('data-weh-add'))
+        if (isNaN(add)) {
+            add = 0;
         }
-    );
-    columns.height(tallestcolumn + add);
+    }
+    if (typeof direction == 'undefined') {
+        direction = '>';
+    }
+
+    if (direction == '=') {
+        var likeColumn = columns.parents('.withEqualHeightLike').find('.wehl').first();
+        likeColumn.css('height', 'auto');
+        columnHeight = likeColumn.height();
+    } else {
+        columns.each(
+            function (i) {
+                $(this).css('height', 'auto');
+                var currentHeight = $(this).height();
+                if (direction == '>') {
+                    if (currentHeight > columnHeight) {
+                        columnHeight = currentHeight;
+                    }
+                } else if (direction == '<') {
+                    if (i == 0) {
+                        columnHeight = currentHeight;
+                    }
+                    if (currentHeight <= columnHeight) {
+                        columnHeight = currentHeight;
+                    }
+                }
+                i++;
+            }
+        );
+    }
+    columns.height(columnHeight+ add);
 }
 
 $(window).on('load resize', function () {
@@ -344,12 +379,27 @@ $(window).on('load resize', function () {
         $('.withEqualHeight').each(function () {
             withEqualHeight($(this).find('.weh'));
         });
+        // @todo: totest
+        $('.withEqualHeightInverse').each(function () {
+            withEqualHeight($(this).find('.weh'), '<');
+        });
+        $('.withEqualHeightLike').each(function () {
+            withEqualHeight($(this).find('.weh'), '=');  // search for .wehl element and make all other equal to it
+        });
     }
     // .withEqualHeightAll > .weh for all elements
     $('.withEqualHeightAll').each(function () {
         withEqualHeight($(this).find('.weh'));
     });
+    // @todo: totest
+    $('.withEqualHeightInverseAll').each(function () {
+        withEqualHeight($(this).find('.weh'), '<');
+    });
+    $('.withEqualHeightLikeAll').each(function () {
+        withEqualHeight($(this).find('.weh'), '='); // search for .wehl element and make all other equal to it
+    });
 });
+
 
     /** w-filter
  *  Filter items on button click or select change with data-filter=".selector"
@@ -497,155 +547,9 @@ $(".children_age_form").each(function () {
     }
 });
 
-    /**
- * Form that need be send with Ajax and with CakePHP 3.x
- *
- * @dependencies [w-alert]
- * /
- $(".ajaxform").on('submit', function(e){
-        e.preventDefault();
-        var area_code = $(this).data('areacode'), thisForm = $(this);
+    /* notInclude('js/form/w-ajaxsave.js') */
 
-        $('input, select, textarea').parent().removeClass('has-error').find('.help-block').remove();
-
-        $.ajax({
-            url: $(this).attr('action'),
-            method: 'POST',
-            dataType: 'json',
-            data: $(this).serialize(),
-            success: function(json){
-                if(json.success)
-                {
-                    if (typeof withAlert == 'function') {
-                        withAlert(json.message, 'success');
-                    } else {
-                        alert(json.message);
-                    }
-
-                    if($(thisForm).data('scallback').length > 0)
-                    {
-                        eval($(thisForm).data('scallback'));
-                    }
-                } else {
-                    if (typeof withAlert == 'function') {
-                        withAlert(json.message, 'danger');
-                    } else {
-                        alert(json.message);
-                    }
-
-                    for(err in json.errors){
-                        $('.form-'+err, $('#tab_'+area_code))
-                            .after('<span class="help-block alert alert-danger">'+ json.errors[err] +'</span>')
-                            .parent().addClass('has-error');
-                    }
-
-                    if($(thisForm).data('ecallback').length > 0)
-                    {
-                        eval($(thisForm).data('ecallback'));
-                    }
-                }
-            },
-            error: function(){
-                if (typeof withAlert == 'function') {
-                    withAlert('Unexpected error! Errore inaspettato!');
-                } else {
-                    alert('Unexpected error! Errore inaspettato!');
-                }
-
-                if($(thisForm).data('fcallback').length > 0)
-                {
-                    eval($(thisForm).data('fcallback'));
-                }
-            }
-        });
-
-        //if($(thisForm).data('callback').length > 0)
-        //{
-        //	eval($(thisForm).data('callback'));
-        //}
-
-        return false;
-    }); */
-
-    /**
- * Google Analytics link click/event tracking
- * //*also with old _gaq commented if u use old google analytics code https://developers.google.com/analytics/devguides/collection/gajs/methods/gaJSApi_gaq#push
- * /
-$("a").click(function () {
-    if (!$(this).hasClass("gadisabled")) {
-        var href = $(this).attr('href');
-
-        if (typeof ga !== "undefined" && typeof href !== "undefined") {
-            if (href.indexOf('mailto:') >= 0) {
-                ga('send', 'event', 'contatti', 'click', href.replace('mailto:', ''), '5');
-                //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('mailto:', ''), 5]);
-            }
-
-            if (href.indexOf('tel:') >= 0) {
-                ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');
-                //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('tel:', ''), 5]);
-            }
-
-            if (href.indexOf('skype:') >= 0) {
-                ga('send', 'event', 'contatti', 'click', href.replace('skype:', ''), '5');
-                //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('skype:', ''), 5]);
-            }
-
-            if (href.indexOf('maps') >= 0) {
-                ga('send', 'event', 'contatti', 'click', 'maps', '5');
-                //* _gaq.push(['_trackEvent', 'contatti', 'click', 'maps', 5]);
-            }
-
-            if (href.indexOf('instagram.com') >= 0) {
-                ga('send', 'event', 'contatti', 'click', 'instagram', '5');
-                //* _gaq.push(['_trackEvent', 'social', 'click', 'instagram', 2]);
-            }
-
-            if (href.indexOf('tripadvisor.com') >= 0) {
-                ga('send', 'event', 'social', 'click', 'tripadvisor', '2');
-                //* _gaq.push(['_trackEvent', 'social', 'click', 'twitter', 2]);
-            }
-
-            if (href.indexOf('facebook.com') >= 0) {
-                ga('send', 'event', 'social', 'click', 'facebook', '2');
-                //* _gaq.push(['_trackEvent', 'social', 'click', 'facebook', 2]);
-            }
-
-            if (href.indexOf('google.com') >= 0) {
-                ga('send', 'event', 'social', 'click', 'google', '2');
-                //* _gaq.push(['_trackEvent', 'social', 'click', 'google', 2]);
-            }
-
-            if (href.indexOf('youtube.com') >= 0) {
-                ga('send', 'event', 'social', 'click', 'youtube', '2');
-                //* _gaq.push(['_trackEvent', 'social', 'click', 'youtube', 2]);
-            }
-
-            if ((href.indexOf('sitename.com') < 0) && (href.indexOf('http') >= 0)) {
-                ga('send', 'event', 'outgoing', 'click', href);
-                //* _gaq.push(['_trackEvent', 'outgoing', 'click', href]);
-            }
-
-            if (href.match('.pdf$') != null) {
-                //var pdf_file_name = href.substr(href.lastIndexOf('/') + 1);
-                ga('send', 'event', 'download', 'click', 'label-evento', '2');
-                //* _gaq.push(['_trackEvent', 'download', 'click', 'label-evento', '2']);
-            }
-        }
-    }
-});
-/* Google Analytics - can be disabled and commented */
-
-/**
- * Google Analytics submit
- * /
-$("#booking-form-widget").submit(function () {
-    if (typeof ga !== "undefined") {
-        ga('send', 'pageview', '/email-form-contatti'); // for booking: (`.gabookingsubmit` "/calcola-preventivo");
-        //* _gaq.push(['_trackPageview', '/email-form-contatti']);
-    }
-});
-/* Google Analytics - can be disabled and commented */
+    /* notInclude('js/web/w-analytics.js') */
 
     /**
  * Ajax Form
@@ -793,6 +697,7 @@ if ($().datepicker) {
     // contact page datepicker
     $('.period').each(function () {
         var period = $(this);
+        $("input.range", period).attr('autocomplete', 'off');
 
         if (period.data('dateStartDate')) {
             startDate = period.data('dateStartDate');
@@ -852,42 +757,61 @@ if ($().bootstrapSwitch) {
 } // END - #jQuery.bootstrapSwitch
 
 
-    // #jQuery.plugin - Nicescroll
+    /**
+ * # jQuery.plugin - Nicescroll
+ * https://github.com/inuyaksa/jquery.nicescroll
+ *
+ * @dependencies [nicescroll, w-core]
+ *
+ * with data-api for set:
+ * wns-background, wns-cursorcolor, wns-cursorwidth, wns-cursorborder, wns-railalign, wns-cursorborderradius, wns-boxzoom, wns-horizontalenabeld, wns-autohidemode
+ */
 if ($().niceScroll) {
-    $("html").niceScroll({
-        touchbehavior:false,
-        background:"#e2e2e2",
-        cursoropacitymin:1,
-        cursorcolor:"#141414",
-        cursoropacitymax:0.6,
-        cursorwidth:5,
-        cursorborder:'0px solid #fff',
-        railalign:"right",
-        railpadding: {top: 0, right: 0, left: 0, bottom: 0},
-        cursorborderradius: "0px",
-        boxzoom: true,
-        horizrailenabled: false,
-        autohidemode: false
-    });
+    if (typeof withOptions.htmlNicescroll != 'undefined' && withOptions.htmlNicescroll) {
+        $("html").niceScroll({
+            background: $("html").data('wnsBackground') || "#e2e2e2",
+            cursoropacitymin: 1,
+            cursorcolor: $("html").data('wnsCursorcolor') || "#141414",
+            cursoropacitymax: 0.6,
+            cursorwidth: $("html").data('wnsCursorwidth') || 5,
+            cursorborder: $("html").data('wnsCursorborder') || '0px solid #fff',
+            railalign: $("html").data('wnsRailalign') || "right",
+            railpadding: {top: 0, right: 0, left: 0, bottom: 0},
+            cursorborderradius: $("html").data('wnsCursorborderradius') || "0px",
+            boxzoom: $("html").data('wnsBoxzoom') || false,
+            horizrailenabled: $("html").data('wnsHorizrailenabled') || false,
+            autohidemode: $("html").data('wnsAutohidemode') || false
+        });
 
-    $(".withNicescroll").niceScroll({
-        touchbehavior:false,
-        background:"#e2e2e2",
-        cursoropacitymin:1,
-        cursorcolor:"#141414",
-        cursoropacitymax:0.6,
-        cursorwidth:5,
-        cursorborder:'0px solid #fff',
-        railalign:"right",
-        railpadding: {top: 0, right: 0, left: 0, bottom: 0},
-        cursorborderradius: "0px",
-        boxzoom: true,
-        horizrailenabled: false,
-        autohidemode: false
-    });
+        // fix horizontal @todo: when?
+        $('html').addClass('no-overflow-y');
+    }
 
-    // fix horizontal
-    $('html').addClass('no-overflow-y');
+    $(".withNicescroll, .w-nicescroll").each(function(){
+        var breakpoint = true;
+        if ($(this).data('wnsBreakpoint') == 'is4md') {
+            breakpoint = is4md.matches;
+        }
+
+        if (breakpoint) {
+            var wns = $(this), wncOptions = {
+                background: wns.data('wnsBackground') || "#e2e2e2",
+                cursoropacitymin: 1,
+                cursorcolor: wns.data('wnsCursorcolor') || "#141414",
+                cursoropacitymax: 0.6,
+                cursorwidth: wns.data('wnsCursorwidth') || 5,
+                cursorborder: wns.data('wnsCursorborder') || '0px solid #fff',
+                railalign: wns.data('wnsRailalign') || "right",
+                railpadding: {top: 0, right: 0, left: 0, bottom: 0},
+                cursorborderradius: wns.data('wnsCursorborderradius') || "0px",
+                boxzoom: wns.data('wnsBoxzoom') || false,
+                horizrailenabled: wns.data('wnsHorizrailenabled') || false,
+                autohidemode: wns.data('wnsAutohidemode') || false
+            }
+
+            wns.niceScroll(wncOptions);
+        }
+    });
 } // END - jQuery.nicescroll
 
     /**
@@ -963,15 +887,28 @@ if (withOptions.go2top) {
 }
 
 
-    /* Animate the bottom appear button .wap */
+    /**
+ * Animate the bottom appear button .wabb
+ *
+ *  <a type="button" href="javascript:;" class="wabb btn btn-primary" data-bottom="60" data-delay="1440">
+ *      Bottom Button <i class="fa fa-check"></i>
+ *  </a>
+ *
+ *  data-bottom: the position from bottom(60 default)
+ *  data-delay: after how many ms the button appear(1440 default)
+ *
+ **/
 var wAppearBottomButton = function () {
     return {
         init: function () {
-            setTimeout(function () {
-                $('.wabb').stop().animate({bottom: '33px'}, 800);
-            }, 1400);
+            var bottom_pos = $('.wabb').data('bottom') || 60,
+                delay = $('.wabb').data('delay') || 1440;
 
-            if (debug) {
+            setTimeout(function () {
+                $('.wabb').stop().animate({bottom: bottom_pos+'px'}, 800);
+            }, delay);
+
+            if (withOptions.debug) {
                 console.info('wAppearBottomButton() enabled');
             }
         }
@@ -1157,9 +1094,16 @@ function setIntoCookie(_this) {
 $(document).on('change blur click', '.w-cookie', function() {
     setIntoCookie($(this));
 });
-// @todo: selector with a -form suffixed for work on all elements in a form
 // set the .w-cookie values after load of document
 $('.w-cookie').each( function(){
+    setFromCookie($(this));
+});
+// w-cookie-form work on all elements in a form
+$('.w-cookie-form').on('change blur click', 'input, select, textarea', function() {
+    setIntoCookie($(this));
+});
+// set the .w-cookie-form values after load of document
+$('.w-cookie-form input, .w-cookie-form select, .w-cookie-form textarea').each( function(){
     setFromCookie($(this));
 });
 
@@ -1222,11 +1166,14 @@ function wBind(_this){
     // range datepicker update dates on bind
     if($(selector).hasClass('range')) {
         $(selector).closest('.period').datepicker('updateDates');
+        if($(selector).hasClass('w-cookie') || $(selector).closest('form').hasClass('w-cookie-form')) {
+            setIntoCookie($(selector));
+        }
     }
 
     clog('wBind() ' + selector + ' - ' + type + ' - ' + value);
 }
-// universal on bind change
+// universal on bind change /* todo: i remove keyup, previously added cause it broke functionality by doing an infinite loop on datepicker, need to check and fix! */
 $(document).on('change blur click', '.w-binded', function() {
     wBind($(this));
 });
