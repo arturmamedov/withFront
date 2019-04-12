@@ -2,12 +2,22 @@
 .wabb {
     position: fixed;
     bottom: -150px;
-    right: 105px;
     z-index: 999;
+}
+.wabb.right {
+    right: 105px;
+}
+.wabb.left {
+    left: 105px;
 }
 @media (max-width: 767px) {
     .wabb {
         bottom: 20px !important;
+    }
+    .wabb.right {
         right: 75px;
+    }
+    .wabb.left {
+        left: 75px;
     }
 }

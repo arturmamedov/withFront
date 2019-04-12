@@ -384,6 +384,7 @@ You can add a children number input that show the fields for each children age:
 </div>
 ``` 
 
+### Widget
 
 #### Go to top button 
 Button fixed on bottom of the document that appear on scroll down and on click go to the top of document
@@ -395,6 +396,29 @@ Button fixed on bottom of the document that appear on scroll down and on click g
     <p class="hidden-sm">Torna su</p>
 </div>
 ```
+
+And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
+
+#### With Appear Bottom Button w-bottom_btn.js/css 
+Button fixed on bottom that appear after 5 seconds by default
+
+`data-delay` 5000 - number of ms after that the button will be displayed from bottom
+
+`data-left` 105 - The position from left (with media queries it change in mobile to 75px)
+
+`data-right` 105 - The position from right (with media queries it change in mobile to 75px)
+
+`data-bottom` 105 - The position from bottom (with media queries it change in mobile to 20px)
+
+If you change the position remember the @mediaqueries also
+
+```html
+<a type="button" href="javascript:;" class="wabb right btn btn-primary" data-bottom="20" data-delay="2000">
+    Bottom Button .wabb <i class="fa fa-check"></i>
+</a> 
+```
+
+You can enable or disable it with `wOptions = { wAppearBottomButton: false }`
 
 And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
 
