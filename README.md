@@ -422,6 +422,42 @@ You can enable or disable it with `wOptions = { wAppearBottomButton: false }`
 
 And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
 
+#### Bottom Buttons w-bottom_btns.css
+Div `.bottom-buttons` with grouped bottom buttons `.b-btn`, `.b-btn_circle`, `b-btn_whatsapp` 
+
+Also in `.bottom-buttons.horizontal` or `.bottom-buttons.vertical` style 
+
+
+```html
+<!-- Bottom Buttons -->
+<div class="bottom-buttons vertical">
+    <!-- Anchor to Email form -->
+    <a href="#ajaxsend" class="text-center b-btn b-btn_circle bg-dark">
+        <i class="fa fa-envelope fa-2x text-white-a"></i>
+    </a>
+
+    <!-- Admin helper -->
+    <div class="text-center b-btn b-btn_circle bg-info">
+        <i class="fa fa-cog fa-2x"></i>
+    </div>
+
+    <!-- WhatsApp Button https://faq.whatsapp.com/en/android/26000030/ -->
+    <a href="https://wa.me/1234567890?text=Salve,%20desidero%20ricevere%20informazioni%20per%20un%20soggiorno%20presso%20il%20vostro%20Hotel.%20Grazie!" class="b-btn b-btn_circle b-btn_whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Facebook Messenger Button https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin/ -->
+    <div id="fb-root" class="b-btn"></div>
+
+    <!-- Go2Top {css: .go2top, js: LayoutGo2Top} -->
+    <div class="go2top hidden-xs text-center b-btn">
+        <i class="fa fa-chevron-up"></i>
+        <p class="hidden-sm m-0">Torna su</p>
+    </div>
+</div>
+```
+
+
 #### Breakpoints 
 
 Detect if the width of screen is bootstrap 3 `isXs, isSm, isMd, isLg`
