@@ -12,6 +12,7 @@ var withOptions = {
     wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js
     go2top: true, // enable/disable widget/w-go2top.js
     htmlNicescroll: false,
+    whatsappWeb: true, // replace WhatsApp mobile with Desktop on Desktop
 };
 
 if (typeof wOptions != 'undefined') {

@@ -54,9 +54,11 @@ jQuery - https://github.com/jquery/jquery
 <script>
     // you can Configure wOptions for override withOptions
     var wOptions = {
-        debug: false, // enable/disable Debug mode
-        wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js
-        go2top: true, // enable/disable widget/w-go2top.js
+        debug: true, // enable/disable Debug mode [defaule:false]
+        wAppearBottomButton: true, // enable/disable widget/w-appear_btn.js [defaule:false]
+        go2top: true, // enable/disable widget/w-go2top.js [defaule:true]
+        htmlNicescroll: true, // [defaule:false]
+        whatsappWeb: true, // replace WhatsApp mobile with Desktop on Desktop [defaule:true]
     };
 </script>
 <script type="text/javascript" src="/node_modules/withFront/withplugins.js"></script> <!-- js tools -->
@@ -73,6 +75,7 @@ core thing without it a lot of other script doesn't work properly. If you decide
   - `w-cookie.js` for save information in cookies, you can simply override it with your own implementation cause it have a interface behaviour 
   - `w-breakpoint.js` for isXs, isSm, isMd, isLg  functions (trivial but )
   - `w-core.js` here we have withOptions object with configuration and cLog() function for debug mode
+  - `w-ismobile.js` detect if it is a mobile device (no like breakpoints that only check the size) `jQuery.browser.mobile` true/false
 
 - bs `js/bs/` 
 bootstrap tools
@@ -99,6 +102,12 @@ installed plugins activator and configurator, with my prefered options for it
   - `w-raty.js` https://github.com/wbotelhos/raty
   - `w-selectize.js` https://selectize.github.io/selectize.js/
   - `w-tooltip.js` bootstrap tooltip 
+
+
+- social `js/social/`
+tools for social's
+  - `w-whatsapp.js` replace the Mobile version to WhatsApp URL to Desktop one
+  + In index.html you can find the code and link for Facebook Messenger implementation
 
 - style `js/style/`
 tools for styling web page
@@ -456,6 +465,24 @@ Also in `.bottom-buttons.horizontal` or `.bottom-buttons.vertical` style
     </div>
 </div>
 ```
+
+### Social
+
+#### WhatsApp url Mobile and Desktop 
+WhatsApp Button https://faq.whatsapp.com/en/android/26000030/
+
+- Replace 1234567890 with your desired phone number
+- text=`The message must be url_encoded` use https://www.urlencoder.org/ for get text=`The%20message%20must%20be%20url_encoded`
+
+```html
+<a href="https://wa.me/1234567890?text=Salve,%20desidero%20ricevere%20informazioni%20per%20un%20soggiorno%20presso%20il%20vostro%20Hotel.%20Grazie!" class="b-btn b-btn_circle b-btn_whatsapp whatsapp-weburl" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+```
+File `js/social/w-whatsapp.js` This is the MOBILE URL and it will be replaced to DESKTOP version (not worry :D)
+
+###### The mobile first strategy is used cause most people decide to not show WhatsApp on Desktop but only on mobile where it is very useful
+
 
 
 #### Breakpoints 

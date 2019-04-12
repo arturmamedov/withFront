@@ -289,8 +289,11 @@
 
     // enable wAppearBottomButton cause it disabled by default
     var wOptions = {
-        wAppearBottomButton: true,
-        htmlNicescroll: true,
+        debug: true, // enable/disable Debug mode [defaule:false]
+        wAppearBottomButton: true, // enable/disable widget/w-appear_btn.js [defaule:false]
+        go2top: true, // enable/disable widget/w-go2top.js [defaule:true]
+        htmlNicescroll: true, // [defaule:false]
+        whatsappWeb: true, // replace WhatsApp mobile with Desktop on Desktop [defaule:true]
     }
 </script>
 <script src="dist/js/w-plugins.min.js"></script>
@@ -299,6 +302,13 @@
 
 <link rel="stylesheet" href="css/widget/w-bottom_btns.css">
 <script src="js/core/w-ismobile.js"></script>
+<script src="js/social/w-whatsapp.js"></script>
+
+<!--
+--                          --
+   JS and HTML for this demo
+--                          --
+-->
 
 <!-- Bottom Buttons -->
 <div class="bottom-buttons vertical">
@@ -312,8 +322,12 @@
         <i class="fa fa-cog fa-2x"></i>
     </div>
 
-    <!-- WhatsApp Button https://faq.whatsapp.com/en/android/26000030/ -->
-    <a href="https://wa.me/1234567890?text=Salve,%20desidero%20ricevere%20informazioni%20per%20un%20soggiorno%20presso%20il%20vostro%20Hotel.%20Grazie!" class="b-btn b-btn_circle b-btn_whatsapp" target="_blank">
+    <!-- WhatsApp Button https://faq.whatsapp.com/en/android/26000030/
+     - Replace 1234567890 with your desired phone number
+     - text=The message must ne url_encoded - https://www.urlencoder.org/ - text=The%20message%20must%20ne%20url_encoded
+     - social/w-whatsapp.js This is the MOBILE URL and it will be replaced to DESKTOP version (not worry :D)
+    -->
+    <a href="https://wa.me/1234567890?text=Salve,%20desidero%20ricevere%20informazioni%20per%20un%20soggiorno%20presso%20il%20vostro%20Hotel.%20Grazie!" class="b-btn b-btn_circle b-btn_whatsapp whatsapp-weburl" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -327,12 +341,29 @@
     </div>
 </div>
 
+<!-- Load Facebook SDK for JavaScript -->
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/it_IT/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="186574254711564"
+        theme_color="#0084ff"
+        logged_in_greeting="Ciao! Come posso aiutarti?"
+        logged_out_greeting="Ciao Ciao!">
+</div>
+
 <!-- withAppearBottomButton {css: .wabb, js: wAppearBottomButton()}) -->
 <a type="button" href="javascript:;" class="wabb left btn btn-primary" data-bottom="20" data-delay="2000">
     Bottom Button <i class="fa fa-check"></i>
 </a>
 
-<!-- JS for this demo -->
+<!-- JS for withAlert() demo -->
 <script>
     $("#withAlertCustomTrigger").click(function () {
         withAlert('Message ...', 'success');
