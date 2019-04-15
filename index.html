@@ -306,6 +306,40 @@
 --                          --
 -->
 
+
+<a href="javascript:;" class="w-sliding-btn sliding-btn left hidden-xs"
+        data-target="#sliding1"
+>
+    Sliding Panel Btn & Panel
+</a>
+<div id="sliding1" class="w-sliding-panel sliding-panel text-center bg-white-transparent p-20">
+    <i class="close-panel fa fa-close fas fa-times fa-3x pull-right cursor-pointer abspos" style="top: -25px; left: 0px;"></i>
+
+    <p>Another implementation it if you click on `cog` button, it have custom btn, instead this pre-configured</p>
+</div>
+
+<div id="adminHelper" class="w-sliding-panel sliding-panel text-center bg-info p-10">
+    <i class="close-panel fa fa-close fas fa-times fa-3x cursor-pointer abspos"></i>
+
+    <div class="container">
+        <a href="javascript:;" class="btn btn-primary btn-xs m-5">
+            <i class="fa fa-file-text-o fas fa-file-alt"></i> &nbsp; Modifica pagina "Home"
+        </a>
+
+        <a href="javascript:;" class="btn btn-primary btn-xs m-5">
+            <i class="fa fa-file-text-o fas fa-file-alt"></i> &nbsp; Modifica Pagina "Figlia di Home"
+        </a>
+
+        <a href="javascript:;" class="btn btn-primary btn-xs m-5">
+            <i class="fa fas fa-list"></i> &nbsp; Modifica categoria offerte
+        </a>
+
+        <a href="javascript:;" class="btn btn-primary btn-xs m-5">
+            <i class="fa fas fa-font"></i> &nbsp; Modifica offerta "Nome Offerta"
+        </a>
+    </div>
+</div>
+
 <!-- Bottom Buttons -->
 <div class="bottom-buttons vertical">
     <!-- Anchor to Email form -->
@@ -314,7 +348,10 @@
     </a>
 
     <!-- Admin helper -->
-    <div class="text-center b-btn b-btn_circle bg-info">
+    <div class="w-sliding-btn text-center b-btn b-btn_circle bg-info"
+        data-target="#adminHelper"
+        data-no-close-btn="true"
+    >
         <i class="fa fa-cog fa-2x"></i>
     </div>
 
@@ -355,7 +392,7 @@
 </div>
 
 <!-- withAppearBottomButton {css: .wabb, js: wAppearBottomButton()}) -->
-<a type="button" href="javascript:;" class="wabb left btn btn-primary" data-bottom="20" data-delay="2000">
+<a type="button" href="javascript:;" class="wabb right btn btn-primary" data-bottom="20" data-delay="2000">
     Bottom Button <i class="fa fa-check"></i>
 </a>
 

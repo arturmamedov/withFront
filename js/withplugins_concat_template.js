@@ -46,9 +46,11 @@ $(document).ready(function () {
 
     /* withInclude('js/bs/w-wide_modal.js') */
 
+    /* withInclude('js/widget/w-appear_btn.js') */
+
     /* withInclude('js/widget/w-go2top.js') */
 
-    /* withInclude('js/widget/w-appear_btn.js') */
+    /* withInclude('js/widget/w-sliding-panel.js') */
 
     /* withInclude('js/plugins/w-raty.js') */
 

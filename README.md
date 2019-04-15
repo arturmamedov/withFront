@@ -129,6 +129,28 @@ All this are concatened and builded into `withplugins.js`, see gruntfile.js and 
 ---
 
 
+### Core
+
+#### Breakpoints 
+
+Detect if the width of screen is bootstrap 3 `isXs, isSm, isMd, isLg`
+
+Or in bootstrap 4 style if it is for `is4sm, is4md, is4lg, is4xl` or upper
+
+```javascript
+var isXs = window.matchMedia("(max-width: 768px)"),
+    isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)"),
+    isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)"),
+    isLg = window.matchMedia("(min-width: 1200px)"),
+    //Bootstrap4 style
+    is4sm = window.matchMedia("(min-width: 576px)"),
+    is4md = window.matchMedia("(min-width: 768px)"),
+    is4lg = window.matchMedia("(min-width: 992px)"),
+    is4xl = window.matchMedia("(min-width: 1200px)");
+```
+
+### Style
+
 #### Equal Height for all elements (.withEqualHeight, .weh, data-weh-ad)
 ###### @dependencies [w-breakpoints]
 
@@ -235,39 +257,6 @@ The difference is that withFront use static spacing with pixel's:
 
 The same thing for add `padding` change the `m` that stand for marrgin to `p` padding and you done!
 ##### You can use this values with this classes m-/p-[t,r,b,l,v,h]-`0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200`
-
-
-
-#### Loader (for entire document or only inside some element)
-Thanks to [SamHerbert/SVG-Loaders](http://samherbert.net/svg-loaders/)
-
-For add a loader to your site, that appears and automatically closes when all content is load:
-```html
-<div class="loader-wrapper">
-    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
-    <div class="loader">
-        <img width="40" src="/bower_components/SVG-Loaders/circles.svg" alt="">
-
-        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
-    </div>
-</div>
-```
-
-You can also add `inner-loader-wrapper` class to `loader-wrapper` for include loader in a div and not over all content of document.
-
-```html
-<div class="loader-wrapper inner-loader-wrapper">
-    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
-    <div class="loader">
-        <img width="40" src="/bower_components/SVG-Loaders/svg-loaders/spinning-circles.svg" alt="">
-
-        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
-    </div>
-</div>
-```
-
-Example: [loader-wrapper](https://insuperadmin.buonsito.net/assets/media/loader.png), [inner-loader-wrapper](https://insuperadmin.buonsito.net/assets/media/inner-loader.png)
-
 
 
 
@@ -393,43 +382,14 @@ You can add a children number input that show the fields for each children age:
 </div>
 ``` 
 
+
+
+
+
+
+
+
 ### Widget
-
-#### Go to top button 
-Button fixed on bottom of the document that appear on scroll down and on click go to the top of document
-
-```html
-<!-- Add this to your layout -->
-<div class="go2top hidden-xs text-center">
-    <i class="fa fa-chevron-circle-up"></i>
-    <p class="hidden-sm">Torna su</p>
-</div>
-```
-
-And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
-
-#### With Appear Bottom Button w-bottom_btn.js/css 
-Button fixed on bottom that appear after 5 seconds by default
-
-`data-delay` 5000 - number of ms after that the button will be displayed from bottom
-
-`data-left` 105 - The position from left (with media queries it change in mobile to 75px)
-
-`data-right` 105 - The position from right (with media queries it change in mobile to 75px)
-
-`data-bottom` 105 - The position from bottom (with media queries it change in mobile to 20px)
-
-If you change the position remember the @mediaqueries also
-
-```html
-<a type="button" href="javascript:;" class="wabb right btn btn-primary" data-bottom="20" data-delay="2000">
-    Bottom Button .wabb <i class="fa fa-check"></i>
-</a> 
-```
-
-You can enable or disable it with `wOptions = { wAppearBottomButton: false }`
-
-And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
 
 #### Bottom Buttons w-bottom_btns.css
 Div `.bottom-buttons` with grouped bottom buttons `.b-btn`, `.b-btn_circle`, `b-btn_whatsapp` 
@@ -466,6 +426,145 @@ Also in `.bottom-buttons.horizontal` or `.bottom-buttons.vertical` style
 </div>
 ```
 
+
+
+
+#### Go to top button 
+Button fixed on bottom of the document that appear on scroll down and on click go to the top of document
+
+```html
+<!-- Add this to your layout -->
+<div class="go2top hidden-xs text-center">
+    <i class="fa fa-chevron-circle-up"></i>
+    <p class="hidden-sm">Torna su</p>
+</div>
+```
+
+And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
+
+
+
+
+
+
+#### With Appear Bottom Button w-bottom_btn.js/css 
+Button fixed on bottom that appear after 5 seconds by default
+
+`data-delay` 5000 - number of ms after that the button will be displayed from bottom
+
+`data-left` 105 - The position from left (with media queries it change in mobile to 75px)
+
+`data-right` 105 - The position from right (with media queries it change in mobile to 75px)
+
+`data-bottom` 105 - The position from bottom (with media queries it change in mobile to 20px)
+
+If you change the position remember the @mediaqueries also
+
+```html
+<a type="button" href="javascript:;" class="wabb right btn btn-primary" data-bottom="20" data-delay="2000">
+    Bottom Button .wabb <i class="fa fa-check"></i>
+</a> 
+```
+
+You can enable or disable it with `wOptions = { wAppearBottomButton: false }`
+
+And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
+
+
+
+
+
+
+#### Loader (for entire document or only inside some element)
+Thanks to [SamHerbert/SVG-Loaders](http://samherbert.net/svg-loaders/)
+
+For add a loader to your site, that appears and automatically closes when all content is load:
+```html
+<div class="loader-wrapper">
+    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
+    <div class="loader">
+        <img width="40" src="/bower_components/SVG-Loaders/circles.svg" alt="">
+
+        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
+    </div>
+</div>
+```
+
+You can also add `inner-loader-wrapper` class to `loader-wrapper` for include loader in a div and not over all content of document.
+
+```html
+<div class="loader-wrapper inner-loader-wrapper">
+    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
+    <div class="loader">
+        <img width="40" src="/bower_components/SVG-Loaders/svg-loaders/spinning-circles.svg" alt="">
+
+        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
+    </div>
+</div>
+```
+
+Example: [loader-wrapper](https://insuperadmin.buonsito.net/assets/media/loader.png), [inner-loader-wrapper](https://insuperadmin.buonsito.net/assets/media/inner-loader.png)
+
+
+
+
+
+
+#### Sliding Panel `.w-sliding-panel`, `.w-sliding-btn`
+Button and bottom panel that slide out from left to right
+
+1 - Btn with class `w-sliding-btn` and `data-target` #id of the panel to open (for standard style add `sliding-btn` class and `right/left` class for position)
+
+2 - Panel with class `w-sliding-panel`, `sliding-panel` and the right #id (also the close icon `.close-panel` the panel is closed automatically on document click) 
+
+```html
+<!-- Button for open panel -->
+<div class="w-sliding-btn text-center b-btn b-btn_circle bg-info"
+    data-target="#adminHelper"
+    data-no-close-btn="true"
+>
+    <i class="fa fa-cog fa-2x"></i>
+</div>
+
+<div id="adminHelper" class="w-sliding-panel sliding-panel text-center bg-info">
+    <i class="close-panel fa fa-close fas fa-times fa-3x cursor-pointer abspos"></i>
+
+    <div class="container">
+        ...
+    </div>
+</div>
+```
+
+If you want to costumize the panel position and style remove class `sliding-panel` and add your own, remember to hide panel with negative position
+
+```css
+.w-sliding-panel.sliding-panel {
+    position: fixed;
+    left: -2000px;
+    bottom: 0px;
+}
+
+.w-sliding-panel.sliding-panel .close-panel {
+    top: -25px;
+    left: 0px;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Social
 
 #### WhatsApp url Mobile and Desktop 
@@ -482,23 +581,3 @@ WhatsApp Button https://faq.whatsapp.com/en/android/26000030/
 File `js/social/w-whatsapp.js` This is the MOBILE URL and it will be replaced to DESKTOP version (not worry :D)
 
 ###### The mobile first strategy is used cause most people decide to not show WhatsApp on Desktop but only on mobile where it is very useful
-
-
-
-#### Breakpoints 
-
-Detect if the width of screen is bootstrap 3 `isXs, isSm, isMd, isLg`
-
-Or in bootstrap 4 style if it is for `is4sm, is4md, is4lg, is4xl` or upper
-
-```javascript
-var isXs = window.matchMedia("(max-width: 768px)"),
-    isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)"),
-    isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)"),
-    isLg = window.matchMedia("(min-width: 1200px)"),
-    //Bootstrap4 style
-    is4sm = window.matchMedia("(min-width: 576px)"),
-    is4md = window.matchMedia("(min-width: 768px)"),
-    is4lg = window.matchMedia("(min-width: 992px)"),
-    is4xl = window.matchMedia("(min-width: 1200px)");
-```

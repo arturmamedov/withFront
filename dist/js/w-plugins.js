@@ -881,6 +881,54 @@ $(".modalWide").on("show.bs.modal", function() {
 // END - bootstrap wide modal
 
     /**
+ * Animate the bottom appear button .wabb .left .right
+ *
+ *  <a type="button" href="javascript:;" class="wabb right btn btn-primary" data-bottom="60" data-delay="1440">
+ *      Bottom Button <i class="fa fa-check"></i>
+ *  </a>
+ *
+ *  data-bottom: the position from bottom(60 default)
+ *  data-right: with .right the position from bottom(CSS 105px default, 75px on mobile)
+ *  data-left: with .left the position from bottom(CSS 105px default, 75px on mobile)
+ *  data-delay: after how many ms the button appear(1440 default)
+ *
+ **/
+var wAppearBottomButton = function () {
+    return {
+        init: function () {
+            var wabb = $('.wabb'),
+                bottom_pos = wabb.data('bottom') || 20,
+                right_pos = parseInt(wabb.data('right')),
+                left_pos = parseInt(wabb.data('left')),
+                delay = wabb.data('delay') || 1440;
+
+            if(!wabb.hasClass('right') && !wabb.hasClass('left')){
+                wabb.addClass('right');
+            }
+            if (right_pos > 0) {
+                wabb.css('right', right_pos+'px');
+            }
+            if (left_pos > 0) {
+                wabb.css('left', left_pos+'px');
+            }
+
+            setTimeout(function () {
+                wabb.stop().animate({bottom: bottom_pos+'px'}, 800);
+            }, delay);
+
+            if (withOptions.debug) {
+                console.info('wAppearBottomButton() enabled');
+            }
+        }
+    };
+}();
+
+if (withOptions.wAppearBottomButton) {
+    wAppearBottomButton.init(); // with Appear Bottom Button {css: .wabb}
+}
+
+
+    /**
  * START: Layout Go2Top
  * css: .go2top
  * dependencies: bootstrap, font-awesome
@@ -929,52 +977,60 @@ if (withOptions.go2top) {
 }
 
 
-    /**
- * Animate the bottom appear button .wabb .left .right
- *
- *  <a type="button" href="javascript:;" class="wabb right btn btn-primary" data-bottom="60" data-delay="1440">
- *      Bottom Button <i class="fa fa-check"></i>
- *  </a>
- *
- *  data-bottom: the position from bottom(60 default)
- *  data-right: with .right the position from bottom(CSS 105px default, 75px on mobile)
- *  data-left: with .left the position from bottom(CSS 105px default, 75px on mobile)
- *  data-delay: after how many ms the button appear(1440 default)
- *
- **/
-var wAppearBottomButton = function () {
-    return {
-        init: function () {
-            var wabb = $('.wabb'),
-                bottom_pos = wabb.data('bottom') || 20,
-                right_pos = parseInt(wabb.data('right')),
-                left_pos = parseInt(wabb.data('left')),
-                delay = wabb.data('delay') || 1440;
+    $(".w-sliding-panel").each(function () {
+    var slidingPanel = $(this),
+        slidingBtn = $('.w-sliding-btn[data-target="#'+$(this).attr('id')+'"]'),
+        noCloseBtn = slidingBtn.data('noCloseBtn');
 
-            if(!wabb.hasClass('right') && !wabb.hasClass('left')){
-                wabb.addClass('right');
-            }
-            if (right_pos > 0) {
-                wabb.css('right', right_pos+'px');
-            }
-            if (left_pos > 0) {
-                wabb.css('left', left_pos+'px');
-            }
+    // Get the calculated left position
+    var slidingPanel_left = slidingPanel.offset().left;
+    var slidingPanel_width = $(document).width();
+    // Set the left to its calculated position
+    slidingPanel.css({left:slidingPanel_left, width:slidingPanel_width});
 
-            setTimeout(function () {
-                wabb.stop().animate({bottom: bottom_pos+'px'}, 800);
-            }, delay);
+    // on click slide
+    slidingBtn.on('click', function () {
+        showGestPanel();
+    });
+    slidingPanel.on('click', '.close-panel', function () {
+        hideGestPanel();
+    });
+    // on resize
+    $(window).on('resize', function () {
+        // get new width for hide
+        slidingPanel_width = $(document).width();
+        hideGestPanel(); // hide panel for resize it and change position
 
-            if (withOptions.debug) {
-                console.info('wAppearBottomButton() enabled');
-            }
+        // Get the calculated left position
+        slidingPanel_left = slidingPanel.offset().left;
+        // Set the left to its calculated position
+        slidingPanel.css({left:slidingPanel_left, width:slidingPanel_width});
+    });
+
+    function showGestPanel(){
+        slidingPanel.animate({"left":"0px"});
+        console.info(noCloseBtn)
+        if (!noCloseBtn) {
+            console.info('hide')
+            slidingBtn.animate({"left":"-999px"});
         }
-    };
-}();
+    }
+    function hideGestPanel(){
+        slidingPanel.animate({"left":'-'+slidingPanel_width+'px'});
+        if (!noCloseBtn) {
+            slidingBtn.animate({"left": "0"});
+        }
+    }
 
-if (withOptions.wAppearBottomButton) {
-    wAppearBottomButton.init(); // with Appear Bottom Button {css: .wabb}
-}
+    // close on document click
+    $(document).mouseup(function () {
+        hideGestPanel();
+    });
+});
+// no close on himself click
+$(".w-sliding-panel").mouseup(function () {
+    return false;
+});
 
 
     // #jQuery.plugin - raty for a star rating view
