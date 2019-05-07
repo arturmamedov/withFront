@@ -1,4 +1,6 @@
 /** go2top {js: LayoutGo2Top.init()}
+ * @deprecated see in w-bottom_btns.css
+ * here for retro-compatibility with `=< v1.4.9`
  *
 <div class="go2top hidden-xs text-center">
     <i class="fa fa-chevron-circle-up"></i>

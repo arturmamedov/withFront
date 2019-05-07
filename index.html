@@ -341,7 +341,7 @@
 </div>
 
 <!-- Bottom Buttons -->
-<div class="bottom-buttons vertical display-none">
+<div class="bottom-buttons vertical">
     <!-- Anchor to Email form -->
     <a href="#ajaxsend" class="text-center b-btn b-btn_circle bg-dark">
         <i class="fa fa-envelope fa-2x text-white-a"></i>
@@ -366,13 +366,20 @@
 
     <!-- Facebook Messenger Button https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin/ -->
     <div id="fb-root" class="b-btn"></div>
+
+    <!-- Go2Top {css: .go2top, js: LayoutGo2Top} -->
+    <div class="go2top hidden-xs text-center b-btn">
+        <i class="fa fa-chevron-up"></i>
+        <p class="hidden-sm m-0">Torna su</p>
+    </div>
 </div>
 
-<!-- Go2Top recomend: to use inside .bottom-buttons  -->
+<!-- Go2Top suggest: to use inside .bottom-buttons
 <div class="go2top hidden-xs text-center b-btn">
     <i class="fa fa-chevron-up"></i>
     <p class="hidden-sm m-0">Torna su</p>
 </div>
+-->
 
 <!-- Load Facebook SDK for JavaScript -->
 <script>(function(d, s, id) {
