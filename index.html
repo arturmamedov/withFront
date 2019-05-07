@@ -12,8 +12,9 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- Style with that withFront works -->
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="dist/css/libraries.min.css"> <!-- grunt cssmin:libraries | for conf -->
+    <!--<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> yet in dist/css/libraries.min.css
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"> yet in dist/css/libraries.min.css -->
     <!-- end# Style with that withFront works -->
     <link rel="stylesheet" href="dist/css/w-style.min.css">
 </head>
@@ -163,7 +164,8 @@
                         </div>
                     </div>
 
-                    <div class="period col-12" data-date-start-date="22/01/2019" data-date-end-date="22/02/2019">
+                    <!-- data-date-start-date="22/01/2019" -->
+                    <div class="period col-12" data-date-end-date="31/12/2019">
                         <div class="row">
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
@@ -264,6 +266,9 @@
             </ul>
         </div>
     </div>
+
+
+    <div class="m-50"></div>
 </div>
 
 
@@ -272,16 +277,17 @@
 <script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
 
 <!-- Plugin with that withFront works -->
+<script src="dist/js/libraries.min.js"></script> <!-- grunt uglify:libraries | for conf -->
 <!-- Bs Date Picker https://github.com/uxsolutions/bootstrap-datepicker -->
-<link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"/>
-<script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!--<link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"/> yet in dist/css/libraries.min.css
+<script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script> yet in dist/js/libraries.min.js -->
 <script src="node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js" data-lang="it" id="bsdp_lang_code"></script>
 
 <!-- js-cookie https://github.com/js-cookie/js-cookie -->
-<script src="node_modules/js-cookie/src/js.cookie.js"></script>
+<!--<script src="node_modules/js-cookie/src/js.cookie.js"></script> yet in dist/js/libraries.min.js -->
 
 <!-- Nicescroll https://github.com/inuyaksa/jquery.nicescroll -->
-<script src="node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
+<!--<script src="node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script> yet in dist/js/libraries.min.js -->
 <!-- end# Plugin with that withFront works -->
 
 <script>
