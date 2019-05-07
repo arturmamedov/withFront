@@ -243,20 +243,47 @@ module.exports = function (grunt) {
                 },
                 src: "node_modules/flag-icon-css/flags/4x3/gb.svg",
                 dest: "dist/flags/4x3/gb.svg"
+            },
+            css_fonts: {
+                files: [
+                    {
+                        expand:true,
+                        cwd:'node_modules/@fortawesome/fontawesome-free',
+                        dest:'dist/',
+                        src:['webfonts/**']
+                    }
+                ]
             }
         },
 
 
         // minify CSS
         cssmin: {
-            options: {
-                mergeIntoShorthands: false,
-                roundingPrecision: -1,
-                sourceMap: true
-            },
-            target: {
+            wstyle: {
+                options: {
+                    mergeIntoShorthands: false,
+                    roundingPrecision: -1,
+                    sourceMap: true
+                },
                 files: {
                     'dist/css/w-style.min.css': ['withstyle.css']
+                }
+            },
+            libraries: {
+                options: {
+                    mergeIntoShorthands: false,
+                    roundingPrecision: -1,
+                    sourceMap: true
+                },
+                files: {
+                    'dist/css/libraries.min.css': [
+                        // core
+                        'node_modules/bootstrap/dist/css/bootstrap.min.css',
+                        'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
+                        // 'node_modules/flag-icon-css/css/flag-icon.min.css',
+                        // 'node_modules/animate.css/animate.min.css',
+                        'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css',
+                    ]
                 }
             }
         },
@@ -270,6 +297,21 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'dist/js/w-plugins.min.js': ['withplugins.js']
+                }
+            },
+            libraries: {
+                options: {
+                    sourceMap: true,
+                    drop_console: true
+                },
+                files: {
+                    'dist/js/libraries.min.js': [
+                        // core
+                        'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+                        'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
+                        'node_modules/js-cookie/src/js.cookie.js',
+                        'node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js',
+                    ]
                 }
             }
         }
