@@ -849,7 +849,7 @@ if ($().niceScroll) {
  *
  * @dependencies [ core/w-ismobile.js ]
  */
-if(withOptions.whatsappWeb && !jQuery.browser.mobile){
+if(withOptions.whatsappWeb && !jQuery.browser.mobile && $(".whatsapp-weburl").lenght > 0){
     var mobile_wa = $(".whatsapp-weburl").attr('href').replace('?text=', '&text');
     mobile_wa = mobile_wa.replace('https://wa.me/', 'https://web.whatsapp.com/send?phone=+39')
 
