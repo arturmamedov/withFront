@@ -45,16 +45,20 @@
             margin-top: 20px;
         }
         .text {
-            font-size: 70px;
+            font-size: 20px;
             text-align: center;
             position: relative;
             display: inline-block;
-            margin: 19px 0px 0px 0px;
+            margin: 9px 0px 0px 0px;
             /* top: 256.301px; */
             z-index: 3;
             width: 100%;
             line-height: 1.2em;
             display: inline-block;
+        }
+        #seconds {
+            font-weight: 900;
+            font-size: 27px;
         }
 
 
@@ -246,7 +250,8 @@
     <hr>
     <div class='_1'>PAGINA</div>
     <div class='_2'>NON TROVATA</div>
-    <a class='btn' href='/'>TORNA ALLA HOME</a>
+    <a class='btn' href='index.html'>TORNA ALLA HOME</a>
+    <p class="text">Sarai rediretto alla home a breve <span id="seconds">5</span></p>
 </div>
 
 
@@ -256,9 +261,18 @@
 
 <script>
     $(function () {
+        // auto redirect
         setTimeout(function () {
-            window.location.replace("/");
-        }, 5000);
+            window.location.replace("index.html");
+        }, 6500); // mantain upper of 1.5 seconds if wont a right visual effect with counter
+        // auto redirect counter
+        var i = 5;
+        setInterval(function(){
+            if(i >= 0) {
+                document.getElementById('seconds').innerText = i;
+            }
+            i--;
+        }, 1000);
     });
 </script>
 
