@@ -5,6 +5,9 @@
  * @dependencies [ core/w-ismobile.js ]
  */
 if(withOptions.whatsappWeb && !jQuery.browser.mobile && $(".whatsapp-weburl").length > 0){
+    clog('WhatsApp Enabled and Present');
+    clog($(".whatsapp-weburl"));
+
     var mobile_wa = $(".whatsapp-weburl").attr('href').replace('?text=', '&text');
     mobile_wa = mobile_wa.replace('https://wa.me/', 'https://web.whatsapp.com/send?phone=+39')
 
