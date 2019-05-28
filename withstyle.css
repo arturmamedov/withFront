@@ -26,6 +26,8 @@
 .modal-wide .modal-body {
     overflow-y: auto;
 }
+/* Bootstrap v3 Modal Fade CSS quick Fix [issue#17622]  */
+body { padding-right: 0 !important }
 
 /* for jq highlight */
 .highlight {
@@ -75,7 +77,7 @@
     cursor: pointer;
 }
 
-/* Bootstrap grid bug fix */
+/* Bootstrap v3 grid bug fix */
 .center-block {
     float: none;
     display: block;
