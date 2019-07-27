@@ -22,16 +22,17 @@
     "js"
   ],
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.8.1",
-    "animate.css": "^3.7.0",
-    "blueimp-gallery": "^2.33.0",
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "animate.css": "^3.7.2",
+    "blueimp-gallery": "^2.34.1",
     "bootstrap": "^4.3.1",
-    "bootstrap-datepicker": "^1.8.0",
+    "bootstrap-datepicker": "^1.9.0",
     "flag-icon-css": "^3.3.0",
     "html5shiv": "^3.7.3",
     "jquery": "^3.4.1",
     "jquery.nicescroll": "^3.7.6",
     "js-cookie": "^2.2.0",
+    "lodash": "^4.17.15",
     "popper.js": "^1.15.0",
     "respond.js": "^1.4.2",
     "wowjs": "^1.1.3"
