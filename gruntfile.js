@@ -314,6 +314,18 @@ module.exports = function (grunt) {
                     ]
                 }
             }
+        },
+
+        // watch for quicker dev
+        watch: {
+            css: {
+                files: ['css/**', 'withstyle.css'],
+                tasks: ['cssmin:wstyle']
+            },
+            js: {
+                files: ['js/**'],
+                tasks: ['copy:build', 'copy:js_src', 'uglify:target']
+            }
         }
     });
 
@@ -322,6 +334,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
     grunt.registerTask('default', ['copy', 'cssmin', 'uglify']);
