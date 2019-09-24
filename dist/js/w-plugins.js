@@ -461,14 +461,17 @@ $(".w-filters").each(function(){
 });
 
     /**
- * Aggiunge un input che crea altri input in base al valore che ha
- * esempio: numero bambini e un input per l'eta di ogni bambino
+ * Add event to `.child_num_input` for clone `#child_ageClone` on change
+ * to create as many inputs as is the number of children
  *
  * @dependencies [w-alert]
  *
- * form.children_age_form
- * input.child_num_input
- * div#child_ageClone
+ * @param  form  The form on that it work `.children_age_form`
+ * @param  childNum  The number of children, for create it age inputs
+ *
+ * <form>.children_age_form
+ * <input>.child_num_input
+ * <div>#child_ageClone
  *
  * --- and ---
  *
@@ -493,88 +496,70 @@ $(".w-filters").each(function(){
  *  $endphp
  *
  * max children: default 5 (configurable by max attribute)
- * @todo: keep values of yet insterted children ages (w-cookie)
+ * @todo: keep values of yet inserted children ages (w-cookie)
  * @type {any}
  */
-$(".children_age_form").each(function () {
-    var form = $(this), max_children = parseInt($('.child_num_input', form).attr('max'));
+function addAges(form, childNum) {
+    $("[id^='child_age_']", form).remove(); // first remove all
+    childNum = parseInt(childNum);
 
+    // if counter are equal 0 - do nothing
+    if (childNum == 0) {
+        return false;
+    }
+
+    // set {max_children}
+    var max_children = parseInt($('.child_num_input', form).attr('max'));
     if (typeof max_children == 'undefined') {
         max_children = 5;
     }
-
-    form.on('keyup change', '.child_num_input', function () {
-        // if counter are equal 0 - do nothing
-        var _childNum = $('.child_num_input', form).val();
-        if (_childNum == 0) {
-            childNum = 0;
-            $("[id^='child_age_']", form).remove();
-            return false;
+    // over {max_children} are invalid
+    if (childNum > max_children) {
+        if (typeof withAlert == 'function') {
+            withAlert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning', {hidetime: 7000});
+        } else {
+            alert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning');
         }
-        // over 5 chlids are invalid
-        if (_childNum > max_children) {
-            if (typeof withAlert == 'function') {
-                withAlert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning', {hidetime: 7000});
-            } else {
-                alert('No more then ' + max_children + ' childs / Non più di ' + max_children + ' bambini', 'warning');
-            }
+        $('.child_num_input', form).val(max_children);
+
+        childNum = max_children;
+    }
+
+    for (var _cN = 1; _cN <= childNum; _cN++) {
+        if (_cN > max_children) {
             $('.child_num_input', form).val(max_children);
             return false;
         }
+        var childClone = $('#child_ageClone', form).clone();
 
-        $("[id^='child_age_']", form).remove();
-        for (var _cN = 1; _cN <= _childNum; _cN++) {
-            var childClone = $('#child_ageClone', form).clone();
+        // change params
+        childClone.attr('id', 'child_age_' + _cN);
+        childClone.find('.jq_child_num').text(_cN);
+        // input // you can also change `name` attributeetc. ex: .attr('name', 'Camera_1_EtaBambino_' + _cN)
+        childClone.find('input')
+            .prop("disabled", false)
+            .removeProp('disabled')
+            .attr('data-binded', childClone.find('input').attr('data-binded') + _cN + ' input');
 
-            // change params
-            childClone.attr('id', 'child_age_' + _cN);
-            childClone.find('.jq_child_num').text(_cN);
-            // input //you can also change `name` attribute etc. ex: .attr('name', 'Camera_1_EtaBambino_' + _cN)
-            childClone.find('input')
-                .prop("disabled", false)
-                .removeProp('disabled')
-                .attr('data-binded', childClone.find('input').attr('data-binded') + _cN + ' input');
+        // attach and show
+        $('#child_ageClone', form).after(childClone);
+        childClone.show();
 
-            // attach and show
-            $('#child_ageClone', form).after(childClone);
-            childClone.show();
+        form.css('padding-bottom', '10px');
+    }
+}
+$(".children_age_form").each(function () {
+    var form = $(this);
 
-            form.css('padding-bottom', '10px');
-        }
-        childNum = $('.child_num_input', form).val();
+    // add event trigger for form
+    form.on('keyup change', '.child_num_input', function () {
+        addAges(form, $('.child_num_input', form).val()); // loop and add age inputs
     });
 
     // init childNum counter
-    var childNum = $('.child_num_input', form).val();
-    if (childNum > 0) {
-        function addAges(childNum) {
-            for (var _cN = 1; _cN <= childNum; _cN++) {
-                if (_cN > max_children) {
-                    $('.child_num_input', form).val(max_children);
-                    return false;
-                }
-                var childClone = $('#child_ageClone', form).clone();
-
-                // change params
-                childClone.attr('id', 'child_age_' + _cN);
-                childClone.find('.jq_child_num').text(_cN);
-                // input // you can also change `name` attributeetc. ex: .attr('name', 'Camera_1_EtaBambino_' + _cN)
-                childClone.find('input')
-                    .prop("disabled", false)
-                    .removeProp('disabled')
-                    .attr('data-binded', childClone.find('input').attr('data-binded') + _cN + ' input');
-
-                // attach and show
-                $('#child_ageClone', form).after(childClone);
-                childClone.show();
-
-                form.css('padding-bottom', '10px');
-            }
-        }
-
-        addAges(childNum);
-    }
+    addAges($('.child_num_input', form).val());
 });
+
 
     /* notInclude('js/form/w-ajaxsave.js') */
 
@@ -875,6 +860,35 @@ $("body").on('click', '.targetLink', function () {
         }, ac);
     }
 });
+
+    /**
+ * Animate scroll of #hash anchor and put the window to right place with topOffset
+ *
+ * data-keep-hash    [false]        If #hash anchor is needed in url set true, otherwise u will not see the #hash in url
+ * data-top-offset   [10]          The NEGATIVE offset from top (for not cover things with navbar or other things)
+ * data-animation    [1000]         The duration of scroll anitmation
+ *
+ */
+$("body").on('click', ".w-scroll", function (e) {
+    if (this.hash !== "") {
+        e.preventDefault();
+        // Store hash
+        var hash = this.hash,
+            keep_hash = (typeof $(this).data('keepHash') == "undeifned") ? false : $(this).data('keepHash'),
+            topOffset = (typeof $(this).data('topOffset') == "undefined") ? 10 : parseInt($(this).data('topOffset')),
+            animation = (typeof $(this).data('animation') == "undefined") ? 1000 : parseInt($(this).data('animation'));
+
+        $("html, body").animate({
+            scrollTop: $(hash).offset().top - topOffset
+        }, animation, function () {
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            if (keep_hash) {
+                window.location.hash = hash;
+            }
+        });
+    }
+});
+
 
     // bootstrap wide modal - adjust height to fit entire page
 $(".modalWide").on("show.bs.modal", function() {
