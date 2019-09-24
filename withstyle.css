@@ -230,7 +230,7 @@ body { padding-right: 0 !important }
 .on-target:target { animation: ontarget 8s; }
 @keyframes ontarget {
     0% { background-color: #00e095; }
-    100% { background-color: transparent; }
+    100% { background-color: inherit; }
 }
 /* #animation: for pulse button */
 .pulse-button { position: relative; }
