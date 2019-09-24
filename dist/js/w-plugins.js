@@ -875,7 +875,7 @@ $("body").on('click', '.targetLink, .w-target', function () {
  *
  * data-keep-hash    [false]        If #hash anchor is needed in url set true, otherwise u will not see the #hash in url
  * data-top-offset   [10]          The NEGATIVE offset from top (for not cover things with navbar or other things)
- * data-animation    [1000]         The duration of scroll anitmation
+ * data-animation    [1000]         The duration of scroll animation
  *
  */
 $("body").on('click', ".w-scroll", function (e) {

@@ -295,6 +295,46 @@
     </div>
 
 
+    <div class="row m-t-15">
+        <div class="col col-sm-10 center-block jumbotron bg-lgray" id="target-block">
+            <h3>Scroll to this anchor (#target-block) with animation (.w-scroll)</h3>
+
+            <p>You can enable animated scroll to anchor by adding w-scroll to your <code>&lt;a href="#anchor"</code> links</p>
+
+            <p>Animate scroll of #hash anchor and put the window to right place with topOffset <br>
+                * data-keep-hash    [false]        If #hash anchor is needed in url set true, otherwise u will not see the #hash in url<br>
+                * data-top-offset   [10]          The NEGATIVE offset from top (for not cover things with navbar or other things)<br>
+                * data-animation    [1000]         The duration of scroll animation
+            </p>
+
+            <code>
+                &lt;a type="button" href="#target-block" class="btn btn-primary w-scroll"&gt;
+                    Bottom Button
+                &lt;/a&gt;
+            </code>
+
+
+            <hr>
+
+
+            <h3>Add target highlight to something</h3>
+
+            <p>
+               * data-target          [-]                CSS Selector for select the element on which apply<br>
+               * data-auto-close      [8000]             Bool or the ms for close<br>
+               * data-taregt-class    [on-target]        The class to add (default have CSS animation but it must be on the #anchor element also)<br>
+            </p>
+
+            <code>
+            &lt;a type="button" href="#target-block" class="btn btn-primary w-target"
+                data-target="#target-block"&gt;
+                Bottom Button
+            &lt;/a&gt;
+            </code>
+        </div>
+    </div>
+
+
     <div class="m-50"></div>
 
     <p>Artur Mamedov aka <a href="https://www.facebook.com/withArtur/" target="_blank"><i class="fab fa-facebook"></i> #withArtur</a> mantiene e sviluppa <a href="https://github.com/arturmamedov/withfront/" target="_blank"> <i class="fab fa-github"></i> #withFront</a></p>
@@ -386,7 +426,7 @@
     </a>
 
     <!-- Anchor to Email form -->
-    <a href="#ajaxsend" class="text-center b-btn b-btn_circle bg-danger w-scroll w-target" data-top-offset="10" data-target="#ajaxsend">
+    <a href="#ajaxsend" class="text-center b-btn b-btn_circle bg-danger w-scroll w-target" data-keep-hash="true" data-top-offset="10" data-target="#ajaxsend">
         <i class="fa fa-envelope fa-2x text-white-a"></i>
     </a>
 
@@ -442,7 +482,13 @@
 </div>
 
 <!-- withAppearBottomButton {css: .wabb, js: wAppearBottomButton()}) -->
-<a type="button" href="javascript:;" class="wabb right btn btn-primary" data-bottom="20" data-delay="2000">
+<a type="button" href="#target-block" class="wabb right btn btn-primary w-scroll w-target"
+        data-bottom="20"
+        data-delay="2000"
+        data-toggle="tooltip"
+        title="Have also w-scroll and w-target set for scroll and target animations"
+        data-target="#target-block"
+        data-keep-hash="true">
     Bottom Button <i class="fa fa-check"></i>
 </a>
 

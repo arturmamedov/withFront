@@ -550,6 +550,28 @@ If you want to costumize the panel position and style remove class `sliding-pane
 ```
 
 
+#### Animate scroll of #hash anchor and put the window to right place with topOffset
+* data-keep-hash    [false]        If #hash anchor is needed in url set true, otherwise u will not see the #hash in url<br>
+* data-top-offset   [10]          The NEGATIVE offset from top (for not cover things with navbar or other things)<br>
+* data-animation    [1000]         The duration of scroll animation
+
+```html
+    <a type="button" href="#target-block" class="btn btn-primary w-scroll">
+        Bottom Button
+    </a>
+```
+
+
+ #### Add target highlight to something
+ * data-target          [-]                CSS Selector for select the element on which apply
+ * data-auto-close      [8000]             Bool or the ms for close
+ * data-taregt-class    [on-target]        The class to add (default have CSS animation but it must be on the #anchor element also)
+
+```html
+    <a type="button" href="#target-block" class="btn btn-primary w-target" data-target="#target-block">
+        Bottom Button
+    </a>
+```
 
 
 
@@ -559,10 +581,7 @@ If you want to costumize the panel position and style remove class `sliding-pane
 
 
 
-
-
-
-
+    
 
 ### Social
 
