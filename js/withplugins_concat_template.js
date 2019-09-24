@@ -44,6 +44,8 @@ $(document).ready(function () {
 
     /* withInclude('js/style/w-target.js') */
 
+    /* withInclude('js/misc/w-scroll.js') */
+
     /* withInclude('js/bs/w-wide_modal.js') */
 
     /* withInclude('js/widget/w-appear_btn.js') */
