@@ -128,14 +128,23 @@
         <div id="ajaxsend" class="col col-sm-10 center-block jumbotron bg-acqua">
             <h3>.ajaxsend</h3>
             <p class="lead">Datepickers, children_age_form </p>
-            <p class="m-0"><strong>Binded</strong> span on input firstname: <span id="binded_firstname" class="text-underline"></span>
-                <strong>Binded</strong> input on input lastname:
-                <input name="binded_lastname" id="binded_lastname" placeholder="type into lastname"/> <code>w-binded</code></p>
 
+            <div class="row">
+                <div class="col-6">
+                    <p class="m-0"><strong>Binded</strong> span on input firstname: <span id="binded_firstname" class="text-underline"></span></p>
+                </div>
+                <div class="col-6">
+                    <p>
+                        <strong>Binded</strong> input on input lastname:
+                        <input class="form-control w-binded" data-binded="input[name=lastname]" name="binded_lastname" id="binded_lastname" placeholder="Type into lastname for change here"/>
+                        <code>&lt;input class="form-control w-binded" data-binded="input[name=lastname]" /&gt;</code>
+                    </p>
+                </div>
+            </div>
             <hr>
 
             <form class="ajaxsend children_age_form w-cookie-form" action="/contacts/ajaxsend" method="POST" target="_blank" data-ga-send-pageview="/form-contatti">
-                <input type="hidden" name="lang_code" value="<?php echo $lang_code; ?>"/>
+                <input type="hidden" name="lang_code" value="it"/>
 
                 <div class="row">
                     <div class="col-12 col-sm-6 col-md-6 col-lg-6">
@@ -297,7 +306,7 @@
 
     <div class="row m-t-15">
         <div class="col col-sm-10 center-block jumbotron bg-lgray" id="target-block">
-            <h3>Scroll to this anchor (#target-block) with animation (.w-scroll)</h3>
+            <h3>Scroll to this anchor (click to "Bottom Button") with animation (.w-scroll)</h3>
 
             <p>You can enable animated scroll to anchor by adding w-scroll to your <code>&lt;a href="#anchor"</code> links</p>
 
@@ -337,7 +346,7 @@
 
     <div class="m-50"></div>
 
-    <p>Artur Mamedov aka <a href="https://www.facebook.com/withArtur/" target="_blank"><i class="fab fa-facebook"></i> #withArtur</a> mantiene e sviluppa <a href="https://github.com/arturmamedov/withfront/" target="_blank"> <i class="fab fa-github"></i> #withFront</a></p>
+    <p>Artur Mamedov aka <a href="https://www.facebook.com/withArtur/" target="_blank"><i class="fab fa-facebook"></i> #withArtur</a> <a href="https://github.com/arturmamedov/withfront/" target="_blank"> <i class="fab fa-github"></i> #withFront</a></p>
 
     <p class="text-right">This MarkUp use
         <a href="https://github.com/h5bp/html5-boilerplate" target="_blank">HTML5 Boilerplate</a> v6.0.1</p>
