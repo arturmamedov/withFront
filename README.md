@@ -1,4 +1,4 @@
-# withFront `v1.5.02`
+# withFront `v1.5.05`
 ## The Front-end Tools and basic configs that i use for every project [see demo](https://arturmamedov.github.io/withFront/)
  
 &nbsp;
