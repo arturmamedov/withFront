@@ -95,5 +95,5 @@ $(".children_age_form").each(function () {
     });
 
     // init childNum counter
-    addAges($('.child_num_input', form).val());
+    addAges(form, $('.child_num_input', form).val());
 });
