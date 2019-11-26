@@ -14,7 +14,7 @@
 @import url('css/widget/w-sliding-panel.css');
 /*@import url('css/web/w-cookie_choice.css');*/
 
-/* for use see withplugins.js */
+/* for use see https://github.com/arturmamedov/withFront/blob/master/js/form/w-honey_pot.js */
 ._the_email_confirm_group {
     display: none !important;
 }
