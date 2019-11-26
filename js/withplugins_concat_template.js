@@ -62,3 +62,5 @@ $(document).ready(function () {
 
     /* withInclude('js/form/w-binder.js') */
 });
+
+/* withInclude('js/web/w-cookie_choice.js') */

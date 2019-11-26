@@ -262,7 +262,7 @@ The same thing for add `padding` change the `m` that stand for marrgin to `p` pa
 ### Web tools
 
 #### Cookie Choice Banner
-Include alone `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u use build files this are yet included in `withplugins.js` and `withstle.css`
+Include alone `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u use build files this are yet included in `dist/js/w-plugins.js` and `dist/css/w-style.css`
  
  ```html
      <script>

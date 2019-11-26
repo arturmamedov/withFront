@@ -514,6 +514,15 @@
     });
 </script>
 
+
+<!-- Cookie Choice Banner (include `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u use build files this are yet included) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function (event) {
+        cookieChoices.showCookieConsentBar("This site uses cookies to improve the browsing experience. By using this site you agree to all cookies",
+            'OK', 'Privacy Policy', "/privacy-url");
+    });
+</script>
+
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <!-- @html5bp <script>
     window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
