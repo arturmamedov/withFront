@@ -599,3 +599,25 @@ WhatsApp Button https://faq.whatsapp.com/en/android/26000030/
 File `js/social/w-whatsapp.js` This is the MOBILE URL and it will be replaced to DESKTOP version (not worry :D)
 
 ###### The mobile first strategy is used cause most people decide to not show WhatsApp on Desktop but only on mobile where it is very useful
+
+
+#### Official Colors and Gradients
+##### Social Color's for icons, text, backgrounds
+
+ .text-instagram = color of instagram
+ 
+.bg-instaram = background ofinstagram
+
+.gradient = by adding class gradient instead of simple color will be rendered the gradient of the social (thank to http://www.brandgradients.com/)
+
+
+###### Enabled social's
+ * text-facebook
+ * text-instagram
+ * text-whatsapp
+ * text-tripadvisor
+ * text-flickr
+ * text-skype
+ * text-youtube
+ * text-gmail
+ * text-soundcloud 
