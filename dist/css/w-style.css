@@ -1,6 +1,7 @@
 @import url('css/margin-tools.css');
 @import url('css/padding-tools.css');
 @import url('css/text-tools.css');
+@import url('css/text/social-colors.css');
 @import url('css/xs-tools.css');
 @import url('css/sm-tools.css');
 @import url('css/thirdparty/fontawesome47.css');
@@ -12,7 +13,7 @@
 @import url('css/widget/w-appear_btn.css');
 @import url('css/widget/w-bottom_btns.css');
 @import url('css/widget/w-sliding-panel.css');
-/*@import url('css/web/w-cookie_choice.css');*/
+@import url('css/web/w-cookie_choice.css');
 
 /* for use see https://github.com/arturmamedov/withFront/blob/master/js/form/w-honey_pot.js */
 ._the_email_confirm_group {
