@@ -601,23 +601,28 @@ File `js/social/w-whatsapp.js` This is the MOBILE URL and it will be replaced to
 ###### The mobile first strategy is used cause most people decide to not show WhatsApp on Desktop but only on mobile where it is very useful
 
 
-#### Official Colors and Gradients
-##### Social Color's for icons, text, backgrounds
+### Official Colors and Gradients
+#### Social Color's for icons, text, backgrounds [css/text/social-colors.css](https://github.com/arturmamedov/withFront/blob/master/css/text/social-colors.css)
 
- .text-instagram = color of instagram
+`.text-instagram` = color of instagram
  
-.bg-instaram = background ofinstagram
+`.bg-instagram` = background of instagram
 
-.gradient = by adding class gradient instead of simple color will be rendered the gradient of the social (thank to http://www.brandgradients.com/)
+`.gradient` = will be add the gradient of the social 
 
+(thank to http://www.brandgradients.com/)
 
-###### Enabled social's
- * text-facebook
- * text-instagram
- * text-whatsapp
- * text-tripadvisor
- * text-flickr
- * text-skype
- * text-youtube
- * text-gmail
- * text-soundcloud 
+##### Enabled .text-social's \[+ .gradient] you can alo use `.bg-....`
+
+ * `.text-facebook .gradient`
+ * `.text-instagram .gradient`
+ * `.text-whatsapp .gradient`
+ * `.text-tripadvisor .gradient`
+ * `.text-flickr .gradient`
+ * `.text-skype .gradient`
+ * `.text-youtube .gradient`
+ * `.text-gmail .gradient`
+ * `.text-soundcloud .gradient` 
+ 
+ 
+ ![Screenshot_2019-12-04 w-front Frontend development tools guide](https://user-images.githubusercontent.com/2785707/70128142-aba9a900-167c-11ea-8930-9850f3a14a34.png)
