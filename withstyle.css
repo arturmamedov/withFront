@@ -73,9 +73,17 @@ body { padding-right: 0 !important }
 .cursor-pointer {
     cursor: pointer;
 }
+.cursor-move {cursor: move !important;}
+.cursor-move-arrows:before {content: "\f047"; font-family: "FontAwesome"; margin-right: 5px;}
+.cursor-move-arrows-after:after {content: "\f047"; font-family: "FontAwesome"; margin-left: 5px;}
 
 .showhideBox {
     cursor: pointer;
+}
+
+/* opacity 03 */
+.opacity03 {
+    opacity: 0.3;
 }
 
 /* Bootstrap v3 grid bug fix */
@@ -167,6 +175,16 @@ body { padding-right: 0 !important }
 .bottompos-5 {
     bottom: 5px;
 }
+/* with 10px */
+.rightpos-10 {right: 10px;}
+.leftpos-10 {left: 10px;}
+.toppos-10 {top: 10px;}
+.bottompos-10 {bottom: 10px;}
+/* with 30px */
+.rightpos-30 {right: 30px;}
+.leftpos-30 {left: 30px;}
+.toppos-30 {top: 30px;}
+.bottompos-30 {bottom: 30px;}
 
 /* BACKGROUNDS bg-[] */
 .bg-lgray {
@@ -255,92 +273,6 @@ body { padding-right: 0 !important }
 @-o-keyframes pulse{0%{-o-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-o-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-o-transform:scale(2.5);transform:scale(2.5);opacity:0}}
 @keyframes pulse{0%{transform:scale(0.3);opacity:0.2}80%{transform:scale(1.5);opacity:0}100%{transform:scale(2.5);opacity:0}}
 
-/* * * * * * * * * * * * * * * * * * * * * *
-* * *Styles for third party plugins * * * *
-* * * * * * * * * * * * * * * * * * * * * */
-/* Please i wont a light bootstrap tooltip :) */
-.tooltip {
-    font-size: 14px;
-    z-index: 1;
-}
-.tooltip-inner {
-    color: #222222;
-    background-color: #CCCCCC;
-    border-radius: 4px;
-}
-.tooltip-arrow {
-}
-
-.tooltip.top .tooltip-arrow {
-    border-top-color: #CCCCCC;
-}
-
-.tooltip.top-left .tooltip-arrow {
-    border-top-color: #CCCCCC;
-}
-
-.tooltip.top-right .tooltip-arrow {
-    border-top-color: #CCCCCC;
-}
-
-.tooltip.right .tooltip-arrow {
-    border-right-color: #CCCCCC;
-}
-
-.tooltip.left .tooltip-arrow {
-    border-left-color: #CCCCCC;
-}
-
-.tooltip.bottom .tooltip-arrow {
-    border-bottom-color: #CCCCCC;
-}
-
-.tooltip.bottom-left .tooltip-arrow {
-    border-bottom-color: #CCCCCC;
-}
-
-.tooltip.bottom-right .tooltip-arrow {
-    border-bottom-color: #CCCCCC;
-}
-
-/* Please i wont a light tooltip END */
-
-/* TypeAhead styles * /
-.twitter-typeahead {width: 100%; background: #FFFFFF;}
-.twitter-typeahead .form-control {float: none;}
-.tt-input {
-
-}
-.tt-hint {
-
-}
-.tt-menu {
-    width: 100%;
-    background-clip: padding-box;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
-    float: left;
-    font-size: 14px;
-    left: -35;
-    padding: 10px 0;
-}
-.tt-suggestion {
-    padding: 5px 10px;
-    width: 100%;
-    margin: 0px;
-}
-.tt-suggestion:hover {
-    background-color: #eeeeee;
-}
-.tt-cursor {
-    background-color: #eeeeee;
-}
-.tt-highlight {
-    background: #DAFDFF;
-}
-/* TypeAhead END */
 
 /* ^ ^ START: MEDIA QUERY ^ ^ */
 @media (min-width: 768px) {
