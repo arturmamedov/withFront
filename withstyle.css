@@ -8,6 +8,10 @@
 @import url('css/thirdparty/flag-icon-css.css');
 @import url('css/thirdparty/blueimp-gallery.css');
 @import url('css/thirdparty/bootstrap-datepicker.css');
+@import url('css/thirdparty/bootstrap-tooltip.css');
+/* @import url('css/thirdparty/bootstrap-tabs.css'); */
+/* @import url('css/thirdparty/twitter-typeahead.css'); */
+/* @import url('css/thirdparty/datatable-rowreorder.css'); */
 @import url('css/widget/w-go2top.css');
 @import url('css/widget/w-loader.css');
 @import url('css/widget/w-appear_btn.css');
@@ -114,7 +118,7 @@ body { padding-right: 0 !important }
 
 /* * * Bootstrap btn * * * */
 /* circle */
-.btn-circle {
+.btn-circle, .btn-group-circle > .btn {
     border-radius: 50%;
     height: 36px;
     padding: 8px 12px;
@@ -122,10 +126,17 @@ body { padding-right: 0 !important }
 }
 
 /* FLAT */
-.btn-flat {
+.btn-flat, .btn-group-flat > .btn {
     border-radius: 0px !important;
     -moz-border-radius: 0px !important;
     -webkit-border-radius: 0px !important;
+}
+
+/* Extra Large */
+.btn-xlg, .btn-group-xlg > .btn {
+    font-size: 30px;
+    line-height: 1.33333;
+    padding: 12px 22px;
 }
 
 /* unstyle link */
