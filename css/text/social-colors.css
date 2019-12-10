@@ -74,7 +74,7 @@
 .bg-facebook {
     background: #3b5998;
 }
-.bg-facebook.grdient {
+.bg-facebook.gradient {
     background: #3b5998;
     background: -moz-linear-gradient(60deg, #3b5998, #FFFFFF);
     background: -webkit-linear-gradient(60deg, #3b5998, #FFFFFF);
@@ -162,7 +162,7 @@
 .bg-gmail {
     background: #dd4b39;
 }
-.bg-gmail.grdient {
+.bg-gmail.gradient {
     background: #dd4b39;
     background: -moz-linear-gradient(120deg, #dd4b39, #FFFFFF);
     background: -webkit-linear-gradient(120deg, #dd4b39, #FFFFFF);
