@@ -7,7 +7,7 @@
  *
  */
 $("body").on('click', ".w-scroll", function (e) {
-    if (this.hash !== "" && $(hash).length) {
+    if (this.hash !== "" && $(this.hash).length) {
         e.preventDefault();
         // Store hash
         var hash = this.hash,
