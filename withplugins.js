@@ -881,7 +881,7 @@ $("body").on('click', '.targetLink, .w-target', function () {
  *
  */
 $("body").on('click', ".w-scroll", function (e) {
-    if (this.hash !== "") {
+    if (this.hash !== "" && $(this.hash).length) {
         e.preventDefault();
         // Store hash
         var hash = this.hash,
@@ -897,6 +897,12 @@ $("body").on('click', ".w-scroll", function (e) {
                 window.location.hash = hash;
             }
         });
+    } else {
+        if(this.hash != "") {
+            console.info('Error: Define element with id="'+this.hash+'"');
+        } else {
+            console.info('Error: You must add an anchor href="#some_id" to your trigger element with class .w-scroll or it won\'t work');
+        }
     }
 });
 
