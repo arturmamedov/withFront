@@ -13,7 +13,7 @@
  *
  * --- and ---
  *
- * <form class="children_age_form"> 
+ * <form class="children_age_form">
  * <input type="number" class="form-control child_num_input" min="0" max="5" name="num_children">
  *
  *  --- and ---
@@ -79,7 +79,7 @@ function addAges(form, childNum) {
             .removeProp('disabled')
             .attr('data-binded', childClone.find('input').attr('data-binded') + _cN + ' input');
         // `data-attr-name` you can also change other attributes ex: .attr('placeholder', 'Eta Bambino_' + _cN)
-        if (childClone.attr('data-attr-name').length) {
+        if (typeof childClone.attr('data-attr-name') != 'undefined' && childClone.attr('data-attr-name').length) {
             childClone.find('input').attr('name', childClone.attr('data-attr-name') + _cN);
         }
 
