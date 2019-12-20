@@ -168,6 +168,7 @@ if(typeof Cookies != 'undefined') {
         var eobj = $(element).clone();
 
         $(eobj).appendTo("body");
+        $(eobj).addClass('in');
         if (opts.autohide) {
             setTimeout(function () {
                 $(eobj).hide('slow', function () {
@@ -222,6 +223,7 @@ function withAlert(message, type, options) {
     var eobj = $(element).clone();
 
     $(eobj).appendTo("body");
+    $(eobj).addClass('in');
     if (opts.autohide) {
         setTimeout(function () {
             $(eobj).hide('slow', function () {
@@ -477,18 +479,18 @@ $(".w-filters").each(function(){
  *
  * --- and ---
  *
- * <form class="... children_age_form"> ...
+ * <form class="children_age_form">
  * <input type="number" class="form-control child_num_input" min="0" max="5" name="num_children">
  *
  *  --- and ---
  *
- *     <div class="col-sm-2 pull-right display-none" id="child_ageClone">
- *           <div class="form-group">
- *               <input type="number" placeholder="0" class="form-control" name="age_children[]" value="1" max="17" min="0" disabled/>
+ *     <div class="col-sm-2 pull-right display-none" id="child_ageClone" data-attr-name="if_you_want_change_the_attr_name_dynamically">
+ *         <div class="form-group">
+ *             <input type="number" placeholder="0" class="form-control" name="age_children[]" value="1" max="17" min="0" disabled/>
  *
- *           <label>Children <span class="jq_child_num">1</span></label>
- *           </div>
- *        </div>
+ *             <label>Children <span class="jq_child_num">1</span></label>
+ *         </div>
+ *     </div>
  *
  *  --- and ---
  *
@@ -537,17 +539,19 @@ function addAges(form, childNum) {
         // change params
         childClone.attr('id', 'child_age_' + _cN);
         childClone.find('.jq_child_num').text(_cN);
-        // input // you can also change `name` attributeetc. ex: .attr('name', 'Camera_1_EtaBambino_' + _cN)
+        // input
         childClone.find('input')
             .prop("disabled", false)
             .removeProp('disabled')
             .attr('data-binded', childClone.find('input').attr('data-binded') + _cN + ' input');
+        // `data-attr-name` you can also change other attributes ex: .attr('placeholder', 'Eta Bambino_' + _cN)
+        if (typeof childClone.attr('data-attr-name') != 'undefined' && childClone.attr('data-attr-name').length) {
+            childClone.find('input').attr('name', childClone.attr('data-attr-name') + _cN);
+        }
 
         // attach and show
         $('#child_ageClone', form).after(childClone);
         childClone.show();
-
-        form.css('padding-bottom', '10px');
     }
 }
 $(".children_age_form").each(function () {
@@ -559,7 +563,12 @@ $(".children_age_form").each(function () {
     });
 
     // init childNum counter
-    addAges(form, $('.child_num_input', form).val());
+    $(function(){
+        // we need to wait for wCookie set of value in some case
+        setTimeout(function() {
+            addAges(form, $('.child_num_input', form).val());
+        }, 3000);
+    });
 });
 
 
@@ -838,13 +847,20 @@ if ($().niceScroll) {
  */
 if(withOptions.whatsappWeb && !jQuery.browser.mobile && $(".whatsapp-weburl").length > 0){
     clog('WhatsApp Enabled and Present');
-    clog($(".whatsapp-weburl"));
 
-    var mobile_wa = $(".whatsapp-weburl").attr('href').replace('?text=', '&text');
-    mobile_wa = mobile_wa.replace('https://wa.me/', 'https://web.whatsapp.com/send?phone=+39')
+    $(".whatsapp-weburl").each(function(){
+        clog($(this));
+        clog($(this).attr('href'));
 
-    $(".whatsapp-weburl").attr('href', mobile_wa);
+        var mobile_wa = $(this).attr('href').replace('?text=', '&text=');
+        mobile_wa = mobile_wa.replace('https://wa.me/', 'https://web.whatsapp.com/send?phone=+')
+
+        clog(mobile_wa);
+
+        $(this).attr('href', mobile_wa);
+    });
 }
+
 
     /**
  * Add target highlight to something

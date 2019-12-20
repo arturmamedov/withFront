@@ -1,4 +1,4 @@
-# withFront `v1.5.4`
+# withFront `v1.5.5`
 ## The Front-end Tools and basic configs that i use for every project [see demo](https://arturmamedov.github.io/withFront/)
  
 &nbsp;
@@ -615,14 +615,16 @@ File `js/social/w-whatsapp.js` This is the MOBILE URL and it will be replaced to
 ##### Enabled .text-social's \[+ .gradient] you can alo use `.bg-....`
 
  * `.text-facebook .gradient`
- * `.text-instagram .gradient`
- * `.text-whatsapp .gradient`
+ * `.text-instagram .gradient` + text-instagram`-secondary` 
+ * `.text-whatsapp .gradient` + `-secondary`
  * `.text-tripadvisor .gradient`
  * `.text-flickr .gradient`
  * `.text-skype .gradient`
  * `.text-youtube .gradient`
  * `.text-gmail .gradient`
- * `.text-soundcloud .gradient` 
+ * `.text-soundcloud .gradient` + `-secondary`
+ * `.text-linkedin .gradient` + `-secondary`
  
+ `-secondary` Some social's have secondary colors in plain bg and text color (without gradient)
  
  ![Screenshot_2019-12-04 w-front Frontend development tools guide](https://user-images.githubusercontent.com/2785707/70128142-aba9a900-167c-11ea-8930-9850f3a14a34.png)
