@@ -97,5 +97,10 @@ $(".children_age_form").each(function () {
     });
 
     // init childNum counter
-    addAges(form, $('.child_num_input', form).val());
+    $(function(){
+        // we need to wait for wCookie set of value in some case
+        setTimeout(function() {
+            addAges(form, $('.child_num_input', form).val());
+        }, 3000);
+    });
 });
