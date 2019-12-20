@@ -46,6 +46,7 @@
         var eobj = $(element).clone();
 
         $(eobj).appendTo("body");
+        $(eobj).addClass('in');
         if (opts.autohide) {
             setTimeout(function () {
                 $(eobj).hide('slow', function () {
@@ -100,6 +101,7 @@ function withAlert(message, type, options) {
     var eobj = $(element).clone();
 
     $(eobj).appendTo("body");
+    $(eobj).addClass('in');
     if (opts.autohide) {
         setTimeout(function () {
             $(eobj).hide('slow', function () {
