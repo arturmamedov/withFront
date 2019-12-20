@@ -14,21 +14,27 @@
  * -youtube
  * -gmail
  * -soundcloud
+ * -linkedin
  */
 
 /* Instagram text color with background property and fallback + background http://www.brandgradients.com/instagram-colors/ */
 .text-instagram {
     color: #833ab4;
 }
+.text-instagram-secondary {
+    color: #e1306c;
+}
 .text-instagram.gradient {
     color: #833ab4;
     background: #833ab4;
     background: -webkit-linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .bg-instagram {
     background: #833ab4;
+}
+.bg-instagram-secondary {
+    background: #E1306C;
 }
 .bg-instagram.gradient {
     background: #833ab4;
@@ -41,16 +47,21 @@
 .text-whatsapp {
     color: #00E676;
 }
+.text-whatsapp-secondary {
+    color: #1EBEA5;
+}
 .text-whatsapp.gradient {
     color: #00E676;
     background: #00E676;
     background: linear-gradient(45deg, #1EBEA5, #00E676, #D0E9EA);
     background: -webkit-linear-gradient(45deg, #1EBEA5, #00E676, #D0E9EA);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .bg-whatsapp {
     background: #00E676;
+}
+.bg-whatsapp-secondary {
+    background: #1EBEA5;
 }
 .bg-whatsapp.gradient {
     background: #00E676;
@@ -69,7 +80,6 @@
     background: linear-gradient(60deg, #3b5998, #FFFFFF);
     background: -webkit-linear-gradient(60deg, #3b5998, #FFFFFF);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .bg-facebook {
     background: #3b5998;
@@ -91,7 +101,6 @@
     background: linear-gradient(120deg, #00aff0, #FFFFFF);
     background: -webkit-linear-gradient(120deg, #00aff0, #FFFFFF);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .bg-skype {
     background: #00aff0;
@@ -107,16 +116,21 @@
 .text-flickr {
     color: #ff0084;
 }
+.text-flickr-secondary {
+    color: #0063DC;
+}
 .text-flickr.gradient {
     color: #ff0084;
     background: #ff0084;
     background: linear-gradient(120deg, #0063dc, #ff0084);
     background: -webkit-linear-gradient(120deg, #0063dc, #ff0084);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .bg-flickr {
     background: #ff0084;
+}
+.bg-flickr-secondary {
+    background: #0063DC;
 }
 .bg-flickr.gradient {
     background: #ff0084;
@@ -135,7 +149,6 @@
     background: linear-gradient(120deg, #FF0000, #282828);
     background: -webkit-linear-gradient(120deg, #FF0000, #282828);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .bg-youtube {
     background: #FF0000;
@@ -157,7 +170,6 @@
     background: linear-gradient(120deg, #dd4b39, #FFFFFF);
     background: -webkit-linear-gradient(120deg, #dd4b39, #FFFFFF);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .bg-gmail {
     background: #dd4b39;
@@ -179,7 +191,6 @@
     background: linear-gradient(120deg, #00af87, #FFFFFF);
     background: -webkit-linear-gradient(120deg, #00af87, #FFFFFF);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .bg-tripadvisor {
     background: #00af87;
@@ -193,7 +204,10 @@
 }
 /* SoundCloud text color with background property and fallback + background http://www.brandgradients.com/soundcloud-colors/ */
 .text-soundcloud {
-    color: #00af87;
+    color: #ff8800;
+}
+.text-soundcloud-secondary {
+    color: #ff3300;
 }
 .text-soundcloud.gradient {
     color: #ff8800;
@@ -201,10 +215,12 @@
     background: linear-gradient(120deg, #ff8800, #ff3300);
     background: -webkit-linear-gradient(120deg, #ff8800, #ff3300);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 .bg-soundcloud {
     background: #ff8800;
+}
+.bg-soundcloud-secondary {
+    background: #ff3300;
 }
 .bg-soundcloud.gradient {
     background: #ff8800;
@@ -212,4 +228,31 @@
     background: -webkit-linear-gradient(120deg, #ff8800, #ff3300);
     background: linear-gradient(120deg, #ff8800, #ff3300);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff8800', endColorstr='#ff3300', GradientType=1);
+}
+/* LinkedIn text color with background property and fallback + background http://www.brandgradients.com/linkedin-colors/ */
+.text-linkedin {
+    color: #0077b5;
+}
+.text-linkedin-secondary {
+    color: #caccce;
+}
+.text-linkedin.gradient {
+    color: #0077b5;
+    background: #0077b5;
+    background: linear-gradient(45deg, #0077b5, #000000, #313335, #86888a, #caccce, #00a0dc);
+    background: -webkit-linear-gradient(45deg, #0077b5, #000000, #313335, #86888a, #caccce, #00a0dc);
+    -webkit-background-clip: text;
+}
+.bg-linkedin {
+    background: #0077b5;
+}
+.bg-linkedin-secondary {
+    background: #caccce;
+}
+.bg-linkedin.gradient {
+    background: #0077b5;
+    background: -moz-linear-gradient(45deg, #0077b5, #000000, #313335, #86888a, #caccce, #00a0dc);
+    background: -webkit-linear-gradient(45deg, #0077b5, #000000, #313335, #86888a, #caccce, #00a0dc);
+    background: linear-gradient(45deg, #0077b5, #000000, #313335, #86888a, #caccce, #00a0dc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0077b5', endColorstr='#caccce', GradientType=1);
 }
