@@ -12,8 +12,25 @@ $("body").on('click', ".w-scroll", function (e) {
         // Store hash
         var hash = this.hash,
             keep_hash = (typeof $(this).data('keepHash') == "undeifned") ? false : $(this).data('keepHash'),
-            topOffset = (typeof $(this).data('topOffset') == "undefined") ? 10 : parseInt($(this).data('topOffset')),
+            topOffset = $(this).data('topOffset'),
             animation = (typeof $(this).data('animation') == "undefined") ? 1000 : parseInt($(this).data('animation'));
+
+        // calc topOffset by passed type of data, int or selector
+        if (typeof topOffset == "undefined") {
+            topOffset = 10; // default
+        } else {
+            _topOffset = parseInt(topOffset);
+            // if it not numeric, we assume that it an element from which take height
+            if (isNaN(_topOffset)) {
+                if ($(topOffset).length) {
+                    topOffset = $(topOffset).height();
+                } else {
+                    topOffset = 10; // default
+                }
+            } else {
+                topOffset = _topOffset;
+            }
+        }
 
         $("html, body").animate({
             scrollTop: $(hash).offset().top - topOffset
