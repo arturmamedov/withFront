@@ -111,9 +111,13 @@ $('.w-cookie').each( function(){
 });
 // w-cookie-form work on all elements in a form
 $('.w-cookie-form').on('change blur click', 'input, select, textarea', function() {
-    setIntoCookie($(this));
+    if (! $(this).hasClass('w-no-cookie')) {
+        setIntoCookie($(this));
+    }
 });
 // set the .w-cookie-form values after load of document
 $('.w-cookie-form input, .w-cookie-form select, .w-cookie-form textarea').each( function(){
-    setFromCookie($(this));
+    // if (! $(this).hasClass('w-no-cookie')) { // if not set at change, it not will be set now
+        setFromCookie($(this));
+    // }
 });

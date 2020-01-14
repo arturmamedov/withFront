@@ -201,7 +201,7 @@
                     </div>
 
                     <!-- data-date-start-date="22/01/2019" -->
-                    <div class="period col-12" data-date-end-date="31/12/2019">
+                    <div class="period col-12" data-date-end-date="20/11/2020">
                         <div class="row">
                             <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
@@ -241,10 +241,12 @@
                         </div>
                     </div>
 
-                    <div class="">
-                        <div class="col-12 col-sm-4 col-md-4 col-lg-4 pull-right display-none" id="child_ageClone">
-                            <div class="form-group">
-                                <input type="number" class="form-control" name="age_children[]" placeholder="<?php echo $this->Translate->make('Età bambino'); ?>" min="0" max="17" disabled/>
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col pull-right display-none" id="child_ageClone">
+                                <div class="form-group">
+                                    <input type="number" class="form-control w-no-cookie" name="age_children[]" placeholder="Età bambino" min="0" max="17" value="" disabled/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -256,16 +258,19 @@
                     </div>
 
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                        <button type="submit" class="btn btn-yellow">
-                            Richiedi disponibilità
-                            &nbsp; <i class="fa fa-envelope-o text-white-imp"></i>
-                        </button>
-
                         <label class="checkbox">
                             <input type="checkbox" class="" style="height: auto;" required/>
                             Acconsento al trattamento dei dati per le finalità indicate nella
                             <a href="javascript:;" target="_blank">Privacy Policy</a>
                         </label>
+
+                        <div class="clearfix"></div>
+
+                        <button type="submit" class="btn btn-lg btn-outline-primary">
+                            Richiedi disponibilità
+
+                            &nbsp; <i class="far fa-paper-plane"></i>
+                        </button>
                     </div>
                 </div>
             </form>
@@ -517,6 +522,16 @@
     <!-- Link to GitHub -->
     <a href="https://github.com/arturmamedov/withfront/" target="_blank" class="text-center b-btn b-btn_circle bg-dark">
         <i class="fab fa-github fa-2x text-white-a"></i>
+    </a>
+
+    <!-- Link to Facebook -->
+    <a href="https://www.facebook.com/withArtur" target="_blank" class="text-center b-btn b-btn_circle bg-facebook">
+        <i class="fab fa-facebook-f fa-2x text-white-a"></i>
+    </a>
+
+    <!-- Link to Instagram -->
+    <a href="https://www.instagram.com/withArtur" target="_blank" class="text-center b-btn b-btn_circle bg-instagram gradient">
+        <i class="fab fa-instagram fa-2x text-white-a"></i>
     </a>
 
     <!-- Anchor to Email form -->

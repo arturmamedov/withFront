@@ -29,6 +29,7 @@
     background: #833ab4;
     background: -webkit-linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-instagram {
     background: #833ab4;
@@ -56,6 +57,7 @@
     background: linear-gradient(45deg, #1EBEA5, #00E676, #D0E9EA);
     background: -webkit-linear-gradient(45deg, #1EBEA5, #00E676, #D0E9EA);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-whatsapp {
     background: #00E676;
@@ -80,6 +82,7 @@
     background: linear-gradient(60deg, #3b5998, #FFFFFF);
     background: -webkit-linear-gradient(60deg, #3b5998, #FFFFFF);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-facebook {
     background: #3b5998;
@@ -101,6 +104,7 @@
     background: linear-gradient(120deg, #00aff0, #FFFFFF);
     background: -webkit-linear-gradient(120deg, #00aff0, #FFFFFF);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-skype {
     background: #00aff0;
@@ -125,6 +129,7 @@
     background: linear-gradient(120deg, #0063dc, #ff0084);
     background: -webkit-linear-gradient(120deg, #0063dc, #ff0084);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-flickr {
     background: #ff0084;
@@ -149,6 +154,7 @@
     background: linear-gradient(120deg, #FF0000, #282828);
     background: -webkit-linear-gradient(120deg, #FF0000, #282828);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-youtube {
     background: #FF0000;
@@ -170,6 +176,7 @@
     background: linear-gradient(120deg, #dd4b39, #FFFFFF);
     background: -webkit-linear-gradient(120deg, #dd4b39, #FFFFFF);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-gmail {
     background: #dd4b39;
@@ -191,6 +198,7 @@
     background: linear-gradient(120deg, #00af87, #FFFFFF);
     background: -webkit-linear-gradient(120deg, #00af87, #FFFFFF);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-tripadvisor {
     background: #00af87;
@@ -215,6 +223,7 @@
     background: linear-gradient(120deg, #ff8800, #ff3300);
     background: -webkit-linear-gradient(120deg, #ff8800, #ff3300);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-soundcloud {
     background: #ff8800;
@@ -242,6 +251,7 @@
     background: linear-gradient(45deg, #0077b5, #000000, #313335, #86888a, #caccce, #00a0dc);
     background: -webkit-linear-gradient(45deg, #0077b5, #000000, #313335, #86888a, #caccce, #00a0dc);
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .bg-linkedin {
     background: #0077b5;
