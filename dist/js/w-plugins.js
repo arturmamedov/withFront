@@ -621,17 +621,32 @@ $(".ajaxsend").submit(function (e) {
             submit_btn.text(submit_btn_text).prop('disabled', false);
 
             if (json.success) {
-                // Google Analytics track (can be disabled and commented)
-                if (typeof ga !== "undefined" && typeof form.data('gaSendPageview') != 'undefined') {
-                    ga('send', 'pageview', form.data('gaSendPageview'));
+                // Google Analytics track
+                clog('check for ga');
+                if (typeof ga !== "undefined" && typeof form.data('gaSendPageview') != 'off') {
+                    var gaSend = (typeof form.data('gaSendPageview') != 'undefined') ? form.data('gaSendPageview') : '/email-form-contatti';
+                    ga('send', 'pageview', gaSend);
+
+                    clog('ga send pageview: ' + form.data('gaSendPageview'))
                 }
-                if (typeof ga !== "undefined" && typeof form.data('gaqTrackPageview') != 'undefined') {
+
+                // Facebook track (custom of this installation)
+                clog('check fbq');
+                if (typeof fbq !== "undefined" && typeof form.data('fbqLead') != 'off') {
+                    var fbqLead = (typeof form.data('fbqLead') != 'undefined') ? form.data('fbqLead') : 'Lead';
+                    fbq('track', fbqLead);
+
+                    clog('fbq track: '+ fbqLead);
+                }
+
+                // Old Google analytics _gaq _trackPageview
+                if (typeof _gaq !== "undefined" && typeof form.data('gaqTrackPageview') != 'undefined') {
                     _gaq.push(['_trackPageview', form.data('gaqTrackPageview')]);
                 }
 
                 if (json.message.length) {
                     if (typeof withAlert == 'function') {
-                        withAlert(json.message, 'success');
+                        withAlert(json.message, 'success', { hidetime: 15000 });
                     } else {
                         alert(json.message);
                     }
@@ -902,8 +917,25 @@ $("body").on('click', ".w-scroll", function (e) {
         // Store hash
         var hash = this.hash,
             keep_hash = (typeof $(this).data('keepHash') == "undeifned") ? false : $(this).data('keepHash'),
-            topOffset = (typeof $(this).data('topOffset') == "undefined") ? 10 : parseInt($(this).data('topOffset')),
+            topOffset = $(this).data('topOffset'),
             animation = (typeof $(this).data('animation') == "undefined") ? 1000 : parseInt($(this).data('animation'));
+
+        // calc topOffset by passed type of data, int or selector
+        if (typeof topOffset == "undefined") {
+            topOffset = 10; // default
+        } else {
+            _topOffset = parseInt(topOffset);
+            // if it not numeric, we assume that it an element from which take height
+            if (isNaN(_topOffset)) {
+                if ($(topOffset).length) {
+                    topOffset = $(topOffset).height();
+                } else {
+                    topOffset = 10; // default
+                }
+            } else {
+                topOffset = _topOffset;
+            }
+        }
 
         $("html, body").animate({
             scrollTop: $(hash).offset().top - topOffset
