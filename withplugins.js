@@ -758,19 +758,22 @@ if ($().datepicker) {
             language: bsdp_lang_code
         });
 
-        var checkin = period.find('.checkin'); // , checkout = period.find('.checkout');
+        // focus on checkout when checkin is set
+        var checkin = period.find('.checkin'), checkout = period.find('.checkout');
         checkin.datepicker()
             .on('changeDate', function (e) {
                 $(".checkout", period).focus();
             });
+        // set checkout to next day if dates are the same
+        checkout.datepicker().on('changeDate', function (e) {
+            var checkin_date = checkin.datepicker('getUTCDate').getTime(),
+            checkout_date = checkout.datepicker('getUTCDate').getTime();
 
-        // .on('changeDate', function (e) {
-        //     next = $(".checkout input", period);
-        //     if (next.length == 0) {
-        //         next = $(".checkout", period);
-        //     }
-        //     next.focus();
-        // });
+            if (checkin_date == checkout_date) {
+                var next_day = new Date(checkout_date).getTime() + 86400000;
+                checkout.datepicker('update', new Date(next_day));
+            }
+        });
 
         // checkout.datepicker() // you can continue to focus input of user
         //     .on('changeDate', function (e) {
