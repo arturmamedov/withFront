@@ -1,0 +1,91 @@
+/**
+ * w-overlay (Add overlay hover effect with a div inside element)
+ * <div class="w-overlay">
+ *     <div class="overlay"></div>
+ *
+ *     <div class="w-details w-top">...content...</div>
+ * </div>
+ *
+ * .w-details and .w-top/bottom + left/right is used for animate content that is inside overlay 
+ * and it isn't shown at start but compare on hover with the set direction
+ *
+ * Also `.w-overlay-inverse` (for show overlay and remove it on hover)
+ * Thank to https://codepen.io/ArnaudBalland/pen/vGZKLr 
+ */
+
+.w-overlay .overlay {
+	background: rgba(0,0,0,0.7);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 0;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+
+.w-overlay:hover .overlay {
+	opacity: 1;
+}
+
+.w-overlay-inverse .overlay {
+	background: rgba(0,0,0,0.7);
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 1;
+	-webkit-transition: all 0.4s ease-in-out 0s;
+	-moz-transition: all 0.4s ease-in-out 0s;
+	transition: all 0.4s ease-in-out 0s;
+}
+
+.w-overlay-inverse:hover .overlay {
+	opacity: 0;
+}
+
+.w-details {
+	position: absolute;
+	text-align: center;
+	padding-left: 1em;
+	padding-right: 1em;
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	opacity: 0;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+
+.w-overlay:hover .w-details {
+	top: 50%;
+	left: 50%;
+	opacity: 1;
+}
+
+.w-overlay .w-bottom {
+	top: 80%;
+}
+
+.w-overlay .w-top {
+	top: 20%;
+}
+
+.w-overlay .w-left {
+	left: 20%;
+}
+
+.w-overlay .w-right {
+	left: 80%;
+}
