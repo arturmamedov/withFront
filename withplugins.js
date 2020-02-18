@@ -139,9 +139,9 @@ if(typeof Cookies != 'undefined') {
      * @param object options
      */
     $.fn.gdivMessage = function (message, type, options) {
-        var defaults = {autohide: true, hidetime: 4000};
+        var defaults = {autohide: true, hidetime: 6000};
         var opts = $.extend(defaults, options);
-        var zindex = 5001, top = 40, alert_count = 1;
+        var zindex = 5001, top = 70, alert_count = 1;
         if (!message) {
             message = 'Errore inaspettato. Scusate per il disagio. (Unexpected Error)';
         }
@@ -184,6 +184,7 @@ $("body").on('click', ".withAlert .close", function () {
     });
 });
 /* * * * ----- gDiv Message ----- * * */
+
 /**
  * withAlert() - the new gdivMessage()
  * no $.fn jQuery function so you can call it without an html object
@@ -196,7 +197,8 @@ $("body").on('click', ".withAlert .close", function () {
 function withAlert(message, type, options) {
     var defaults = {autohide: true, hidetime: 6000, placement: 'top'};
     var opts = $.extend(defaults, options);
-    var zindex = 5001, posOffset = 70, alert_count = 1;
+    var zindex = 5001, top = 70, alert_count = 1, _alert_count = 0;
+
     if (!message) {
         message = 'Errore inaspettato. Scusate per il disagio. (Unexpected Error)';
     }
@@ -209,16 +211,17 @@ function withAlert(message, type, options) {
         alert_count = _alert_count;
     }
     zindex = alert_count + 5001;
-    posOffset = alert_count * posOffset;
-    if (posOffset > 100) {
-        posOffset = 100 + (alert_count * 3);
-        if (posOffset > 150) {
-            posOffset = 150;
+
+    top = alert_count * top;
+    if (top > 100) {
+        top = 100 + (alert_count * 3);
+        if (top > 150) {
+            top = 150;
         }
     }
 
     // here we create the bootstrap 4 alert code
-    var element = '<div class="withAlert alert alert-' + type + ' alert-dismissible fade show" style="z-index: ' + zindex + '; '+ opts.placement +': ' + posOffset + 'px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="message">' + message + '</span><div class="clearfix"></div></div>';
+    var element = '<div class="withAlert alert alert-' + type + ' alert-dismissible fade show" style="z-index: ' + zindex + '; '+ opts.placement +': ' + top + 'px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="message">' + message + '</span><div class="clearfix"></div></div>';
 
     var eobj = $(element).clone();
 
@@ -232,6 +235,7 @@ function withAlert(message, type, options) {
         }, opts.hidetime);
     }
 }
+
 
 $(".loader-wrapper-close").show().click(function () {
     $(".loader:not(.demo-loader)").fadeOut(200);
@@ -346,7 +350,7 @@ var isXs = window.matchMedia("(max-width: 768px)"),
 // }
 
     /**
- * Boxes AutoHeight
+ * Boxes AutoHeight by default only for desktop devices
  *
  * @dependencies [w-breakpoints]
  * @param columns 'selector for the element to make equal'
@@ -356,7 +360,7 @@ var isXs = window.matchMedia("(max-width: 768px)"),
  * `.withEqualHeight` = for small device and higher (not for xs)
  * `.withEqualHeightInverse` = for the smallest element instead of tallest
  * `.withEqualHeightLike` = for equal height element like the element with .wehl class
- * by adding All at the end ex: `.withEqualHeightAll` = for extra small device and higher
+ * `....All` by adding All at the end ex: `.withEqualHeightAll` = for extra small device and higher
  *
  * And to all child add class `.weh` and `.wehl` if you wont a height like specific element
  *
@@ -364,6 +368,7 @@ var isXs = window.matchMedia("(max-width: 768px)"),
  * Add `data-weh-add="50"` to children `.weh` elements (add 50px to all)
  *
  * @todo: css relative class for IDE support
+ * @todo: i think the best way for data-weh-add is in father element and not in all children
  */
 function withEqualHeight(columns, direction) {
     var columnHeight= 0, add = parseInt(columns.first().attr('data-weh-add')), i=0;
