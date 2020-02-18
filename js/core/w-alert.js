@@ -17,9 +17,9 @@
      * @param object options
      */
     $.fn.gdivMessage = function (message, type, options) {
-        var defaults = {autohide: true, hidetime: 4000};
+        var defaults = {autohide: true, hidetime: 6000};
         var opts = $.extend(defaults, options);
-        var zindex = 5001, top = 40, alert_count = 1;
+        var zindex = 5001, top = 70, alert_count = 1;
         if (!message) {
             message = 'Errore inaspettato. Scusate per il disagio. (Unexpected Error)';
         }
@@ -62,6 +62,7 @@ $("body").on('click', ".withAlert .close", function () {
     });
 });
 /* * * * ----- gDiv Message ----- * * */
+
 /**
  * withAlert() - the new gdivMessage()
  * no $.fn jQuery function so you can call it without an html object
@@ -74,7 +75,8 @@ $("body").on('click', ".withAlert .close", function () {
 function withAlert(message, type, options) {
     var defaults = {autohide: true, hidetime: 6000, placement: 'top'};
     var opts = $.extend(defaults, options);
-    var zindex = 5001, posOffset = 70, alert_count = 1;
+    var zindex = 5001, top = 70, alert_count = 1, _alert_count = 0;
+
     if (!message) {
         message = 'Errore inaspettato. Scusate per il disagio. (Unexpected Error)';
     }
@@ -87,16 +89,17 @@ function withAlert(message, type, options) {
         alert_count = _alert_count;
     }
     zindex = alert_count + 5001;
-    posOffset = alert_count * posOffset;
-    if (posOffset > 100) {
-        posOffset = 100 + (alert_count * 3);
-        if (posOffset > 150) {
-            posOffset = 150;
+
+    top = alert_count * top;
+    if (top > 100) {
+        top = 100 + (alert_count * 3);
+        if (top > 150) {
+            top = 150;
         }
     }
 
     // here we create the bootstrap 4 alert code
-    var element = '<div class="withAlert alert alert-' + type + ' alert-dismissible fade show" style="z-index: ' + zindex + '; '+ opts.placement +': ' + posOffset + 'px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="message">' + message + '</span><div class="clearfix"></div></div>';
+    var element = '<div class="withAlert alert alert-' + type + ' alert-dismissible fade show" style="z-index: ' + zindex + '; '+ opts.placement +': ' + top + 'px;"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><span class="message">' + message + '</span><div class="clearfix"></div></div>';
 
     var eobj = $(element).clone();
 

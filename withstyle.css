@@ -121,6 +121,11 @@ body { padding-right: 0 !important }
 /* end#Tables */
 
 
+/* max-width not work with little images and this make it wide */
+.img-full {
+    width: 100%;
+}
+
 /* * * Bootstrap btn * * * */
 /* circle */
 .btn-circle, .btn-group-circle > .btn {

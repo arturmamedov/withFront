@@ -1,5 +1,5 @@
 /**
- * Boxes AutoHeight
+ * Boxes AutoHeight by default only for desktop devices
  *
  * @dependencies [w-breakpoints]
  * @param columns 'selector for the element to make equal'
@@ -9,7 +9,7 @@
  * `.withEqualHeight` = for small device and higher (not for xs)
  * `.withEqualHeightInverse` = for the smallest element instead of tallest
  * `.withEqualHeightLike` = for equal height element like the element with .wehl class
- * by adding All at the end ex: `.withEqualHeightAll` = for extra small device and higher
+ * `....All` by adding All at the end ex: `.withEqualHeightAll` = for extra small device and higher
  *
  * And to all child add class `.weh` and `.wehl` if you wont a height like specific element
  *
@@ -17,6 +17,7 @@
  * Add `data-weh-add="50"` to children `.weh` elements (add 50px to all)
  *
  * @todo: css relative class for IDE support
+ * @todo: i think the best way for data-weh-add is in father element and not in all children
  */
 function withEqualHeight(columns, direction) {
     var columnHeight= 0, add = parseInt(columns.first().attr('data-weh-add')), i=0;
