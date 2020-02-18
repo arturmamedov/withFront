@@ -65,6 +65,10 @@ body { padding-right: 0 !important }
     display: none;
 }
 
+.visibility-hidden {
+    visibility: hidden;
+}
+
 .overflow-hidden {
     overflow: hidden;
 }

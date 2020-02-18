@@ -2,19 +2,27 @@
  * Text tools for colors, transforms, font-weight
  *
  * with prefixes and as follow:
- * .text-* 
+ * .text-*
  * colors (white, white-imp, white-a, black, black-imp, black-a, gray, lgray)
  * AdminLTE colors (azure, orange, green, blue, pink, purple, bricky, yellow, red, lred)
  * if applied to father element will overwrite all inside (light, gray, dark)
  *
  * transforms (underline, underline1, line-trough, normal, bold, ucfirst, capitalize, lower, lowercase, upper, uppercase)
- * 
+ *
  * .font-weight-*
  * Font Weight (normal, bold, from 100, 200, 300, 400, 500, 600, 700, 800 to 900)
  *
  * .w-*
  * new style .w-* (capitalize, lowercase, uppercase, underline)
  */
+.text-outline {
+    border: 1px solid #000000;
+    padding: 10px;
+}
+.text-outline-white {
+    border: 1px solid #FFFFFF;
+    padding: 10px;
+}
 
 /* .text-white */
 .text-white { color: #FFFFFF; }
@@ -33,7 +41,7 @@
 .text-lgray { color: #CCCCCC; }
 
 /* border bottom underline  */
-.text-underline1 { border-bottom: 1px solid #0073BA; }
+.text-underline1 { border-bottom: 1px solid #000000; }
 .text-underline1:hover { text-decoration: none; border-bottom: none; }
 
 /* transform */
