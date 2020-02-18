@@ -19,7 +19,7 @@
     position: relative;
 }
 
-.w-overlay .overlay {
+.w-overlay .overlay, .w-overlay .overlay-inverse {
     background: rgba(0,0,0,0.7);
     position: absolute;
     height: 100%;
@@ -67,22 +67,6 @@
     z-index: 191;
 }
 
-.w-overlay:hover .animated {
-    top: 50%;
-    left: 50%;
-    opacity: 1;
-}
-
-/* .animated-inverse for invert behaviour */
-.w-overlay:hover .animated-inverse {
-    opacity: 1;
-}
-.w-overlay:hover .animated-inverse {
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-}
-
 .w-overlay .animated.from-bottom {
     top: 80%;
 }
@@ -97,6 +81,22 @@
 
 .w-overlay .animated.from-right {
     left: 80%;
+}
+
+.w-overlay:hover .animated {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+
+/* .animated-inverse for invert behaviour */
+.w-overlay:hover .animated-inverse {
+    opacity: 1;
+}
+.w-overlay:hover .animated-inverse {
+    top: 50%;
+    left: 50%;
+    opacity: 0;
 }
 
 /* change z-index on .w-overlay internal elements .z-x */
