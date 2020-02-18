@@ -1,4 +1,5 @@
 @import url('css/margin-tools.css');
+@import url('css/style/w-overlay.css');
 @import url('css/padding-tools.css');
 @import url('css/text-tools.css');
 @import url('css/text/social-colors.css');
@@ -63,6 +64,10 @@ body { padding-right: 0 !important }
 /* * * Tools * * */
 .display-none {
     display: none;
+}
+
+.visibility-hidden {
+    visibility: hidden;
 }
 
 .overflow-hidden {
