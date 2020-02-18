@@ -16,92 +16,92 @@
  * Thank to https://codepen.io/ArnaudBalland/pen/vGZKLr
  */
 .w-overlay {
-	position: relative;
+    position: relative;
 }
 
 .w-overlay .overlay {
-	background: rgba(0,0,0,0.7);
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	opacity: 0;
-	-webkit-transition: all 0.4s ease-in-out 0s;
-	-moz-transition: all 0.4s ease-in-out 0s;
-	transition: all 0.4s ease-in-out 0s;
-	z-index: 190;
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+    z-index: 190;
 }
 
 .w-overlay:hover .overlay {
-	opacity: 1;
+    opacity: 1;
 }
 
 /* .overlay-inverse for invert behavior */
 .w-overlay .overlay-inverse {
-	opacity: 1;
+    opacity: 1;
 }
 
 .w-overlay:hover .overlay-inverse {
-	opacity: 0;
+    opacity: 0;
 }
 
 /* details for add animation on .w-overlay and -inverse internal elements .w-animated */
 .w-overlay .w-animated {
-	position: absolute;
-	text-align: center;
-	padding-left: 1em;
-	padding-right: 1em;
-	width: 100%;
-	top: 50%;
-	left: 50%;
-	opacity: 0;
-	-webkit-transform: translate(-50%, -50%);
-	-moz-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	-webkit-transition: all 0.3s ease-in-out 0s;
-	-moz-transition: all 0.3s ease-in-out 0s;
-	transition: all 0.3s ease-in-out 0s;
-	z-index: 191;
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    z-index: 191;
 }
 
 .w-overlay:hover .w-animated {
-	top: 50%;
-	left: 50%;
-	opacity: 1;
+    top: 50%;
+    left: 50%;
+    opacity: 1;
 }
 
 .w-overlay .w-bottom {
-	top: 80%;
+    top: 80%;
 }
 
 .w-overlay .w-top {
-	top: 20%;
+    top: 20%;
 }
 
 .w-overlay .w-left {
-	left: 20%;
+    left: 20%;
 }
 
 .w-overlay .w-right {
-	left: 80%;
+    left: 80%;
 }
 
 /* change z-index on .w-overlay and -inverse internal elements .z-x */
 .w-overlay .z-1 {
-	z-index: 191;
+    z-index: 191;
 }
 .w-overlay .z-2 {
-	z-index: 192;
+    z-index: 192;
 }
 .w-overlay .z-3 {
-	z-index: 193;
+    z-index: 193;
 }
 .w-overlay .z-4 {
-	z-index: 194;
+    z-index: 194;
 }
 .w-overlay .z-5 {
-	z-index: 195;
+    z-index: 195;
 }
