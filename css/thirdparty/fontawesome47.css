@@ -7,7 +7,8 @@
     width: 17px;
 }
 
-/** fontawesome background div
+/**
+FontAwesome background div
 
 <div class="fa-bg-div">
     <i class="fa fa-photo fa-bg"></i>
@@ -59,4 +60,12 @@
     position: absolute;
     left: 3px;
     bottom: 3px;
+}
+
+/* FontAwesome 5 fix for 4 */
+.fa-fw900 {
+    font-weight: 900;
+}
+.fa-fw400 {
+    font-weight: 400;
 }

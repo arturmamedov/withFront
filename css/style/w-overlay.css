@@ -1,0 +1,117 @@
+/**
+ * .w-overlay (Add overlay hover effect with a div inside element)
+ * <div class="w-overlay">
+ *     <div class="overlay"></div>
+ *
+ *     <div class="animated from-top">...content...</div>
+ * </div>
+ *
+ * .animated and .from-top/bottom + left/right is used for animate content that is inside overlay
+ * and it isn't shown at start but compare on hover with the set direction
+ *
+ * @dependencies [core]
+ * @z-index [190]
+ *
+ * Also `.overlay-inverse` (for show overlay and remove it on hover)
+ * Thank to https://codepen.io/ArnaudBalland/pen/vGZKLr
+ */
+.w-overlay {
+    position: relative;
+}
+
+.w-overlay .overlay, .w-overlay .overlay-inverse {
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+    z-index: 190;
+}
+
+.w-overlay:hover .overlay {
+    opacity: 1;
+}
+
+/* .overlay-inverse for invert behavior */
+.w-overlay .overlay-inverse {
+    opacity: 1;
+}
+
+.w-overlay:hover .overlay-inverse {
+    opacity: 0;
+}
+
+/* details for add animation on .w-overlay internal elements .w-animated */
+.w-overlay .animated {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    z-index: 191;
+}
+
+.w-overlay .animated.from-bottom {
+    top: 80%;
+}
+
+.w-overlay .animated.from-top {
+    top: 20%;
+}
+
+.w-overlay .animated.from-left {
+    left: 20%;
+}
+
+.w-overlay .animated.from-right {
+    left: 80%;
+}
+
+.w-overlay:hover .animated {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+}
+
+/* .animated-inverse for invert behaviour */
+.w-overlay:hover .animated-inverse {
+    opacity: 1;
+}
+.w-overlay:hover .animated-inverse {
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+}
+
+/* change z-index on .w-overlay internal elements .z-x */
+.w-overlay .z-1 {
+    z-index: 191;
+}
+.w-overlay .z-2 {
+    z-index: 192;
+}
+.w-overlay .z-3 {
+    z-index: 193;
+}
+.w-overlay .z-4 {
+    z-index: 194;
+}
+.w-overlay .z-5 {
+    z-index: 195;
+}

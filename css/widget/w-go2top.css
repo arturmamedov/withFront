@@ -1,0 +1,32 @@
+/** go2top {js: LayoutGo2Top.init()}
+ * @deprecated see in w-bottom_btns.css
+ * here for retro-compatibility with `=< v1.4.9`
+ *
+<div class="go2top hidden-xs text-center">
+    <i class="fa fa-chevron-circle-up"></i>
+    <p class="hidden-sm">Torna su</p>
+</div>
+ *
+ */
+.go2top {
+    bottom: 20px;
+    cursor: pointer;
+    display: inline-block;
+    position: fixed;
+    right: 30px;
+}
+.go2top > i {
+    color: #CED1D3;
+    font-size: 43px;
+    opacity: 0.5;
+}
+@media (max-width: 767px) {
+    /* go2top */
+    .go2top {
+        right: 10px;
+    }
+    .go2top > i {
+        color: rgba(110, 179, 187, 0.8);
+        font-size: 34px;
+    }
+}

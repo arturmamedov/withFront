@@ -1,5 +1,7 @@
 /**
  * Form that need be send with Ajax and with CakePHP 3.x
+ *
+ * @dependencies [w-alert]
  * /
  $(".ajaxform").on('submit', function(e){
         e.preventDefault();
@@ -15,8 +17,8 @@
             success: function(json){
                 if(json.success)
                 {
-                    if ($().gdivMessage) {
-                        $("body").gdivMessage(json.message, 'success');
+                    if (typeof withAlert == 'function') {
+                        withAlert(json.message, 'success');
                     } else {
                         alert(json.message);
                     }
@@ -26,8 +28,8 @@
                         eval($(thisForm).data('scallback'));
                     }
                 } else {
-                    if ($().gdivMessage) {
-                        $("body").gdivMessage(json.message, 'danger');
+                    if (typeof withAlert == 'function') {
+                        withAlert(json.message, 'danger');
                     } else {
                         alert(json.message);
                     }
@@ -45,8 +47,8 @@
                 }
             },
             error: function(){
-                if ($().gdivMessage) {
-                    $("body").gdivMessage('Unexpected error! Errore inaspettato!');
+                if (typeof withAlert == 'function') {
+                    withAlert('Unexpected error! Errore inaspettato!');
                 } else {
                     alert('Unexpected error! Errore inaspettato!');
                 }

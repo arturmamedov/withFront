@@ -1,0 +1,322 @@
+@import url('css/margin-tools.css');
+@import url('css/padding-tools.css');
+@import url('css/text-tools.css');
+@import url('css/text/social-colors.css');
+@import url('css/xs-tools.css');
+@import url('css/sm-tools.css');
+@import url('css/thirdparty/fontawesome47.css');
+@import url('css/thirdparty/flag-icon-css.css');
+@import url('css/thirdparty/blueimp-gallery.css');
+@import url('css/thirdparty/bootstrap-datepicker.css');
+@import url('css/thirdparty/bootstrap-tooltip.css');
+/* @import url('css/thirdparty/bootstrap-tabs.css'); */
+/* @import url('css/thirdparty/twitter-typeahead.css'); */
+/* @import url('css/thirdparty/datatable-rowreorder.css'); */
+@import url('css/widget/w-go2top.css');
+@import url('css/widget/w-loader.css');
+@import url('css/widget/w-appear_btn.css');
+@import url('css/widget/w-bottom_btns.css');
+@import url('css/widget/w-sliding-panel.css');
+@import url('css/web/w-cookie_choice.css');
+
+/* for use see https://github.com/arturmamedov/withFront/blob/master/js/form/w-honey_pot.js */
+._the_email_confirm_group {
+    display: none !important;
+}
+
+/* modal wide */
+.modal-wide {
+    width: 90% !important;
+}
+.modal-wide .modal-body {
+    overflow-y: auto;
+}
+/* Bootstrap v3 Modal Fade CSS quick Fix [issue#17622]  */
+body { padding-right: 0 !important }
+
+/* for jq highlight */
+.highlight {
+    background: #00ff9e;
+}
+
+/* Bug fixes for touch drag/scroll */
+.withNicescroll, .w-nicescroll {
+    -ms-touch-action: auto !important;
+    touch-action: auto !important;
+}
+.owl-carousel .owl-stage, .owl-carousel.owl-drag .owl-item {
+    -ms-touch-action: auto !important;
+    touch-action: auto !important;
+}
+
+
+/* * * js gDiv() withAlert style * * */
+.withAlert {
+    position: fixed !important;
+    top: 55px;
+    left: 15%;
+    width: 70%;
+    text-align: center;
+    z-index: 5000;
+}
+
+/* * * Tools * * */
+.display-none {
+    display: none;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.fullwidth {
+    width: 100% !important;
+}
+
+/* CURSOR HELPER */
+.cursor-pointer {
+    cursor: pointer;
+}
+.cursor-move {cursor: move !important;}
+.cursor-move-arrows:before {content: "\f047"; font-family: "FontAwesome"; margin-right: 5px;}
+.cursor-move-arrows-after:after {content: "\f047"; font-family: "FontAwesome"; margin-left: 5px;}
+
+.showhideBox {
+    cursor: pointer;
+}
+
+/* opacity 03 */
+.opacity03 {
+    opacity: 0.3;
+}
+
+/* Bootstrap v3 grid bug fix */
+.center-block {
+    float: none;
+    display: block;
+    margin: 0 auto;
+}
+/* Tables * /
+.thick-line {
+    border-top: 2px solid;
+}
+/*
+.table-striped > thead > tr {
+    background-color: #D196A4;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #F4D9DE;
+}
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+    background-color: #F2C4CE;
+}
+.table-striped > tfoot > tr {
+    background-color: #D196A4;
+}
+/* end#Tables */
+
+
+/* * * Bootstrap btn * * * */
+/* circle */
+.btn-circle, .btn-group-circle > .btn {
+    border-radius: 50%;
+    height: 36px;
+    padding: 8px 12px;
+    width: 36px;
+}
+
+/* FLAT */
+.btn-flat, .btn-group-flat > .btn {
+    border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+}
+
+/* Extra Large */
+.btn-xlg, .btn-group-xlg > .btn {
+    font-size: 30px;
+    line-height: 1.33333;
+    padding: 12px 22px;
+}
+
+/* unstyle link */
+.link-unstyled, .link-unstyled:hover, .link-unstyled:active, .link-unstyled:focus {
+    text-decoration: none;
+}
+
+/* fast positions and after style="inline top,bottommleft,right: ?px" */
+.relpos {
+    position: relative;
+}
+
+.abspos {
+    position: absolute;
+}
+
+/* or more fast way */
+.rightpos {
+    right: 0px;
+}
+
+.leftpos {
+    left: 0px;
+}
+
+.toppos {
+    top: 0px;
+}
+
+.bottompos {
+    bottom: 0px;
+}
+
+/* with 5px */
+.rightpos-5 {
+    right: 5px;
+}
+
+.leftpos-5 {
+    left: 5px;
+}
+
+.toppos-5 {
+    top: 5px;
+}
+
+.bottompos-5 {
+    bottom: 5px;
+}
+/* with 10px */
+.rightpos-10 {right: 10px;}
+.leftpos-10 {left: 10px;}
+.toppos-10 {top: 10px;}
+.bottompos-10 {bottom: 10px;}
+/* with 30px */
+.rightpos-30 {right: 30px;}
+.leftpos-30 {left: 30px;}
+.toppos-30 {top: 30px;}
+.bottompos-30 {bottom: 30px;}
+
+/* BACKGROUNDS bg-[] */
+.bg-lgray {
+    background-color: #f1f1f1;
+}
+
+.bg-white {
+    background: #FFFFFF;
+}
+
+.bg-white-transparent {
+    background: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.bg-lgreen-transparent {
+    background: none repeat scroll 0 0 rgba(200, 255, 200, 0.6);
+}
+
+.bg-acqua {
+    background: #DAFDFF;
+}
+
+.bg-acqua-transparent {
+    background: #DAFDFF;
+    background-color: rgba(208, 253, 255, 0.78);
+}
+
+/* Default Box shadow */
+.box-shadow {
+    -webkit-box-shadow: 0 0 2px #444444;
+    -moz-box-shadow: 0 0 2px #444444;
+    box-shadow: 0 0 2px #444444;
+}
+
+/* Default border radius */
+.border-radius {
+    -webkit-border-radius: 7px 7px 7px 7px;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.border-radius-bottom {
+    -webkit-border-radius: 0 0 7px 7px;
+    border-radius: 0 0 7px 7px;
+}
+
+.border-radius-top {
+    -webkit-border-radius: 7px 7px 0 0;
+    border-radius: 7px 7px 0 0;
+}
+
+.border-solid1 {
+    border: 1px solid #dddddd;
+}
+
+.border-solid1-left {
+    border-left: 1px solid #dddddd;
+}
+
+/* #animation: for on-target */
+.target { background-color: #00e095; }
+.on-target:target { animation: ontarget 8s; }
+@keyframes ontarget {
+    0% { background-color: #00e095; }
+    100% { background-color: inherit; }
+}
+/* #animation: for pulse button */
+.pulse-button { position: relative; }
+.pulse-effect {
+    animation-duration: 1.6s;
+    animation-iteration-count: infinite;
+    animation-name: pulse;
+    animation-timing-function: ease-out;
+    border: 4px solid blue;
+    border-radius: 50px;
+    box-shadow: 0 0 5px #00A6D3;
+    display: block;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    top: -2px;
+    left: 2px;
+}
+@-webkit-keyframes pulse{0%{-webkit-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-webkit-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-webkit-transform:scale(2.5);transform:scale(2.5);opacity:0}}
+@-moz-keyframes pulse{0%{-moz-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-moz-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-moz-transform:scale(2.5);transform:scale(2.5);opacity:0}}
+@-o-keyframes pulse{0%{-o-transform:scale(0.3);transform:scale(0.3);opacity:0.2}80%{-o-transform:scale(1.5);transform:scale(1.5);opacity:0}100%{-o-transform:scale(2.5);transform:scale(2.5);opacity:0}}
+@keyframes pulse{0%{transform:scale(0.3);opacity:0.2}80%{transform:scale(1.5);opacity:0}100%{transform:scale(2.5);opacity:0}}
+
+
+/* ^ ^ START: MEDIA QUERY ^ ^ */
+@media (min-width: 768px) {
+    /* from xs - to lg */
+    /* from xs - to lg */
+}
+
+@media (max-width: 480px) {
+    /* less then xs */
+    .no-xs-padding {
+        padding: 0px;
+    }
+    /* less then xs */
+}
+
+@media (max-width: 767px) and (min-width: 481px) {
+    /* xs */
+    /* xs*/
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /* sm (from xs - to sm) */
+    /* sm (from xs - to sm) */
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* md (from sm - to md) */
+    /* md (from sm - to md) */
+}
+
+@media (min-width: 1200px) {
+    /* lg */
+    /* lg */
+}
+
+/* _ _ END: MEDIA QUERY _ _ */

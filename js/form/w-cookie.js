@@ -4,6 +4,10 @@
  * @param _this HTML input element with data-name="" or name="" that correspond to cookie name, data-cookie-type="val,select,radio,html,text"
  */
 function setFromCookie(_this){
+    if (typeof wCookies == 'undefined') {
+        return;
+    }
+
     var selector = _this.data('binded'),
         type = _this.data('cookie-type');;
 
@@ -71,6 +75,10 @@ function setFromCookie(_this){
  * @param _this HTML input element with data-name="" or name="" that correspond to cookie name, data-value="" or value=""
  */
 function setIntoCookie(_this) {
+    if (typeof wCookies == 'undefined') {
+        return;
+    }
+
     // get name from name="" or data-name=""
     var name = _this.attr('name');
     if (typeof name == 'undefined') {
@@ -97,8 +105,19 @@ function setIntoCookie(_this) {
 $(document).on('change blur click', '.w-cookie', function() {
     setIntoCookie($(this));
 });
-// @todo: selector with a -form suffixed for work on all elements in a form
 // set the .w-cookie values after load of document
 $('.w-cookie').each( function(){
     setFromCookie($(this));
+});
+// w-cookie-form work on all elements in a form
+$('.w-cookie-form').on('change blur click', 'input, select, textarea', function() {
+    if (! $(this).hasClass('w-no-cookie')) {
+        setIntoCookie($(this));
+    }
+});
+// set the .w-cookie-form values after load of document
+$('.w-cookie-form input, .w-cookie-form select, .w-cookie-form textarea').each( function(){
+    // if (! $(this).hasClass('w-no-cookie')) { // if not set at change, it not will be set now
+        setFromCookie($(this));
+    // }
 });

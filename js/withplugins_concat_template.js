@@ -14,15 +14,17 @@ $(document).ready(function () {
 
     /* withInclude('js/core/w-breakpoints.js') */
 
+    /* withInclude('js/core/w-ismobile.js') */
+
     /* withInclude('js/style/w-height.js') */
 
     /* withInclude('js/form/w-filter.js') */
 
     /* withInclude('js/form/w-children_age.js') */
 
-    /* withInclude('js/form/w-ajaxsave.js') */
+    /* notInclude('js/form/w-ajaxsave.js') */
 
-    /* withInclude('js/web/w-analytics.js') */
+    /* notInclude('js/web/w-analytics.js') */
 
     /* withInclude('js/form/w-ajaxsend.js') */
 
@@ -38,13 +40,19 @@ $(document).ready(function () {
 
     /* withInclude('js/plugins/w-nicescroll.js') */
 
+    /* withInclude('js/social/w-whatsapp.js') */
+
     /* withInclude('js/style/w-target.js') */
+
+    /* withInclude('js/misc/w-scroll.js') */
 
     /* withInclude('js/bs/w-wide_modal.js') */
 
+    /* withInclude('js/widget/w-appear_btn.js') */
+
     /* withInclude('js/widget/w-go2top.js') */
 
-    /* withInclude('js/widget/w-appear_btn.js') */
+    /* withInclude('js/widget/w-sliding-panel.js') */
 
     /* withInclude('js/plugins/w-raty.js') */
 
@@ -54,3 +62,5 @@ $(document).ready(function () {
 
     /* withInclude('js/form/w-binder.js') */
 });
+
+/* withInclude('js/web/w-cookie_choice.js') */

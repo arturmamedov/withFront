@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     /**
      * withInclude() - embeds a file content within another. Meant to be
      * used from the copy task as a 'processContent' function. The following
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
      *  ...
      *
      */
-    function withInclude(fileContent, filePath){
+    function withInclude(fileContent, filePath) {
 
         if (fileContent.indexOf("withInclude") > -1) {
 
@@ -59,13 +59,13 @@ module.exports = function(grunt) {
             while ((match = re.exec(fileContent)) !== null) {
 
                 grunt.log.write(".");
-                grunt.verbose.writeln("    Match array: " + match );
+                grunt.verbose.writeln("    Match array: " + match);
 
-                file = grunt.template.process( match[1] );
+                file = grunt.template.process(match[1]);
 
-                grunt.verbose.writeln("    File to embed: " + file );
+                grunt.verbose.writeln("    File to embed: " + file);
 
-                file = grunt.file.read( file );
+                file = grunt.file.read(file);
 
                 // If options were set, then parse them
                 if (match[2]) {
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 
                     // If option: asJsString
                     if (
-                        fileIncludeOptions.some(function(option){
+                        fileIncludeOptions.some(function (option) {
                             return String(option).toLowerCase() === "asjsstring";
                         })
                     ) {
@@ -89,7 +89,9 @@ module.exports = function(grunt) {
 
                 }
 
-                fileContent = fileContent.replace(match[0], function(){ return file; });
+                fileContent = fileContent.replace(match[0], function () {
+                    return file;
+                });
 
             }
             grunt.log.writeln("");
@@ -104,6 +106,7 @@ module.exports = function(grunt) {
 
     // Build configuration.
     grunt.initConfig({
+        // not used at the moment, use copy that replace in template file
         concat: {
             options: {
                 separator: '\n\n\n',
@@ -201,8 +204,127 @@ module.exports = function(grunt) {
                     expand: true,
                     process: withInclude
                 },
-                src: "js/withplugins_concat_template.js" ,
+                src: "js/withplugins_concat_template.js",
                 dest: "withplugins.js"
+            },
+            js_src: {
+                options: {
+                    expand: true
+                },
+                src: "withplugins.js",
+                dest: "dist/js/w-plugins.js"
+            },
+            /* @todo: this task not import the css file's from css folder, so it not usefull and bugged */
+            css_src: {
+                options: {
+                    expand: true
+                },
+                src: "withstyle.css",
+                dest: "dist/css/w-style.css"
+            },
+            // for copy flag-icon-css
+            // flags: { bugged, copy all the path and repeat it in the destination :(
+            //     options: {
+            //         expand: false
+            //     },
+            //     src: "css/flags/**",
+            //     dest: "dist/flags/"
+            // },
+            flags11: {
+                options: {
+                    expand: true
+                },
+                src: "node_modules/flag-icon-css/flags/1x1/gb.svg",
+                dest: "dist/flags/1x1/gb.svg"
+            },
+            flags43: {
+                options: {
+                    expand: true
+                },
+                src: "node_modules/flag-icon-css/flags/4x3/gb.svg",
+                dest: "dist/flags/4x3/gb.svg"
+            },
+            css_fonts: {
+                files: [
+                    {
+                        expand:true,
+                        cwd:'node_modules/@fortawesome/fontawesome-free',
+                        dest:'dist/',
+                        src:['webfonts/**']
+                    }
+                ]
+            }
+        },
+
+
+        // minify CSS
+        cssmin: {
+            wstyle: {
+                options: {
+                    mergeIntoShorthands: false,
+                    roundingPrecision: -1,
+                    sourceMap: true
+                },
+                files: {
+                    'dist/css/w-style.min.css': ['withstyle.css']
+                }
+            },
+            libraries: {
+                options: {
+                    mergeIntoShorthands: false,
+                    roundingPrecision: -1,
+                    sourceMap: true
+                },
+                files: {
+                    'dist/css/libraries.min.css': [
+                        // core
+                        'node_modules/bootstrap/dist/css/bootstrap.min.css',
+                        'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
+                        // 'node_modules/flag-icon-css/css/flag-icon.min.css',
+                        // 'node_modules/animate.css/animate.min.css',
+                        'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css',
+                    ]
+                }
+            }
+        },
+
+        // minify JS
+        uglify: {
+            target: {
+                options: {
+                    sourceMap: true,
+                    drop_console: true
+                },
+                files: {
+                    'dist/js/w-plugins.min.js': ['withplugins.js']
+                }
+            },
+            libraries: {
+                options: {
+                    sourceMap: true,
+                    drop_console: true
+                },
+                files: {
+                    'dist/js/libraries.min.js': [
+                        // core
+                        'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+                        'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
+                        'node_modules/js-cookie/src/js.cookie.js',
+                        'node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js',
+                    ]
+                }
+            }
+        },
+
+        // watch for quicker dev
+        watch: {
+            css: {
+                files: ['css/**', 'withstyle.css'],
+                tasks: ['cssmin:wstyle']
+            },
+            js: {
+                files: ['js/**'],
+                tasks: ['copy:build', 'copy:js_src', 'uglify:target']
             }
         }
     });
@@ -210,9 +332,12 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['copy']);
+    grunt.registerTask('default', ['copy', 'cssmin', 'uglify']);
 
     // # My PurifyCSS task (for find and keep all used css selectors in my files, and cut all others that aren't used)
     // grunt.initConfig({

@@ -1,0 +1,8 @@
+/* OVERRIDE for flag icon (for more intuitive use then GB-en) */
+.flag-icon-en {
+    background-image: url('../flags/4x3/gb.svg');
+}
+
+.flag-icon-en.flag-icon-squared {
+    background-image: url('../flags/1x1/gb.svg');
+}

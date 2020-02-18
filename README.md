@@ -1,6 +1,5 @@
-# withFront
-## The Front-end Tools and basic configs that i use for every project
-
+# withFront `v1.5.6`
+## The Front-end Tools and basic configs that i use for every project [see demo](https://arturmamedov.github.io/withFront/)
  
 &nbsp;
 
@@ -44,13 +43,24 @@ jQuery - https://github.com/jquery/jquery
 #### Adding to web page
 ```html
 <!-- Inside Tag head -->
-<link rel="stylesheet" href="node_modules/bootstrap/css/bootstrap.min.css" type="text/css"/>
-<link rel="stylesheet" href="node_modules/withFront/withstyle.css" type="text/css"/>
+<link rel="stylesheet" href="node_modules/bootstrap/css/bootstrap.min.css" type="text/css"/> <!-- bootstrap 3/4-->
+<link rel="stylesheet" href="node_modules/withFront/dist/css/w-style.min.css" type="text/css"/> <!-- css tools -->
 
 <!-- Better down in footer after all content and after include jQuery and Bootstrap -->
 <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/node_modules/withFront/withplugins.js"></script>
+
+<script>
+    // you can Configure wOptions for override withOptions
+    var wOptions = {
+        debug: true, // enable/disable Debug mode [defaule:false]
+        wAppearBottomButton: true, // enable/disable widget/w-appear_btn.js [defaule:false]
+        go2top: true, // enable/disable widget/w-go2top.js [defaule:true]
+        htmlNicescroll: true, // [defaule:false]
+        whatsappWeb: true, // replace WhatsApp mobile with Desktop on Desktop [defaule:true]
+    };
+</script>
+<script type="text/javascript" src="/node_modules/withFront/withplugins.js"></script> <!-- js tools -->
 
 ```
 
@@ -64,6 +74,7 @@ core thing without it a lot of other script doesn't work properly. If you decide
   - `w-cookie.js` for save information in cookies, you can simply override it with your own implementation cause it have a interface behaviour 
   - `w-breakpoint.js` for isXs, isSm, isMd, isLg  functions (trivial but )
   - `w-core.js` here we have withOptions object with configuration and cLog() function for debug mode
+  - `w-ismobile.js` detect if it is a mobile device (no like breakpoints that only check the size) `jQuery.browser.mobile` true/false
 
 - bs `js/bs/` 
 bootstrap tools
@@ -91,6 +102,12 @@ installed plugins activator and configurator, with my prefered options for it
   - `w-selectize.js` https://selectize.github.io/selectize.js/
   - `w-tooltip.js` bootstrap tooltip 
 
+
+- social `js/social/`
+tools for social's
+  - `w-whatsapp.js` replace the Mobile version to WhatsApp URL to Desktop one
+  + In index.html you can find the code and link for Facebook Messenger implementation
+
 - style `js/style/`
 tools for styling web page
   - `w-height.js` equal height for all matched element's (with higher founded height)
@@ -111,9 +128,44 @@ All this are concatened and builded into `withplugins.js`, see gruntfile.js and 
 ---
 
 
+### Core
+
+#### Breakpoints 
+
+Detect if the width of screen is bootstrap 3 `isXs, isSm, isMd, isLg`
+
+Or in bootstrap 4 style if it is for `is4sm, is4md, is4lg, is4xl` or upper
+
+```javascript
+var isXs = window.matchMedia("(max-width: 768px)"),
+    isSm = window.matchMedia("(min-width: 768px) and (max-width: 991px)"),
+    isMd = window.matchMedia("(min-width: 992px) and (max-width: 1199px)"),
+    isLg = window.matchMedia("(min-width: 1200px)"),
+    //Bootstrap4 style
+    is4sm = window.matchMedia("(min-width: 576px)"),
+    is4md = window.matchMedia("(min-width: 768px)"),
+    is4lg = window.matchMedia("(min-width: 992px)"),
+    is4xl = window.matchMedia("(min-width: 1200px)");
+```
+
+### Style
+
 #### Equal Height for all elements (.withEqualHeight, .weh, data-weh-ad)
+###### @dependencies [w-breakpoints]
 
 For set all elements to have equal height add the `.withEqualHeight` class to parent DOM element and the class `.weh` to  children elements to equal.
+
+`.withEqualHeight` = for small device and higher (not for xs)
+
+`.withEqualHeightInverse` = for the smallest element instead of tallest
+
+`.withEqualHeightLike` = for equal height element like the element with .wehl class
+
+And to all child add class `.weh` and `.wehl` if you wont a height like specific element
+
+If you want additional height to all elements (ex: for add a button with absolute position etc.)
+Add `data-weh-add="50"` to children `.weh` elements (add 50px to all)
+
 
 ```html 
 <div class="row withEqualHeight">
@@ -134,6 +186,10 @@ For set all elements to have equal height add the `.withEqualHeight` class to pa
     <div class="col-sm-4 weh">element</div>
 </div>
 ```
+
+__.withEqualHeight not work for Extra Small device__ `xs` cause often in mobile we have one row only for each element
+
+use `.withEqualHeightAll` for add equal height also in mobile `xs`
 
 
 #### Paddings & Margins
@@ -203,43 +259,10 @@ The same thing for add `padding` change the `m` that stand for marrgin to `p` pa
 
 
 
-#### Loader (for entire document or only inside some element)
-Thanks to [SamHerbert/SVG-Loaders](http://samherbert.net/svg-loaders/)
-
-For add a loader to your site, that appears and automatically closes when all content is load:
-```html
-<div class="loader-wrapper">
-    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
-    <div class="loader">
-        <img width="40" src="/bower_components/SVG-Loaders/circles.svg" alt="">
-
-        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
-    </div>
-</div>
-```
-
-You can also add `inner-loader-wrapper` class to `loader-wrapper` for include loader in a div and not over all content of document.
-
-```html
-<div class="loader-wrapper inner-loader-wrapper">
-    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
-    <div class="loader">
-        <img width="40" src="/bower_components/SVG-Loaders/svg-loaders/spinning-circles.svg" alt="">
-
-        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
-    </div>
-</div>
-```
-
-Example: [loader-wrapper](https://insuperadmin.buonsito.net/assets/media/loader.png), [inner-loader-wrapper](https://insuperadmin.buonsito.net/assets/media/inner-loader.png)
-
-
-
-
 ### Web tools
 
 #### Cookie Choice Banner
-Include alone `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u use build files this are yet included in `withplugins.js` and `withstle.css`
+Include alone `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u use build files this are yet included in `dist/js/w-plugins.js` and `dist/css/w-style.css`
  
  ```html
      <script>
@@ -288,6 +311,13 @@ For add a single linked datepicker with visual range to your forms use this:
      </div>
 </div>
 ```
+in the div .period we can set options with data-attribute 
+
+Example: `data-date-start-date="10/01/2019" default:0d - today` 
+
+`data-date-end-date="25/12/2019" default:none - infinite` 
+
+Al available options: https://bootstrap-datepicker.readthedocs.io/en/stable/options.html
 
 #### Children Age to Form
 You can add a children number input that show the fields for each children age:
@@ -352,15 +382,249 @@ You can add a children number input that show the fields for each children age:
 ``` 
 
 
+
+
+
+
+
+
+### Widget
+
+#### Bottom Buttons w-bottom_btns.css
+Div `.bottom-buttons` with grouped bottom buttons `.b-btn`, `.b-btn_circle`, `b-btn_whatsapp` 
+
+Also in `.bottom-buttons.horizontal` or `.bottom-buttons.vertical` style 
+
+
+```html
+<!-- Bottom Buttons -->
+<div class="bottom-buttons vertical">
+    <!-- Anchor to Email form -->
+    <a href="#ajaxsend" class="text-center b-btn b-btn_circle bg-dark">
+        <i class="fa fa-envelope fa-2x text-white-a"></i>
+    </a>
+
+    <!-- Admin helper -->
+    <div class="text-center b-btn b-btn_circle bg-info">
+        <i class="fa fa-cog fa-2x"></i>
+    </div>
+
+    <!-- WhatsApp Button https://faq.whatsapp.com/en/android/26000030/ -->
+    <a href="https://wa.me/1234567890?text=Salve,%20desidero%20ricevere%20informazioni%20per%20un%20soggiorno%20presso%20il%20vostro%20Hotel.%20Grazie!" class="b-btn b-btn_circle b-btn_whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Facebook Messenger Button https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin/ -->
+    <div id="fb-root" class="b-btn"></div>
+
+    <!-- Go2Top {css: .go2top, js: LayoutGo2Top} -->
+    <div class="go2top hidden-xs text-center b-btn">
+        <i class="fa fa-chevron-up"></i>
+        <p class="hidden-sm m-0">Torna su</p>
+    </div>
+</div>
+```
+
+
+
+
 #### Go to top button 
 Button fixed on bottom of the document that appear on scroll down and on click go to the top of document
 
 ```html
 <!-- Add this to your layout -->
 <div class="go2top hidden-xs text-center">
-	<i class="fa fa-chevron-circle-up"></i>
-	<p class="hidden-sm">Torna su</p>
+    <i class="fa fa-chevron-circle-up"></i>
+    <p class="hidden-sm">Torna su</p>
 </div>
 ```
 
 And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
+
+
+
+
+
+
+#### With Appear Bottom Button w-bottom_btn.js/css 
+Button fixed on bottom that appear after 5 seconds by default
+
+`data-delay` 5000 - number of ms after that the button will be displayed from bottom
+
+`data-left` 105 - The position from left (with media queries it change in mobile to 75px)
+
+`data-right` 105 - The position from right (with media queries it change in mobile to 75px)
+
+`data-bottom` 105 - The position from bottom (with media queries it change in mobile to 20px)
+
+If you change the position remember the @mediaqueries also
+
+```html
+<a type="button" href="javascript:;" class="wabb right btn btn-primary" data-bottom="20" data-delay="2000">
+    Bottom Button .wabb <i class="fa fa-check"></i>
+</a> 
+```
+
+You can enable or disable it with `wOptions = { wAppearBottomButton: false }`
+
+And `.go2top` in css handle the positioning and style of button. The js `LayoutGo2Top` show the button on scroll down and hide when we are on top of document and scroll up document on click.  
+
+
+
+
+
+
+#### Loader (for entire document or only inside some element)
+Thanks to [SamHerbert/SVG-Loaders](http://samherbert.net/svg-loaders/)
+
+For add a loader to your site, that appears and automatically closes when all content is load:
+```html
+<div class="loader-wrapper">
+    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
+    <div class="loader">
+        <img width="40" src="/bower_components/SVG-Loaders/circles.svg" alt="">
+
+        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
+    </div>
+</div>
+```
+
+You can also add `inner-loader-wrapper` class to `loader-wrapper` for include loader in a div and not over all content of document.
+
+```html
+<div class="loader-wrapper inner-loader-wrapper">
+    <i class="fa fa-close fa-3x pull-right p-20 cursor-pointer loader-wrapper-close display-none"></i>
+    <div class="loader">
+        <img width="40" src="/bower_components/SVG-Loaders/svg-loaders/spinning-circles.svg" alt="">
+
+        <span class="loader-title">Caricamento contenuti, attendere qualche secondo...</span>
+    </div>
+</div>
+```
+
+Example: [loader-wrapper](https://insuperadmin.buonsito.net/assets/media/loader.png), [inner-loader-wrapper](https://insuperadmin.buonsito.net/assets/media/inner-loader.png)
+
+
+
+
+
+
+#### Sliding Panel `.w-sliding-panel`, `.w-sliding-btn`
+Button and bottom panel that slide out from left to right
+
+1 - Btn with class `w-sliding-btn` and `data-target` #id of the panel to open (for standard style add `sliding-btn` class and `right/left` class for position)
+
+2 - Panel with class `w-sliding-panel`, `sliding-panel` and the right #id (also the close icon `.close-panel` the panel is closed automatically on document click) 
+
+```html
+<!-- Button for open panel -->
+<div class="w-sliding-btn text-center b-btn b-btn_circle bg-info"
+    data-target="#adminHelper"
+    data-no-close-btn="true"
+>
+    <i class="fa fa-cog fa-2x"></i>
+</div>
+
+<div id="adminHelper" class="w-sliding-panel sliding-panel text-center bg-info">
+    <i class="close-panel fa fa-close fas fa-times fa-3x cursor-pointer abspos"></i>
+
+    <div class="container">
+        ...
+    </div>
+</div>
+```
+
+If you want to costumize the panel position and style remove class `sliding-panel` and add your own, remember to hide panel with negative position
+
+```css
+.w-sliding-panel.sliding-panel {
+    position: fixed;
+    left: -2000px;
+    bottom: 0px;
+}
+
+.w-sliding-panel.sliding-panel .close-panel {
+    top: -25px;
+    left: 0px;
+}
+```
+
+
+#### Animate scroll of #hash anchor and put the window to right place with topOffset
+* data-keep-hash    [false]        If #hash anchor is needed in url set true, otherwise u will not see the #hash in url<br>
+* data-top-offset   [10]          The NEGATIVE offset from top (for not cover things with navbar or other things)<br>
+* data-animation    [1000]         The duration of scroll animation
+
+```html
+    <a type="button" href="#target-block" class="btn btn-primary w-scroll">
+        Bottom Button
+    </a>
+```
+
+
+ #### Add target highlight to something
+ * data-target          [-]                CSS Selector for select the element on which apply
+ * data-auto-close      [8000]             Bool or the ms for close
+ * data-taregt-class    [on-target]        The class to add (default have CSS animation but it must be on the #anchor element also)
+
+```html
+    <a type="button" href="#target-block" class="btn btn-primary w-target" data-target="#target-block">
+        Bottom Button
+    </a>
+```
+
+
+
+
+
+
+
+
+
+    
+
+### Social
+
+#### WhatsApp url Mobile and Desktop 
+WhatsApp Button https://faq.whatsapp.com/en/android/26000030/
+
+- Replace 1234567890 with your desired phone number
+- text=`The message must be url_encoded` use https://www.urlencoder.org/ for get text=`The%20message%20must%20be%20url_encoded`
+
+```html
+<a href="https://wa.me/1234567890?text=Salve,%20desidero%20ricevere%20informazioni%20per%20un%20soggiorno%20presso%20il%20vostro%20Hotel.%20Grazie!" class="b-btn b-btn_circle b-btn_whatsapp whatsapp-weburl" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+```
+File `js/social/w-whatsapp.js` This is the MOBILE URL and it will be replaced to DESKTOP version (not worry :D)
+
+###### The mobile first strategy is used cause most people decide to not show WhatsApp on Desktop but only on mobile where it is very useful
+
+
+### Official Colors and Gradients
+#### Social Color's for icons, text, backgrounds [css/text/social-colors.css](https://github.com/arturmamedov/withFront/blob/master/css/text/social-colors.css)
+
+`.text-instagram` = color of instagram
+ 
+`.bg-instagram` = background of instagram
+
+`.gradient` = will be add the gradient of the social 
+
+(thank to http://www.brandgradients.com/)
+
+##### Enabled .text-social's \[+ .gradient] you can alo use `.bg-....`
+
+ * `.text-facebook .gradient`
+ * `.text-instagram .gradient` + text-instagram`-secondary` 
+ * `.text-whatsapp .gradient` + `-secondary`
+ * `.text-tripadvisor .gradient`
+ * `.text-flickr .gradient`
+ * `.text-skype .gradient`
+ * `.text-youtube .gradient`
+ * `.text-gmail .gradient`
+ * `.text-soundcloud .gradient` + `-secondary`
+ * `.text-linkedin .gradient` + `-secondary`
+ 
+ `-secondary` Some social's have secondary colors in plain bg and text color (without gradient)
+ 
+ ![Screenshot_2019-12-04 w-front Frontend development tools guide](https://user-images.githubusercontent.com/2785707/70128142-aba9a900-167c-11ea-8930-9850f3a14a34.png)

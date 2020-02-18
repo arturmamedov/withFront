@@ -1,5 +1,5 @@
 /**
- * Configure enable/disable withPlugins functions
+ * Default conf enable/disable withPlugins functions
  *
  * @object {{
  *      debug: boolean,
@@ -8,10 +8,16 @@
  * }}
  */
 var withOptions = {
-    debug: false,
-    wAppearBottomButton: false,
-    go2top: true,
+    debug: false, // enable/disable Debug mode
+    wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js
+    go2top: true, // enable/disable widget/w-go2top.js
+    htmlNicescroll: false,
+    whatsappWeb: true, // replace WhatsApp mobile with Desktop on Desktop
 };
+
+if (typeof wOptions != 'undefined') {
+    var withOptions = $.extend(withOptions, wOptions);
+}
 
 /**
  * Debug function for console.info() messages only if debug mode is enabled

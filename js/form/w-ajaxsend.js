@@ -1,4 +1,26 @@
-/* * * * * Ajax Form - ContactsController()->ajaxsend() * * * */
+/**
+ * Ajax Form
+ * ContactsController()->ajaxsend()
+ *
+ * .ajaxsend
+ * data-ga-send-pageview="/email-form-contatti"
+ * data-gaq-track-pageview="/email-form-contatti" // for use the old version of Google Analytics
+ *
+ *
+ * method: same as form method="POST"
+ * url: same as form action=""
+ * data: all form fields with jQuery.serialize()
+ * dataType: json
+ *
+ * success expect: {
+ *      success: true/false,
+ *      message: 'string', // for show an alert with this message
+ *      errors: array/object, // with index like the name of input that have error
+ *      string_error: 'all errors in one string', // for show in <div class="errors"></div>
+ * }
+ *
+ * @dependencies [w-alert(optional), font-awesome, jquery]
+ **/
 $(".ajaxsend").submit(function (e) {
     e.preventDefault();
     var form = $(this);
@@ -21,17 +43,35 @@ $(".ajaxsend").submit(function (e) {
             submit_btn.text(submit_btn_text).prop('disabled', false);
 
             if (json.success) {
-                // Google Analytics track (can be disabled and commented)
-                // if (typeof ga !== "undefined") {
-                //     ga('send', 'pageview', '/email-form-contatti');
-                //     _gaq.push(['_trackPageview', '/email-form-contatti']);
-                //     ga('send', 'event', 'contatti', 'click', 'newsletter', '5');
-                // }
+                // Google Analytics track
+                clog('check for ga');
+                if (typeof ga !== "undefined" && typeof form.data('gaSendPageview') != 'off') {
+                    var gaSend = (typeof form.data('gaSendPageview') != 'undefined') ? form.data('gaSendPageview') : '/email-form-contatti';
+                    ga('send', 'pageview', gaSend);
 
-                if ($().gdivMessage) {
-                    $("body").gdivMessage(json.message, 'success');
-                } else {
-                    alert(json.message);
+                    clog('ga send pageview: ' + form.data('gaSendPageview'))
+                }
+
+                // Facebook track (custom of this installation)
+                clog('check fbq');
+                if (typeof fbq !== "undefined" && typeof form.data('fbqLead') != 'off') {
+                    var fbqLead = (typeof form.data('fbqLead') != 'undefined') ? form.data('fbqLead') : 'Lead';
+                    fbq('track', fbqLead);
+
+                    clog('fbq track: '+ fbqLead);
+                }
+
+                // Old Google analytics _gaq _trackPageview
+                if (typeof _gaq !== "undefined" && typeof form.data('gaqTrackPageview') != 'undefined') {
+                    _gaq.push(['_trackPageview', form.data('gaqTrackPageview')]);
+                }
+
+                if (json.message.length) {
+                    if (typeof withAlert == 'function') {
+                        withAlert(json.message, 'success', { hidetime: 15000 });
+                    } else {
+                        alert(json.message);
+                    }
                 }
 
                 form.html('<h3>' + json.message + '</h3><h1 class="text-center"><i class="fa fa-check fa-5x text-success"></i></h1>', 1500);
@@ -40,8 +80,12 @@ $(".ajaxsend").submit(function (e) {
                 //   $('.on-target').css('background-color', 'transparent');
                 // }, 8000);
             } else {
-                if ($().gdivMessage) {
-                    $("body").gdivMessage(json.message, 'danger');
+                if (typeof json.message == 'undefined' || json.message.length == 0) {
+                    json.message = 'Errori nella form, correggi e riprova! Form errors, correct and try again!';
+                }
+
+                if (typeof withAlert == 'function') {
+                    withAlert(json.message, 'danger');
                 } else {
                     alert(json.message);
                 }
@@ -56,8 +100,14 @@ $(".ajaxsend").submit(function (e) {
                 form.find('.errors').html('<h4>' + json.message + '</h4><p>' + json.string_errors + '</p>', 1500);
             }
         },
-        error: function () {
+        error: function (e) {
             submit_btn.text(submit_btn_text).prop('disabled', false);
+
+            if (typeof withAlert == 'function') {
+                withAlert('Unexpected error! Errore inaspettato! :( ', 'danger');
+            } else {
+                alert('Unexpected error! Errore inaspettato! :( ');
+            }
 
             $('.errors', form).show();
             $('.errors', form).html('<h4>Unexpected error! Errore inaspettato! :( </h4>', 1500);

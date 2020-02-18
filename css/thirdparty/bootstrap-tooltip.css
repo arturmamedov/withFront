@@ -1,0 +1,46 @@
+/* Please i wont a light bootstrap tooltip :) */
+.tooltip {
+    font-size: 14px;
+    z-index: 1;
+}
+.tooltip-inner {
+    color: #222222;
+    background-color: #CCCCCC;
+    border-radius: 4px;
+}
+.tooltip-arrow {
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #CCCCCC;
+}
+
+.tooltip.top-left .tooltip-arrow {
+    border-top-color: #CCCCCC;
+}
+
+.tooltip.top-right .tooltip-arrow {
+    border-top-color: #CCCCCC;
+}
+
+.tooltip.right .tooltip-arrow {
+    border-right-color: #CCCCCC;
+}
+
+.tooltip.left .tooltip-arrow {
+    border-left-color: #CCCCCC;
+}
+
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #CCCCCC;
+}
+
+.tooltip.bottom-left .tooltip-arrow {
+    border-bottom-color: #CCCCCC;
+}
+
+.tooltip.bottom-right .tooltip-arrow {
+    border-bottom-color: #CCCCCC;
+}
+
+/* Please i wont a light tooltip END */

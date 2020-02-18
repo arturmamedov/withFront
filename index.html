@@ -11,43 +11,686 @@
     <!-- @html5bp <link rel="apple-touch-icon" href="icon.png">-->
     <!-- Place favicon.ico in the root directory -->
 
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css.map">
-    <link rel="stylesheet" href="withstyle.css">
+    <!-- Style with that withFront works -->
+    <link rel="stylesheet" href="dist/css/libraries.min.css"> <!-- grunt cssmin:libraries | for conf -->
+    <!--<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> yet in dist/css/libraries.min.css
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css"> yet in dist/css/libraries.min.css -->
+    <!-- end# Style with that withFront works -->
+    <link rel="stylesheet" href="dist/css/w-style.min.css">
 </head>
 <body style="height:2000px;" data-desc="height: 2000px for try go2top button">
 <!--[if lte IE 9]>
-<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please
+    <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
 
+<div class="container">
+
+    <h1 class="text-center">Hello world!</h1>
+
+    <h4 class="text-right">See <a href="404.html" target="_blank">404.html <i class="fas fa-external-link-alt"></i></a></h4>
 
 
+    <div class="row">
 
-<!-- Add your site or application content here -->
-<p>Hello world! This MarkUp use <a href="https://github.com/h5bp/html5-boilerplate" target="_blank">HTML5 Boilerplate</a> v6.0.1</p>
+        <div class="col col-sm-6 jumbotron bg-lgreen-transparent">
+            <h3>withAlert()</h3>
+            <p class="lead">A simple and intuitive way for show alert's with notifications!</p>
+
+            <hr>
+
+            <h5>
+                <a href="javascript:;" id="withAlertCustomTrigger" class="link-unstyled">Click for try withAlert('Message ...', 'success');</a>
+            </h5>
+
+            <p>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Warning message here ..." data-type="warning" class="link-unstyled">Click for try withAlert('...', 'warning');</a>
+            </p>
+
+            <p>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Danger message here ..." data-type="danger" class="link-unstyled">Click for try withAlert('...', 'danger');</a>
+            </p>
+
+            <p>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Primary message here ..." data-type="primary" class="link-unstyled">Click for try withAlert('...', 'primary');</a>
+            </p>
+
+            <p>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Secondary message here ..." data-type="secondary" class="link-unstyled">Click for try withAlert('...', 'secondary');</a>
+            </p>
+
+            <p>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Info message here ..." data-type="info" class="link-unstyled">Click for try withAlert('...', 'info');</a>
+            </p>
+
+            <p>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Light message here ..." data-type="light" class="link-unstyled">Click for try withAlert('...', 'light');</a>
+            </p>
+
+            <p>
+                <a href="javascript:;" data-toggle="w-alert" data-message="Dark message here ..." data-type="dark" class="link-unstyled">Click for try withAlert('...', 'dark');</a>
+            </p>
+
+            <p>
+                <a href="javascript:;" class="link-unstyled permanentAlert">This alert will not close automatically!</a>
+            </p>
+
+            <hr>
+
+            <h6>Code:</h6>
+
+            <code class="code">
+                $("#withAlertCustomTrigger").click(function(){<br>
+                &nbsp; &nbsp; withAlert('Message ...', 'success');<br>
+                });
+                <br><br>
+                $(".permanentAlert").click(function () {<br>
+                &nbsp; &nbsp; withAlert('This alert will not close automatically!', 'success', {autohide:false});<br>
+                &nbsp; &nbsp; // options {autohide:true, hidetime:4000}<br>
+                });
+            </code>
+
+            <hr>
+
+            <h6>File: <a href="js/core/w-alert.js" target="_blank">js/core/w-alert.js</a></h6>
+        </div>
+
+        <div class="col col-sm-5 center-block jumbotron bg-lgray box-shadow relpos">
+            <h3>List of bugfixes</h3>
+
+            <p>....</p>
+
+            <ul>
+                <li>Bootstrap v3 - Modal Fade CSS quick Fix <a href="https://github.com/twbs/bootstrap/issues/17622" target="_blank">[issue#17622]</a></li>
+
+                <li>Bootstrap v3 - .center-block in a combination with .col-x-x <a href="https://stackoverflow.com/questions/19758967/twitter-bootstrap-3-how-to-center-a-block" target="_blank">[improvement]</a></li>
+
+                <li>Nicescroll - Bug fixes for touch drag/scroll</li>
+
+                <li>Bootstrap - Please i wont a light bootstrap tooltip :) (style)</li>
+
+                <li>Bootstrap Datepicker - Highlight day red and selectable in range (style +<a href="https://github.com/arturmamedov/withFront/releases/tag/v1.4.06" target="_blank">disabled/enabled</a>)</li>
+
+                <li>FlagIcon - `.flag-en` for more intuitive use then .flag-GB-en (style)</li>
+
+                <li>FontAwesome - font-weight only v5 fix for v4 (+style <a href="https://github.com/arturmamedov/withFront/releases/tag/v1.4.1" target="_blank">.fa-bg-div</a>)</li>
+
+                <li>....</li>
+            </ul>
+
+            <p class="abspos bottompos-5">This div box use
+                <code>.col .col-sm-5 .center-block .jumbotron .bg-lgray .box-shadow</code> classes
+            </p>
+        </div>
+    </div>
+
+    <div class="row m-t-15">
+        <div id="ajaxsend" class="col col-sm-10 center-block jumbotron bg-acqua">
+            <h3>.ajaxsend</h3>
+            <p class="lead">Datepickers, children_age_form </p>
+
+            <div class="row">
+                <div class="col-6">
+                    <p class="m-0"><strong>Binded</strong> span on input firstname: <span id="binded_firstname" class="text-underline"></span></p>
+                </div>
+                <div class="col-6">
+                    <p>
+                        <strong>Binded</strong> input on input lastname:
+                        <input class="form-control w-binded" data-binded="input[name=lastname]" name="binded_lastname" id="binded_lastname" placeholder="Type into lastname for change here"/>
+                        <code>&lt;input class="form-control w-binded" data-binded="input[name=lastname]" /&gt;</code>
+                    </p>
+                </div>
+            </div>
+            <hr>
+
+            <form class="ajaxsend children_age_form w-cookie-form" action="/contacts/ajaxsend" method="POST" target="_blank" data-ga-send-pageview="/form-contatti">
+                <input type="hidden" name="lang_code" value="it"/>
+
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control w-binded w-setter" data-binded="#binded_firstname" data-binded-type="text" placeholder="Nome" name="firstname" required/>
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control w-binded w-setter" data-binded="#binded_lastname" placeholder="Cognome" name="lastname" required/>
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="email" name="email" class="form-control" placeholder="Email" required/>
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- withHoneyPotSpamChecker -->
+                        <div class="_the_email_confirm_group">
+                            <input type="hidden" name="email_group" class="_the_email_confirm_" value="email@email.it"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" name="phone" class="form-control" placeholder="Telefono"/>
+
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- data-date-start-date="22/01/2019" -->
+                    <div class="period col-12" data-date-end-date="20/11/2020">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control range checkin" name="checkin" placeholder="Data di arrivo" required/>
+
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control range checkout" name="checkout" placeholder="Data di partenza" required/>
+
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="num_adults" value="2" placeholder="<?php echo $this->Translate->make('Adulti'); ?>" min="1" max="5" required/>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <input type="number" class="form-control child_num_input" name="num_children" value="0" placeholder="<?php echo $this->Translate->make('Bambini'); ?>" min="0" max="5"/>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col pull-right display-none" id="child_ageClone">
+                                <div class="form-group">
+                                    <input type="number" class="form-control w-no-cookie" name="age_children[]" placeholder="Età bambino" min="0" max="17" value="" disabled/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Messaggio"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                        <label class="checkbox">
+                            <input type="checkbox" class="" style="height: auto;" required/>
+                            Acconsento al trattamento dei dati per le finalità indicate nella
+                            <a href="javascript:;" target="_blank">Privacy Policy</a>
+                        </label>
+
+                        <div class="clearfix"></div>
+
+                        <button type="submit" class="btn btn-lg btn-outline-primary">
+                            Richiedi disponibilità
+
+                            &nbsp; <i class="far fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <hr>
+
+            Doc: <a href="https://github.com/arturmamedov/withFront/#js---form" target="_blank">GitHub <i class="fab fa-github"></i></a>
+        </div>
+    </div>
+
+    <div class="row m-t-15">
+        <div class="col col-sm-10 center-block jumbotron bg-info text-light w-nicescroll" style="height: 230px;">
+            <h3>Nicescroll example (.w-nicescroll)</h3>
+            <p>You can enable Nicescroll on div's, iframe's etc. or for entire page by replacing the default scroll-bar</p>
+            <p>For enable on entire page override <code>htmlNicescroll:false</code> option with <code>true</code></p>
+
+            <p>....</p>
+
+            <h5>w-analytics (notIncluded by default)</h5>
+
+            <h4>Eventi GoogleAnalytics abilitati:</h4>
+            <ul>
+                <li>ga('send', 'event', 'contatti', 'click', href.replace('mailto:', ''), '5');</li>
+                <li>ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');</li>
+                <li>ga('send', 'event', 'contatti', 'click', 'maps', '5');</li>
+                <li>ga('send', 'event', 'outgoing', 'click', href, '10');</li>
+                <li>contatti - click su email o preventivo modal preventivo</li>
+                <li>ga('send', 'event', 'contatti', 'click', 'preventivo', '5');</li>
+            </ul>
+
+            <h4>Pageview (invio form)</h4>
+            <ul>
+                <li>ga('send', 'pageview', '/email-form-contatti');</li>
+            </ul>
+        </div>
+    </div>
 
 
+    <div class="row m-t-15">
+        <div class="col col-sm-10 center-block jumbotron bg-lgray" id="target-block">
+            <h3>Scroll to this anchor (click to "Bottom Button") with animation (.w-scroll)</h3>
+
+            <p>You can enable animated scroll to anchor by adding w-scroll to your <code>&lt;a href="#anchor"</code> links</p>
+
+            <p>Animate scroll of #hash anchor and put the window to right place with topOffset <br>
+                * data-keep-hash    [false]        If #hash anchor is needed in url set true, otherwise u will not see the #hash in url<br>
+                * data-top-offset   [10]          The NEGATIVE offset from top (for not cover things with navbar or other things)<br>
+                * data-animation    [1000]         The duration of scroll animation
+            </p>
+
+            <code>
+                &lt;a type="button" href="#target-block" class="btn btn-primary w-scroll"&gt;
+                    Bottom Button
+                &lt;/a&gt;
+            </code>
 
 
+            <hr>
 
 
+            <h3>Add target highlight to something</h3>
+
+            <p>
+               * data-target          [-]                CSS Selector for select the element on which apply<br>
+               * data-auto-close      [8000]             Bool or the ms for close<br>
+               * data-taregt-class    [on-target]        The class to add (default have CSS animation but it must be on the #anchor element also)<br>
+            </p>
+
+            <code>
+            &lt;a type="button" href="#target-block" class="btn btn-primary w-target"
+                data-target="#target-block"&gt;
+                Bottom Button
+            &lt;/a&gt;
+            </code>
+        </div>
+    </div>
 
 
+    <div class="row m-t-15">
+        <div class="col col-sm-10 center-block jumbotron bg-lgray" id="social-block">
+            <h3>Social (official colors also with gradients)</h3>
+
+            <hr class="m-30">
+
+            <div class="row justify-content-center text-center mb-20">
+                <div class="col">
+                    <a href="https://www.facebook.com/withArtur" title="Facebook Page" class="btn btn-light" target="_blank">
+                        <i class="fab fa-facebook-f text-facebook fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="https://www.youtube.com/user/withArtur" title="YouTube" class="btn btn-light" target="_blank">
+                        <i class="fab fa-youtube text-youtube fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="https://images.unsplash.com/photo-1468435005930-958f6107dccd" title="Flickr" class="btn btn-light" target="_blank">
+                        <i class="fab fa-flickr text-flickr fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="https://www.instagram.com/withartur/" title="Instagram" class="btn btn-light" target="_blank">
+                        <i class="fab fa-instagram text-instagram fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="https://wa.me/123456789?text=Salve,%20desidero%20ricevere%20informazioni%20per%20un%20soggiorno%20presso%20il%20vostro%20Hotel.%20Grazie!" title="WhatsApp" class="btn btn-light" target="_blank">
+                        <i class="fab fa-whatsapp text-whatsapp fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="skype:arturmamedov?call" title="Skype" class="btn btn-light">
+                        <i class="fab fa-skype text-skype fa-3x"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row justify-content-center text-center">
+                <div class="col">
+                    <a href="https://www.facebook.com/withArtur" title="Facebook Page" class="btn btn-dark" target="_blank">
+                        <i class="fab fa-facebook-f text-facebook gradient fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="https://www.youtube.com/user/withArtur" title="YouTube" class="btn btn-dark" target="_blank">
+                        <i class="fab fa-youtube text-youtube gradient fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="https://images.unsplash.com/photo-1468435005930-958f6107dccd" title="Flickr" class="btn btn-dark" target="_blank">
+                        <i class="fab fa-flickr text-flickr gradient fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="https://www.instagram.com/withartur/" title="Instagram" class="btn btn-dark" target="_blank">
+                        <i class="fab fa-instagram text-instagram gradient fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="https://wa.me/123456789?text=Salve,%20desidero%20ricevere%20informazioni%20per%20un%20soggiorno%20presso%20il%20vostro%20Hotel.%20Grazie!" title="WhatsApp" class="btn btn-dark">
+                        <i class="fab fa-whatsapp text-whatsapp gradient fa-3x"></i>
+                    </a>
+                </div>
+
+                <div class="col">
+                    <a href="skype:arturmamedov?call" title="Skype" class="btn btn-dark">
+                        <i class="fab fa-skype text-skype gradient fa-3x"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
+    <div class="row mt-15">
+        <div class="col col-sm-10 center-block bg-lgreen-transparent p-30" id="overlay-block">
+            <h3>.w-overlay (Add overlay hover effect with a div inside element)</h3>
 
+            <p>.animated and .from-top/bottom + left/right is used for animate content that is inside overlay
+            and it isn't shown at start but compare on hover with the set direction</p>
+
+            <p>By add -inverse to .overlay or .animated the inverted behaviour will be used</p>
+
+            <div class="row no-gutters align-content-between mb-20">
+                <div class="col-4">
+                    <a href="https://www.facebook.com/withArtur" title="Facebook Page" class="link-unstyled" target="_blank">
+                        <div class="w-overlay">
+                            <div class="overlay"></div>
+
+                            <h2 class="abspos z-1 text-facebook gradient" style="width: 100%; text-align: center; top: 20%; margin-top: -40px;">withAbook</h2>
+
+                            <img src="https://images.unsplash.com/photo-1491951931722-5a446214b4e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=330&q=150" alt="Facebook withArtur" class="img-responsive img-fluid" />
+                        </div>
+                    </a>
+
+                    <p class="text-center"><code>div.w-overlay + div.overlay + h2.z-1 and some custom style</code></p>
+                </div>
+
+                <div class="col-4">
+                    <a href="https://www.youtube.com/user/withArtur" title="YouTube" class="link-unstyled" target="_blank">
+                        <div class="w-overlay">
+                            <div class="overlay-inverse"></div>
+
+                            <img src="https://images.unsplash.com/photo-1548328928-34db1c5fcc1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=330&q=150" alt="Youtube withArtur"  class="img-responsive img-fluid" />
+
+                            <h3 class="animated from-top text-white">withAdude</h3>
+                        </div>
+                    </a>
+
+                    <p class="text-center"><code>div.w-overlay + div.overlay-inverse +h3.animated.from-top</code></p>
+                </div>
+
+                <div class="col-4">
+                    <a class="link-unstyled" href="https://www.instagram.com/withartur/" title="Instagram" target="_blank">
+                        <div class="w-overlay">
+                            <div class="overlay"></div>
+
+                            <img src="https://images.unsplash.com/photo-1536009282123-37ba63756c6b?ixlib=rb-1.2.1&auto=format&fit=crop&w=330&q=150" alt="Instagram withArtur"  class="img-responsive img-fluid" />
+
+                            <h3 class="animated from-bottom text-instagram gradient">withAgram</h3>
+                        </div>
+                    </a>
+
+                    <p class="text-center"><code>div.w-overlay + div.overlay + h3.animated.from-bottom</code></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="m-50"></div>
+
+    <p>Artur Mamedov aka <a href="https://www.facebook.com/withArtur/" target="_blank"><i class="fab fa-facebook"></i> #withArtur</a> <a href="https://github.com/arturmamedov/withfront/" target="_blank"> <i class="fab fa-github"></i> #withFront</a></p>
+
+    <p class="text-right">This MarkUp use
+        <a href="https://github.com/h5bp/html5-boilerplate" target="_blank">HTML5 Boilerplate</a> v6.0.1</p>
+
+
+    <h5>Credits:</h5>
+    <ul>
+        <li>Photo by Sara Kurfeß on Unsplash <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@stereophototyp?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Sara Kurfeß"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Sara Kurfeß</span></a></li>
+
+        <li>Photo by NeONBRAND on Unsplash <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@neonbrand?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from NeONBRAND"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">NeONBRAND</span></a></li>
+
+        <li>Photo by lalo Hernandez on Unsplash <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@lalonchera?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from lalo Hernandez"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">lalo Hernandez</span></a></li>
+    </ul>
+
+
+    <p class="text-right">Made with <i class="fas fa-heart"></i> and <i class="fas fa-cannabis"></i></p>
+</div>
 
 
 <!-- @html5bp <script src="js/vendor/modernizr-3.6.0.min.js"></script>-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="bower_components/jquery/dist/jquery.min.js"><\/script>')</script>
-<!-- @html5bp <script src="js/plugins.js"></script>-->
-<script src="withplugins.js"></script>
+<script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
 
-<!-- Go2Top {css: .go2top, js: LayoutGo2Top} -->
-<div class="go2top hidden-xs text-center">
-    <i class="fa fa-chevron-circle-up"></i>
-    <p class="hidden-sm">Torna su</p>
+<!-- Plugin with that withFront works -->
+<script src="dist/js/libraries.min.js"></script> <!-- grunt uglify:libraries | for conf -->
+<!-- Bs Date Picker https://github.com/uxsolutions/bootstrap-datepicker -->
+<!--<link rel="stylesheet" href="node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css"/> yet in dist/css/libraries.min.css
+<script src="node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script> yet in dist/js/libraries.min.js -->
+<script src="node_modules/bootstrap-datepicker/dist/locales/bootstrap-datepicker.it.min.js" data-lang="it" id="bsdp_lang_code"></script>
+
+<!-- js-cookie https://github.com/js-cookie/js-cookie -->
+<!--<script src="node_modules/js-cookie/src/js.cookie.js"></script> yet in dist/js/libraries.min.js -->
+
+<!-- Nicescroll https://github.com/inuyaksa/jquery.nicescroll -->
+<!--<script src="node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script> yet in dist/js/libraries.min.js -->
+<!-- end# Plugin with that withFront works -->
+
+<script>
+    // Configure wOptions for override withOptions: debug:false, wAppearBottomButton:false, go2top:true
+
+    // enable wAppearBottomButton cause it disabled by default
+    var wOptions = {
+        debug: true, // enable/disable Debug mode [defaule:false]
+        wAppearBottomButton: true, // enable/disable widget/w-appear_btn.js [defaule:false]
+        go2top: true, // enable/disable widget/w-go2top.js [defaule:true]
+        htmlNicescroll: true, // [defaule:false]
+        whatsappWeb: true, // replace WhatsApp mobile with Desktop on Desktop [defaule:true]
+    }
+</script>
+<script src="dist/js/w-plugins.min.js"></script>
+
+<!-- @html5bp <script src="js/plugins.js"></script> for custom js -->
+
+<!--
+--                          --
+   JS and HTML for this demo
+--                          --
+-->
+
+
+<a href="javascript:;" class="w-sliding-btn sliding-btn left hidden-xs"
+        data-target="#sliding1"
+>
+    Sliding Panel Btn & Panel
+</a>
+<div id="sliding1" class="w-sliding-panel sliding-panel text-center bg-white-transparent p-20">
+    <i class="close-panel fa fa-close fas fa-times fa-3x pull-right cursor-pointer abspos" style="top: -25px; left: 0px;"></i>
+
+    <p>Another implementation it if you click on `cog` button, it have custom btn, instead this pre-configured</p>
 </div>
+
+<div id="adminHelper" class="w-sliding-panel sliding-panel text-center bg-info p-10">
+    <i class="close-panel fa fa-close fas fa-times fa-3x cursor-pointer abspos"></i>
+
+    <div class="container">
+        <a href="javascript:;" class="btn btn-primary btn-xs m-5">
+            <i class="fa fa-file-text-o fas fa-file-alt"></i> &nbsp; Modifica pagina "Home"
+        </a>
+
+        <a href="javascript:;" class="btn btn-primary btn-xs m-5">
+            <i class="fa fa-file-text-o fas fa-file-alt"></i> &nbsp; Modifica Pagina "Figlia di Home"
+        </a>
+
+        <a href="javascript:;" class="btn btn-primary btn-xs m-5">
+            <i class="fa fas fa-list"></i> &nbsp; Modifica categoria offerte
+        </a>
+
+        <a href="javascript:;" class="btn btn-primary btn-xs m-5">
+            <i class="fa fas fa-font"></i> &nbsp; Modifica offerta "Nome Offerta"
+        </a>
+    </div>
+</div>
+
+<!-- Bottom Buttons -->
+<div class="bottom-buttons vertical">
+    <!-- Link to GitHub -->
+    <a href="https://github.com/arturmamedov/withfront/" target="_blank" class="text-center b-btn b-btn_circle bg-dark">
+        <i class="fab fa-github fa-2x text-white-a"></i>
+    </a>
+
+    <!-- Link to Facebook -->
+    <a href="https://www.facebook.com/withArtur" target="_blank" class="text-center b-btn b-btn_circle bg-facebook">
+        <i class="fab fa-facebook-f fa-2x text-white-a"></i>
+    </a>
+
+    <!-- Link to Instagram -->
+    <a href="https://www.instagram.com/withArtur" target="_blank" class="text-center b-btn b-btn_circle bg-instagram gradient">
+        <i class="fab fa-instagram fa-2x text-white-a"></i>
+    </a>
+
+    <!-- Anchor to Email form -->
+    <a href="#ajaxsend" class="text-center b-btn b-btn_circle bg-danger w-scroll w-target" data-keep-hash="true" data-top-offset="10" data-target="#ajaxsend">
+        <i class="fa fa-envelope fa-2x text-white-a"></i>
+    </a>
+
+    <!-- Admin helper -->
+    <div class="w-sliding-btn text-center b-btn b-btn_circle bg-info"
+        data-target="#adminHelper"
+        data-no-close-btn="true"
+    >
+        <i class="fa fa-cog fa-2x"></i>
+    </div>
+
+    <!-- WhatsApp Button https://faq.whatsapp.com/en/android/26000030/
+     - Replace 1234567890 with your desired phone number
+     - text=The message must ne url_encoded - https://www.urlencoder.org/ - text=The%20message%20must%20ne%20url_encoded
+     - social/w-whatsapp.js This is the MOBILE URL and it will be replaced to DESKTOP version (not worry :D)
+    -->
+    <a href="https://wa.me/3333544990?text=Ciao%2C%20vorrei%20anche%20io%20le%20funzionalit%C3%A0%20di%20%23withFront%20sul%20mio%20sito%20web%21" class="b-btn b-btn_circle b-btn_whatsapp whatsapp-weburl" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Facebook Messenger Button https://developers.facebook.com/docs/messenger-platform/discovery/customer-chat-plugin/ -->
+    <div id="fb-root" class="b-btn"></div>
+
+    <!-- Go2Top {css: .go2top, js: LayoutGo2Top} -->
+    <div class="go2top hidden-xs text-center b-btn">
+        <i class="fa fa-chevron-up"></i>
+        <p class="hidden-sm m-0">Torna su</p>
+    </div>
+</div>
+
+<!-- Go2Top suggest: to use inside .bottom-buttons
+<div class="go2top hidden-xs text-center b-btn">
+    <i class="fa fa-chevron-up"></i>
+    <p class="hidden-sm m-0">Torna su</p>
+</div>
+-->
+
+<!-- Load Facebook SDK for JavaScript -->
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/it_IT/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="186574254711564"
+        theme_color="#0084ff"
+        logged_in_greeting="Ciao! Come posso aiutarti?"
+        logged_out_greeting="Ciao Ciao!">
+</div>
+
+<!-- withAppearBottomButton {css: .wabb, js: wAppearBottomButton()}) -->
+<a type="button" href="#target-block" class="wabb right btn btn-primary w-scroll w-target"
+        data-bottom="20"
+        data-delay="2000"
+        data-toggle="tooltip"
+        title="Have also w-scroll and w-target set for scroll and target animations"
+        data-target="#target-block"
+        data-keep-hash="true">
+    Bottom Button <i class="fa fa-check"></i>
+</a>
+
+<!-- JS for withAlert() demo -->
+<script>
+    $("#withAlertCustomTrigger").click(function () {
+        withAlert('Message ...', 'success');
+    });
+    $("[data-toggle='w-alert']").click(function () {
+        withAlert($(this).data('message'), $(this).data('type'));
+    });
+    $(".permanentAlert").click(function () {
+        withAlert('This alert will not close automatically!', 'success', {autohide:false});
+    });
+</script>
+
+
+<!-- Cookie Choice Banner (include `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u use build files this are yet included) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function (event) {
+        cookieChoices.showCookieConsentBar("This site uses cookies to improve the browsing experience. By using this site you agree to all cookies",
+            'OK', 'Privacy Policy', "/privacy-url");
+    });
+</script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <!-- @html5bp <script>
