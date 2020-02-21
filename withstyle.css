@@ -25,6 +25,11 @@
     display: none !important;
 }
 
+/* A little style for class placeholder applied on option (suggest to use in combination with: selected disabled trick) */
+select option.placeholder, select option:disabled, select option[disabled], select option[disabled="disabled"] {
+    color: #999999;
+}
+
 /* modal wide */
 .modal-wide {
     width: 90% !important;
