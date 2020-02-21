@@ -1283,8 +1283,8 @@ function setIntoCookie(_this) {
         value = _this.data('value');
     }
 
-    // not action if no value
-    if (value == '') {
+    // stop if no name or value
+    if ((typeof name == 'undefined' || name == '' || name == null) || (typeof value == 'undefined' || value == '' || value == null)) {
         return;
     }
 
@@ -1309,10 +1309,11 @@ $('.w-cookie-form').on('change blur click', 'input, select, textarea', function(
 });
 // set the .w-cookie-form values after load of document
 $('.w-cookie-form input, .w-cookie-form select, .w-cookie-form textarea').each( function(){
-    // if (! $(this).hasClass('w-no-cookie')) { // if not set at change, it not will be set now
+    if (! $(this).hasClass('w-no-cookie')) { // there can be another form that want not set from cookie
         setFromCookie($(this));
-    // }
+    }
 });
+
 
     /**
  * Bind a form input to another input or something else
