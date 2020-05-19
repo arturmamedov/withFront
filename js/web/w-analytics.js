@@ -16,6 +16,10 @@ $(function() {
                     //* _gaq.push(['_trackEvent', 'contatti', 'click', href.replace('mailto:', ''), 5]);
                     ok = true;
                 }
+                if (a_tag.hasClass('w-email-ga')) {
+                    ga('send', 'event', 'contatti', 'click', a_tag.data('ga'), '5');
+					ok = true;
+                }
 
                 if (href.indexOf('tel:') >= 0) {
                     ga('send', 'event', 'contatti', 'click', href.replace('tel:', ''), '5');
