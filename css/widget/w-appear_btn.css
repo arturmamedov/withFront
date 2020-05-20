@@ -21,3 +21,29 @@
         left: 75px;
     }
 }
+
+
+/* with Appear Top Button {js: wAppearBottomButton.init()} */
+.watb {
+    position: fixed;
+    top: -150px;
+    z-index: 999;
+}
+.watb.right {
+    right: 105px;
+}
+.watb.left {
+    left: 105px;
+}
+@media (max-width: 767px) {
+    .watb {
+        top: 20px !important;
+    }
+    .watb.right {
+        right: 75px;
+    }
+    .watb.left {
+        left: 75px;
+    }
+}
+

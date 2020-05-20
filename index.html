@@ -537,6 +537,7 @@
     var wOptions = {
         debug: true, // enable/disable Debug mode [defaule:false]
         wAppearBottomButton: true, // enable/disable widget/w-appear_btn.js [defaule:false]
+        wAppearTopButton: true, // enable/disable widget/w-appear_btn.js [defaule:false]
         go2top: true, // enable/disable widget/w-go2top.js [defaule:true]
         htmlNicescroll: true, // [defaule:false]
         whatsappWeb: true, // replace WhatsApp mobile with Desktop on Desktop [defaule:true]
@@ -668,6 +669,17 @@
         data-target="#target-block"
         data-keep-hash="true">
     Bottom Button <i class="fa fa-check"></i>
+</a>
+
+<!-- withAppearTopButton {css: .watb, js: wAppearTopButton()}) -->
+<a type="button" href="#target-block" class="watb left btn btn-secondary w-scroll w-target"
+        data-bottom="20"
+        data-delay="2000"
+        data-toggle="tooltip"
+        title="Have also w-scroll and w-target set for scroll and target animations"
+        data-target="#target-block"
+        data-keep-hash="false">
+    <i class="fas fa-head-side-cough-slash"></i> Top Button <i class="fas fa-head-side-mask"></i>
 </a>
 
 <!-- JS for withAlert() demo -->

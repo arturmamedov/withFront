@@ -9,7 +9,8 @@
  */
 var withOptions = {
     debug: false, // enable/disable Debug mode
-    wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js
+    wAppearBottomButton: false, // enable/disable widget/w-appear_btn.js -Bottom
+    wAppearTopButton: false, // enable/disable widget/w-appear_btn.js -Top
     go2top: true, // enable/disable widget/w-go2top.js
     htmlNicescroll: false,
     whatsappWeb: true, // replace WhatsApp mobile with Desktop on Desktop
