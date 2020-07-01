@@ -111,6 +111,7 @@ fabric.properties
 
 
 # Nodejs NPM & Logs
+package-lock.json
 logs
 *.log
 npm-debug.log*
