@@ -1,0 +1,12 @@
+/*
+ Classes for take compattibility before Bootstrap 3 old classes and new Bs 4
+*/
+
+/* become .float-left*/
+.pull-left {
+    float: left;
+}
+/* become .float-right*/
+.pull-right {
+    float: right;
+}
