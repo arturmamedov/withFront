@@ -102,12 +102,6 @@ body { padding-right: 0 !important }
     opacity: 0.3;
 }
 
-/* Bootstrap v3 grid bug fix */
-.center-block {
-    float: none;
-    display: block;
-    margin: 0 auto;
-}
 /* Tables * /
 .thick-line {
     border-top: 2px solid;

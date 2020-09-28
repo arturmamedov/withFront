@@ -11,11 +11,13 @@
     float: right;
 }
 
-/* .mx-auto */
+/* (Bs4 .mx-auto) and Bootstrap v3 grid bug fix */
 .center-block {
-    float: none !important;
+    float: none;
+    display: block;
     margin: 0 auto;
 }
+
 /* .img-fluid */
 .img-responsive {
     max-width: 100%;
