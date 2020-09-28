@@ -46,8 +46,8 @@
     "grunt-contrib-watch": "^1.1.0"
   },
   "scripts": {
-    "development": "grunt",
-    "dev": "grunt",
+    "development": "grunt -vvv",
+    "dev": "grunt -v",
     "production": "grunt",
     "prod": "grunt",
     "test": "echo \"Error: no test specified\" && exit 1"
