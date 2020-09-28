@@ -10,3 +10,13 @@
 .pull-right {
     float: right;
 }
+
+/* .mx-auto */
+.center-block {
+    float: none !important;
+    margin: 0 auto;
+}
+/* .img-fluid */
+.img-responsive {
+    max-width: 100%;
+}
