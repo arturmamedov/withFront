@@ -138,6 +138,7 @@ module.exports = function (grunt) {
                     // plugins
                     'js/plugins/w-datepicker.js', // uxsolution/bootstrap-datepicker wrapper
                     // (disabled for me) 'js/plugins/w-raty.js', // raty wrapper
+                    'js/plugins/w-slick.js', // slick-carousel
                     // web
                     'js/web/w-analytics.js', // google analytics events tracker
                     // (disabled for me) 'js/web/w-cookie_choice.js', // cookie consent banner
@@ -176,6 +177,7 @@ module.exports = function (grunt) {
                     // plugins
                     'js/plugins/w-datepicker.js', // uxsolution/bootstrap-datepicker wrapper
                     'js/plugins/w-raty.js', // raty wrapper
+                    'js/plugins/w-slick.js', // slick-carousel
                     // web
                     'js/web/w-analytics.js', // google analytics events tracker
                     'js/web/w-cookie_choice.js', // cookie consent banner
@@ -283,6 +285,8 @@ module.exports = function (grunt) {
                         // 'node_modules/flag-icon-css/css/flag-icon.min.css',
                         // 'node_modules/animate.css/animate.min.css',
                         'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css',
+                        'node_modules/slick-carousel/slick/slick.css',
+                        'node_modules/slick-carousel/slick/slick-theme.css',
                     ]
                 }
             }
@@ -311,6 +315,7 @@ module.exports = function (grunt) {
                         'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
                         'node_modules/js-cookie/src/js.cookie.js',
                         'node_modules/jquery.nicescroll/dist/jquery.nicescroll.min.js',
+                        'node_modules/slick-carousel/slick/slick.min.js',
                     ]
                 }
             }

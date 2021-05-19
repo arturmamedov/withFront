@@ -1,0 +1,60 @@
+/**
+ * Custom slick css
+ */
+.slick-dotted.slick-slider {
+    margin-bottom: 0px;
+}
+
+.slick-slide {
+    margin: 0px 10px;
+}
+
+.slick-dots {
+    position: initial;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.slick-dots li button::before {
+    font-size: 25px;
+}
+
+.slick-prev {
+    left:0;
+    z-index: 10;
+}
+.slick-next {
+    right:0;
+    z-index: 10;
+}
+/*.slick-prev,
+.slick-next {
+    width: 40px;
+    height: 80px;
+    background-color: #D90860;
+    margin-top: 25px;
+}
+.slick-prev:hover,
+.slick-next:hover,
+.slick-prev:active,
+.slick-next:active,
+.slick-prev:focus,
+.slick-next:focus
+{
+    background-color: #0E1222;
+}
+*/
+.slick-prev:before {
+    content: '\f137'; /* chevron: 'f053', arrow: 'f060' */
+}
+.slick-next:before {
+    content: '\f138'; /* chevron: 'f054', arrow: 'f061' */
+}
+.slick-prev:before,
+.slick-next:before {
+    font-family: "Font Awesome 5 Free";
+    color: #0036E7;
+    font-size: 24px;
+    opacity: 1;
+    font-weight: 900;
+}
