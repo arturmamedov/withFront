@@ -8,3 +8,124 @@
     -o-filter: grayscale(100%);
     filter: grayscale(100%);
 }
+
+
+/* * * Tools * * */
+.display-none {
+    display: none;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.fullwidth {
+    width: 100% !important;
+}
+
+/* CURSOR HELPER */
+.cursor-pointer {
+    cursor: pointer;
+}
+.cursor-move {cursor: move !important;}
+.cursor-move-arrows:before {content: "\f047"; font-family: "FontAwesome"; margin-right: 5px;}
+.cursor-move-arrows-after:after {content: "\f047"; font-family: "FontAwesome"; margin-left: 5px;}
+
+
+/* opacity 03 */
+.opacity03 {
+    opacity: 0.3;
+}
+
+/* Tables * /
+.thick-line {
+    border-top: 2px solid;
+}
+/*
+.table-striped > thead > tr {
+    background-color: #D196A4;
+}
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+    background-color: #F4D9DE;
+}
+.table-striped > tbody > tr:nth-child(2n) > td, .table-striped > tbody > tr:nth-child(2n) > th {
+    background-color: #F2C4CE;
+}
+.table-striped > tfoot > tr {
+    background-color: #D196A4;
+}
+/* end#Tables */
+
+
+/* max-width not work with little images and this make it wide */
+.img-full {
+    width: 100%;
+}
+
+/* unstyle link */
+.link-unstyled, .link-unstyled:hover, .link-unstyled:active, .link-unstyled:focus {
+    text-decoration: none;
+}
+
+
+/* BACKGROUNDS bg-[] */
+.bg-lgray {
+    background-color: #f1f1f1;
+}
+
+.bg-white {
+    background: #FFFFFF;
+}
+
+.bg-white-transparent {
+    background: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.bg-lgreen-transparent {
+    background: none repeat scroll 0 0 rgba(200, 255, 200, 0.6);
+}
+
+.bg-acqua {
+    background: #DAFDFF;
+}
+
+.bg-acqua-transparent {
+    background: #DAFDFF;
+    background-color: rgba(208, 253, 255, 0.78);
+}
+
+/* Default Box shadow */
+.box-shadow {
+    -webkit-box-shadow: 0 0 2px #444444;
+    -moz-box-shadow: 0 0 2px #444444;
+    box-shadow: 0 0 2px #444444;
+}
+
+/* Default border radius */
+.border-radius {
+    -webkit-border-radius: 7px 7px 7px 7px;
+    border-radius: 7px 7px 7px 7px;
+}
+
+.border-radius-bottom {
+    -webkit-border-radius: 0 0 7px 7px;
+    border-radius: 0 0 7px 7px;
+}
+
+.border-radius-top {
+    -webkit-border-radius: 7px 7px 0 0;
+    border-radius: 7px 7px 0 0;
+}
+
+.border-solid1 {
+    border: 1px solid #dddddd;
+}
+
+.border-solid1-left {
+    border-left: 1px solid #dddddd;
+}
