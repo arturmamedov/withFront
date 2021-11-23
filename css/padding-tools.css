@@ -4,9 +4,8 @@
  *   also with Bootstrap4 philosophy (.p-10, .pb-10, .pt-10, .px-10, .py-10, .pl-10, .pr-10)
 */
 
-/* padding-(all) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200*/
+/* padding-(all) 0,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200*/
 .p-0 { padding: 0px !important; }
-.p-5 { padding: 5px !important; }
 .p-10 { padding: 10px !important; }
 .p-15 { padding: 15px !important; }
 .p-20 { padding: 20px !important; }
@@ -24,7 +23,7 @@
 .p-200 { padding: 200px !important; }
 /* padding-(vertical/top-bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .p-v-0, .py-0 { padding-top: 0px !important; padding-bottom: 0px !important; }
-.p-v-5, .py-5 { padding-top: 5px !important; padding-bottom: 5px !important; }
+.p-v-5 { padding-top: 5px !important; padding-bottom: 5px !important; }
 .p-v-10, .py-10 { padding-top: 10px !important; padding-bottom: 10px !important; }
 .p-v-15, .py-15 { padding-top: 15px !important; padding-bottom: 15px !important; }
 .p-v-20, .py-20 { padding-top: 20px !important; padding-bottom: 20px !important; }
@@ -42,7 +41,7 @@
 .p-v-200, .py-200 { padding-top: 200px !important; padding-bottom: 200px !important; }
 /* padding-(horizontal/left-right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .p-h-0, .px-0 { padding-left: 0px !important; padding-right: 0px !important; }
-.p-h-5, .px-5 { padding-left: 5px !important; padding-right: 5px !important; }
+.p-h-5 { padding-left: 5px !important; padding-right: 5px !important; }
 .p-h-10, .px-10 { padding-left: 10px !important; padding-right: 10px !important; }
 .p-h-15, .px-15 { padding-left: 15px !important; padding-right: 15px !important; }
 .p-h-20, .px-20 { padding-left: 20px !important; padding-right: 20px !important; }
@@ -60,7 +59,7 @@
 .p-h-200, .px-200 { padding-left: 200px !important; padding-right: 200px !important; }
 /* padding-(top) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .p-t-0, .pt-0 { padding-top: 0px !important; }
-.p-t-5, .pt-5 { padding-top: 5px !important; }
+.p-t-5 { padding-top: 5px !important; }
 .p-t-10, .pt-10 { padding-top: 10px !important; }
 .p-t-15, .pt-15 { padding-top: 15px !important; }
 .p-t-20, .pt-20 { padding-top: 20px !important; }
@@ -78,7 +77,7 @@
 .p-t-200, .pt-200 { padding-top: 200px !important; }
 /* padding-(bottom) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .p-b-0, .pb-0 { padding-bottom: 0px !important; }
-.p-b-5, .pb-5 { padding-bottom: 5px !important; }
+.p-b-5 { padding-bottom: 5px !important; }
 .p-b-10, .pb-10 { padding-bottom: 10px !important; }
 .p-b-15, .pb-15 { padding-bottom: 15px !important; }
 .p-b-20, .pb-20 { padding-bottom: 20px !important; }
@@ -96,7 +95,7 @@
 .p-b-200, .pb-200 { padding-bottom: 200px !important; }
 /* padding-(right) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .p-r-0, .pr-0 { padding-right: 0px !important; }
-.p-r-5, .pr-5 { padding-right: 5px !important; }
+.p-r-5 { padding-right: 5px !important; }
 .p-r-10, .pr-10 { padding-right: 10px !important; }
 .p-r-15, .pr-15 { padding-right: 15px !important; }
 .p-r-20, .pr-20 { padding-right: 20px !important; }
@@ -114,7 +113,7 @@
 .p-r-200, .pr-200 { padding-right: 200px !important; }
 /* padding-(left) 0,5,10,15,20,25,30,35,40,50,60,70,80,90,100,150,200 */
 .p-l-0, .pl-0 { padding-left: 0px !important; }
-.p-l-5, .pl-5 { padding-left: 5px !important; }
+.p-l-5 { padding-left: 5px !important; }
 .p-l-10, .pl-10 { padding-left: 10px !important; }
 .p-l-15, .pl-15 { padding-left: 15px !important; }
 .p-l-20, .pl-20 { padding-left: 20px !important; }
