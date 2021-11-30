@@ -54,7 +54,7 @@
     box-shadow: 0px 2px 25px -15px #000000;
     position: relative;
     text-align: center;
-    vertical-align: 1px;-align: middle;
+    vertical-align: middle;
     z-index: 9999;
 }
 .b-btn_circle::before {
