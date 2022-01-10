@@ -1,5 +1,5 @@
 # withFront 
-`v1.6.1`
+`v1.6.2`
 ## The Front-end Tools and basic configs that i use for every project [see demo](https://arturmamedov.github.io/withFront/)
  
 &nbsp;
@@ -193,12 +193,15 @@ __.withEqualHeight not work for Extra Small device__ `xs` cause often in mobile 
 use `.withEqualHeightAll` for add equal height also in mobile `xs`
 
 
-#### Paddings & Margins
+#### Paddings & Margins 
+extend Bootstrap `.m{direction}-{size}, .p{direction}-{size}`
 
 For add `padding` or `margin` to an element use the helper classes:
 
 From `v1.4.0` also with __Bootstrap 4__ style: 
 `(.mp-{x}, .mt-{x}, .mb-{x}, .ml-{x}, .mr-{x}, .my-{x}, .mx-{x})`
+
+and From `v1.6.0` without `.p-5, .m-5, .py-5` etc. cause Bootstrap also use this number for  rem calculation margin and paddings. (but for __5px__ you can still use `.m-t-5, .m-r-5, .m-b-5, .m-l-5, ` and for paddng the same `.p-t-5, .p-r-5, ...`)
 
 http://getbootstrap.com/docs/4.1/utilities/spacing/
 
@@ -207,51 +210,51 @@ The difference is that withFront use static spacing with pixel's:
 
 ```css
 /* this mean margin on all directions of 5px */
-.m-5 { margin: 5px !important; }
+.m-10 { margin: 10px !important; }
 /* same for padding */
-.p-5 { padding: 5px !important; }
+.p-10 { padding: 10px !important; }
 
 /* this mean margin on t = TOP of 5px */
-.mt-5 { margin-top: 5px !important; } /* Bs4 */
+.mt-50 { margin-top: 10px !important; } /* Bs4 */
 .m-t-5 { margin-top: 5px !important; }
 /* same for padding */
-.pt-5 { padding-top: 5px !important; } /* Bs4 */
+.pt-10 { padding-top: 10px !important; } /* Bs4 */
 .p-t-5 { padding-top: 5px !important; }
 
 /* this mean margin r = RIGHT of 5px */
-.mr-5 { margin-right: 5px !important; } /* Bs4 */
+.mr-10 { margin-right: 10px !important; } /* Bs4 */
 .m-r-5 { margin-right: 5px !important; }
 /* same for padding */
-.pr-5 { padding-right: 5px !important; } /* Bs4 */
+.pr-10 { padding-right: 10px !important; } /* Bs4 */
 .p-r-5 { padding-right: 5px !important; }
 
 /* And rispectively b = BOTTOM, l = LEFT */
-.mb-5 { margin-bottom: 5px  !important; } /* Bs4 */
-.ml-5 { margin-left: 5px  !important; } /* Bs4 */
+.mb-10 { margin-bottom: 10px  !important; } /* Bs4 */
+.ml-10 { margin-left: 10px  !important; } /* Bs4 */
 .m-b-5 { margin-bottom: 5px  !important; }
 .m-l-5 { margin-left: 5px  !important; }
 /* same for padding */
-.pb-5 { padding-bottom: 5px  !important; } /* Bs4 */
-.pl-5 { padding-left: 5px  !important; } /* Bs4 */
+.pb-10 { padding-bottom: 10px  !important; } /* Bs4 */
+.pl-10 { padding-left: 10px  !important; } /* Bs4 */
 .p-b-5 { padding-bottom: 5px  !important; }
 .p-l-5 { padding-left: 5px  !important; }
 
 /* And there are another two things v = VERTICAL 
  * for margin top & bottom- Bs4: y = VERTICAL 
  */
-.my-5 { margin-top: 5px  !important; margin-bottom: 5px  !important;} /* Bs4 */
+.my-10 { margin-top: 10px  !important; margin-bottom: 10px  !important;} /* Bs4 */
 .m-v-5 { margin-top: 5px  !important; margin-bottom: 5px  !important;}
 /* same for padding */
-.py-5 { padding-top: 5px  !important; padding-bottom: 5px  !important;} /* Bs4 */
+.py-10 { padding-top: 10px  !important; padding-bottom: 10px  !important;} /* Bs4 */
 .p-v-5 { padding-top: 5px  !important; padding-bottom: 5px  !important;}
 
 /* And h = HORIZONTAL 
  * Bs4: x = HORIZONTAL for margin right & left 
  */
-.mx-5 { margin-left: 5px  !important; margin-right: 5px  !important;} /* Bs4 */
+.mx-10 { margin-left: 10px  !important; margin-right: 10px  !important;} /* Bs4 */
 .m-h-5 { margin-left: 5px  !important; margin-right: 5px  !important;}
 /* same for padding */
-.px-5 { padding-left: 5px  !important; padding-right: 5px  !important;} /* Bs4 */
+.px-10 { padding-left: 10px  !important; padding-right: 10px  !important;} /* Bs4 */
 .p-h-5 { padding-left: 5px  !important; padding-right: 5px  !important;}
 ```
 
