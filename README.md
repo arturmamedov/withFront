@@ -1,4 +1,5 @@
-# withFront `v1.6.0`
+# withFront 
+`v1.6.1`
 ## The Front-end Tools and basic configs that i use for every project [see demo](https://arturmamedov.github.io/withFront/)
  
 &nbsp;
@@ -263,6 +264,8 @@ The same thing for add `padding` change the `m` that stand for marrgin to `p` pa
 
 #### Cookie Choice Banner
 Include alone `js/web/w-cookie_choice.js`, `css/web/w-cookie_choice.css` or if u use build files this are yet included in `dist/js/w-plugins.js` and `dist/css/w-style.css`
+
+Cookie is: document.cookie = displayCookieConsent=y; Path=/; SameSite=Strict; expires=fn(plus one year from now);
  
  ```html
      <script>
