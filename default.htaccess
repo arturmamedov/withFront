@@ -1,4 +1,4 @@
-# Myne Personal Rewrite that i use every where (also: https://gist.github.com/arturmamedov/3ebfcc784ed16aa066d2c6a98dcab14d)
+# Myne Personal Rewrite Rules that i use every where (see also: https://gist.github.com/arturmamedov/3ebfcc784ed16aa066d2c6a98dcab14d)
 <IfModule mod_rewrite.c>
 	# ----------------------------------------------------------------------
     # | (0) Usage in production                                            |
