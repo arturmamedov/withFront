@@ -118,17 +118,67 @@
     cursor: pointer;
     display: inline-block;
     position: relative !important; /* for old retro-compatibility =< v1.4.9 */
-    right: 0px; /* for old retro-compatibility =< v1.4.9 */
+    right: 2px; /* for old retro-compatibility =< v1.4.9 */
+    margin-top: 20px;
 }
 .bottom-buttons .go2top > i {
     color: #CED1D3;
     font-size: 43px;
     opacity: 0.5;
 }
-@media (max-width: 767px) {
+
+
+@media (max-width: 769px) {
     /* go2top */
     .bottom-buttons .go2top > i {
         color: rgba(110, 179, 187, 0.8);
         font-size: 34px;
+    }
+
+    .b-btn_circle {
+        width: 44px !important;
+        height: 44px !important;
+        padding: 10px 0 !important;
+    }
+    .b-btn_circle i {
+        font-size: 1em !important;
+    }
+    .bottom-buttons .go2top {
+        margin-top: 10px;
+        right: 4px;
+    }
+    .bottom-buttons .go2top > i {
+        font-size: 33px !important;
+    }
+    .bottom-buttons .go2top > p {
+        font-size: 11px !important;
+    }
+
+}
+
+@media (max-width: 480px) {
+    /* go2top */
+    .bottom-buttons .go2top > i {
+        color: rgba(110, 179, 187, 0.8);
+        font-size: 34px;
+    }
+
+    .b-btn_circle {
+        width: 40px !important;
+        height: 40px !important;
+        padding: 8px 0 !important;
+    }
+    .b-btn_circle i {
+        font-size: .8em !important;
+    }
+    .bottom-buttons .go2top {
+        margin-top: 0px;
+        right: 2px;
+    }
+    .bottom-buttons .go2top > i {
+        font-size: 33px !important;
+    }
+    .bottom-buttons .go2top > p {
+        font-size: 11px !important;
     }
 }
