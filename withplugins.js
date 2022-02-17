@@ -754,7 +754,7 @@ if ($().datepicker) {
         period.datepicker({
             startDate: startDate,
             format: 'dd/mm/yyyy',
-            inputs: $('.range', period),
+            inputs: $('input.range', period),
             todayHighlight: true,
             todayBtn: 'linked',
             daysOfWeekHighlighted: "0",
@@ -765,10 +765,10 @@ if ($().datepicker) {
         });
 
         // focus on checkout when checkin is set
-        var checkin = period.find('.checkin'), checkout = period.find('.checkout');
+        var checkin = period.find('input.checkin'), checkout = period.find('input.checkout');
         checkin.datepicker()
             .on('changeDate', function (e) {
-                $(".checkout", period).focus();
+                $("input.checkout", period).focus();
             });
         // set checkout to next day if dates are the same
         checkout.datepicker().on('changeDate', function (e) {
@@ -787,6 +787,7 @@ if ($().datepicker) {
         //     });
     });
 } // END - #jQuery.bootstrap date picker
+
 
     // #jQuery.plugin - bootstrap tooltips
 if ($().tooltip) {
@@ -1693,7 +1694,7 @@ $(function(){
             // Set the cookie expiry to one year after today.
             var expiryDate = new Date();
             expiryDate.setFullYear(expiryDate.getFullYear() + 1);
-            document.cookie = cookieName + '=y; expires=' + expiryDate.toGMTString();
+            document.cookie = cookieName + '=y;' + ' Path=/; SameSite=Strict; expires=' + expiryDate.toGMTString();
         }
 
         function _shouldDisplayConsent() {
