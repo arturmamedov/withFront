@@ -122,8 +122,6 @@ $(".children_age_form").each(function () {
             } else {
                 addAges(form, $('.child_num_input', form).val());
             }
-
-            addAges(form, $('.child_num_input', form).val());
         }, 3000);
     });
 });
