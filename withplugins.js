@@ -488,11 +488,13 @@ $(".w-filters").each(function(){
  * <form class="children_age_form">
  * <input type="number" class="form-control child_num_input" min="0" max="5" name="num_children">
  *
+ * if is select input add class .input_select after .child_num_input
+ *
  *  --- and ---
  *
  *     <div class="col-sm-2 pull-right display-none" id="child_ageClone" data-attr-name="if_you_want_change_the_attr_name_dynamically">
  *         <div class="form-group">
- *             <input type="number" placeholder="0" class="form-control" name="age_children[]" value="1" max="17" min="0" disabled/>
+ *             <input type="number" placeholder="0" class="form-control" name="age_children[]" value="0" max="17" min="0" disabled/>
  *
  *             <label>Children <span class="jq_child_num">1</span></label>
  *         </div>
@@ -562,16 +564,37 @@ function addAges(form, childNum) {
 }
 $(".children_age_form").each(function () {
     var form = $(this);
+    clog('.children_age_form: Enabled');
 
     // add event trigger for form
     form.on('keyup change', '.child_num_input', function () {
-        addAges(form, $('.child_num_input', form).val()); // loop and add age inputs
+        clog('.children_age_form: Form input change');
+        // loop and add age inputs
+        if ($(this).attr('type') == 'checkbox' || $(this).attr('type') == 'radio' || $(this).hasClass('checkbox_input')) {
+            clog('.children_age_form: Input checkbox or radio, value= '+$('.child_num_input:checked', form).val());
+            addAges(form, $('.child_num_input:checked', form).val());
+        } else if ($(this).hasClass('select_input')) {
+            clog('.children_age_form: Input .select_input, value= '+$('.child_num_input:selected', form).val());
+            addAges(form, $('.child_num_input:selected', form).val());
+        } else {
+            clog('.children_age_form: Input value= '+$('.child_num_input', form).val());
+            addAges(form, $('.child_num_input', form).val());
+        }
     });
 
     // init childNum counter
     $(function(){
         // we need to wait for wCookie set of value in some case
         setTimeout(function() {
+            var _cni = $('.child_num_input', form);
+            if (_cni.attr('type') == 'checkbox' || _cni.attr('type') == 'radio') {
+                addAges(form, $('.child_num_input:checked', form).val());
+            } else if (_cni.hasClass('select_input')) {
+                addAges(form, $('.child_num_input:selected', form).val());
+            } else {
+                addAges(form, $('.child_num_input', form).val());
+            }
+
             addAges(form, $('.child_num_input', form).val());
         }, 3000);
     });
