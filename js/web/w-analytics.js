@@ -11,7 +11,7 @@ $(function () {
             var a_tag = $(this), href = $(this).attr('href'), ok = false;
 
             if (typeof href !== "undefined") {
-                if (a_tag.hasClass('w-email-ga')) {
+                if (a_tag.hasClass('w-email-ga') || a_tag.data('ga')) {
                     if (typeof ga !== "undefined") {
                         ga('send', 'event', 'contatti', 'click', a_tag.data('ga'), '5');
                     }
