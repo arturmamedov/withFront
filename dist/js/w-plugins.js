@@ -649,17 +649,29 @@ $(".ajaxsend").submit(function (e) {
 
             if (json.success) {
                 // Google Analytics track
-                clog('check for ga');
-                if (typeof ga !== "undefined" && typeof form.data('gaSendPageview') != 'off') {
+                if (typeof ga !== "undefined" && form.data('gaSendPageview') != 'off') {
                     var gaSend = (typeof form.data('gaSendPageview') != 'undefined') ? form.data('gaSendPageview') : '/email-form-contatti';
+
                     ga('send', 'pageview', gaSend);
 
-                    clog('ga send pageview: ' + form.data('gaSendPageview'))
+                    clog('ga send pageview: ' + gaSend);
+                }
+
+                // #GA4
+                if (typeof gtag !== "undefined" && form.data('ga4SendEvent') != 'off') {
+                    var ga4SendEvent = (typeof form.data('ga4SendEvent') != 'undefined') ? form.data('ga4SendEvent') : 'form_contatti';
+
+                    gtag('event', ga4SendEvent, {
+                        value: 20,
+                        currency: 'EUR'
+                    });
+
+                    clog('ga4 send pageview: ' + ga4SendEvent);
                 }
 
                 // Facebook track (custom of this installation)
                 clog('check fbq');
-                if (typeof fbq !== "undefined" && typeof form.data('fbqLead') != 'off') {
+                if (typeof fbq !== "undefined" && form.data('fbqLead') != 'off') {
                     var fbqLead = (typeof form.data('fbqLead') != 'undefined') ? form.data('fbqLead') : 'Lead';
                     fbq('track', fbqLead);
 
@@ -667,9 +679,9 @@ $(".ajaxsend").submit(function (e) {
                 }
 
                 // Old Google analytics _gaq _trackPageview
-                if (typeof _gaq !== "undefined" && typeof form.data('gaqTrackPageview') != 'undefined') {
-                    _gaq.push(['_trackPageview', form.data('gaqTrackPageview')]);
-                }
+                // if (typeof _gaq !== "undefined" && typeof form.data('gaqTrackPageview') != 'undefined') {
+                //     _gaq.push(['_trackPageview', form.data('gaqTrackPageview')]);
+                // }
 
                 if (json.message.length) {
                     if (typeof withAlert == 'function') {
@@ -721,6 +733,7 @@ $(".ajaxsend").submit(function (e) {
 
     return false;
 });
+
 
     /** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
  # # # # # # # hash-navigation # for bootstrap tabs # # # # # # # # #
